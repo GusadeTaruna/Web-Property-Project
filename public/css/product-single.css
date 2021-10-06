@@ -1,0 +1,318 @@
+/*Color*/
+:root {
+    --color-primary: #2289ff;
+    --color-secondary: #314862 !important;
+    --color-acent: #193f6a;
+    --font-poppin: 'Poppins', serif;
+}
+
+/*Color*/
+
+
+
+@font-face {
+    font-family: "cerebri";
+    src: url("../font/Cerebri-Sans/CerebriSans-Regular.ttf");
+}
+
+@font-face {
+    font-family: "cerebri-bold";
+    src: url("../font/Cerebri-Sans/CerebriSans-Bold.ttf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "cerebri";
+}
+
+body{
+    background-color: #f6f6f6;
+}
+
+.bg-primary {
+    background-color: var(--color-primary);
+}
+
+.color-primary {
+    color: var(--color-primary);
+}
+
+.bg-secondary {
+    background-color: var(--color-secondary);
+}
+
+.color-secondary {
+    color: var(--color-secondary);
+}
+
+.bg-acent {
+    background-color: var(--color-acent);
+}
+
+.color-acent {
+    color: var(--color-acent);
+}
+
+.btn-theme {
+    box-shadow: none;
+    margin: 0;
+    font-family: var(--font-poppin);
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: capitalize;
+    background-color: var(--color-primary);
+    color: #ffffff;
+    padding: 8px 20px;
+    border-radius: 30px 0px 30px 30px;
+    transition: 0.5s ease;
+}
+
+.btn-theme:hover {
+    background-color: var(--color-acent);
+    color: #ffffff;
+    box-shadow: none;
+
+}
+
+.btn-theme-2 {
+    box-shadow: 0 10px 20px 0px rgb(34 137 255 / 52%);
+    margin: 0;
+    font-family: var(--font-poppin);
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: capitalize;
+    background-color: var(--color-primary);
+    color: #ffffff;
+    padding: 10px 30px;
+    border-radius: 20px;
+    transition: 0.5s ease;
+}
+
+.btn-theme-2:hover {
+    background-color: var(--color-acent);
+    color: #ffffff;
+    box-shadow: none;
+
+}
+
+.btn-play {
+    box-shadow: none;
+    margin: 0;
+    font-family: var(--font-poppin);
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: capitalize;
+    background-color: var(--color-secondary);
+    color: #ffffff;
+    padding: 10px 16px;
+    border-radius: 100%;
+    margin-left: 20px;
+    transition: 0.5s ease;
+}
+
+.btn-play:hover {
+    background-color: var(--color-acent);
+    color: var(--color-primary);
+    box-shadow: none;
+}
+
+
+.btn-advance {
+    margin: 0;
+    font-family: "cerebri"
+    font-size: 20px;
+    font-weight: 500;
+    padding: 8px 20px;
+    text-transform: none;
+}
+
+/*Header*/
+
+header.header {
+    width: 100%;
+}
+
+#nav-container{
+    padding: 0 10%;
+    background-color: var(--color-primary);
+    position: fixed;
+    z-index: 20;
+    min-width: 100%;
+}
+
+nav.navbar {
+    box-shadow: none;
+    color: var(--color-secondary);
+}
+
+.header nav.navbar .navbar-brand {
+    font-family: var(--font-poppin);
+    font-weight: 500;
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.header nav.navbar .nav-link {
+    font-family: var(--font-poppin);
+    color: #fff;
+    font-weight: 500;
+    padding: 10px 20px;
+    transition: 0.5s ease;
+}
+
+.header nav.navbar .nav-item .icon-responsive{
+    display: none;
+}
+
+.header .navbar .nav-link:hover,
+.header .navbar .nav-link.active {
+    background-color: #ffffff;
+    color: var(--color-primary);
+}
+
+
+.header nav.navbar .nav-item {
+    margin: auto 5px;
+}
+
+.navbar-toggler {
+    color: #ffffff;
+}
+
+.header .header-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    width: 100%;
+}
+
+.judul {
+    font-family: "cerebri-bold";
+    font-size: 40px;
+}
+
+.sub-judul {
+    font-family: "cerebri";
+}
+
+/*Header*/
+
+
+/*image section*/
+
+#image-section {
+    width: 100%;
+    padding-top: 50px;
+}
+
+#image-slider{
+    width: 100%;
+    height: 100%;
+}
+
+#image-slider .swiper .swiper-slide .image-list .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*image section*/
+
+
+/*property detail section*/
+
+#property-detail{
+    padding: 0 50px;
+}
+
+#property-detail .judul{
+    font-family: "cerebri-bold";
+    font-size: 26px;
+    color: var(--color-primary);
+}
+
+#property-detail .harga{
+    font-family: "cerebri-bold";
+    font-size: 24px;
+    text-align: right;
+}
+
+#property-detail .card{
+    border-radius: 0;
+}
+
+#property-detail .card-text{
+    color: #636c72;
+}
+
+#property-detail .card-title{
+    font-family: "cerebri-bold";
+}
+
+#property-detail .detail-text{
+    font-size: 14px;
+}
+
+.iframe-container{
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Ratio 16:9 ( 100%/16*9 = 56.25% ) */
+}
+.iframe-container > *{
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+/*Footer section*/
+
+footer {
+    width: 100%;
+    padding: 50px 0;
+    background-color: var(--color-primary);
+    font-family: var(--font-poppin);
+    color: #ffffff;
+    margin-top: 50px;
+}
+
+footer hr {
+    color: #ffffff;
+}
+
+footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+footer ul li a {
+    color: #ffffff;
+    font-size: 13px;
+    transition: 0.5s ease;
+}
+
+footer ul li a:hover {
+    opacity: 0.7;
+    color: #ffffff;
+}
+
+/*Footer section*/
+
+@media only screen and (max-width: 580px) {
+    #property-detail .harga{
+        font-family: "cerebri-bold";
+        font-size: 24px;
+        text-align: left;
+    }
+}
+
