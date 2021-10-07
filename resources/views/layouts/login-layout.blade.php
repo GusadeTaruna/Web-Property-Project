@@ -13,14 +13,14 @@
     <link rel="stylesheet" href="/css/swiperjs/swiper-bundle.min.css" />
     <link rel="stylesheet" href="/css/multiselect/bootstrap-multiselect.css" type="text/css"/>
      <!-- Style -->
-    <link rel="stylesheet" href="/css/login-form.css" />
+    <link rel="stylesheet" href="/adminlte/css/adminlte.min.css" />
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="hold-transition login-page">
 
     @yield('content')
 
@@ -33,6 +33,7 @@
 <!-- swiper -->
 <script type="text/javascript" src="/js/multiselect/bootstrap-multiselect.js"></script>
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+<script src="/adminlte/js/adminlte.min.js"></script>
 <!-- Initialize the plugin: -->
 
 </body>
