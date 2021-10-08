@@ -23,6 +23,8 @@ class CreateUsersTable extends Migration
             $table->date('tanggal_lahir');
             $table->string('jenis_kelamin');
             $table->string('no_telepon');
+            $table->unsignedBigInteger('role');
+            $table->foreign('role')->references('id')->on('roles');
             $table->rememberToken();
             $table->timestamps();
         });

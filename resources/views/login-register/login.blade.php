@@ -69,10 +69,9 @@
         </div>
       </form>
 
-      <p class="mb-1 mt-4 text-center">
-        Belum punya Akun ? <a href="/register" class="text-center">Register</a>
-      </p>
-      <p class="mb-0 text-center">
+      {{-- <p class="mb-1 mt-4 text-center">
+      </p> --}}
+      <p class="mb-0 mt-2 text-center">
         <a href="forgot-password.html">Lupa Password</a>
       </p>
     </div>

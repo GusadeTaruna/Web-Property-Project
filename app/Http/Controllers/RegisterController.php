@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
+	public function __construct(){
+		$this->middleware('auth');
+	}
+
     public function create(){
     	return view('login-register.register',[
     		'title' => 'Register',
@@ -33,6 +37,7 @@ class RegisterController extends Controller
 		$user->tanggal_lahir = $validatedData['tanggal'];
 		$user->jenis_kelamin = $validatedData['kelamin'];
 		$user->no_telepon = $validatedData['telephone'];
+		$user->role = 2;
 		$user->password = Hash::make($validatedData['password']);
 		$user->save();
 
@@ -40,6 +45,6 @@ class RegisterController extends Controller
 
     	// $request->session()->flash('success', 'Registrasi Berhasil! anda sekarang dapat Log In');
 
-    	return redirect('/login')->with('success', 'Registrasi Berhasil! anda sekarang dapat Log In');
+    	return redirect('/dashboard')->with('success', 'Registrasi Berhasil! anda sekarang dapat Log In');
     }
 }
