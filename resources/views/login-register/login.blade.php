@@ -28,7 +28,7 @@
         </div>
       @endif
 
-      <form action="/login" method="post">
+      <form action="/admin/login" method="post">
         @csrf
         <div class="input-group mb-3">
           <input type="username" name="username" class="form-control @error('username') is-invalid 

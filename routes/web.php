@@ -30,13 +30,17 @@ Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
 Route::get('/contact-us', [HomeController::class, 'contactUs'])->name('contact-us');
 
 
-Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
-Route::post('/login', [LoginController::class, 'authenticate']);
-Route::post('/logout', [LoginController::class, 'logout']);
+
+Route::get('/admin', function(){
+    return redirect('/admin/dashboard');
+});
+Route::get('/admin/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/admin/login', [LoginController::class, 'authenticate']);
+Route::post('/admin/logout', [LoginController::class, 'logout']);
 
 
-Route::get('/register', [RegisterController::class, 'create'])->middleware('superuser');
-Route::post('/register', [RegisterController::class, 'store']);
+Route::get('/admin/register', [RegisterController::class, 'create'])->middleware('superuser');
+Route::post('/admin/register', [RegisterController::class, 'store']);
 
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
+Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');

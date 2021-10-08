@@ -13,7 +13,7 @@
         <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
           <div class="card-body p-4 p-md-5">
             <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 text-center">Form Registrasi Admin</h3>
-            <form action="/register" method="post">
+            <form action="/admin/register" method="post">
               @csrf
              
               <!-- Input Nama dan Username -->
@@ -134,7 +134,7 @@
               </div>
 
               <div class="mt-3 text-center">
-                <label class="form-label select-label">Sudah punya akun? <a href="/login">Login</a></label>
+                <label class="form-label select-label">Sudah punya akun? <a href="/admin/login">Login</a></label>
               </div>
 
             </form>
