@@ -26,4 +26,8 @@ class HomeController extends Controller
     public function faq(){
         return view('frontend.faq');
     }
+
+    public function contactUs(){
+        return view('frontend.contact-us');
+    }
 }

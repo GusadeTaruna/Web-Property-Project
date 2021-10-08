@@ -27,6 +27,7 @@ Route::get('/property-list', [HomeController::class, 'propertyListing'])->name('
 Route::get('/property-detail', [HomeController::class, 'propertyDetail'])->name('property-detail');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
+Route::get('/contact-us', [HomeController::class, 'contactUs'])->name('contact-us');
 
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
