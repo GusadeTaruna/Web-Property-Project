@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/css/swiperjs/swiper-bundle.min.css" />
     <link rel="stylesheet" href="/css/multiselect/bootstrap-multiselect.css" type="text/css"/>
      <!-- Style -->
-    <link rel="stylesheet" href="/adminlte/css/adminlte.min.css" />
+    <link rel="stylesheet" href="/adminlte/dist/css/adminlte.min.css" />
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
     <!-- Google Fonts -->
@@ -33,7 +33,7 @@
 <!-- swiper -->
 <script type="text/javascript" src="/js/multiselect/bootstrap-multiselect.js"></script>
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-<script src="/adminlte/js/adminlte.min.js"></script>
+<script src="/adminlte/dist/js/adminlte.min.js"></script>
 <!-- Initialize the plugin: -->
 
 </body>

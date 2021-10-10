@@ -44,3 +44,8 @@ Route::post('/admin/register', [RegisterController::class, 'store']);
 
 
 Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
+Route::get('/admin/property', [DashboardController::class, 'listProperty'])->name('property')->middleware('auth');
+Route::get('/admin/property-type', [DashboardController::class, 'propertyType'])->name('property-type')->middleware('auth');
+Route::get('/admin/property-categories', [DashboardController::class, 'propertyCategories'])->name('property-cateories')->middleware('auth');
+
+Route::get('/admin/list-admin', [DashboardController::class, 'adminList'])->name('list-admin')->middleware('auth');
