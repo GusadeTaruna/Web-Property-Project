@@ -20,9 +20,12 @@
             <div class="collapse navbar-collapse justify-content-end fixed-nav" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
 
-                     <!-- Link -->
+                    <!-- Link -->
                     <li class="nav-item">
                         <a class="nav-link" href="/"><i class="fas fa-home my-auto icon-responsive"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/about"><i class="fas fa-user-friends my-auto icon-responsive"></i> About Us</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/property-list"><i class="fas fa-stream my-auto icon-responsive"></i> Product</a>
@@ -31,7 +34,7 @@
                         <a class="nav-link" href="/faq"><i class="fas fa-question-circle my-auto icon-responsive"></i> FAQ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="/about"><i class="fas fa-user-friends my-auto icon-responsive"></i> About Us</a>
+                        <a class="nav-link" href="/contact-us"><i class="fas fa-phone my-auto icon-responsive"></i> Contact Us</a>
                     </li>
 
                 </ul>
