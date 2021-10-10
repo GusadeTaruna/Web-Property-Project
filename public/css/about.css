@@ -116,11 +116,15 @@
 
 .btn-advance {
     margin: 0;
-    font-family: "cerebri"
-        font-size: 20px;
+    font-family: "cerebri";
+    font-size: 20px;
     font-weight: 500;
     padding: 8px 20px;
     text-transform: none;
+}
+
+p {
+    color: #636c72;
 }
 
 /*Header*/
@@ -239,6 +243,47 @@ nav.navbar {
     object-fit: cover;
 }
 
+/*About*/
+
+/* Agent */
+
+#agent-section {
+    width: 100%;
+    padding: 60px 0;
+    color: var(--color-secondary);
+}
+
+#agent-section h3 {
+    font-family: "cerebri-bold";
+}
+
+
+#agent-slider .swiper {
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+}
+
+#agent-slider .swiper .swiper-slide .agent-list {
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 20px;
+}
+
+#agent-slider .swiper .swiper-slide .agent-list .agent-name {
+    font-size: 21px;
+}
+
+
+#agent-slider .swiper .swiper-slide .agent-list img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+/*Property section*/
+/* Agent */
 
 
 /*More section*/

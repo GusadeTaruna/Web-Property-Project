@@ -144,6 +144,124 @@
 
 <!--  More Section -->
 
+<section id="agent-section">
+    <div class="container">
+        <h3 class="h1 h1-responsive mb-2 text-center">Meet Our Agent</h3>
+        <h6 class="h6 m-0 text-center mb-4">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed cupiditate delectus.</h6>
+    </div>
+    <!--  Property Slider -->
+
+    <div id="agent-slider">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide">
+                    <a href="#">
+                        <div class="agent-list shadow">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-12 col-lg-12 col-xxl-6">
+                                        <img src="/img/potrait.jpg" alt="">
+                                    </div>
+                                    <div class="col-md-12 col-lg-12 col-xxl-6 my-auto">
+                                        <div class="col-md-12">
+                                            <p class="agent-name font-weight-bold mb-0">Robert Fox</p>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <p class="mb-3">Lead Designer</p>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta tenetur esse impedit, consequatur accusamus eligendi numquam magni velit libero autem, quidem reiciendis ut officia ex veritatis repellat omnis adipisci. Corrupti?</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="swiper-slide">
+                    <a href="#">
+                        <div class="agent-list shadow">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-12 col-lg-12 col-xxl-6">
+                                        <img src="/img/potrait-2.jpg" alt="">
+                                    </div>
+                                    <div class="col-md-12 col-lg-12 col-xxl-6 my-auto">
+                                        <div class="col-md-12">
+                                            <p class="agent-name font-weight-bold mb-0">Gusade Taruna</p>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <p class="mb-3">Lead Developer</p>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta tenetur esse impedit, consequatur accusamus eligendi numquam magni velit libero autem, quidem reiciendis ut officia ex veritatis repellat omnis adipisci. Corrupti?</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="swiper-slide">
+                    <a href="#">
+                        <div class="agent-list shadow">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-12 col-lg-12 col-xxl-6">
+                                        <img src="/img/potrait-3.jpg" alt="">
+                                    </div>
+                                    <div class="col-md-12 col-lg-12 col-xxl-6 my-auto">
+                                        <div class="col-md-12">
+                                            <p class="agent-name font-weight-bold mb-0">Floyd Miles</p>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <p class="mb-3">CEO, Director</p>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta tenetur esse impedit, consequatur accusamus eligendi numquam magni velit libero autem, quidem reiciendis ut officia ex veritatis repellat omnis adipisci. Corrupti?</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="swiper-slide">
+                    <a href="#">
+                        <div class="agent-list shadow">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-12 col-lg-12 col-xxl-6">
+                                        <img src="/img/potrait-4.jpg" alt="">
+                                    </div>
+                                    <div class="col-md-12 col-lg-12 col-xxl-6 my-auto">
+                                        <div class="col-md-12">
+                                            <p class="agent-name font-weight-bold mb-0">Albert Robinson</p>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <p class="mb-3">Marketer</p>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta tenetur esse impedit, consequatur accusamus eligendi numquam magni velit libero autem, quidem reiciendis ut officia ex veritatis repellat omnis adipisci. Corrupti?</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!--  Property Slider -->
+    
+</section>
 
 <!--  Footer Section -->
 
