@@ -11,7 +11,7 @@
         <div class="row mb-2">
           <div class="col-sm-12 d-flex justify-content-between">
             <h1>List Admin</h1>
-            <button class="btn btn-success my-auto">Add New Admin</button>
+            <a href="/admin/register" class="btn btn-success my-auto">Add New Admin</a>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -37,15 +37,16 @@
                   </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                        <td>Sample name 1</td>
-                        <td>Sample email 1</td>
-                        <td>Sample role 1</td>
-                        <td>Sample DOB 1</td>
-                        <td>Sample gender 1</td>
-                        <td>Sample number 1</td>
-                        
-                    </tr>
+                    @foreach ($user as $users)
+                      <tr>
+                        <td>{{ $users->name }}</td>
+                        <td>{{ $users->email }}</td>
+                        <td>{{ $users->nama_role }}</td>
+                        <td>{{ $users->tanggal_lahir }}</td>
+                        <td>{{ $users->jenis_kelamin }}</td>
+                        <td>{{ $users->no_telepon }}</td>
+                      </tr>
+                    @endforeach
                   </tbody>
                 </table>
               </div>

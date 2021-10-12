@@ -11,7 +11,7 @@
         <div class="row mb-2">
           <div class="col-sm-12 d-flex justify-content-between">
             <h1>Property List</h1>
-            <button class="btn btn-success my-auto">Add New Property</button>
+            <a href="/admin/property/create" class="btn btn-success my-auto">Add New Property</a>
           </div>
         </div>
       </div><!-- /.container-fluid -->

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class DashboardController extends Controller
 {
@@ -24,6 +25,11 @@ class DashboardController extends Controller
     }
 
     public function adminList(){
-        return view('backend.admin.admin-list');
+        $user = User::join('roles', 'users.role', '=', 'roles.id')->get(['users.*', 'roles.nama_role']);
+        return view('backend.admin.admin-list',compact('user'));
+    }
+
+    public function createProperty(){
+        return view('backend.property.property-create');
     }
 }
