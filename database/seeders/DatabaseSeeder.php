@@ -13,7 +13,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(RoleSeeder::class);
+        $this->call([
+            RoleSeeder::class,
+            PropertyTypeSeeder::class,
+            LandTypeSeeder::class
+        ]);
         // \App\Models\User::factory(10)->create();
     }
 }

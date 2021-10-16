@@ -41,7 +41,7 @@
                   <div class="small-box bg-success">
                       <div class="inner">
                           <h3>5</h3>
-                          <p>Property Type</p>
+                          <p>Land List</p>
                       </div>
                       <div class="icon">
                           <i class="fas fa-sort-amount-down"></i>
@@ -55,7 +55,7 @@
                   <div class="small-box bg-warning">
                       <div class="inner">
                           <h3>3</h3>
-                          <p>Property Categories</p>
+                          <p>Listing Request</p>
                       </div>
                       <div class="icon">
                           <i class="fas fa-clipboard-list"></i>
@@ -69,7 +69,7 @@
                   <div class="small-box bg-danger">
                       <div class="inner">
                           <h3>10</h3>
-                          <p>Admin Registered</p>
+                          <p>Inbox</p>
                       </div>
                       <div class="icon">
                           <i class="fas fa-user"></i>

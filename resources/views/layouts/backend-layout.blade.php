@@ -112,21 +112,36 @@
                                 <li class="nav-item">
                                     <a href="/admin/property" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Property List</p>
+                                        <p>List Property</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="/admin/property-type" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Property Type</p>
+                                        <p>Property Request Listing</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-street-view"></i>
+                                <p>Land<i class="fas fa-angle-left right"></i></p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/admin/property" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>List Land</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/admin/property-categories" class="nav-link">
+                                    <a href="/admin/property-type" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Property Categories</p>
+                                        <p>Land Request Listing</p>
                                     </a>
-                                </li>
+                                </li> 
                             </ul>
                         </li>
                         <li class="nav-item">
