@@ -156,73 +156,48 @@
             <div class="swiper-wrapper">
 
                 <div class="swiper-slide">
-                    <a href="#">
-                        <div class="agent-list shadow">
-                            <div class="col-md-12">
+                    <a href="/cv/cv-david.pdf" download>
+                        <div class="card">
+                            <div class="card-body shadow">
                                 <div class="row">
-                                    <div class="col-md-12 col-lg-12 col-xxl-6">
-                                        <img src="/img/potrait.jpg" alt="">
+                                    <div class="col-md-12 col-lg-12 col-xxl-5">
+                                        <img src="/img/david.jpg" alt="">
                                     </div>
-                                    <div class="col-md-12 col-lg-12 col-xxl-6 my-auto">
-                                        <div class="col-md-12">
-                                            <p class="agent-name font-weight-bold mb-0">Robert Fox</p>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <p class="mb-3">Lead Designer</p>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta tenetur esse impedit, consequatur accusamus eligendi numquam magni velit libero autem, quidem reiciendis ut officia ex veritatis repellat omnis adipisci. Corrupti?</p>
-                                        </div>
+                            
+                                    <div class="col-md-12 col-lg-12 col-xxl-7 d-flex flex-column ">
+                                        <p class="agent-name font-weight-bold mb-0 mt-2">David James Haughton</p>
+                                        <p class="agent-pos mb-0">Principal, Artist, Architecture, Interior Designer</p>
+                                        <p class="agent-desc mt-3">
+                                            David holds both a Bachelor of Arts degree from
+                                            Victoria College, as well as a Bachelor of Interior
+                                            Design degree, from the Royal Melbourne Institute
+                                            of Technology.
+                                        </p>
+                                        <button class="btn btn-details mt-auto">See Details</button>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </a>
                 </div>
 
                 <div class="swiper-slide">
-                    <a href="#">
-                        <div class="agent-list shadow">
-                            <div class="col-md-12">
+                    <a href="/cv/cv-david.pdf" download>
+                        <div class="card">
+                            <div class="card-body shadow">
                                 <div class="row">
-                                    <div class="col-md-12 col-lg-12 col-xxl-6">
-                                        <img src="/img/potrait-2.jpg" alt="">
-                                    </div>
-                                    <div class="col-md-12 col-lg-12 col-xxl-6 my-auto">
-                                        <div class="col-md-12">
-                                            <p class="agent-name font-weight-bold mb-0">Gusade Taruna</p>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <p class="mb-3">Lead Developer</p>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta tenetur esse impedit, consequatur accusamus eligendi numquam magni velit libero autem, quidem reiciendis ut officia ex veritatis repellat omnis adipisci. Corrupti?</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="swiper-slide">
-                    <a href="#">
-                        <div class="agent-list shadow">
-                            <div class="col-md-12">
-                                <div class="row">
-                                    <div class="col-md-12 col-lg-12 col-xxl-6">
+                                    <div class="col-md-12 col-lg-12 col-xxl-5">
                                         <img src="/img/potrait-3.jpg" alt="">
                                     </div>
-                                    <div class="col-md-12 col-lg-12 col-xxl-6 my-auto">
-                                        <div class="col-md-12">
-                                            <p class="agent-name font-weight-bold mb-0">Floyd Miles</p>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <p class="mb-3">CEO, Director</p>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta tenetur esse impedit, consequatur accusamus eligendi numquam magni velit libero autem, quidem reiciendis ut officia ex veritatis repellat omnis adipisci. Corrupti?</p>
-                                        </div>
+                            
+                                    <div class="col-md-12 col-lg-12 col-xxl-7 d-flex flex-column">
+                                        <p class="agent-name font-weight-bold mb-0 mt-2">Floyd Miles</p>
+                                        <p class="agent-pos mb-0">CEO, Director</p>
+                                        <p class="agent-desc mt-3">
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta tenetur esse impedit, consequatur accusamus eligendi numquam magni velit libero autem, quidem reiciendis ut officia ex veritatis repellat omnis adipisci. Corrupti?
+                                        </p>
+                                        <button class="btn btn-details mt-auto">See Details</button>
                                     </div>
                                 </div>
                             </div>
@@ -231,30 +206,52 @@
                 </div>
 
                 <div class="swiper-slide">
-                    <a href="#">
-                        <div class="agent-list shadow">
-                            <div class="col-md-12">
+                    <a href="/cv/cv-david.pdf" download>
+                        <div class="card">
+                            <div class="card-body shadow">
                                 <div class="row">
-                                    <div class="col-md-12 col-lg-12 col-xxl-6">
-                                        <img src="/img/potrait-4.jpg" alt="">
+                                    <div class="col-md-12 col-lg-12 col-xxl-5">
+                                        <img src="/img/potrait.jpg" alt="">
                                     </div>
-                                    <div class="col-md-12 col-lg-12 col-xxl-6 my-auto">
-                                        <div class="col-md-12">
-                                            <p class="agent-name font-weight-bold mb-0">Albert Robinson</p>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <p class="mb-3">Marketer</p>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta tenetur esse impedit, consequatur accusamus eligendi numquam magni velit libero autem, quidem reiciendis ut officia ex veritatis repellat omnis adipisci. Corrupti?</p>
-                                        </div>
+                            
+                                    <div class="col-md-12 col-lg-12 col-xxl-7 d-flex flex-column">
+                                        <p class="agent-name font-weight-bold mb-0 mt-2">Albert Robinson</p>
+                                        <p class="agent-pos mb-0">Marketer</p>
+                                        <p class="agent-desc mt-3">
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta tenetur esse impedit, consequatur accusamus eligendi numquam magni velit libero autem, quidem reiciendis ut officia ex veritatis repellat omnis adipisci. Corrupti?
+                                        </p>
+                                        <button class="btn btn-details mt-auto">See Details</button>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </a>
                 </div>
 
+                <div class="swiper-slide">
+                    <a href="/cv/cv-david.pdf" download>
+                        <div class="card">
+                            <div class="card-body shadow">
+                                <div class="row">
+                                    <div class="col-md-12 col-lg-12 col-xxl-5">
+                                        <img src="/img/potrait-2.jpg" alt="">
+                                    </div>
+                            
+                                    <div class="col-md-12 col-lg-12 col-xxl-7 d-flex flex-column">
+                                        <p class="agent-name font-weight-bold mb-0 mt-2">Gusade Taruna</p>
+                                        <p class="agent-pos mb-0">Lead Developer</p>
+                                        <p class="agent-desc mt-3">
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta tenetur esse impedit, consequatur accusamus eligendi numquam magni velit libero autem, quidem reiciendis ut officia ex veritatis repellat omnis adipisci. Corrupti?
+                                        </p>
+                                        <button class="btn btn-details mt-auto">See Details</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
