@@ -160,19 +160,20 @@
                         <div class="card">
                             <div class="card-body shadow">
                                 <div class="row">
-                                    <div class="col-md-12 col-lg-12 col-xxl-5">
+                                    <div class="col-md-12 col-lg-12 col-xxl-5 my-auto">
                                         <img src="/img/david.jpg" alt="">
                                     </div>
                             
                                     <div class="col-md-12 col-lg-12 col-xxl-7 d-flex flex-column ">
                                         <p class="agent-name font-weight-bold mb-0 mt-2">David James Haughton</p>
-                                        <p class="agent-pos mb-0">Principal, Artist, Architecture, Interior Designer</p>
-                                        <p class="agent-desc mt-3">
-                                            David holds both a Bachelor of Arts degree from
-                                            Victoria College, as well as a Bachelor of Interior
-                                            Design degree, from the Royal Melbourne Institute
-                                            of Technology.
-                                        </p>
+                                        <p class="agent-pos">Principal, Artist, Architecture, Interior Designer</p>
+                                        <div class="agent-desc mb-3">
+                                            <p>David holds both a Bachelor of Arts degree from
+                                                Victoria College, as well as a Bachelor of Interior
+                                                Design degree, from the Royal Melbourne Institute
+                                                of Technology.
+                                            </p>
+                                        </div>
                                         <button class="btn btn-details mt-auto">See Details</button>
                                     </div>
                                 </div>
@@ -187,16 +188,16 @@
                         <div class="card">
                             <div class="card-body shadow">
                                 <div class="row">
-                                    <div class="col-md-12 col-lg-12 col-xxl-5">
+                                    <div class="col-md-12 col-lg-12 col-xxl-5 my-auto">
                                         <img src="/img/potrait-3.jpg" alt="">
                                     </div>
                             
                                     <div class="col-md-12 col-lg-12 col-xxl-7 d-flex flex-column">
                                         <p class="agent-name font-weight-bold mb-0 mt-2">Floyd Miles</p>
-                                        <p class="agent-pos mb-0">CEO, Director</p>
-                                        <p class="agent-desc mt-3">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta tenetur esse impedit, consequatur accusamus eligendi numquam magni velit libero autem, quidem reiciendis ut officia ex veritatis repellat omnis adipisci. Corrupti?
-                                        </p>
+                                        <p class="agent-pos">CEO, Director</p>
+                                        <div class="agent-desc mb-3">
+                                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit, repudiandae sequi modi mollitia, illum earum provident qui commodi ullam libero alias, hic aliquam eos exercitationem tempora est! Doloremque, libero quod?</p>
+                                        </div>
                                         <button class="btn btn-details mt-auto">See Details</button>
                                     </div>
                                 </div>
@@ -210,20 +211,19 @@
                         <div class="card">
                             <div class="card-body shadow">
                                 <div class="row">
-                                    <div class="col-md-12 col-lg-12 col-xxl-5">
-                                        <img src="/img/potrait.jpg" alt="">
+                                    <div class="col-md-12 col-lg-12 col-xxl-5 my-auto">
+                                        <img src="/img/potrait-4.jpg" alt="">
                                     </div>
                             
                                     <div class="col-md-12 col-lg-12 col-xxl-7 d-flex flex-column">
-                                        <p class="agent-name font-weight-bold mb-0 mt-2">Albert Robinson</p>
-                                        <p class="agent-pos mb-0">Marketer</p>
-                                        <p class="agent-desc mt-3">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta tenetur esse impedit, consequatur accusamus eligendi numquam magni velit libero autem, quidem reiciendis ut officia ex veritatis repellat omnis adipisci. Corrupti?
-                                        </p>
+                                        <p class="agent-name font-weight-bold mb-0 mt-2">Names Sample 2</p>
+                                        <p class="agent-pos">Marketer</p>
+                                        <div class="agent-desc mb-3">
+                                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit, repudiandae sequi modi mollitia, illum earum provident qui commodi ullam libero alias, hic aliquam eos exercitationem tempora est! Doloremque, libero quod?</p>
+                                        </div>
                                         <button class="btn btn-details mt-auto">See Details</button>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </a>
@@ -234,20 +234,19 @@
                         <div class="card">
                             <div class="card-body shadow">
                                 <div class="row">
-                                    <div class="col-md-12 col-lg-12 col-xxl-5">
+                                    <div class="col-md-12 col-lg-12 col-xxl-5 my-auto">
                                         <img src="/img/potrait-2.jpg" alt="">
                                     </div>
                             
                                     <div class="col-md-12 col-lg-12 col-xxl-7 d-flex flex-column">
                                         <p class="agent-name font-weight-bold mb-0 mt-2">Gusade Taruna</p>
-                                        <p class="agent-pos mb-0">Lead Developer</p>
-                                        <p class="agent-desc mt-3">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta tenetur esse impedit, consequatur accusamus eligendi numquam magni velit libero autem, quidem reiciendis ut officia ex veritatis repellat omnis adipisci. Corrupti?
-                                        </p>
+                                        <p class="agent-pos">Lead Developer</p>
+                                        <div class="agent-desc mb-3">
+                                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit, repudiandae sequi modi mollitia, illum earum provident qui commodi ullam libero alias, hic aliquam eos exercitationem tempora est! Doloremque, libero quod?</p>
+                                        </div>
                                         <button class="btn btn-details mt-auto">See Details</button>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </a>

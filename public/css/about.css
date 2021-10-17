@@ -293,17 +293,27 @@ nav.navbar {
 
 #agent-slider .swiper .swiper-slide .agent-pos {
     font-size: 14px;
+    height: 30px;
 }
 
-.agent-desc {
+#agent-slider .swiper .swiper-slide .agent-desc {
+    height: calc(100vh/5);
+    width: 100%;
+    /* background-color: #555; */
+}
+
+#agent-slider .swiper .swiper-slide .agent-desc p{
     font-size: 15px;
-    height: 170px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 6; /* number of lines to show */
+    -webkit-box-orient: vertical;
 }
-
 
 #agent-slider .swiper .swiper-slide img {
     width: 100%;
-    height: 300px;
+    height: 350px;
     object-fit: cover;
     border-radius: 20px;
 }
