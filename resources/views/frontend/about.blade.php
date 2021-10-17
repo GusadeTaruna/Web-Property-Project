@@ -237,7 +237,6 @@
                                     <div class="col-md-12 col-lg-12 col-xxl-5 my-auto">
                                         <img src="/img/potrait-2.jpg" alt="">
                                     </div>
-                            
                                     <div class="col-md-12 col-lg-12 col-xxl-7 d-flex flex-column">
                                         <p class="agent-name font-weight-bold mb-0 mt-2">Gusade Taruna</p>
                                         <p class="agent-pos">Lead Developer</p>
