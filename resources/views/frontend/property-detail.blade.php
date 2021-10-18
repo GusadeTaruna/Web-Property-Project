@@ -117,13 +117,14 @@
     	</div>
     </section>
     <!--  End image Section -->
-
+	
     <section id="property-detail">
+		@foreach ($land as $data)
 		<div class="row mt-4 mb-3">
 			<div class="col-lg-1"></div>
 			<div class="col-lg-6">
-	    		<h1 class="judul mb-1">Luxury Family Loft by Victoria Park</h1>
-	    		<p class="mt-0 mb-2">Quincy St, Brooklyn, NY, USA</p>
+	    		<h1 class="judul mb-1">{{ $data->land_name }}</h1>
+	    		<p class="mt-0 mb-2">{{ $data->land_location }}</p>
 	    		<div class="d-flex justify-content-start">
 	    			<p class="mr-3"><i class="fas fa-bed"></i> 4 Beds</p>
 	    			<p class="mr-3"><i class="fas fa-bath"></i> 3 Bath</p>
@@ -133,7 +134,7 @@
 	    	</div>
 	    	<div class="col-lg-2"></div>
 	    	<div class="col-lg-2 my-auto">
-	    		<h1 class="harga">$7,500/mo</h1>
+	    		<h1 class="harga">IDR {{ $data->price }}</h1>
 	    	</div>
 		</div>
 
@@ -144,18 +145,7 @@
 				  <div class="card-body">
 				    <h5 class="card-title mb-4">Description</h5>
 				    <p class="card-text">
-				      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				      {{$data->description}}
 				    </p>
 				  </div>
 				</div>
@@ -169,13 +159,13 @@
 				    	<div class="col-lg-6">
 				    		<div class="detail-text d-flex justify-content-start">
 						    	<p class="card-title mr-1">Property ID :</p>
-						    	<p class="card-text">Sample Code</p>
+						    	<p class="card-text">{{ $data->land_code }}</p>
 						    </div>
 				    	</div>
 				    	<div class="col-lg-6">
 				    		<div class="detail-text d-flex justify-content-start">
 						    	<p class="card-title mr-1">Price :</p>
-						    	<p class="card-text">Sample Price</p>
+						    	<p class="card-text">{{ $data->price }}</p>
 						    </div>
 				    	</div>
 				    </div>
@@ -183,8 +173,8 @@
 				    <div class="row">
 				    	<div class="col-lg-6">
 				    		<div class="detail-text d-flex justify-content-start">
-						    	<p class="card-title mr-1">Property Size :</p>
-						    	<p class="card-text">Sample Size</p>
+						    	<p class="card-title mr-1">Property Status :</p>
+						    	<p class="card-text">{{ $data->status }}</p>
 						    </div>
 				    	</div>
 				    	<div class="col-lg-6">
@@ -214,7 +204,7 @@
 				    	<div class="col-lg-6">
 				    		<div class="detail-text d-flex justify-content-start">
 						    	<p class="card-title mr-1">Property Type :</p>
-						    	<p class="card-text">Sample Type</p>
+						    	<p class="card-text">Land</p>
 						    </div>
 				    	</div>
 				    	<div class="col-lg-6">
@@ -286,7 +276,75 @@
 				  </div>
 				</div>
 			</div>
+
+			<div class="col-lg-4">
+				<div class="card">
+				  <div class="card-body">
+				    <h5 class="card-title mb-4">Additional Details</h5>
+				    <div class="row">
+				    	<div class="col-lg-6">
+				    		<div class="detail-text d-flex justify-content-start">
+						    	<p class="card-title mr-1">Property ID :</p>
+						    	<p class="card-text">{{ $data->land_code }}</p>
+						    </div>
+				    	</div>
+				    	<div class="col-lg-6">
+				    		<div class="detail-text d-flex justify-content-start">
+						    	<p class="card-title mr-1">Price :</p>
+						    	<p class="card-text">{{ $data->price }}</p>
+						    </div>
+				    	</div>
+				    </div>
+
+				    <div class="row">
+				    	<div class="col-lg-6">
+				    		<div class="detail-text d-flex justify-content-start">
+						    	<p class="card-title mr-1">Property Status :</p>
+						    	<p class="card-text">{{ $data->status }}</p>
+						    </div>
+				    	</div>
+				    	<div class="col-lg-6">
+				    		<div class="detail-text d-flex justify-content-start">
+						    	<p class="card-title mr-1">Year Built :</p>
+						    	<p class="card-text">2021-01-09</p>
+						    </div>
+				    	</div>
+				    </div>
+
+				    <div class="row">
+				    	<div class="col-lg-6">
+				    		<div class="detail-text d-flex justify-content-start">
+						    	<p class="card-title mr-1">Bedrooms :</p>
+						    	<p class="card-text">4</p>
+						    </div>
+				    	</div>
+				    	<div class="col-lg-6">
+				    		<div class="detail-text d-flex justify-content-start">
+						    	<p class="card-title mr-1">Bathrooms :</p>
+						    	<p class="card-text">6</p>
+						    </div>
+				    	</div>
+				    </div>
+
+				    <div class="row">
+				    	<div class="col-lg-6">
+				    		<div class="detail-text d-flex justify-content-start">
+						    	<p class="card-title mr-1">Property Type :</p>
+						    	<p class="card-text">Land</p>
+						    </div>
+				    	</div>
+				    	<div class="col-lg-6">
+				    		<div class="detail-text d-flex justify-content-start">
+						    	<p class="card-title mr-1">Property Status:</p>
+						    	<p class="card-text">For Sale</p>
+						    </div>
+				    	</div>
+				    </div>
+				  </div>
+				</div>
+			</div>
 		</div>
+		@endforeach
     </section>
 
     <!--  Footer Section -->

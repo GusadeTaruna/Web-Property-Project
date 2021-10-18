@@ -156,12 +156,12 @@
             <div class="swiper-wrapper">
 
                 <div class="swiper-slide">
-                    <a href="/cv/cv-david.pdf" download>
+                    <a href="/cv/cv-david.pdf" download="cv-david.pdf">
                         <div class="card">
                             <div class="card-body shadow">
                                 <div class="row">
                                     <div class="col-md-12 col-lg-12 col-xxl-5 my-auto">
-                                        <img src="/img/david.jpg" alt="">
+                                        <img src="/img/agent/david.jpg" alt="">
                                     </div>
                             
                                     <div class="col-md-12 col-lg-12 col-xxl-7 d-flex flex-column ">
@@ -184,19 +184,21 @@
                 </div>
 
                 <div class="swiper-slide">
-                    <a href="/cv/cv-david.pdf" download>
+                    <a href="/cv/cv-marthin.pdf" download="cv-marthin.pdf">
                         <div class="card">
                             <div class="card-body shadow">
                                 <div class="row">
                                     <div class="col-md-12 col-lg-12 col-xxl-5 my-auto">
-                                        <img src="/img/potrait-3.jpg" alt="">
+                                        <img src="/img/agent/marthin.jpg" alt="">
                                     </div>
                             
                                     <div class="col-md-12 col-lg-12 col-xxl-7 d-flex flex-column">
-                                        <p class="agent-name font-weight-bold mb-0 mt-2">Floyd Miles</p>
-                                        <p class="agent-pos">CEO, Director</p>
+                                        <p class="agent-name font-weight-bold mb-0 mt-2">Marthin Gunardhy</p>
+                                        <p class="agent-pos">Architect</p>
                                         <div class="agent-desc mb-3">
-                                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit, repudiandae sequi modi mollitia, illum earum provident qui commodi ullam libero alias, hic aliquam eos exercitationem tempora est! Doloremque, libero quod?</p>
+                                            <p>
+                                                Marthin is certified professional architect from Indonesian Institute of Architects, and a certified as ASEAN Architect from ASEAN Architect Council. In 2019 he completed his Master Degree on Urban Planning and also qualified as a Certified Greenship Professional from Green Building Council Indonesia.
+                                            </p>
                                         </div>
                                         <button class="btn btn-details mt-auto">See Details</button>
                                     </div>
@@ -207,17 +209,17 @@
                 </div>
 
                 <div class="swiper-slide">
-                    <a href="/cv/cv-david.pdf" download>
+                    <a href="/cv/cv-mile.pdf" download="cv-mile.pdf">
                         <div class="card">
                             <div class="card-body shadow">
                                 <div class="row">
                                     <div class="col-md-12 col-lg-12 col-xxl-5 my-auto">
-                                        <img src="/img/potrait-4.jpg" alt="">
+                                        <img src="/img/agent/miles.jpg" alt="">
                                     </div>
                             
                                     <div class="col-md-12 col-lg-12 col-xxl-7 d-flex flex-column">
-                                        <p class="agent-name font-weight-bold mb-0 mt-2">Names Sample 2</p>
-                                        <p class="agent-pos">Marketer</p>
+                                        <p class="agent-name font-weight-bold mb-0 mt-2">Miles Humphreys</p>
+                                        <p class="agent-pos">Director and Managing Architect</p>
                                         <div class="agent-desc mb-3">
                                             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit, repudiandae sequi modi mollitia, illum earum provident qui commodi ullam libero alias, hic aliquam eos exercitationem tempora est! Doloremque, libero quod?</p>
                                         </div>

@@ -23,10 +23,7 @@ class CreatePropertyListTable extends Migration
             $table->string('site_area');
             $table->string('building_area');
             $table->boolean('site_plan');
-            $table->boolean('pdma_water');
-            $table->enum('well_or_bor', ['well', 'bor']);
-            $table->boolean('pln');
-            $table->boolean('generator');
+            $table->enum('pdma_water', ['well', 'bor','no']);
             $table->boolean('imb');
             $table->string('power_kv');
             $table->string('generator_kv');
@@ -36,6 +33,7 @@ class CreatePropertyListTable extends Migration
             $table->string('supermarket_distance');
             $table->string('beach_distance');
             $table->string('fine_dining_distance');
+            $table->text('description');
         });
     }
 

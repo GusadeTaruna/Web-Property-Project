@@ -20,11 +20,10 @@ class CreateLandListTable extends Migration
             $table->string('land_location');
             $table->string('land_status');
             $table->string('price');
+            $table->boolean('site_plan');
             $table->string('site_dimensions');
             $table->string('site_area');
-            $table->boolean('pdma_water');
-            $table->enum('well_or_bor', ['well', 'bor']);
-            $table->boolean('pln');
+            $table->enum('pdma_water', ['well', 'bor','no']);
             $table->string('power_kv');
             $table->boolean('imb');
             $table->string('school_distance');
@@ -33,6 +32,7 @@ class CreateLandListTable extends Migration
             $table->string('supermarket_distance');
             $table->string('beach_distance');
             $table->string('fine_dining_distance');
+            $table->text('description');
         });
     }
 

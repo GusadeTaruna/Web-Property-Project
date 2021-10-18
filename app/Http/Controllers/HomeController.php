@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Land;
+use App\Models\LandZoningType;
 
 class HomeController extends Controller
 {
@@ -16,7 +18,8 @@ class HomeController extends Controller
     }
 
     public function propertyDetail(){
-        return view('frontend.property-detail');
+        $land = Land::all();
+        return view('frontend.property-detail', compact('land'));
     }
 
     public function about(){

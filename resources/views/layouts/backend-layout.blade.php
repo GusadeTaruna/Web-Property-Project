@@ -131,7 +131,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="/admin/property" class="nav-link">
+                                    <a href="/admin/land" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>List Land</p>
                                     </a>

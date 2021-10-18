@@ -6,6 +6,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PropertyController;
+use App\Http\Controllers\LandController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,9 +46,16 @@ Route::post('/admin/register', [RegisterController::class, 'store']);
 
 
 Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
-Route::get('/admin/property', [DashboardController::class, 'listProperty'])->name('property')->middleware('auth');
-Route::get('/admin/property/create', [DashboardController::class, 'createProperty'])->name('property')->middleware('auth');
+
+Route::get('/admin/property', [PropertyController::class, 'index'])->name('property')->middleware('auth');
+Route::get('/admin/property/create', [PropertyController::class, 'create'])->name('create-property')->middleware('auth');
+Route::post('/admin/property/create', [PropertyController::class, 'store'])->middleware('auth');
+
 Route::get('/admin/property-type', [DashboardController::class, 'propertyType'])->name('property-type')->middleware('auth');
 Route::get('/admin/property-categories', [DashboardController::class, 'propertyCategories'])->name('property-cateories')->middleware('auth');
+
+Route::get('/admin/land', [LandController::class, 'index'])->name('land')->middleware('auth');
+Route::get('/admin/land/create', [LandController::class, 'create'])->name('create-land')->middleware('auth');
+Route::post('/admin/land/create', [LandController::class, 'store'])->middleware('auth');
 
 Route::get('/admin/list-admin', [DashboardController::class, 'adminList'])->name('list-admin')->middleware('auth');
