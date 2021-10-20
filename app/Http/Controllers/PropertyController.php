@@ -4,20 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Property;
-use App\Models\PropertyZoningType;
+use App\Models\ZoningType;
 
 class PropertyController extends Controller
 {
     //
     public function index(){
-        return view('backend.property.property-list');
+        $property = Property::join('zoning_type', 'property_list.zoning', '=', 'zoning_type.id')->where('property_type','Property Building')->get();
+        return view('backend.property.property-list',compact('property'));
     }
 
     public function create(){
         $property = Property::all();
-        $property_type = PropertyZoningType::all();
+        $property_type = ZoningType::all();
         $huruf = "PB-";
-        $count = Property::count();
+        $count = Property::where('property_type', 'Property Building')->count();
 
         if($count > 0) {
             $propertyCode = $huruf . sprintf("%03s", $count+1);
@@ -55,6 +56,7 @@ class PropertyController extends Controller
     	// ]);
 
     	$property = new Property;
+        $property->property_type = "Property Building";
     	$property->property_code = $request->code;
 		$property->property_name = $request->property_name;
 		$property->property_location = $request->location;
@@ -67,6 +69,7 @@ class PropertyController extends Controller
         $property->generator_kv = $request->generator;
         $property->pdma_water = $request->pdma;
         $property->imb = $request->imb;
+        $property->zoning = $request->zoning_type;
         $property->description = $request->description;
         $property->school_distance = $request->school;
         $property->hospital_distance = $request->hospital;
@@ -76,8 +79,13 @@ class PropertyController extends Controller
         $property->fine_dining_distance = $request->dining;
 		$property->save();
 
+        if(!$property->save()){
+            return back()->with('errorMsg', 'Error adding Data');
+        }else{
+            return redirect('/admin/property')->with('success', 'Property Data successfully added');
+        }
 
-        dd($property->id);
+        // dd($property->id);
 
         // dd($property);
 
@@ -86,8 +94,6 @@ class PropertyController extends Controller
     	// User::create($validatedData);
 
     	// $request->session()->flash('success', 'Registrasi Berhasil! anda sekarang dapat Log In');
-
-    	// return redirect('/admin/dashboard')->with('success', 'Berhasil');
-
+        
     }
 }

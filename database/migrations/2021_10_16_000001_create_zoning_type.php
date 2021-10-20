@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePropertyZoningTypesTable extends Migration
+class CreateZoningType extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreatePropertyZoningTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('property_zoning_types', function (Blueprint $table) {
+        Schema::create('zoning_type', function (Blueprint $table) {
             $table->id();
             $table->string('nama_tipe');
         });
@@ -26,6 +26,6 @@ class CreatePropertyZoningTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('property_zoning_types');
+        Schema::dropIfExists('zoning_type');
     }
 }

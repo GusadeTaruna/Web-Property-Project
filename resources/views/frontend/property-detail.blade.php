@@ -119,22 +119,22 @@
     <!--  End image Section -->
 	
     <section id="property-detail">
-		@foreach ($land as $data)
+		@foreach ($property as $data)
 		<div class="row mt-4 mb-3">
 			<div class="col-lg-1"></div>
 			<div class="col-lg-6">
-	    		<h1 class="judul mb-1">{{ $data->land_name }}</h1>
-	    		<p class="mt-0 mb-2">{{ $data->land_location }}</p>
+	    		<h1 class="judul mb-1">{{ ucwords(strtolower($data->property_name)) }}</h1>
+	    		<p class="mt-0 mb-2">{{ ucwords(strtolower($data->property_location)) }}</p>
 	    		<div class="d-flex justify-content-start">
 	    			<p class="mr-3"><i class="fas fa-bed"></i> 4 Beds</p>
 	    			<p class="mr-3"><i class="fas fa-bath"></i> 3 Bath</p>
 	    			<p class="mr-3"><i class="fas fa-warehouse"></i> 1 Garage</p>
-	    			<p class="mr-3"><i class="fas fa-pencil-ruler"></i> 1200 sqm</p>
+	    			<p class="mr-3"><i class="fas fa-pencil-ruler"></i> {{ $data->site_area }} sqm</p>
 	    		</div>
 	    	</div>
 	    	<div class="col-lg-2"></div>
 	    	<div class="col-lg-2 my-auto">
-	    		<h1 class="harga">IDR {{ $data->price }}</h1>
+	    		<h1 class="harga">IDR {{ number_format($data->price,0,'','.') }}</h1>
 	    	</div>
 		</div>
 
@@ -159,13 +159,13 @@
 				    	<div class="col-lg-6">
 				    		<div class="detail-text d-flex justify-content-start">
 						    	<p class="card-title mr-1">Property ID :</p>
-						    	<p class="card-text">{{ $data->land_code }}</p>
+						    	<p class="card-text">{{ $data->property_code }}</p>
 						    </div>
 				    	</div>
 				    	<div class="col-lg-6">
 				    		<div class="detail-text d-flex justify-content-start">
 						    	<p class="card-title mr-1">Price :</p>
-						    	<p class="card-text">{{ $data->price }}</p>
+						    	<p class="card-text">IDR {{ number_format($data->price,0,'','.') }}</p>
 						    </div>
 				    	</div>
 				    </div>
@@ -174,7 +174,7 @@
 				    	<div class="col-lg-6">
 				    		<div class="detail-text d-flex justify-content-start">
 						    	<p class="card-title mr-1">Property Status :</p>
-						    	<p class="card-text">{{ $data->status }}</p>
+						    	<p class="card-text">{{ $data->property_status }}</p>
 						    </div>
 				    	</div>
 				    	<div class="col-lg-6">
@@ -204,13 +204,13 @@
 				    	<div class="col-lg-6">
 				    		<div class="detail-text d-flex justify-content-start">
 						    	<p class="card-title mr-1">Property Type :</p>
-						    	<p class="card-text">Land</p>
+						    	<p class="card-text">{{ $data->property_type }}</p>
 						    </div>
 				    	</div>
 				    	<div class="col-lg-6">
 				    		<div class="detail-text d-flex justify-content-start">
-						    	<p class="card-title mr-1">Property Status:</p>
-						    	<p class="card-text">For Sale</p>
+						    	<p class="card-title mr-1">Zoning:</p>
+						    	<p class="card-text">{{ $data->nama_tipe }}</p>
 						    </div>
 				    	</div>
 				    </div>
@@ -278,20 +278,20 @@
 			</div>
 
 			<div class="col-lg-4">
-				<div class="card">
+				<div class="card mb-4">
 				  <div class="card-body">
 				    <h5 class="card-title mb-4">Additional Details</h5>
 				    <div class="row">
 				    	<div class="col-lg-6">
 				    		<div class="detail-text d-flex justify-content-start">
-						    	<p class="card-title mr-1">Property ID :</p>
-						    	<p class="card-text">{{ $data->land_code }}</p>
+						    	<p class="card-title mr-1">Power (kV) :</p>
+						    	<p class="card-text">{{ $data->power_kv }}</p>
 						    </div>
 				    	</div>
 				    	<div class="col-lg-6">
 				    		<div class="detail-text d-flex justify-content-start">
-						    	<p class="card-title mr-1">Price :</p>
-						    	<p class="card-text">{{ $data->price }}</p>
+						    	<p class="card-title mr-1">PDMA Water :</p>
+						    	<p class="card-text">{{ $data->pdma_water }}</p>
 						    </div>
 				    	</div>
 				    </div>
@@ -299,14 +299,18 @@
 				    <div class="row">
 				    	<div class="col-lg-6">
 				    		<div class="detail-text d-flex justify-content-start">
-						    	<p class="card-title mr-1">Property Status :</p>
-						    	<p class="card-text">{{ $data->status }}</p>
+						    	<p class="card-title mr-1">IMB :</p>
+								@if($data->imb ==0) 
+						    	<p class="card-text">No</p>
+								@elseif($data->imb ==1) 
+								<p class="card-text">Yes</p>
+								@endif
 						    </div>
 				    	</div>
 				    	<div class="col-lg-6">
 				    		<div class="detail-text d-flex justify-content-start">
-						    	<p class="card-title mr-1">Year Built :</p>
-						    	<p class="card-text">2021-01-09</p>
+						    	<p class="card-title mr-1">Generator (kV) :</p>
+						    	<p class="card-text">{{ $data->generator_kv }}</p>
 						    </div>
 				    	</div>
 				    </div>
@@ -326,22 +330,60 @@
 				    	</div>
 				    </div>
 
-				    <div class="row">
-				    	<div class="col-lg-6">
-				    		<div class="detail-text d-flex justify-content-start">
-						    	<p class="card-title mr-1">Property Type :</p>
-						    	<p class="card-text">Land</p>
-						    </div>
-				    	</div>
-				    	<div class="col-lg-6">
-				    		<div class="detail-text d-flex justify-content-start">
-						    	<p class="card-title mr-1">Property Status:</p>
-						    	<p class="card-text">For Sale</p>
-						    </div>
-				    	</div>
-				    </div>
 				  </div>
 				</div>
+
+				<div class="card">
+					<div class="card-body">
+					  <h5 class="card-title mb-4">Distance to nearest:</h5>
+					  <div class="row">
+						  <div class="col-lg-6">
+							  <div class="detail-text d-flex justify-content-start">
+								  <p class="card-title mr-1">School :</p>
+								  <p class="card-text">{{ $data->school_distance }} km</p>
+							  </div>
+						  </div>
+						  <div class="col-lg-6">
+							  <div class="detail-text d-flex justify-content-start">
+								  <p class="card-title mr-1">Airport :</p>
+								  <p class="card-text">{{ $data->airport_distance }} km</p>
+							  </div>
+						  </div>
+					  </div>
+  
+					  <div class="row">
+						<div class="col-lg-6">
+							<div class="detail-text d-flex justify-content-start">
+								<p class="card-title mr-1">Beach :</p>
+								<p class="card-text">{{ $data->beach_distance }} km</p>
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="detail-text d-flex justify-content-start">
+								<p class="card-title mr-1">Fine Dining :</p>
+								<p class="card-text">{{ $data->fine_dining_distance }} km</p>
+							</div>
+						</div>
+					</div>
+  
+					  <div class="row">
+						  <div class="col-lg-6">
+							  <div class="detail-text d-flex justify-content-start">
+								  <p class="card-title mr-1">Supermarket :</p>
+								  <p class="card-text">{{ $data->supermarket_distance }} km</p>
+							  </div>
+						  </div>
+						  <div class="col-lg-6">
+							  <div class="detail-text d-flex justify-content-start">
+								  <p class="card-title mr-1">Hospital :</p>
+								  <p class="card-text">{{ $data->hospital_distance }} km</p>
+							  </div>
+						  </div>
+					  </div>
+  
+					</div>
+				  </div>
+				
 			</div>
 		</div>
 		@endforeach

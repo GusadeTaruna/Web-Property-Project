@@ -106,655 +106,75 @@
 				</div>
 			</div>
 
-			<div class="col-lg-9 col-xxl-10">
-				<div class="card">
-				  <div class="card-body">
-				    <div class="row">
-	                    <div class="col-lg-6 col-xxl-3 col-md-5 mx-auto my-2">
-	                    	<a href="product-single.html">
-		                        <div class="property-list shadow">
-		                            <div class="image">
-		                            	<div class="tag-container d-flex justify-content-start">
-		                            		<div class="tag-featured mt-2">Featured</div>
-		                            		<div class="tag-sale mt-2">For Sale</div>
-		                            	</div>
-		                                <img src="/img/image-1.jpg" alt="">
-		                            </div>
-		                            <div class="text-left">
-		                                <h4 class="h5 item-name">Skyper Pool Apartment 1</h4>
-		                            </div>
-		                            <div class="d-flex justify-content-between mb-2">
-		                                <div class="item">
-		                                    <p class="h6 mb-2 m-0">Quincy St, Brooklyn, NY, USA</p>
-		                                </div>
-		                            </div>
+			<div class="col-lg-9 col-xxl-10 mt-4 mt-md-4 mt-lg-0">
+				<div class="row">
+					@foreach ( $property as $data )
+					<div class="col-lg-6 col-xxl-4 col-md-5 my-2">
+						<a href={{ route('property-detail',$data->property_code) }}>
+							<div class="property-list shadow">
+								<div class="image">
+									<div class="tag-container d-flex justify-content-start">
+										<div class="tag-featured mt-2">Featured</div>
+										<div class="tag-sale mt-2">For Sale</div>
+									</div>
+									<img src="/img/image-1.jpg" alt="">
+								</div>
+								<div class="text-left item-header">
+									<h4 class="h5 item-name">{{ ucwords(strtolower($data->property_name)) }}</h4>
+									<p class="h6 mb-3">{{ ucwords(strtolower($data->property_location)) }}</p>
+								</div>
 
-		                            <ul id="feature-ul">
-		                                <li class="feature-features">
-		                                    <i class="fas fa-bed"></i>
-		                                    <p>4 Beds</p>
-		                                </li>
-		                                <li class="feature-features">
-		                                    <i class="fas fa-bath"></i>
-		                                    <p>3 Bath</p>
-		                                </li>
-		                                <li class="feature-features">
-		                                    <i class="fas fa-warehouse"></i>
-		                                    <p>1 Garage</p>
-		                                </li>
-		                                <li class="feature-features">
-		                                    <i class="fas fa-pencil-ruler"></i>
-		                                    <p>1200 sqm</p>
-		                                </li>
-		                            </ul>
+								<ul id="feature-ul">
+									<li class="feature-features">
+										<i class="fas fa-bed"></i>
+										<p>4 Beds</p>
+									</li>
+									<li class="feature-features">
+										<i class="fas fa-bath"></i>
+										<p>3 Bath</p>
+									</li>
+									<li class="feature-features">
+										<i class="fas fa-warehouse"></i>
+										<p>1 Garage</p>
+									</li>
+									<li class="feature-features">
+										<i class="fas fa-pencil-ruler"></i>
+										<p>1200 sqm</p>
+									</li>
+								</ul>
 
-		                            <hr class="feature-hr">
+								<hr class="feature-hr">
 
-		                            <div class="d-flex justify-content-between mb-2 my-auto">
-		                                <div class="item">
-		                                    <span class="price">$485,000</span>
-		                                </div>
-		                                <div class="item">
-		                                    <button class="btn-property">Show Details</button>
-		                                </div>
-		                            </div>
+								<div class="d-flex justify-content-between mb-2 my-auto">
+									<div class="item">
+										<span class="price">IDR {{ number_format($data->price,0,'','.') }}</span>
+									</div>
+									<div class="item">
+										<button class="btn-property">Show Details</button>
+									</div>
+								</div>
 
-		                        </div>
-		                    </a>
-	                    </div>
-	                    <div class="col-lg-6 col-xxl-3 col-md-5 mx-auto my-2">
-	                    	<a href="product-single.html">
-		                        <div class="property-list shadow">
-		                            <div class="image">
-		                            	<div class="tag-container d-flex justify-content-start">
-		                            		<div class="tag-featured mt-2">Featured</div>
-		                            		<div class="tag-sale mt-2">For Sale</div>
-		                            	</div>
-		                                <img src="/img/image-2.jpg" alt="">
-		                            </div>
-		                            <div class="text-left">
-		                                <h4 class="h5 item-name">Skyper Pool Apartment 1</h4>
-		                            </div>
-		                            <div class="d-flex justify-content-between mb-2">
-		                                <div class="item">
-		                                    <p class="h6 mb-2 m-0">Quincy St, Brooklyn, NY, USA</p>
-		                                </div>
-		                            </div>
-
-		                            <ul id="feature-ul">
-		                                <li class="feature-features">
-		                                    <i class="fas fa-bed"></i>
-		                                    <p>4 Beds</p>
-		                                </li>
-		                                <li class="feature-features">
-		                                    <i class="fas fa-bath"></i>
-		                                    <p>3 Bath</p>
-		                                </li>
-		                                <li class="feature-features">
-		                                    <i class="fas fa-warehouse"></i>
-		                                    <p>1 Garage</p>
-		                                </li>
-		                                <li class="feature-features">
-		                                    <i class="fas fa-pencil-ruler"></i>
-		                                    <p>1200 sqm</p>
-		                                </li>
-		                            </ul>
-
-		                            <hr class="feature-hr">
-
-		                            <div class="d-flex justify-content-between mb-2 my-auto">
-		                                <div class="item">
-		                                    <span class="price">$485,000</span>
-		                                </div>
-		                                <div class="item">
-		                                    <button class="btn-property">Show Details</button>
-		                                </div>
-		                            </div>
-
-		                        </div>
-		                    </a>
-	                    </div>
-	                    <div class="col-lg-6 col-xxl-3 col-md-5 mx-auto my-2">
-	                    	<a href="product-single.html">
-		                        <div class="property-list shadow">
-		                            <div class="image">
-		                            	<div class="tag-container d-flex justify-content-start">
-		                            		<div class="tag-featured mt-2">Featured</div>
-		                            		<div class="tag-sale mt-2">For Sale</div>
-		                            	</div>
-		                                <img src="/img/image-3.jpg" alt="">
-		                            </div>
-		                            <div class="text-left">
-		                                <h4 class="h5 item-name">Skyper Pool Apartment 1</h4>
-		                            </div>
-		                            <div class="d-flex justify-content-between mb-2">
-		                                <div class="item">
-		                                    <p class="h6 mb-2 m-0">Quincy St, Brooklyn, NY, USA</p>
-		                                </div>
-		                            </div>
-
-		                            <ul id="feature-ul">
-		                                <li class="feature-features">
-		                                    <i class="fas fa-bed"></i>
-		                                    <p>4 Beds</p>
-		                                </li>
-		                                <li class="feature-features">
-		                                    <i class="fas fa-bath"></i>
-		                                    <p>3 Bath</p>
-		                                </li>
-		                                <li class="feature-features">
-		                                    <i class="fas fa-warehouse"></i>
-		                                    <p>1 Garage</p>
-		                                </li>
-		                                <li class="feature-features">
-		                                    <i class="fas fa-pencil-ruler"></i>
-		                                    <p>1200 sqm</p>
-		                                </li>
-		                            </ul>
-
-		                            <hr class="feature-hr">
-
-		                            <div class="d-flex justify-content-between mb-2 my-auto">
-		                                <div class="item">
-		                                    <span class="price">$485,000</span>
-		                                </div>
-		                                <div class="item">
-		                                    <button class="btn-property">Show Details</button>
-		                                </div>
-		                            </div>
-
-		                        </div>
-		                    </a>
-	                    </div>
-	                    <div class="col-lg-6 col-xxl-3 col-md-5 mx-auto my-2">
-	                    	<a href="product-single.html">
-		                        <div class="property-list shadow">
-		                            <div class="image">
-		                            	<div class="tag-container d-flex justify-content-start">
-		                            		<div class="tag-featured mt-2">Featured</div>
-		                            		<div class="tag-sale mt-2">For Sale</div>
-		                            	</div>
-		                                <img src="/img/image-4.jpg" alt="">
-		                            </div>
-		                            <div class="text-left">
-		                                <h4 class="h5 item-name">Skyper Pool Apartment 1</h4>
-		                            </div>
-		                            <div class="d-flex justify-content-between mb-2">
-		                                <div class="item">
-		                                    <p class="h6 mb-2 m-0">Quincy St, Brooklyn, NY, USA</p>
-		                                </div>
-		                            </div>
-
-		                            <ul id="feature-ul">
-		                                <li class="feature-features">
-		                                    <i class="fas fa-bed"></i>
-		                                    <p>4 Beds</p>
-		                                </li>
-		                                <li class="feature-features">
-		                                    <i class="fas fa-bath"></i>
-		                                    <p>3 Bath</p>
-		                                </li>
-		                                <li class="feature-features">
-		                                    <i class="fas fa-warehouse"></i>
-		                                    <p>1 Garage</p>
-		                                </li>
-		                                <li class="feature-features">
-		                                    <i class="fas fa-pencil-ruler"></i>
-		                                    <p>1200 sqm</p>
-		                                </li>
-		                            </ul>
-
-		                            <hr class="feature-hr">
-
-		                            <div class="d-flex justify-content-between mb-2 my-auto">
-		                                <div class="item">
-		                                    <span class="price">$485,000</span>
-		                                </div>
-		                                <div class="item">
-		                                    <button class="btn-property">Show Details</button>
-		                                </div>
-		                            </div>
-
-		                        </div>
-		                    </a>
-	                    </div>
-
-	                    <div class="col-lg-6 col-xxl-3 col-md-5 mx-auto my-2">
-	                    	<a href="product-single.html">
-		                        <div class="property-list shadow">
-		                            <div class="image">
-		                            	<div class="tag-container d-flex justify-content-start">
-		                            		<div class="tag-featured mt-2">Featured</div>
-		                            		<div class="tag-sale mt-2">For Sale</div>
-		                            	</div>
-		                                <img src="/img/image-2.jpg" alt="">
-		                            </div>
-		                            <div class="text-left">
-		                                <h4 class="h5 item-name">Skyper Pool Apartment 1</h4>
-		                            </div>
-		                            <div class="d-flex justify-content-between mb-2">
-		                                <div class="item">
-		                                    <p class="h6 mb-2 m-0">Quincy St, Brooklyn, NY, USA</p>
-		                                </div>
-		                            </div>
-
-		                            <ul id="feature-ul">
-		                                <li class="feature-features">
-		                                    <i class="fas fa-bed"></i>
-		                                    <p>4 Beds</p>
-		                                </li>
-		                                <li class="feature-features">
-		                                    <i class="fas fa-bath"></i>
-		                                    <p>3 Bath</p>
-		                                </li>
-		                                <li class="feature-features">
-		                                    <i class="fas fa-warehouse"></i>
-		                                    <p>1 Garage</p>
-		                                </li>
-		                                <li class="feature-features">
-		                                    <i class="fas fa-pencil-ruler"></i>
-		                                    <p>1200 sqm</p>
-		                                </li>
-		                            </ul>
-
-		                            <hr class="feature-hr">
-
-		                            <div class="d-flex justify-content-between mb-2 my-auto">
-		                                <div class="item">
-		                                    <span class="price">$485,000</span>
-		                                </div>
-		                                <div class="item">
-		                                    <button class="btn-property">Show Details</button>
-		                                </div>
-		                            </div>
-
-		                        </div>
-		                    </a>
-	                    </div>
-	                    <div class="col-lg-6 col-xxl-3 col-md-5 mx-auto my-2">
-	                    	<a href="product-single.html">
-		                        <div class="property-list shadow">
-		                            <div class="image">
-		                            	<div class="tag-container d-flex justify-content-start">
-		                            		<div class="tag-featured mt-2">Featured</div>
-		                            		<div class="tag-sale mt-2">For Sale</div>
-		                            	</div>
-		                                <img src="/img/image-3.jpg" alt="">
-		                            </div>
-		                            <div class="text-left">
-		                                <h4 class="h5 item-name">Skyper Pool Apartment 1</h4>
-		                            </div>
-		                            <div class="d-flex justify-content-between mb-2">
-		                                <div class="item">
-		                                    <p class="h6 mb-2 m-0">Quincy St, Brooklyn, NY, USA</p>
-		                                </div>
-		                            </div>
-
-		                            <ul id="feature-ul">
-		                                <li class="feature-features">
-		                                    <i class="fas fa-bed"></i>
-		                                    <p>4 Beds</p>
-		                                </li>
-		                                <li class="feature-features">
-		                                    <i class="fas fa-bath"></i>
-		                                    <p>3 Bath</p>
-		                                </li>
-		                                <li class="feature-features">
-		                                    <i class="fas fa-warehouse"></i>
-		                                    <p>1 Garage</p>
-		                                </li>
-		                                <li class="feature-features">
-		                                    <i class="fas fa-pencil-ruler"></i>
-		                                    <p>1200 sqm</p>
-		                                </li>
-		                            </ul>
-
-		                            <hr class="feature-hr">
-
-		                            <div class="d-flex justify-content-between mb-2 my-auto">
-		                                <div class="item">
-		                                    <span class="price">$485,000</span>
-		                                </div>
-		                                <div class="item">
-		                                    <button class="btn-property">Show Details</button>
-		                                </div>
-		                            </div>
-
-		                        </div>
-		                    </a>
-	                    </div>
-	                    <div class="col-lg-6 col-xxl-3 col-md-5 mx-auto my-2">
-	                    	<a href="product-single.html">
-		                        <div class="property-list shadow">
-		                            <div class="image">
-		                            	<div class="tag-container d-flex justify-content-start">
-		                            		<div class="tag-featured mt-2">Featured</div>
-		                            		<div class="tag-sale mt-2">For Sale</div>
-		                            	</div>
-		                                <img src="/img/image-4.jpg" alt="">
-		                            </div>
-		                            <div class="text-left">
-		                                <h4 class="h5 item-name">Skyper Pool Apartment 1</h4>
-		                            </div>
-		                            <div class="d-flex justify-content-between mb-2">
-		                                <div class="item">
-		                                    <p class="h6 mb-2 m-0">Quincy St, Brooklyn, NY, USA</p>
-		                                </div>
-		                            </div>
-
-		                            <ul id="feature-ul">
-		                                <li class="feature-features">
-		                                    <i class="fas fa-bed"></i>
-		                                    <p>4 Beds</p>
-		                                </li>
-		                                <li class="feature-features">
-		                                    <i class="fas fa-bath"></i>
-		                                    <p>3 Bath</p>
-		                                </li>
-		                                <li class="feature-features">
-		                                    <i class="fas fa-warehouse"></i>
-		                                    <p>1 Garage</p>
-		                                </li>
-		                                <li class="feature-features">
-		                                    <i class="fas fa-pencil-ruler"></i>
-		                                    <p>1200 sqm</p>
-		                                </li>
-		                            </ul>
-
-		                            <hr class="feature-hr">
-
-		                            <div class="d-flex justify-content-between mb-2 my-auto">
-		                                <div class="item">
-		                                    <span class="price">$485,000</span>
-		                                </div>
-		                                <div class="item">
-		                                    <button class="btn-property">Show Details</button>
-		                                </div>
-		                            </div>
-
-		                        </div>
-		                    </a>
-	                    </div>
-	                    <div class="col-lg-6 col-xxl-3 col-md-5 mx-auto my-2">
-	                    	<a href="product-single.html">
-		                        <div class="property-list shadow">
-		                            <div class="image">
-		                            	<div class="tag-container d-flex justify-content-start">
-		                            		<div class="tag-featured mt-2">Featured</div>
-		                            		<div class="tag-sale mt-2">For Sale</div>
-		                            	</div>
-		                                <img src="/img/image-1.jpg" alt="">
-		                            </div>
-		                            <div class="text-left">
-		                                <h4 class="h5 item-name">Skyper Pool Apartment 1</h4>
-		                            </div>
-		                            <div class="d-flex justify-content-between mb-2">
-		                                <div class="item">
-		                                    <p class="h6 mb-2 m-0">Quincy St, Brooklyn, NY, USA</p>
-		                                </div>
-		                            </div>
-
-		                            <ul id="feature-ul">
-		                                <li class="feature-features">
-		                                    <i class="fas fa-bed"></i>
-		                                    <p>4 Beds</p>
-		                                </li>
-		                                <li class="feature-features">
-		                                    <i class="fas fa-bath"></i>
-		                                    <p>3 Bath</p>
-		                                </li>
-		                                <li class="feature-features">
-		                                    <i class="fas fa-warehouse"></i>
-		                                    <p>1 Garage</p>
-		                                </li>
-		                                <li class="feature-features">
-		                                    <i class="fas fa-pencil-ruler"></i>
-		                                    <p>1200 sqm</p>
-		                                </li>
-		                            </ul>
-
-		                            <hr class="feature-hr">
-
-		                            <div class="d-flex justify-content-between mb-2 my-auto">
-		                                <div class="item">
-		                                    <span class="price">$485,000</span>
-		                                </div>
-		                                <div class="item">
-		                                    <button class="btn-property">Show Details</button>
-		                                </div>
-		                            </div>
-
-		                        </div>
-		                    </a>
-	                    </div>
-
-	                    <div class="col-lg-6 col-xxl-3 col-md-5 mx-auto my-2">
-	                    	<a href="product-single.html">
-		                        <div class="property-list shadow">
-		                            <div class="image">
-		                            	<div class="tag-container d-flex justify-content-start">
-		                            		<div class="tag-featured mt-2">Featured</div>
-		                            		<div class="tag-sale mt-2">For Sale</div>
-		                            	</div>
-		                                <img src="/img/image-4.jpg" alt="">
-		                            </div>
-		                            <div class="text-left">
-		                                <h4 class="h5 item-name">Skyper Pool Apartment 1</h4>
-		                            </div>
-		                            <div class="d-flex justify-content-between mb-2">
-		                                <div class="item">
-		                                    <p class="h6 mb-2 m-0">Quincy St, Brooklyn, NY, USA</p>
-		                                </div>
-		                            </div>
-
-		                            <ul id="feature-ul">
-		                                <li class="feature-features">
-		                                    <i class="fas fa-bed"></i>
-		                                    <p>4 Beds</p>
-		                                </li>
-		                                <li class="feature-features">
-		                                    <i class="fas fa-bath"></i>
-		                                    <p>3 Bath</p>
-		                                </li>
-		                                <li class="feature-features">
-		                                    <i class="fas fa-warehouse"></i>
-		                                    <p>1 Garage</p>
-		                                </li>
-		                                <li class="feature-features">
-		                                    <i class="fas fa-pencil-ruler"></i>
-		                                    <p>1200 sqm</p>
-		                                </li>
-		                            </ul>
-
-		                            <hr class="feature-hr">
-
-		                            <div class="d-flex justify-content-between mb-2 my-auto">
-		                                <div class="item">
-		                                    <span class="price">$485,000</span>
-		                                </div>
-		                                <div class="item">
-		                                    <button class="btn-property">Show Details</button>
-		                                </div>
-		                            </div>
-
-		                        </div>
-		                    </a>
-	                    </div>
-	                    <div class="col-lg-6 col-xxl-3 col-md-5 mx-auto my-2">
-	                    	<a href="product-single.html">
-		                        <div class="property-list shadow">
-		                            <div class="image">
-		                            	<div class="tag-container d-flex justify-content-start">
-		                            		<div class="tag-featured mt-2">Featured</div>
-		                            		<div class="tag-sale mt-2">For Sale</div>
-		                            	</div>
-		                                <img src="/img/image-1.jpg" alt="">
-		                            </div>
-		                            <div class="text-left">
-		                                <h4 class="h5 item-name">Skyper Pool Apartment 1</h4>
-		                            </div>
-		                            <div class="d-flex justify-content-between mb-2">
-		                                <div class="item">
-		                                    <p class="h6 mb-2 m-0">Quincy St, Brooklyn, NY, USA</p>
-		                                </div>
-		                            </div>
-
-		                            <ul id="feature-ul">
-		                                <li class="feature-features">
-		                                    <i class="fas fa-bed"></i>
-		                                    <p>4 Beds</p>
-		                                </li>
-		                                <li class="feature-features">
-		                                    <i class="fas fa-bath"></i>
-		                                    <p>3 Bath</p>
-		                                </li>
-		                                <li class="feature-features">
-		                                    <i class="fas fa-warehouse"></i>
-		                                    <p>1 Garage</p>
-		                                </li>
-		                                <li class="feature-features">
-		                                    <i class="fas fa-pencil-ruler"></i>
-		                                    <p>1200 sqm</p>
-		                                </li>
-		                            </ul>
-
-		                            <hr class="feature-hr">
-
-		                            <div class="d-flex justify-content-between mb-2 my-auto">
-		                                <div class="item">
-		                                    <span class="price">$485,000</span>
-		                                </div>
-		                                <div class="item">
-		                                    <button class="btn-property">Show Details</button>
-		                                </div>
-		                            </div>
-
-		                        </div>
-		                    </a>
-	                    </div>
-	                    <div class="col-lg-6 col-xxl-3 col-md-5 mx-auto my-2">
-	                    	<a href="product-single.html">
-		                        <div class="property-list shadow">
-		                            <div class="image">
-		                            	<div class="tag-container d-flex justify-content-start">
-		                            		<div class="tag-featured mt-2">Featured</div>
-		                            		<div class="tag-sale mt-2">For Sale</div>
-		                            	</div>
-		                                <img src="/img/image-2.jpg" alt="">
-		                            </div>
-		                            <div class="text-left">
-		                                <h4 class="h5 item-name">Skyper Pool Apartment 1</h4>
-		                            </div>
-		                            <div class="d-flex justify-content-between mb-2">
-		                                <div class="item">
-		                                    <p class="h6 mb-2 m-0">Quincy St, Brooklyn, NY, USA</p>
-		                                </div>
-		                            </div>
-
-		                            <ul id="feature-ul">
-		                                <li class="feature-features">
-		                                    <i class="fas fa-bed"></i>
-		                                    <p>4 Beds</p>
-		                                </li>
-		                                <li class="feature-features">
-		                                    <i class="fas fa-bath"></i>
-		                                    <p>3 Bath</p>
-		                                </li>
-		                                <li class="feature-features">
-		                                    <i class="fas fa-warehouse"></i>
-		                                    <p>1 Garage</p>
-		                                </li>
-		                                <li class="feature-features">
-		                                    <i class="fas fa-pencil-ruler"></i>
-		                                    <p>1200 sqm</p>
-		                                </li>
-		                            </ul>
-
-		                            <hr class="feature-hr">
-
-		                            <div class="d-flex justify-content-between mb-2 my-auto">
-		                                <div class="item">
-		                                    <span class="price">$485,000</span>
-		                                </div>
-		                                <div class="item">
-		                                    <button class="btn-property">Show Details</button>
-		                                </div>
-		                            </div>
-
-		                        </div>
-		                    </a>
-	                    </div>
-	                    <div class="col-lg-6 col-xxl-3 col-md-5 mx-auto my-2">
-	                    	<a href="product-single.html">
-		                        <div class="property-list shadow">
-		                            <div class="image">
-		                            	<div class="tag-container d-flex justify-content-start">
-		                            		<div class="tag-featured mt-2">Featured</div>
-		                            		<div class="tag-sale mt-2">For Sale</div>
-		                            	</div>
-		                                <img src="/img/image-3.jpg" alt="">
-		                            </div>
-		                            <div class="text-left">
-		                                <h4 class="h5 item-name">Skyper Pool Apartment 1</h4>
-		                            </div>
-		                            <div class="d-flex justify-content-between mb-2">
-		                                <div class="item">
-		                                    <p class="h6 mb-2 m-0">Quincy St, Brooklyn, NY, USA</p>
-		                                </div>
-		                            </div>
-
-		                            <ul id="feature-ul">
-		                                <li class="feature-features">
-		                                    <i class="fas fa-bed"></i>
-		                                    <p>4 Beds</p>
-		                                </li>
-		                                <li class="feature-features">
-		                                    <i class="fas fa-bath"></i>
-		                                    <p>3 Bath</p>
-		                                </li>
-		                                <li class="feature-features">
-		                                    <i class="fas fa-warehouse"></i>
-		                                    <p>1 Garage</p>
-		                                </li>
-		                                <li class="feature-features">
-		                                    <i class="fas fa-pencil-ruler"></i>
-		                                    <p>1200 sqm</p>
-		                                </li>
-		                            </ul>
-
-		                            <hr class="feature-hr">
-
-		                            <div class="d-flex justify-content-between mb-2 my-auto">
-		                                <div class="item">
-		                                    <span class="price">$485,000</span>
-		                                </div>
-		                                <div class="item">
-		                                    <button class="btn-property">Show Details</button>
-		                                </div>
-		                            </div>
-
-		                        </div>
-		                    </a>
-	                    </div>
-	                    
-				  </div>
+							</div>
+						</a>
+					</div>
+					@endforeach
+					<nav aria-label="...">
+					<ul class="pagination justify-content-center">
+						<li class="page-item disabled">
+						<a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+						</li>
+						<li class="page-item"><a class="page-link" href="#">1</a></li>
+						<li class="page-item active" aria-current="page">
+						<a class="page-link" href="#">2 <span class="visually-hidden">(current)</span></a>
+						</li>
+						<li class="page-item"><a class="page-link" href="#">3</a></li>
+						<li class="page-item"><a class="page-link" href="#">4</a></li>
+						<li class="page-item">
+						<a class="page-link" href="#">Next</a>
+						</li>
+					</ul>
+					</nav>
 				</div>
-				<nav aria-label="...">
-				  <ul class="pagination justify-content-center">
-				    <li class="page-item disabled">
-				      <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-				    </li>
-				    <li class="page-item"><a class="page-link" href="#">1</a></li>
-				    <li class="page-item active" aria-current="page">
-				      <a class="page-link" href="#">2 <span class="visually-hidden">(current)</span></a>
-				    </li>
-				    <li class="page-item"><a class="page-link" href="#">3</a></li>
-				    <li class="page-item"><a class="page-link" href="#">4</a></li>
-				    <li class="page-item">
-				      <a class="page-link" href="#">Next</a>
-				    </li>
-				  </ul>
-				</nav>
 			</div>
 		</div>
     </section>

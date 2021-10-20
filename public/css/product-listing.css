@@ -120,7 +120,7 @@ body{
 
 .btn-advance {
     margin: 0;
-    font-family: "cerebri"
+    font-family: "cerebri";
     font-size: 20px;
     font-weight: 500;
     padding: 8px 20px;
@@ -292,10 +292,24 @@ nav.navbar {
     border-radius: 30px;
 }
 
+.item-header {
+    width: 100%;
+    height: 80px;
+}
+
 #product-listing .item-name {
     font-family: "cerebri-bold";
     font-size: 15px;
     margin-top: 15px;
+}
+
+#product-listing a {
+    text-decoration: none;
+}
+
+.location-text{
+    height: 40px;
+    width: 100%;
 }
 
 #product-listing .price {
@@ -336,6 +350,13 @@ footer ul li a:hover {
 }
 
 /*Footer section*/
+
+
+@media only screen and (max-width: 1200px) {
+    #feature-ul {
+        margin-top: 20px;
+    }
+}
 
 @media only screen and (max-width: 580px) {
     #product-listing{

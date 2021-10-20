@@ -3,11 +3,25 @@
 @section('title', 'Property List')
 
 @section('content')
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-12">
+            @if(session()->has('success'))
+              <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            @endif
+          </div>
+        </div>
+
         <div class="row mb-2">
           <div class="col-sm-12 d-flex justify-content-between">
             <h1>Property List</h1>
@@ -37,14 +51,16 @@
                   </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                        <td>RV-2641</td>
-                        <td>Commercial land</td>
-                        <td>Batu Bolong</td>
-                        <td>IDR 6,050,000,000</td>
-                        <td>Leasehold</td>
-                        <td><a href="#" class="btn btn-primary w-100">View</a></td>
-                    </tr>
+                    @foreach ($property as $data)
+                      <tr>
+                          <td>{{ $data->property_code }}</td>
+                          <td>{{ ucwords(strtolower($data->property_name)) }}</td>
+                          <td>{{ ucwords(strtolower($data->property_location)) }}</td>
+                          <td>IDR {{ number_format($data->price,0,'','.') }}</td>
+                          <td>{{ $data->property_status }}</td>
+                          <td><a href="#" class="btn btn-primary w-100">View</a></td>
+                      </tr>
+                    @endforeach
                   </tbody>
                 </table>
               </div>

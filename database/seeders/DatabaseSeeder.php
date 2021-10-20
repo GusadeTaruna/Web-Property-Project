@@ -15,8 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             RoleSeeder::class,
-            PropertyTypeSeeder::class,
-            LandTypeSeeder::class
+            PropertyTypeSeeder::class
         ]);
         // \App\Models\User::factory(10)->create();
     }

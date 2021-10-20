@@ -48,7 +48,6 @@
 
                 <div class="col-md-12 my-auto mr-auto text-center">
                     <h1 class="h1 h1-responsive judul">About Us</h1>
-                    <h4 class="h5 sub-judul">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h4>
                 </div>
 
             </div>
@@ -60,13 +59,6 @@
 <section id="about-section">
     <div class="container">
         <div class="row">
-            <div class="col-md-5 my-auto mr-auto">
-                <h1 class="h1 h1-responsive">Get To Know Us Better</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-
-            <div class="col-md-1"></div>
-
             <div class="col-lg-6 col-md-5 ml-auto my-md-auto">
                 <!--  Image Slider -->
 
@@ -75,25 +67,25 @@
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <div class="image">
-                                    <img src="/img/image-1.jpg" alt="">
+                                    <img src="/img/about/4.jpg" alt="">
                                 </div>
                             </div>
 
                             <div class="swiper-slide">
                                 <div class="image">
-                                    <img src="/img/image-2.jpg" alt="">
+                                    <img src="/img/about/3.jpg" alt="">
                                 </div>
                             </div>
 
                             <div class="swiper-slide">
                                 <div class="image">
-                                    <img src="/img/image-3.jpg" alt="">
+                                    <img src="/img/about/2.jpg" alt="">
                                 </div>
                             </div>
 
                             <div class="swiper-slide">
                                 <div class="image">
-                                    <img src="/img/image-4.jpg" alt="">
+                                    <img src="/img/about/1.jpg" alt="">
                                 </div>
                             </div>
 
@@ -103,6 +95,19 @@
 
                 <!--  Image Slider -->
 
+            </div>
+
+            <div class="col-md-1"></div>
+
+            
+
+            <div class="col-md-5 my-auto mr-auto">
+                <h1 class="h1 h1-responsive">Our Team...</h1>
+                <p>
+                    Equatorial Property is a professional team of legal , design & build property experts , bringing you 30+ years experience in Asian real estate, covering residential , commmercial & hospitaltiy design industry.
+                    <br><br>
+                    We provide an extensive network of highly reputable professionals & services to manage all aspects of your equatorial property requirements , from the selection process, purchasing , legal & site feasibility reviews, through to complete design & build assessments with property management & guidance on suitable designated services & appropriation for your property goals.
+                </p>
             </div>
         </div>
 
@@ -117,27 +122,16 @@
     <div class="container">
         <h6 class="h6 color-primary m-0">Know more about us</h6>
         <h1 class="h1 h1-responsive mb-4">Our Mission</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-
-        <div class="d-flex justify-content-between my-5">
-            <div class="service-show">
-                <i class="fas fa-search"></i>
-                <h4 class="h5 mb-4">Title 1</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.consectetur adipiscing elit adipiscing elit</p>
-            </div>
-
-            <div class="service-show">
-                <i class="fas fa-people-carry"></i>
-                <h4 class="h5 mb-4">Title 2</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.consectetur adipiscing elit adipiscing elit</p>
-            </div>
-
-            <div class="service-show">
-                <i class="fas fa-shield-alt"></i>
-                <h4 class="h5 mb-4">Title 3</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.consectetur adipiscing elit adipiscing elit</p>
-            </div>
-        </div>
+        <p>
+            Equatorial Property, based in Bali, Indonesia, will provide you with the best up to date advice and a broad array of design and consultancy services to help you achieve your property purchase and build goals within the SE Asian region.
+            <br><br>
+            We provide either partial or full services that include:
+            Site selection, Site Analysis, Topographical and Geo-tech Surveys , Building Permits, Master planning , Architecture , Landscape, Lighting, Engineering, and Interior design services.
+            <br><br>
+            We can arrange Feasibility studies and can arrange the necessary operational documents for commercial properties and villas.
+            <br><br>
+            In addition Equatorial Property provides the selection of Furnishing , Fittings and Equipment plus Artwork and soft furnishings; all backed up by a full Procurement service for local or overseas delivery and installment  .
+        </p>
 
     </div>
 </section>
@@ -146,8 +140,7 @@
 
 <section id="agent-section">
     <div class="container">
-        <h3 class="h1 h1-responsive mb-2 text-center">Meet Our Agent</h3>
-        <h6 class="h6 m-0 text-center mb-4">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed cupiditate delectus.</h6>
+        <h3 class="h1 h1-responsive mb-2 text-center">Meet Our Agents</h3>
     </div>
     <!--  Property Slider -->
 
@@ -165,8 +158,8 @@
                                     </div>
                             
                                     <div class="col-md-12 col-lg-12 col-xxl-7 d-flex flex-column ">
-                                        <p class="agent-name font-weight-bold mb-0 mt-2">David James Haughton</p>
-                                        <p class="agent-pos">Principal, Artist, Architecture, Interior Designer</p>
+                                        <p class="agent-name font-weight-bold mb-0 mt-2">David James</p>
+                                        <p class="agent-pos">Principal Sales & Marketing</p>
                                         <div class="agent-desc mb-3">
                                             <p>David holds both a Bachelor of Arts degree from
                                                 Victoria College, as well as a Bachelor of Interior
@@ -194,7 +187,7 @@
                             
                                     <div class="col-md-12 col-lg-12 col-xxl-7 d-flex flex-column">
                                         <p class="agent-name font-weight-bold mb-0 mt-2">Marthin Gunardhy</p>
-                                        <p class="agent-pos">Architect</p>
+                                        <p class="agent-pos">Indonesian Architectural Representative</p>
                                         <div class="agent-desc mb-3">
                                             <p>
                                                 Marthin is certified professional architect from Indonesian Institute of Architects, and a certified as ASEAN Architect from ASEAN Architect Council. In 2019 he completed his Master Degree on Urban Planning and also qualified as a Certified Greenship Professional from Green Building Council Indonesia.
@@ -219,29 +212,7 @@
                             
                                     <div class="col-md-12 col-lg-12 col-xxl-7 d-flex flex-column">
                                         <p class="agent-name font-weight-bold mb-0 mt-2">Miles Humphreys</p>
-                                        <p class="agent-pos">Director and Managing Architect</p>
-                                        <div class="agent-desc mb-3">
-                                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit, repudiandae sequi modi mollitia, illum earum provident qui commodi ullam libero alias, hic aliquam eos exercitationem tempora est! Doloremque, libero quod?</p>
-                                        </div>
-                                        <button class="btn btn-details mt-auto">See Details</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="swiper-slide">
-                    <a href="/cv/cv-david.pdf" download>
-                        <div class="card">
-                            <div class="card-body shadow">
-                                <div class="row">
-                                    <div class="col-md-12 col-lg-12 col-xxl-5 my-auto">
-                                        <img src="/img/potrait-2.jpg" alt="">
-                                    </div>
-                                    <div class="col-md-12 col-lg-12 col-xxl-7 d-flex flex-column">
-                                        <p class="agent-name font-weight-bold mb-0 mt-2">Gusade Taruna</p>
-                                        <p class="agent-pos">Lead Developer</p>
+                                        <p class="agent-pos">Team Senior lead Architect</p>
                                         <div class="agent-desc mb-3">
                                             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit, repudiandae sequi modi mollitia, illum earum provident qui commodi ullam libero alias, hic aliquam eos exercitationem tempora est! Doloremque, libero quod?</p>
                                         </div>

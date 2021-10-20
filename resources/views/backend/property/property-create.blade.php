@@ -45,7 +45,12 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="name">Property Name</label>
-                        <input type="text" name="property_name" class="form-control" id="property_name" placeholder="Input name here" required>
+                        <input type="text" name="property_name" class="form-control @error('property_name') is-invalid @enderror" required value="{{ old('property_name') }}" id="property_name" placeholder="Input name here">
+                        @error('property_name')
+                          <div class="invalid-feedback">
+                            {{ $message }}
+                          </div>
+                        @enderror
                       </div>
                     </div>
                   </div>
@@ -54,13 +59,23 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="location">Location</label>
-                        <input type="text" name="location" class="form-control" id="location" placeholder="Input location here" required>
+                        <input type="text" name="location" class="form-control @error('location') is-invalid @enderror" required value="{{ old('location') }}" id="location" placeholder="Input Location here">
+                        @error('location')
+                          <div class="invalid-feedback">
+                            {{ $message }}
+                          </div>
+                        @enderror
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="price">Price</label>
-                        <input type="text" name="price" class="form-control" id="price" placeholder="Input location here" required>
+                        <input type="text" name="price" class="form-control @error('price') is-invalid @enderror" required value="{{ old('price') }}" id="price" placeholder="Input Price here">
+                        @error('price')
+                          <div class="invalid-feedback">
+                            {{ $message }}
+                          </div>
+                        @enderror
                       </div>
                     </div>
                   </div>
@@ -69,7 +84,12 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="status">Status</label>
-                        <input type="text" name="status" class="form-control" id="status" placeholder="Input location here" required>
+                        <input type="text" name="status" class="form-control @error('status') is-invalid @enderror" required value="{{ old('status') }}" id="status" placeholder="Input Status here">
+                        @error('status')
+                          <div class="invalid-feedback">
+                            {{ $message }}
+                          </div>
+                        @enderror
                       </div>
                     </div>
                     <div class="col-md-6">
@@ -88,13 +108,23 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="site-area">Site Area (m2)</label>
-                        <input type="text" name="site_area" class="form-control" id="site_area" placeholder="Input Site Area here" required>
+                        <input type="text" name="site_area" class="form-control @error('site_area') is-invalid @enderror" required value="{{ old('site_area') }}" id="site_area" placeholder="Input Site Area here" >
+                        @error('site_area')
+                          <div class="invalid-feedback">
+                            {{ $message }}
+                          </div>
+                        @enderror
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="building_area">Building Area (m2)</label>
-                        <input type="text" name="building_area" class="form-control" id="building_area" placeholder="Input Building Area here" required>
+                        <input type="text" name="building_area" class="form-control @error('building_area') is-invalid @enderror" required value="{{ old('building_area') }}" id="building_area" placeholder="Input Building Area here" >
+                        @error('building_area')
+                          <div class="invalid-feedback">
+                            {{ $message }}
+                          </div>
+                        @enderror
                       </div>
                     </div>
                   </div>
@@ -103,13 +133,23 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="power_kv">PLN / Power (kV)</label>
-                        <input type="text" name="power_kv" class="form-control" id="power_kv" placeholder="0" required>
+                        <input type="text" name="power_kv" class="form-control @error('power_kv') is-invalid @enderror" required value="{{ old('power_kv') }}" id="power_kv" placeholder="0">
+                        @error('power_kv')
+                          <div class="invalid-feedback">
+                            {{ $message }}
+                          </div>
+                        @enderror
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="generator">Generator (kV)</label>
-                        <input type="text" name="generator" class="form-control" id="generator" placeholder="0" required>
+                        <input type="text" name="generator" class="form-control @error('generator') is-invalid @enderror" required value="{{ old('generator') }}" id="generator" placeholder="0">
+                        @error('generator')
+                          <div class="invalid-feedback">
+                            {{ $message }}
+                          </div>
+                        @enderror
                       </div>
                     </div>
                   </div>
@@ -156,7 +196,12 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label for="description">Description</label>
-                        <textarea class="form-control" name="description" id="description" rows="3" placeholder="Input property description here..." required></textarea>
+                        <textarea class="form-control @error('description') is-invalid @enderror" required value="{{ old('description') }}" name="description" id="description" rows="3" placeholder="Input property description here..."></textarea>
+                        @error('description')
+                          <div class="invalid-feedback">
+                            {{ $message }}
+                          </div>
+                        @enderror
                       </div>
                     </div>
                   </div>
@@ -177,7 +222,12 @@
                             <i class="fas fa-school"></i>
                           </span>
                         </div>
-                        <input type="text" name="school" class="form-control" placeholder="School (km)" aria-label="school" aria-describedby="basic-addon1" required>
+                        <input type="text" name="school" class="form-control @error('school') is-invalid @enderror" required value="{{ old('school') }}" placeholder="School (km)" aria-label="school" aria-describedby="basic-addon1">
+                        @error('school')
+                          <div class="invalid-feedback">
+                            {{ $message }}
+                          </div>
+                        @enderror
                       </div>
                     </div>
                     <div class="col-md-4">
@@ -187,7 +237,12 @@
                             <i class="fas fa-hospital"></i>
                           </span>
                         </div>
-                        <input type="text" name="hospital" class="form-control" placeholder="Hospital (km)" aria-label="hospital" aria-describedby="basic-addon1" required>
+                        <input type="text" name="hospital" class="form-control @error('hospital') is-invalid @enderror" required value="{{ old('hospital') }}" placeholder="Hospital (km)" aria-label="hospital" aria-describedby="basic-addon1">
+                        @error('hospital')
+                          <div class="invalid-feedback">
+                            {{ $message }}
+                          </div>
+                        @enderror
                       </div>
                     </div>
                     <div class="col-md-4">
@@ -197,7 +252,12 @@
                             <i class="fas fa-plane-departure"></i>
                           </span>
                         </div>
-                        <input type="text" name="airport" class="form-control" placeholder="Airport (km)" aria-label="airport" aria-describedby="basic-addon1" required>
+                        <input type="text" name="airport" class="form-control @error('airport') is-invalid @enderror" required value="{{ old('airport') }}" placeholder="Airport (km)" aria-label="airport" aria-describedby="basic-addon1">
+                        @error('airport')
+                          <div class="invalid-feedback">
+                            {{ $message }}
+                          </div>
+                        @enderror
                       </div>
                     </div>
                   </div>
@@ -210,7 +270,12 @@
                             <i class="fas fa-store-alt"></i>
                           </span>
                         </div>
-                        <input type="text" name="supermarket" class="form-control" placeholder="Supermarket (km)" aria-label="supermarket" aria-describedby="basic-addon1" required>
+                        <input type="text" name="supermarket" class="form-control @error('supermarket') is-invalid @enderror" required value="{{ old('supermarket') }}" placeholder="Supermarket (km)" aria-label="supermarket" aria-describedby="basic-addon1">
+                        @error('supermarket')
+                          <div class="invalid-feedback">
+                            {{ $message }}
+                          </div>
+                        @enderror
                       </div>
                     </div>
                     <div class="col-md-4">
@@ -220,7 +285,12 @@
                             <i class="fas fa-umbrella-beach"></i>
                           </span>
                         </div>
-                        <input type="text" name="beach" class="form-control" placeholder="Beach (km)" aria-label="beach" aria-describedby="basic-addon1" required>
+                        <input type="text" name="beach" class="form-control @error('beach') is-invalid @enderror" required value="{{ old('beach') }}" placeholder="Beach (km)" aria-label="beach" aria-describedby="basic-addon1">
+                        @error('beach')
+                          <div class="invalid-feedback">
+                            {{ $message }}
+                          </div>
+                        @enderror
                       </div>
                     </div>
                     <div class="col-md-4">
@@ -230,7 +300,12 @@
                             <i class="fas fa-utensils"></i>
                           </span>
                         </div>
-                        <input type="text" name="dining" class="form-control" placeholder="Fine Dining (km)" aria-label="dining" aria-describedby="basic-addon1" required>
+                        <input type="text" name="dining" class="form-control @error('dining') is-invalid @enderror" required value="{{ old('dining') }}" placeholder="Fine Dining (km)" aria-label="dining" aria-describedby="basic-addon1">
+                        @error('dining')
+                          <div class="invalid-feedback">
+                            {{ $message }}
+                          </div>
+                        @enderror
                       </div>
                     </div>
                   </div>

@@ -15,19 +15,19 @@ class PropertyTypeSeeder extends Seeder
     public function run()
     {
         //
-        DB::table('property_zoning_types')->insert([
+        DB::table('zoning_type')->insert([
             'nama_tipe' => 'Housing Urban',
         ]);
 
-        DB::table('property_zoning_types')->insert([
+        DB::table('zoning_type')->insert([
             'nama_tipe' => 'Tourism Hospitality',
         ]);
 
-        DB::table('property_zoning_types')->insert([
+        DB::table('zoning_type')->insert([
             'nama_tipe' => 'Commercial',
         ]);
 
-        DB::table('property_zoning_types')->insert([
+        DB::table('zoning_type')->insert([
             'nama_tipe' => 'Green Belt',
         ]);
     }

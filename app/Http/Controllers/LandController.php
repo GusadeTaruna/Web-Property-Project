@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Land;
-use App\Models\LandZoningType;
+use App\Models\Property;
+use App\Models\ZoningType;
 
 class LandController extends Controller
 {
@@ -14,10 +14,10 @@ class LandController extends Controller
     }
 
     public function create(){
-        $land = Land::all();
-        $land_type = LandZoningType::all();
+        $land = Property::all();
+        $land_type = ZoningType::all();
         $huruf = "L-";
-        $count = Land::count();
+        $count = Property::where('property_type', 'Land')->count();
 
         if($count > 0) {
             $landCode = $huruf . sprintf("%03s", $count+1);
@@ -31,26 +31,28 @@ class LandController extends Controller
 
     public function store(Request $request){
 
-    	$land = new Land;
-    	$land->land_code = $request->code;
-		$land->land_name = $request->land_name;
-		$land->land_location = $request->land_location;
-		$land->price = $request->price;
-		$land->land_status = $request->status;
-		$land->site_plan = $request->site_plan;
-        $land->site_area = $request->site_area;
-        $land->site_dimensions = $request->site_dimension;
-        $land->power_kv = $request->pln;
-        $land->pdma_water = $request->pdma;
-        $land->imb = $request->imb;
-        $land->description = $request->description;
-        $land->school_distance = $request->school;
-        $land->hospital_distance = $request->hospital;
-        $land->airport_distance = $request->airport;
-        $land->supermarket_distance = $request->supermarket;
-        $land->beach_distance = $request->beach;
-        $land->fine_dining_distance = $request->dining;
-		$land->save();
+    	$property = new Property;
+        $property->property_type = "Land";
+    	$property->property_code = $request->code;
+		$property->property_name = $request->land_name;
+		$property->property_location = $request->land_location;
+		$property->price = $request->price;
+		$property->property_status = $request->status;
+		$property->site_plan = $request->site_plan;
+        $property->site_area = $request->site_area;
+        $property->site_dimension = $request->site_dimension;
+        $property->power_kv = $request->pln;
+        $property->pdma_water = $request->pdma;
+        $property->imb = $request->imb;
+        $property->zoning = $request->zone_type;
+        $property->description = $request->description;
+        $property->school_distance = $request->school;
+        $property->hospital_distance = $request->hospital;
+        $property->airport_distance = $request->airport;
+        $property->supermarket_distance = $request->supermarket;
+        $property->beach_distance = $request->beach;
+        $property->fine_dining_distance = $request->dining;
+		$property->save();
 
 
         // dd($land);

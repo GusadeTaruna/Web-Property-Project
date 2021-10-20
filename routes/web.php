@@ -26,7 +26,7 @@ use App\Http\Controllers\LandController;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/property-list', [HomeController::class, 'propertyListing'])->name('property-list');
-Route::get('/property-detail', [HomeController::class, 'propertyDetail'])->name('property-detail');
+Route::get('/property-detail/{id}', [HomeController::class, 'propertyDetail'])->name('property-detail');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
 Route::get('/contact-us', [HomeController::class, 'contactUs'])->name('contact-us');
