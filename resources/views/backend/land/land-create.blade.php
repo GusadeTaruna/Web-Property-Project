@@ -151,6 +151,93 @@
                     </div>
                   </div>
 
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="topography-plan">Topography plan</label>
+                        <select name="topography" class="custom-select" required>
+                          <option selected disabled>Choose One</option>
+                          <option value="0">Yes</option>
+                          <option value="1">No</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="soil-test">Soil Test</label>
+                        <select name="soil_test" class="custom-select">
+                          <option selected disabled>Choose One</option>
+                          <option value="0">Yes</option>
+                          <option value="1">No</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="slope-ratio">Slope Ratio</label>
+                        <input name="slope_ratio" type="text" class="form-control" id="slope-ratio" placeholder="Input Slope Ratio here">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="building-ratio">Building Ratio</label>
+                        <input name="building_ratio" type="text" class="form-control" id="building-ratio" placeholder="Input Building Ratio here">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="rain-average">Rain Average (Year)</label>
+                        <input name="rain_average" type="text" class="form-control" id="rain-average" placeholder="Input Rain Average per year here">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="humidity-average">Humidity Average (Year)</label>
+                        <input name="humidity_average" type="text" class="form-control" id="humidity-average" placeholder="Input Humidity Average per year here">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="city-draw">City Draw</label>
+                        <input name="city_draw" type="text" class="form-control" id="city-draw" placeholder="Input City Draw here">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="access-road">Access Road</label>
+                        <select name="access_road" class="custom-select" required>
+                          <option selected disabled>Choose One</option>
+                          <option value="0">Yes</option>
+                          <option value="1">No</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="road-width">Access Road Width</label>
+                        <input name="road_width" type="text" class="form-control" id="road-width" placeholder="Input Access Road Width here">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label for="description">Surrounding Sites Description</label>
+                        <textarea name="sites_description" class="form-control" id="sites-description" rows="3" placeholder="Input Surrounding Sites Description here..."></textarea>
+                      </div>
+                    </div>
+                  </div>
+
                   <div class="row mt-4">
                     <div class="col-md-12 text-center">
                       <div class="form-group">

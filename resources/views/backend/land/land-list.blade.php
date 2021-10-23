@@ -37,14 +37,17 @@
                   </tr>
                   </thead>
                   <tbody>
+                    @foreach ($land as $data)
                     <tr>
-                        <td>RV-2641</td>
-                        <td>Commercial land</td>
-                        <td>Batu Bolong</td>
-                        <td>IDR 6,050,000,000</td>
-                        <td>Leasehold</td>
-                        <td><a href="#" class="btn btn-primary w-100">View</a></td>
+                      <td>{{ $data->property_code }}</td>
+                      <td>{{ ucwords(strtolower($data->property_name)) }}</td>
+                      <td>{{ ucwords(strtolower($data->property_location)) }}</td>
+                      <td>IDR {{ number_format($data->price,0,'','.') }}</td>
+                      <td>{{ $data->property_status }}</td>
+                      <td><a href="#" class="btn btn-primary w-100">View</a></td>
                     </tr>
+                    @endforeach
+                    
                   </tbody>
                 </table>
               </div>

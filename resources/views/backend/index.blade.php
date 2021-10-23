@@ -44,13 +44,13 @@
                   <!-- small box -->
                   <div class="small-box bg-info">
                       <div class="inner">
-                          <h3>150</h3>
+                          <h3>{{ $property_list }}</h3>
                           <p>Property List</p>
                       </div>
                       <div class="icon">
                           <i class="fas fa-building"></i>
                       </div>
-                      <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                      <a href="/admin/property" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                   </div>
               </div>
               <!-- ./col -->
@@ -58,13 +58,13 @@
                   <!-- small box -->
                   <div class="small-box bg-success">
                       <div class="inner">
-                          <h3>5</h3>
+                          <h3>{{ $land_list }}</h3>
                           <p>Land List</p>
                       </div>
                       <div class="icon">
                           <i class="fas fa-sort-amount-down"></i>
                       </div>
-                      <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                      <a href="/admin/land" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                   </div>
               </div>
               <!-- ./col -->

@@ -140,7 +140,7 @@
 
 <section id="agent-section">
     <div class="container">
-        <h3 class="h1 h1-responsive mb-2 text-center">Meet Our Agents</h3>
+        <h3 class="h1 h1-responsive mb-2 text-center">Meet Our Team</h3>
     </div>
     <!--  Property Slider -->
 
@@ -202,7 +202,7 @@
                 </div>
 
                 <div class="swiper-slide">
-                    <a href="/cv/cv-mile.pdf" download="cv-mile.pdf">
+                    <a href="/cv/cv-`.pdf" download="cv-mile.pdf">
                         <div class="card">
                             <div class="card-body shadow">
                                 <div class="row">
@@ -212,7 +212,7 @@
                             
                                     <div class="col-md-12 col-lg-12 col-xxl-7 d-flex flex-column">
                                         <p class="agent-name font-weight-bold mb-0 mt-2">Miles Humphreys</p>
-                                        <p class="agent-pos">Team Senior lead Architect</p>
+                                        <p class="agent-pos">Lead Architect</p>
                                         <div class="agent-desc mb-3">
                                             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit, repudiandae sequi modi mollitia, illum earum provident qui commodi ullam libero alias, hic aliquam eos exercitationem tempora est! Doloremque, libero quod?</p>
                                         </div>

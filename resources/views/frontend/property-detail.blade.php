@@ -126,10 +126,13 @@
 	    		<h1 class="judul mb-1">{{ ucwords(strtolower($data->property_name)) }}</h1>
 	    		<p class="mt-0 mb-2">{{ ucwords(strtolower($data->property_location)) }}</p>
 	    		<div class="d-flex justify-content-start">
-	    			<p class="mr-3"><i class="fas fa-bed"></i> 4 Beds</p>
-	    			<p class="mr-3"><i class="fas fa-bath"></i> 3 Bath</p>
-	    			<p class="mr-3"><i class="fas fa-warehouse"></i> 1 Garage</p>
-	    			<p class="mr-3"><i class="fas fa-pencil-ruler"></i> {{ $data->site_area }} sqm</p>
+					@if ($data->property_type == 1)
+						<p class="mr-3"><i class="fas fa-bed"></i> 4 Beds</p>
+						<p class="mr-3"><i class="fas fa-bath"></i> 3 Bath</p>
+						<p class="mr-3"><i class="fas fa-warehouse"></i> 1 Garage</p>
+					@else
+					@endif
+	    			<p class="mr-3"><i class="fas fa-pencil-ruler"></i> {{  number_format($data->site_area,0,'','.') }} sqm</p>
 	    		</div>
 	    	</div>
 	    	<div class="col-lg-2"></div>
@@ -284,33 +287,22 @@
 				    <div class="row">
 				    	<div class="col-lg-6">
 				    		<div class="detail-text d-flex justify-content-start">
-						    	<p class="card-title mr-1">Power (kV) :</p>
-						    	<p class="card-text">{{ $data->power_kv }}</p>
-						    </div>
-				    	</div>
-				    	<div class="col-lg-6">
-				    		<div class="detail-text d-flex justify-content-start">
-						    	<p class="card-title mr-1">PDMA Water :</p>
-						    	<p class="card-text">{{ $data->pdma_water }}</p>
-						    </div>
-				    	</div>
-				    </div>
-
-				    <div class="row">
-				    	<div class="col-lg-6">
-				    		<div class="detail-text d-flex justify-content-start">
-						    	<p class="card-title mr-1">IMB :</p>
-								@if($data->imb ==0) 
+						    	<p class="card-title mr-1">Topography Plan :</p>
+						    	@if($data->topography_plan ==0) 
 						    	<p class="card-text">No</p>
-								@elseif($data->imb ==1) 
+								@elseif($data->topography_plan ==1) 
 								<p class="card-text">Yes</p>
 								@endif
 						    </div>
 				    	</div>
 				    	<div class="col-lg-6">
 				    		<div class="detail-text d-flex justify-content-start">
-						    	<p class="card-title mr-1">Generator (kV) :</p>
-						    	<p class="card-text">{{ $data->generator_kv }}</p>
+						    	<p class="card-title mr-1">Soil Test :</p>
+						    	@if($data->soil_test ==0) 
+						    	<p class="card-text">No</p>
+								@elseif($data->soil_test ==1) 
+								<p class="card-text">Yes</p>
+								@endif
 						    </div>
 				    	</div>
 				    </div>
@@ -318,14 +310,66 @@
 				    <div class="row">
 				    	<div class="col-lg-6">
 				    		<div class="detail-text d-flex justify-content-start">
-						    	<p class="card-title mr-1">Bedrooms :</p>
-						    	<p class="card-text">4</p>
+						    	<p class="card-title mr-1">Slope Ratio :</p>
+								<p class="card-text">{{ $data->slope_ratio }}</p>
 						    </div>
 				    	</div>
 				    	<div class="col-lg-6">
 				    		<div class="detail-text d-flex justify-content-start">
-						    	<p class="card-title mr-1">Bathrooms :</p>
-						    	<p class="card-text">6</p>
+						    	<p class="card-title mr-1">Building Ratio :</p>
+						    	<p class="card-text">{{ $data->building_ratio }}</p>
+						    </div>
+				    	</div>
+				    </div>
+
+				    <div class="row">
+				    	<div class="col-lg-6">
+				    		<div class="detail-text d-flex justify-content-start">
+						    	<p class="card-title mr-1">Rain Average (Year) :</p>
+						    	<p class="card-text">{{ $data->rain_avg_year }}</p>
+						    </div>
+				    	</div>
+				    	<div class="col-lg-6">
+				    		<div class="detail-text d-flex justify-content-start">
+						    	<p class="card-title mr-1">Humidity Average (Year) :</p>
+						    	<p class="card-text">{{ $data->humidity_avg_year }}</p>
+						    </div>
+				    	</div>
+				    </div>
+
+					<div class="row">
+						<div class="col-lg-6">
+				    		<div class="detail-text d-flex justify-content-start">
+						    	<p class="card-title mr-1">Access Road :</p>
+						    	@if($data->access_road ==0) 
+						    	<p class="card-text">No</p>
+								@elseif($data->access_road ==1) 
+								<p class="card-text">Yes</p>
+								@endif
+						    </div>
+				    	</div>
+				    	<div class="col-lg-6">
+				    		<div class="detail-text d-flex justify-content-start">
+						    	<p class="card-title mr-1">Access Road Width :</p>
+						    	<p class="card-text">{{ $data->access_road_width }}</p>
+						    </div>
+				    	</div>
+				    </div>
+
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="detail-text d-flex justify-content-start">
+								<p class="card-title mr-1">City Draw :</p>
+								<p class="card-text">{{ $data->city_draw }}</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+				    	<div class="col-lg-12">
+				    		<div class="detail-text d-flex justify-content-start">
+						    	<p class="card-title mr-1">Surrounding Sites Description :</p>
+						    	<p class="card-text">{{ $data->surrounding_sites_desc }}</p>
 						    </div>
 				    	</div>
 				    </div>

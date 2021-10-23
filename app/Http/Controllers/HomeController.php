@@ -14,7 +14,7 @@ class HomeController extends Controller
     }
 
     public function propertyListing(){
-        $property = Property::all();
+        $property = Property::paginate(9);
         return view('frontend.property-listing', compact('property'));
     }
 

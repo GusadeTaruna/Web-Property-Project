@@ -15,12 +15,14 @@ class CreatePropertyListTable extends Migration
     {
         Schema::create('property_list', function (Blueprint $table) {
             $table->id();
-            $table->string('property_type');
+            $table->unsignedBigInteger('property_type');
+            $table->foreign('property_type')->references('id')->on('property_type');
             $table->string('property_code');
             $table->string('property_name');
             $table->string('property_location');
             $table->string('property_status');
             $table->string('price');
+            $table->text('description');
             $table->string('site_area');
             $table->string('site_dimension')->nullable();
             $table->string('building_area')->nullable();
@@ -37,7 +39,18 @@ class CreatePropertyListTable extends Migration
             $table->string('supermarket_distance');
             $table->string('beach_distance');
             $table->string('fine_dining_distance');
-            $table->text('description');
+            //additional land
+            $table->boolean('topography_plan')->nullable();
+            $table->boolean('soil_test')->nullable();
+            $table->string('slope_ratio')->nullable();
+            $table->string('building_ratio')->nullable();
+            $table->string('rain_avg_year')->nullable();
+            $table->string('humidity_avg_year')->nullable();
+            $table->string('city_draw')->nullable();
+            $table->boolean('access_road')->nullable();
+            $table->string('access_road_width')->nullable();
+            $table->text('surrounding_sites_desc')->nullable();
+            
         });
     }
 

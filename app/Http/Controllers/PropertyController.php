@@ -10,7 +10,7 @@ class PropertyController extends Controller
 {
     //
     public function index(){
-        $property = Property::join('zoning_type', 'property_list.zoning', '=', 'zoning_type.id')->where('property_type','Property Building')->get();
+        $property = Property::join('zoning_type', 'property_list.zoning', '=', 'zoning_type.id')->where('property_type',1)->get();
         return view('backend.property.property-list',compact('property'));
     }
 
@@ -18,7 +18,7 @@ class PropertyController extends Controller
         $property = Property::all();
         $property_type = ZoningType::all();
         $huruf = "PB-";
-        $count = Property::where('property_type', 'Property Building')->count();
+        $count = Property::where('property_type', 1)->count();
 
         if($count > 0) {
             $propertyCode = $huruf . sprintf("%03s", $count+1);
@@ -56,7 +56,7 @@ class PropertyController extends Controller
     	// ]);
 
     	$property = new Property;
-        $property->property_type = "Property Building";
+        $property->property_type = 1;
     	$property->property_code = $request->code;
 		$property->property_name = $request->property_name;
 		$property->property_location = $request->location;
