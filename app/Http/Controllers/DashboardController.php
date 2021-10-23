@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Property;
 use App\Models\ZoningType;
+use App\Models\Inbox;
 
 class DashboardController extends Controller
 {
@@ -32,6 +33,11 @@ class DashboardController extends Controller
     public function adminList(){
         $user = User::join('roles', 'users.role', '=', 'roles.id')->get(['users.*', 'roles.nama_role']);
         return view('backend.admin.admin-list',compact('user'));
+    }
+
+    public function msgInbox(){
+        $inbox = Inbox::all();
+        return view('backend.admin.inbox',compact('inbox'));
     }
 
     public function createProperty(){

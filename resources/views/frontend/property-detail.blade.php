@@ -280,7 +280,9 @@
 				</div>
 			</div>
 
+			
 			<div class="col-lg-4">
+				@if ($data->property_type==2)
 				<div class="card mb-4">
 				  <div class="card-body">
 				    <h5 class="card-title mb-4">Additional Details</h5>
@@ -376,6 +378,7 @@
 
 				  </div>
 				</div>
+				@endif
 
 				<div class="card">
 					<div class="card-body">
@@ -426,9 +429,9 @@
 					  </div>
   
 					</div>
-				  </div>
-				
+				</div>
 			</div>
+			
 		</div>
 		@endforeach
     </section>

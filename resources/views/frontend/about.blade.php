@@ -177,7 +177,7 @@
                 </div>
 
                 <div class="swiper-slide">
-                    <a href="/cv/cv-marthin.pdf" download="cv-marthin.pdf">
+                    <a href="/cv/cv-martin.pdf" download="cv-martin.pdf">
                         <div class="card">
                             <div class="card-body shadow">
                                 <div class="row">
@@ -202,7 +202,7 @@
                 </div>
 
                 <div class="swiper-slide">
-                    <a href="/cv/cv-`.pdf" download="cv-mile.pdf">
+                    <a href="/cv/cv-mile.pdf" download="cv-mile.pdf">
                         <div class="card">
                             <div class="card-body shadow">
                                 <div class="row">

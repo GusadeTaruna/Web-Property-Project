@@ -63,10 +63,33 @@
         <h1 class="judul">Let Us Know How We Can Help</h1>
         <p class="sub-judul">Feel free to contact us if you need some help, consultation or you have some other questions</p>
         <div class="col-md-12 mx-auto">
-            <input class="form-control contact-form mb-3" type="Text" placeholder="Your Name"/>
-            <input class="form-control contact-form mb-3" type="Text" placeholder="Your Email"/>
-            <textarea class="form-control mb-3" rows="5" placeholder="Message..."></textarea>
-            <button class="btn btn-theme w-100 mb-3" type="submit">SEND</button>
+            @if (Session::has('success'))
+                <div class="alert alert-success" role="alert">
+                    {{ Session::get('success') }}
+                </div>
+            @endif
+            <form method="post" action="{{ route('contact.send') }}" enctype="multipart/form-data">
+            @csrf
+                <input class="form-control contact-form mb-3 @error('name') is-invalid @enderror" type="text" name="name" placeholder="Your Name" value="{{ old('name') }}" required/>
+                @error('name')
+                    <div class="text-danger">
+                        <small>{{ $message }}<small>
+                    </div>
+                @enderror
+                <input class="form-control contact-form mb-3 @error('email') is-invalid @enderror" type="email" name="email" placeholder="Your Email" value="{{ old('email') }}" required/>
+                @error('email')
+                    <div class="text-danger">
+                        <small>{{ $message }}<small>
+                    </div>
+                @enderror
+                <textarea class="form-control mb-3 @error('msg') is-invalid @enderror" rows="5" name="msg" placeholder="Message..." required>{{ old('msg') }}</textarea>
+                @error('msg')
+                    <div class="text-danger">
+                        <small>{{ $message }}<small>
+                    </div>
+                @enderror
+                <button class="btn btn-theme w-100 mb-3" type="submit">SEND</button>
+            </form>
         </div>
         <hr class="mx-auto">
 

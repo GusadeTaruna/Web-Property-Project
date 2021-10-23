@@ -98,13 +98,13 @@
                         <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="/admin/dashboard" class="nav-link active">
+                            <a href="/admin/dashboard" class="nav-link {{ request()->is('admin/dashboard') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-columns"></i>
                                 <p>Dashboard</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="#" class="nav-link {{ request()->is('admin/property') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-building"></i>
                                 <p>Property<i class="fas fa-angle-left right"></i></p>
                             </a>
@@ -125,7 +125,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="#" class="nav-link {{ request()->is('admin/land') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-street-view"></i>
                                 <p>Land<i class="fas fa-angle-left right"></i></p>
                             </a>
@@ -145,10 +145,18 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="/admin/list-admin" class="nav-link">
+                            <a href="/admin/list-admin" class="nav-link {{ request()->is('admin/list-admin') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-user"></i>
                                 <p>
                                     Admin
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/inbox" class="nav-link {{ request()->is('admin/inbox') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-inbox"></i>
+                                <p>
+                                    Inbox
                                 </p>
                             </a>
                         </li>

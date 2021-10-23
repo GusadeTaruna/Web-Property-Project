@@ -30,6 +30,7 @@ Route::get('/property-detail/{id}', [HomeController::class, 'propertyDetail'])->
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
 Route::get('/contact-us', [HomeController::class, 'contactUs'])->name('contact-us');
+Route::post('/send-message',[HomeController::class, 'sendEmail'])->name('contact.send');
 
 
 
@@ -59,3 +60,5 @@ Route::get('/admin/land/create', [LandController::class, 'create'])->name('creat
 Route::post('/admin/land/create', [LandController::class, 'store'])->middleware('auth');
 
 Route::get('/admin/list-admin', [DashboardController::class, 'adminList'])->name('list-admin')->middleware('auth');
+
+Route::get('/admin/inbox', [DashboardController::class, 'msgInbox'])->name('inbox')->middleware('auth');

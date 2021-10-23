@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateZoningType extends Migration
+class CreateInboxTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateZoningType extends Migration
      */
     public function up()
     {
-        Schema::create('zoning_type', function (Blueprint $table) {
+        Schema::create('inbox', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_tipe');
+            $table->string('sender_name');
+            $table->string('sender_email');
+            $table->text('message');
         });
     }
 
@@ -26,6 +28,6 @@ class CreateZoningType extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('zoning_type');
+        Schema::dropIfExists('inbox');
     }
 }
