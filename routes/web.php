@@ -28,6 +28,7 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/property-list', [HomeController::class, 'propertyListing'])->name('property-list');
 Route::get('/property-detail/{id}', [HomeController::class, 'propertyDetail'])->name('property-detail');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
+Route::get('/services', [HomeController::class, 'services'])->name('services');
 Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
 Route::get('/contact-us', [HomeController::class, 'contactUs'])->name('contact-us');
 Route::post('/send-message',[HomeController::class, 'sendEmail'])->name('contact.send');

@@ -23,11 +23,14 @@
                     <ul class="navbar-nav ml-auto">
 
                          <!-- Link -->
-						<li class="nav-item">
+						 <li class="nav-item">
 							<a class="nav-link" href="/"><i class="fas fa-home my-auto icon-responsive"></i> Home</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="/about"><i class="fas fa-user-friends my-auto icon-responsive"></i> About Us</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/services"><i class="fas fa-user-friends my-auto icon-responsive"></i> Services</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link active" href="/property-list"><i class="fas fa-stream my-auto icon-responsive"></i> Product</a>

@@ -1,8 +1,8 @@
 /*Color*/
 :root {
-    --color-primary: #2289ff;
-    --color-secondary: #314862 !important;
-    --color-acent: #193f6a;
+    --color-primary: #c0ae9b;
+    --color-secondary: #E1CCB7 !important;
+    --color-acent: #cebba8;
     --font-poppin: 'Poppins', serif;
 }
 
@@ -120,8 +120,6 @@ body{
 
 .btn-advance {
     margin: 0;
-    font-family: "cerebri";
-    font-size: 20px;
     font-weight: 500;
     padding: 8px 20px;
     text-transform: none;
@@ -154,10 +152,11 @@ nav.navbar {
 }
 
 .header nav.navbar .nav-link {
+    font-size: 15px;
     font-family: var(--font-poppin);
     color: #fff;
     font-weight: 500;
-    padding: 10px 20px;
+    padding: 10px 15px;
     transition: 0.5s ease;
 }
 
@@ -169,6 +168,7 @@ nav.navbar {
 .header .navbar .nav-link.active {
     background-color: #ffffff;
     color: var(--color-primary);
+    border-radius: 50px;
 }
 
 
@@ -203,7 +203,6 @@ nav.navbar {
 #product-listing{
     width: 100%;
     padding: 80px 100px;
-    color: var(--color-secondary);
     font-family: var(--font-poppin);
 }
 

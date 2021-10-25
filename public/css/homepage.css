@@ -1,8 +1,8 @@
 /*Color*/
 :root {
-    --color-primary: #2289ff;
-    --color-secondary: #314862 !important;
-    --color-acent: #193f6a;
+    --color-primary: #c0ae9b;
+    --color-secondary: #E1CCB7 !important;
+    --color-acent: #cebba8;
     --font-poppin: 'Poppins', serif;
 }
 
@@ -72,7 +72,7 @@
 }
 
 .btn-theme-2 {
-    box-shadow: 0 10px 20px 0px rgb(34 137 255 / 52%);
+    box-shadow: 0 10px 20px 0px rgb(206 187 168 / 52%);
     margin: 0;
     font-family: var(--font-poppin);
     font-size: 16px;
@@ -116,8 +116,6 @@
 
 .btn-advance {
     margin: 0;
-    font-family: "cerebri"
-        font-size: 20px;
     font-weight: 500;
     padding: 8px 20px;
     text-transform: none;
@@ -158,23 +156,26 @@ nav.navbar {
 }
 
 .header nav.navbar .nav-link {
+    font-size: 15px;
     font-family: var(--font-poppin);
     color: #fff;
     font-weight: 500;
-    padding: 10px 20px;
-    transition: 0.3s ease;
+    padding: 10px 15px;
+    transition: 0.5s ease;
 }	
 
 .header .navbar .nav-link:hover,
 .header .navbar .nav-link.active {
     background-color: var(--color-primary);
     color: #ffffff;
+    border-radius: 50px;
 }
 
 .header .fixed .navbar .nav-link:hover,
 .header .fixed .navbar .nav-link.active {
     background-color: #ffffff;
     color: var(--color-primary);
+    border-radius: 50px;
 }
 
 
@@ -218,12 +219,12 @@ nav.navbar {
 #hero-banner {
     width: 100%;
     padding: 80px 0;
-    color: var(--color-secondary);
     font-family: var(--font-poppin);
 }
 
 #hero-banner h1 {
     font-family: "cerebri-bold";
+    color: var(--color-primary);
 }
 
 #hero-banner p {
@@ -263,6 +264,7 @@ nav.navbar {
     padding: 20px 40px;
     font-family: var(--font-poppin);
     background-color: #fff;
+    border-radius: 30px;
 }
 
 #search-section .search-area select {
@@ -337,11 +339,15 @@ nav.navbar {
     width: 100%;
     padding: 50px 0;
     background-color: #eeeeee;
-    color: var(--color-secondary);
+}
+
+.container-property{
+    padding: 0 150px;
 }
 
 #property-section h3 {
     font-family: "cerebri-bold";
+    color: var(--color-primary);
 }
 
 #property-section .text-right {
@@ -358,7 +364,6 @@ nav.navbar {
     margin-top: 20px;
 }
 
-
 .price {
     color: #000000 !important;
     font-family: "cerebri-bold";
@@ -369,16 +374,22 @@ nav.navbar {
     color: #636c72;
 }
 
+#property-section a {
+    text-decoration: none;
+}
+
 
 #property-section .text-right .margin-left {
     margin-left: 10px;
 }
 
 #property-section .text-right a {
-    color: var(--color-secondary);
+    font-family: "cerebri-bold";
+    color: #000;
     font-size: 14px;
     font-weight: 500;
     transition: 1s ease;
+    text-transform: none;
 }
 
 #property-section .text-right a:hover {
@@ -467,7 +478,7 @@ nav.navbar {
 }
 
 #work-section h1 {
-    color: var(--color-secondary);
+    color: var(--color-primary);
     font-family: "cerebri-bold";
 }
 
@@ -532,7 +543,7 @@ nav.navbar {
 }
 
 #about-section h1 {
-    color: var(--color-secondary);
+    color: var(--color-primary);
     font-family: "cerebri-bold";
 }
 
@@ -558,7 +569,6 @@ nav.navbar {
     background-color: #eeeeee;
     padding: 50px 0;
     font-family: var(--font-poppin);
-    color: var(--color-secondary);
 }
 
 #feature-section .text-right {
@@ -581,6 +591,7 @@ nav.navbar {
 
 #feature-section h1 {
     font-family: "cerebri-bold";
+    color: var(--color-primary);
 }
 
 #feature-section .property-list {
@@ -668,6 +679,7 @@ nav.navbar {
 
 #testimonial-section h1 {
     font-family: "cerebri-bold";
+    color: var(--color-primary);
 }
 
 #testimonial-section .testimonial-list .image {
@@ -764,6 +776,14 @@ footer ul li a:hover {
 
 /*Responsive*/
 
+@media only screen and (max-width: 1400px) {
+
+    .container-property{
+        padding: 0 20px;
+    }
+
+}
+
 @media only screen and (max-width: 1200px) {
 
     #search-section .search-area {
@@ -780,6 +800,14 @@ footer ul li a:hover {
     }
 
 }
+
+@media only screen and (max-width: 1024px){
+    .container-property{
+        padding: 0;
+    }
+}
+
+
 
 @media only screen and (max-width: 991px) {
 

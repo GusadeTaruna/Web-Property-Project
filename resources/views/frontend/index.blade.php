@@ -22,11 +22,14 @@
                 <ul class="navbar-nav ml-auto">
 
                      <!-- Link -->
-                    <li class="nav-item">
+                     <li class="nav-item">
                         <a class="nav-link active" href="/"><i class="fas fa-home my-auto icon-responsive"></i> Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/about"><i class="fas fa-user-friends my-auto icon-responsive"></i> About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/services"><i class="fas fa-user-friends my-auto icon-responsive"></i> Services</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/property-list"><i class="fas fa-stream my-auto icon-responsive"></i> Product</a>
@@ -102,7 +105,7 @@
 <!--  Start Property Section -->
 
 <section id="property-section">
-    <div class="container">
+    <div class="container-property">
         <h3 class="mb-3 text-center">Discover Our Featured Listings</h3>
         <h6 class="h6 m-0 text-center">Discover some of the most popular listings in Toronto based on user reviews and ratings.</h6>
 
@@ -605,147 +608,6 @@
                         </div>
                         <div class="text-left">
                             <h4 class="h5 item-name">Skyper Pool Apartment 3</h4>
-                        </div>
-                        <div class="d-flex justify-content-between mb-2">
-                            <div class="item">
-                                <p class="h6 mb-2 m-0">Quincy St, Brooklyn, NY, USA</p>
-                            </div>
-                        </div>
-
-                        <ul id="feature-ul">
-                            <li class="feature-features">
-                                <i class="fas fa-bed"></i>
-                                <p>4 Beds</p>
-                            </li>
-                            <li class="feature-features">
-                                <i class="fas fa-bath"></i>
-                                <p>3 Bath</p>
-                            </li>
-                            <li class="feature-features">
-                                <i class="fas fa-warehouse"></i>
-                                <p>1 Garage</p>
-                            </li>
-                            <li class="feature-features">
-                                <i class="fas fa-pencil-ruler"></i>
-                                <p>1200 sqm</p>
-                            </li>
-                        </ul>
-
-                        <hr class="feature-hr">
-
-                        <div class="d-flex justify-content-between mb-2 my-auto">
-                            <div class="item">
-                                <span class="price">$485,000</span>
-                            </div>
-                            <div class="item">
-                                <button class="btn-property">Show Details</button>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-5 mx-auto my-3">
-                    <div class="property-list shadow">
-                        <div class="image">
-                            <img src="/img/image-4.jpg" alt="">
-                        </div>
-                        <div class="text-left">
-                            <h4 class="h5 item-name">Skyper Pool Apartment 4</h4>
-                        </div>
-                        <div class="d-flex justify-content-between mb-2">
-                            <div class="item">
-                                <p class="h6 mb-2 m-0">Quincy St, Brooklyn, NY, USA</p>
-                            </div>
-                        </div>
-
-                        <ul id="feature-ul">
-                            <li class="feature-features">
-                                <i class="fas fa-bed"></i>
-                                <p>4 Beds</p>
-                            </li>
-                            <li class="feature-features">
-                                <i class="fas fa-bath"></i>
-                                <p>3 Bath</p>
-                            </li>
-                            <li class="feature-features">
-                                <i class="fas fa-warehouse"></i>
-                                <p>1 Garage</p>
-                            </li>
-                            <li class="feature-features">
-                                <i class="fas fa-pencil-ruler"></i>
-                                <p>1200 sqm</p>
-                            </li>
-                        </ul>
-
-                        <hr class="feature-hr">
-
-                        <div class="d-flex justify-content-between mb-2 my-auto">
-                            <div class="item">
-                                <span class="price">$485,000</span>
-                            </div>
-                            <div class="item">
-                                <button class="btn-property">Show Details</button>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-5 mx-auto my-3">
-                    <div class="property-list shadow">
-                        <div class="image">
-                            <img src="/img/image-5.jpg" alt="">
-                        </div>
-                        <div class="text-left">
-                            <h4 class="h5 item-name">Skyper Pool Apartment 5</h4>
-                        </div>
-                        <div class="d-flex justify-content-between mb-2">
-                            <div class="item">
-                                <p class="h6 mb-2 m-0">Quincy St, Brooklyn, NY, USA</p>
-                            </div>
-                        </div>
-
-                        <ul id="feature-ul">
-                            <li class="feature-features">
-                                <i class="fas fa-bed"></i>
-                                <p>4 Beds</p>
-                            </li>
-                            <li class="feature-features">
-                                <i class="fas fa-bath"></i>
-                                <p>3 Bath</p>
-                            </li>
-                            <li class="feature-features">
-                                <i class="fas fa-warehouse"></i>
-                                <p>1 Garage</p>
-                            </li>
-                            <li class="feature-features">
-                                <i class="fas fa-pencil-ruler"></i>
-                                <p>1200 sqm</p>
-                            </li>
-                        </ul>
-
-                        <hr class="feature-hr">
-
-                        <div class="d-flex justify-content-between mb-2 my-auto">
-                            <div class="item">
-                                <span class="price">$485,000</span>
-                            </div>
-                            <div class="item">
-                                <button class="btn-property">Show Details</button>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-5 mx-auto my-3">
-                    <div class="property-list shadow">
-                        <div class="image">
-                            <img src="/img/image-2.jpg" alt="">
-                        </div>
-                        <div class="text-left">
-                            <h4 class="h5 item-name">Skyper Pool Apartment 6</h4>
                         </div>
                         <div class="d-flex justify-content-between mb-2">
                             <div class="item">
