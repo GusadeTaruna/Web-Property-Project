@@ -33,9 +33,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/property-list"><i class="fas fa-stream my-auto icon-responsive"></i> Product</a>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link" href="/faq"><i class="fas fa-question-circle my-auto icon-responsive"></i> FAQ</a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item">
                         <a class="nav-link" href="/contact-us"><i class="fas fa-phone my-auto icon-responsive"></i> Contact Us</a>
                     </li>
@@ -105,11 +105,11 @@
             
 
             <div class="col-md-5 my-auto mr-auto">
-                <h1 class="h1 h1-responsive">Our Team...</h1>
+                <h1 class="h1 h1-responsive">Our Team</h1>
                 <p>
-                    Equatorial Property is a professional team of legal , design & build property experts , bringing you 30+ years experience in Asian real estate, covering residential , commmercial & hospitaltiy design industry.
+                    Equatorial Property is a professional team of legal, design & build property experts, bringing you 30+ years experience in Asian real estate, covering residential, commmercial & hospitaltiy design industry.
                     <br><br>
-                    We provide an extensive network of highly reputable professionals & services to manage all aspects of your equatorial property requirements , from the selection process, purchasing , legal & site feasibility reviews, through to complete design & build assessments with property management & guidance on suitable designated services & appropriation for your property goals.
+                    We provide an extensive network of highly reputable professionals & services to manage all aspects of your equatorial property requirements, from the selection process, purchasing, legal & site feasibility reviews, through to complete design & build assessments with property management & guidance on suitable designated services & appropriation for your property goals.
                 </p>
             </div>
         </div>
@@ -123,17 +123,16 @@
 
 <section id="more-section">
     <div class="container">
-        <h6 class="h6 color-primary m-0">Know more about us</h6>
         <h1 class="h1 h1-responsive mb-4">Our Mission</h1>
         <p>
             Equatorial Property, based in Bali, Indonesia, will provide you with the best up to date advice and a broad array of design and consultancy services to help you achieve your property purchase and build goals within the SE Asian region.
             <br><br>
             We provide either partial or full services that include:
-            Site selection, Site Analysis, Topographical and Geo-tech Surveys , Building Permits, Master planning , Architecture , Landscape, Lighting, Engineering, and Interior design services.
+            Site selection, Site Analysis, Topographical and Geo-tech Surveys, Building Permits, Master planning, Architecture, Landscape, Lighting, Engineering, and Interior design services.
             <br><br>
             We can arrange Feasibility studies and can arrange the necessary operational documents for commercial properties and villas.
             <br><br>
-            In addition Equatorial Property provides the selection of Furnishing , Fittings and Equipment plus Artwork and soft furnishings; all backed up by a full Procurement service for local or overseas delivery and installment  .
+            In addition Equatorial Property provides the selection of Furnishing, Fittings and Equipment plus Artwork and soft furnishings; all backed up by a full Procurement service for local or overseas delivery and installment.
         </p>
 
     </div>

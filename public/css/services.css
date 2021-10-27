@@ -543,10 +543,30 @@ footer ul li a:hover {
         padding-right: 7px;
     }
 
+    #about-section .img-icon{
+        width: 60%;
+    }
+
 }
 
 @media only screen and (max-width: 580px) {
     /*Responsive Search*/
+
+    .btn-theme {
+        font-size: 10px;
+    }
+
+    #about-section .img-icon{
+        width: 75%;
+    }
+
+    #about-section h1{
+        font-size: 25px;
+    }
+
+    #about-section p{
+        font-size: 15px;
+    }
 
     #search-section {
         margin-top: 0px;

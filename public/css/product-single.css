@@ -54,25 +54,41 @@ body{
     color: var(--color-acent);
 }
 
-.btn-theme {
+.btn-inquiry {
     box-shadow: none;
     margin: 0;
+    width: 100%;
     font-family: var(--font-poppin);
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 500;
     text-transform: capitalize;
     background-color: var(--color-primary);
     color: #ffffff;
     padding: 8px 20px;
-    border-radius: 30px 0px 30px 30px;
+    border-radius: 20px;
     transition: 0.5s ease;
+}
+
+
+.btn-theme {
+    box-shadow: none;
+    margin: 0;
+    font-family: var(--font-poppin);
+    font-size: 15px;
+    text-transform: capitalize;
+    background-color: var(--color-primary);
+    color: #ffffff;
+    padding: 10px 10px;
+    border-radius: 20px;
+    transition: 0.5s ease;
+    float: right;
+    width: 30%;
 }
 
 .btn-theme:hover {
     background-color: var(--color-acent);
     color: #ffffff;
     box-shadow: none;
-
 }
 
 .btn-theme-2 {
@@ -204,8 +220,25 @@ nav.navbar {
 /*image section*/
 
 #image-section {
+    position:relative;
     width: 100%;
     padding-top: 50px;
+}
+
+#image-section .button {
+    position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
 }
 
 #image-slider{
@@ -237,8 +270,9 @@ nav.navbar {
 #property-detail .harga{
     font-family: "cerebri-bold";
     font-size: 24px;
-    text-align: right;
+    float: right;
 }
+
 
 #property-detail .card{
     border-radius: 0;
@@ -254,6 +288,12 @@ nav.navbar {
 
 #property-detail .detail-text{
     font-size: 14px;
+}
+
+#property-detail .harga-row,
+#property-detail .inquiry-row{
+    display: flex;
+    justify-content: end;
 }
 
 .iframe-container{
@@ -308,11 +348,27 @@ footer ul li a:hover {
 
 /*Footer section*/
 
+@media only screen and (max-width: 1400px) {
+
+    .btn-theme {
+        float: left;
+        width: 100%;
+    }
+
+    #property-detail .harga{
+        font-size: 20px;
+    }
+
+    #property-detail .harga-row{
+        justify-content: start;
+    }
+
+}
+
 @media only screen and (max-width: 580px) {
     #property-detail .harga{
-        font-family: "cerebri-bold";
-        font-size: 24px;
-        text-align: left;
+        font-size: 17px;
+        float: left;
     }
 }
 

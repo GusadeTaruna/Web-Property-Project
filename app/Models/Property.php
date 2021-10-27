@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+use App\Models\ZoningType;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -11,4 +12,10 @@ class Property extends Model
     protected $table = "property_list";
 
     public $timestamps = false;
+
+    public function zoning_list()
+    {
+    	return $this->belongsTo(ZoningType::class, 'zoning');
+    }
+   
 }

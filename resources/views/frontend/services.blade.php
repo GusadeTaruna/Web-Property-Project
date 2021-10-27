@@ -33,9 +33,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/property-list"><i class="fas fa-stream my-auto icon-responsive"></i> Product</a>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link" href="/faq"><i class="fas fa-question-circle my-auto icon-responsive"></i> FAQ</a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item">
                         <a class="nav-link" href="/contact-us"><i class="fas fa-phone my-auto icon-responsive"></i> Contact Us</a>
                     </li>
@@ -63,16 +63,16 @@
     <div class="container">
         <div class="col-md-12 ml-auto my-md-auto">
             <div class="row">
-                <div class="col-3 filter">
+                <div class="col-6 col-sm-3 mb-2 filter">
                     <button class="btn btn-theme filter-button active" data-rel="master">Master Planning and Concept Design</button>
                 </div>
-                <div class="col-3 filter">
+                <div class="col-6 col-sm-3 mb-2 filter">
                     <button class="btn btn-theme filter-button" data-rel="schematic">Schematic Development</button>
                 </div>
-                <div class="col-3 filter">
+                <div class="col-6 col-sm-3 mb-2 filter">
                     <button class="btn btn-theme filter-button" data-rel="detailed">Detailed Design</button>
                 </div>
-                <div class="col-3 filter">
+                <div class="col-6 col-sm-3 mb-2 filter">
                     <button class="btn btn-theme filter-button" data-rel="construction">Construction & Tender Drawings</button>
                 </div>
             </div>

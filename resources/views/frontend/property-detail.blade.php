@@ -35,9 +35,9 @@
 						<li class="nav-item">
 							<a class="nav-link active" href="/property-list"><i class="fas fa-stream my-auto icon-responsive"></i> Product</a>
 						</li>
-						<li class="nav-item">
+						{{-- <li class="nav-item">
 							<a class="nav-link" href="/faq"><i class="fas fa-question-circle my-auto icon-responsive"></i> FAQ</a>
-						</li>
+						</li> --}}
 						<li class="nav-item">
 							<a class="nav-link" href="/contact-us"><i class="fas fa-phone my-auto icon-responsive"></i> Contact Us</a>
 						</li>
@@ -58,7 +58,6 @@
     		<div id="image-slider">
                 <div class="swiper">
                     <div class="swiper-wrapper">
-
                         <div class="swiper-slide">
                             <a href="#">
                                 <div class="image-list">
@@ -122,6 +121,28 @@
     <!--  End image Section -->
 	
     <section id="property-detail">
+		@if(session()->has('errorAddInquiry'))
+			<div class="container mt-3">
+				<div class="alert alert-danger alert-dismissible fade show" role="alert">
+					{{ session('errorAddInquiry') }}
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+			</div>
+		@endif
+
+		@if(session()->has('success'))
+			<div class="container mt-3">
+				<div class="alert alert-success alert-dismissible fade show" role="alert">
+					{{ session('success') }}
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+			</div>
+		@endif
+		
 		@foreach ($property as $data)
 		<div class="row mt-4 mb-3">
 			<div class="col-lg-1"></div>
@@ -138,12 +159,17 @@
 	    			<p class="mr-3"><i class="fas fa-pencil-ruler"></i> {{  number_format($data->site_area,0,'','.') }} sqm</p>
 	    		</div>
 	    	</div>
-	    	<div class="col-lg-2"></div>
-	    	<div class="col-lg-2 my-auto">
-	    		<h1 class="harga">IDR {{ number_format($data->price,0,'','.') }}</h1>
+	    	<div class="col-lg-4 my-auto">
+				<div class="harga-row">
+				<h1 class="harga">IDR {{ number_format($data->price,0,'','.') }}</h1>
+				</div>
+				<div class="inquiry-row">
+					<button class="btn btn-theme mr-2" data-toggle="modal" data-target="#exampleModalCenter">Inquiry now</button>
+					<a class="btn btn-theme" style="color: #fff" href="{{ route('add.to.cart', $data->id) }}">Add to inquiry</a>
+				</div>
 	    	</div>
 		</div>
-
+		
 		<div class="row mb-4">
 			<div class="col-lg-1"></div>
 			<div class="col-lg-6">
@@ -216,7 +242,7 @@
 				    	<div class="col-lg-6">
 				    		<div class="detail-text d-flex justify-content-start">
 						    	<p class="card-title mr-1">Zoning:</p>
-						    	<p class="card-text">{{ $data->nama_tipe }}</p>
+						    	<p class="card-text">{{ $data->zoning_list->nama_tipe }}</p>
 						    </div>
 				    	</div>
 				    </div>

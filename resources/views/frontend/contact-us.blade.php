@@ -34,9 +34,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/property-list"><i class="fas fa-stream my-auto icon-responsive"></i> Product</a>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link" href="/faq"><i class="fas fa-question-circle my-auto icon-responsive"></i> FAQ</a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item">
                         <a class="nav-link active" href="/contact-us"><i class="fas fa-phone my-auto icon-responsive"></i> Contact Us</a>
                     </li>

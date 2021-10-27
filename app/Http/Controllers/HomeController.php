@@ -7,6 +7,7 @@ use App\Models\Property;
 use App\Models\ZoningType;
 use App\Models\Inbox;
 use App\Mail\ContactMail;
+use App\Mail\InquiryMail;
 use Mail;
 
 class HomeController extends Controller
@@ -23,9 +24,41 @@ class HomeController extends Controller
 
     public function propertyDetail($id)
     {
-        $property = Property::join('zoning_type', 'property_list.zoning', '=', 'zoning_type.id')->where('property_code',$id)->get();
+        $property = Property::where('property_code',$id)->get();
         // dd($property);
         return view('frontend.property-detail', compact('property'));
+    }
+
+    public function addToCart($id)
+    {
+        $property = Property::findOrFail($id);
+          
+        $inquiry = session()->get('inquiry', []);
+  
+        if(isset($inquiry[$id])) {
+            // dd(($inquiry[$id]['name']));
+            return redirect()->back()->with('errorAddInquiry', $inquiry[$id]['name'].' already in your inquiry list !');
+        } else {
+            $inquiry[$id] = [
+                "name" => $property->property_name,
+                "price" => $property->price
+            ];
+        }
+          
+        session()->put('inquiry', $inquiry);
+        return redirect()->back()->with('success', $inquiry[$id]['name'].' added to inquiry list successfully!');
+    }
+
+    public function remove($id)
+    {
+        if($id) {
+            $property = session()->get('inquiry');
+            if(isset($property[$id])) {
+                unset($property[$id]);
+                session()->put('inquiry', $property);
+            }
+            return redirect()->back()->with('success', 'Property removed from inquiry list successfully');
+        }
     }
 
     public function about(){
@@ -65,5 +98,30 @@ class HomeController extends Controller
 
         Mail::to('dummy.gusade@gmail.com')->send(new ContactMail($details));
         return back()->with('success','Your message has been sent successfully!');
+    }
+
+    public function sendEmailInquiry(Request $request){
+
+        $validatedData = $request->validate([
+    		'name' => 'required|max:255',
+    		'email' => 'required|email:dns|unique:users',
+            'phone' => 'required',
+            'country' => 'required',
+            'message' => 'required'
+    	]);
+
+        $detailsInquiry = [
+            'name' => $validatedData['name'],
+            'email' =>  $validatedData['email'],
+            'phone' => $validatedData['phone'],
+            'country' => $validatedData['country'],
+            'inquiry_list' => $request->input('list'),
+            'message' => $validatedData['message'],
+        ];
+
+        // dd($detailsInquiry);
+
+        Mail::to('dummy.gusade@gmail.com')->send(new InquiryMail($detailsInquiry));
+        return back()->with('success','Your inquiry message has been sent successfully!');
     }
 }

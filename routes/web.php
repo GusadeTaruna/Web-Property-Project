@@ -24,14 +24,21 @@ use App\Http\Controllers\LandController;
 //     return view('welcome');
 // })->middleware('auth');
 
+// Route::get('/', function () {
+//     return view('coming-soon');
+// });
+
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/property-list', [HomeController::class, 'propertyListing'])->name('property-list');
 Route::get('/property-detail/{id}', [HomeController::class, 'propertyDetail'])->name('property-detail');
+Route::get('add-to-cart/{id}', [HomeController::class, 'addToCart'])->name('add.to.cart');
+Route::get('remove-from-cart/{id}', [HomeController::class, 'remove'])->name('remove.from.cart');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/services', [HomeController::class, 'services'])->name('services');
-Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
+// Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
 Route::get('/contact-us', [HomeController::class, 'contactUs'])->name('contact-us');
 Route::post('/send-message',[HomeController::class, 'sendEmail'])->name('contact.send');
+Route::post('/send-message-inquiry',[HomeController::class, 'sendEmailInquiry'])->name('inquiry.send');
 
 
 

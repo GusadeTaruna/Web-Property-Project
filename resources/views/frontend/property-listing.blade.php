@@ -35,9 +35,9 @@
 						<li class="nav-item">
 							<a class="nav-link active" href="/property-list"><i class="fas fa-stream my-auto icon-responsive"></i> Product</a>
 						</li>
-						<li class="nav-item">
+						{{-- <li class="nav-item">
 							<a class="nav-link" href="/faq"><i class="fas fa-question-circle my-auto icon-responsive"></i> FAQ</a>
-						</li>
+						</li> --}}
 						<li class="nav-item">
 							<a class="nav-link" href="/contact-us"><i class="fas fa-phone my-auto icon-responsive"></i> Contact Us</a>
 						</li>
@@ -110,6 +110,43 @@
 			</div>
 
 			<div class="col-lg-9 col-xxl-10 mt-4 mt-md-4 mt-lg-0">
+				@if(session()->has('errorAddInquiry'))
+					<div class="alert alert-danger alert-dismissible fade show" role="alert">
+						{{ session('errorAddInquiry') }}
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+				@endif
+
+				@if(session()->has('success'))
+					<div class="alert alert-success alert-dismissible fade show" role="alert">
+						{{ session('success') }}
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+				@endif
+
+				@if(session('inquiry'))
+				<div class="card">
+					<div class="card-body">
+					  <h5 class="card-title mb-2">Your inquiry list:</h5>
+						<div class="col-md-12 p-0">
+							<div class="row">
+								<div class="d-flex align-items-center mb-3">
+									@foreach(session('inquiry') as $id => $details)
+										<p class="mb-0 mr-1 text-inquiry">{{ $details['name'] }}</p>
+										<a href="{{ route('remove.from.cart',$id) }}" class="btn-delete mr-3" onclick="return confirm('Are you sure to remove it from your inquiry list?');"><i class="fas fa-times"></i></a>
+									@endforeach
+								</div>
+							</div>
+						</div>
+					  	
+					  <button type="button" class="btn btn-theme" data-toggle="modal" data-target="#exampleModalCenter">Inquire now</button>
+					</div>
+				</div>
+				@endif
 				<div class="row">
 					@foreach ( $property as $data )
 					<div class="col-lg-6 col-xxl-4 col-md-5 my-2">
@@ -127,33 +164,44 @@
 									<p class="h6 mb-3">{{ ucwords(strtolower($data->property_location)) }}</p>
 								</div>
 
-								<ul id="feature-ul">
-									<li class="feature-features">
+								<div class="d-flex justify-content-between">
+									<div class="feature-features">
 										<i class="fas fa-bed"></i>
 										<p>4 Beds</p>
-									</li>
-									<li class="feature-features">
+									</div>
+									<div class="feature-features">
 										<i class="fas fa-bath"></i>
 										<p>3 Bath</p>
-									</li>
-									<li class="feature-features">
+									</div>
+									<div class="feature-features">
 										<i class="fas fa-warehouse"></i>
 										<p>1 Garage</p>
-									</li>
-									<li class="feature-features">
+									</div>
+									<div class="feature-features">
 										<i class="fas fa-pencil-ruler"></i>
 										<p>1200 sqm</p>
-									</li>
-								</ul>
+									</div>
+								</div>
 
 								<hr class="feature-hr">
-
-								<div class="d-flex justify-content-between mb-2 my-auto">
-									<div class="item">
-										<span class="price">IDR {{ number_format($data->price,0,'','.') }}</span>
+								<div class="col-md-12">
+									<div class="d-flex justify-content-between">
+										<p class="price">Price : </p>
+										<p class="price">IDR {{ number_format($data->price,0,'','.') }}</p>
 									</div>
-									<div class="item">
-										<button class="btn-property">Show Details</button>
+								</div>
+
+								<div class="col-md-12 mb-1 text-center">
+									<div class="row">
+										<div class="col-12 col-md-4 p-0 mb-2">
+											<a class="btn btn-theme-3" style="font-size: 11px" href="#" data-toggle="modal" data-target="#exampleModalCenter">Inquire now</a>
+										</div>
+										<div class="col-12 col-md-4 p-0 mb-2">
+											<a class="btn btn-theme-3 " style="font-size: 11px" href="{{ route('add.to.cart', $data->id) }}">Add to enquiry</a>
+										</div>
+										<div class="col-12 col-md-4 p-0 mb-2">
+											<a class="btn btn-theme-3" style="font-size: 11px" href={{ route('property-detail',$data->property_code) }}>Show Details</a>
+										</div>
 									</div>
 								</div>
 
