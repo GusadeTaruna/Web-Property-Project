@@ -236,7 +236,7 @@
 				    	<div class="col-lg-6">
 				    		<div class="detail-text d-flex justify-content-start">
 						    	<p class="card-title mr-1">Property Type :</p>
-						    	<p class="card-text">{{ $data->property_type }}</p>
+						    	<p class="card-text">{{ $data->type->nama_tipe }}</p>
 						    </div>
 				    	</div>
 				    	<div class="col-lg-6">

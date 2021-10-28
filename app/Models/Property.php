@@ -17,5 +17,10 @@ class Property extends Model
     {
     	return $this->belongsTo(ZoningType::class, 'zoning');
     }
+
+    public function type()
+    {
+    	return $this->belongsTo(PropertyType::class, 'property_type');
+    }
    
 }
