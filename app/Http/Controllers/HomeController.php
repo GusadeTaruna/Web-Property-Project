@@ -41,7 +41,7 @@ class HomeController extends Controller
         } else {
             $inquiry[$id] = [
                 "name" => $property->property_name,
-                "price" => $property->price
+                "code" => $property->property_code
             ];
         }
           

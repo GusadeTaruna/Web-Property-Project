@@ -24,11 +24,12 @@ use App\Http\Controllers\LandController;
 //     return view('welcome');
 // })->middleware('auth');
 
-// Route::get('/', function () {
-//     return view('coming-soon');
-// });
+Route::get('/', function () {
+    return view('coming-soon');
+});
 
-Route::get('/', [HomeController::class, 'index']);
+// Route::get('/', [HomeController::class, 'index']);
+Route::get('/preview', [HomeController::class, 'index']);
 Route::get('/property-list', [HomeController::class, 'propertyListing'])->name('property-list');
 Route::get('/property-detail/{id}', [HomeController::class, 'propertyDetail'])->name('property-detail');
 Route::get('add-to-cart/{id}', [HomeController::class, 'addToCart'])->name('add.to.cart');

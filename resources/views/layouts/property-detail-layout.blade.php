@@ -41,13 +41,16 @@
                             <p>Your inquiry list : 
                             @foreach(session('inquiry') as $id => $details)
                                 @if( !$loop->last)
-                                    <span class="text-success">{{ $details['name'] }}, </span>
+                                    <span class="text-success">[{{ $details['code'] }}] {{ $details['name'] }}, </span>
                                 @else
-                                    <span class="text-success">{{ $details['name'] }} </span>
+                                    <span class="text-success">[{{ $details['code'] }}] {{ $details['name'] }} </span>
                                 @endif
-                                <input type="hidden" name="list[]" value="{{ $details['name'] }}">
+                                <input type="hidden" name="list[]" value="[{{ $details['code'] }}] {{ $details['name'] }}">
                             @endforeach
                             </p>
+                        @else
+                            <p>Your inquiry list : <span class="text-success" id="list-text"></span></p>
+                            <input type="hidden" name="list" id="list" value=""/>
                         @endif
                         <label for="name">Name :</label>
                         <input type="text" class="form-control mb-2" placeholder="Input your name here" name="name">
@@ -139,5 +142,16 @@
 
     </script>
 
+    <script>
+        $(document).on("click", ".inquiry-btn", function () {
+            var listStore = $(this).data('id');
+            var listText = $(this).data('id');
+            $(".modal-body #list").val( listStore );
+            $(".modal-body #list-text").text( listText );
+            // As pointed out in comments, 
+            // it is unnecessary to have to manually call the modal.
+            // $('#addBookDialog').modal('show');
+        });
+    </script>
 </body>
 </html>

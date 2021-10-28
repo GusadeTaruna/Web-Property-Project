@@ -136,7 +136,7 @@
 							<div class="row">
 								<div class="d-flex align-items-center mb-3">
 									@foreach(session('inquiry') as $id => $details)
-										<p class="mb-0 mr-1 text-inquiry">{{ $details['name'] }}</p>
+										<p class="mb-0 mr-1 text-inquiry">[{{ $details['code'] }}] {{ $details['name'] }}</p>
 										<a href="{{ route('remove.from.cart',$id) }}" class="btn-delete mr-3" onclick="return confirm('Are you sure to remove it from your inquiry list?');"><i class="fas fa-times"></i></a>
 									@endforeach
 								</div>
@@ -160,7 +160,7 @@
 									<img src="/img/image-1.jpg" alt="">
 								</div>
 								<div class="text-left item-header">
-									<h4 class="h5 item-name">{{ ucwords(strtolower($data->property_name)) }}</h4>
+									<h4 class="h5 item-name">[{{ $data->property_code }}] {{ ucwords(strtolower($data->property_name)) }}</h4>
 									<p class="h6 mb-3">{{ ucwords(strtolower($data->property_location)) }}</p>
 								</div>
 
@@ -194,7 +194,7 @@
 								<div class="col-md-12 mb-1 text-center">
 									<div class="row">
 										<div class="col-12 col-md-4 p-0 mb-2">
-											<a class="btn btn-theme-3" style="font-size: 11px" href="#" data-toggle="modal" data-target="#exampleModalCenter">Inquire now</a>
+											<a class="btn btn-theme-3 inquiry-btn" style="font-size: 11px" href="#" data-toggle="modal" data-target="#exampleModalCenter" data-id="[{{ $data->property_code }}] {{ ucwords(strtolower($data->property_name)) }}">Inquire now</a>
 										</div>
 										<div class="col-12 col-md-4 p-0 mb-2">
 											<a class="btn btn-theme-3 " style="font-size: 11px" href="{{ route('add.to.cart', $data->id) }}">Add to enquiry</a>

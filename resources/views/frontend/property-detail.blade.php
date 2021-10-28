@@ -164,7 +164,7 @@
 				<h1 class="harga">IDR {{ number_format($data->price,0,'','.') }}</h1>
 				</div>
 				<div class="inquiry-row">
-					<button class="btn btn-theme mr-2" data-toggle="modal" data-target="#exampleModalCenter">Inquiry now</button>
+					<button class="btn btn-theme mr-2 inquiry-btn" data-toggle="modal" data-target="#exampleModalCenter" data-id="[{{ $data->property_code }}] {{ ucwords(strtolower($data->property_name)) }}">Inquiry now</button>
 					<a class="btn btn-theme" style="color: #fff" href="{{ route('add.to.cart', $data->id) }}">Add to inquiry</a>
 				</div>
 	    	</div>
