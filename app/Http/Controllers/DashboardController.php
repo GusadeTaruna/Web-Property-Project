@@ -36,8 +36,13 @@ class DashboardController extends Controller
     }
 
     public function msgInbox(){
-        $inbox = Inbox::all();
-        return view('backend.admin.inbox',compact('inbox'));
+        $inbox = Inbox::where('msg_type', '=', 'contact')->get();
+        return view('backend.admin.contact-inbox',compact('inbox'));
+    }
+
+    public function inquiryInbox(){
+        $inbox = Inbox::where('msg_type', '=', 'inquiry')->get();
+        return view('backend.admin.inquiry-inbox',compact('inbox'));
     }
 
     public function createProperty(){

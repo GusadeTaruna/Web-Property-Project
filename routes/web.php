@@ -70,4 +70,5 @@ Route::post('/admin/land/create', [LandController::class, 'store'])->middleware(
 
 Route::get('/admin/list-admin', [DashboardController::class, 'adminList'])->name('list-admin')->middleware('auth');
 
-Route::get('/admin/inbox', [DashboardController::class, 'msgInbox'])->name('inbox')->middleware('auth');
+Route::get('/admin/inbox-contact', [DashboardController::class, 'msgInbox'])->name('contact-inbox')->middleware('auth');
+Route::get('/admin/inbox-inquiry', [DashboardController::class, 'inquiryInbox'])->name('inquiry-inbox')->middleware('auth');

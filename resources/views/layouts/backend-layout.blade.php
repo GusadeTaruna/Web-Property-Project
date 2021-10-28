@@ -152,13 +152,26 @@
                                 </p>
                             </a>
                         </li>
+
                         <li class="nav-item">
-                            <a href="/admin/inbox" class="nav-link {{ request()->is('admin/inbox') ? 'active' : '' }}">
+                            <a href="#" class="nav-link {{ request()->is('admin/inbox-contact')||request()->is('inbox-inquiry') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-inbox"></i>
-                                <p>
-                                    Inbox
-                                </p>
+                                <p>Inbox<i class="fas fa-angle-left right"></i></p>
                             </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/admin/inbox-contact" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Contact messages</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/admin/inbox-inquiry" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Inquiry messages</p>
+                                    </a>
+                                </li> 
+                            </ul>
                         </li>
                     </ul>
                 </nav>

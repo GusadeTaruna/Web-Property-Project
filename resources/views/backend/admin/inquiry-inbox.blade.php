@@ -1,6 +1,6 @@
 @extends('layouts.backend-layout')
 
-@section('title', 'Inbox')
+@section('title', 'Inquiry Inbox')
 
 @section('content')
   <!-- Content Wrapper. Contains page content -->
@@ -29,6 +29,9 @@
                   <tr>
                     <th>From</th>
                     <th>Email</th>
+                    <th>Phone</th>
+                    <th>Country</th>
+                    <th>List Inquiry</th>
                     <th>Message</th>
                     <th>Action</th>
                   </tr>
@@ -38,6 +41,9 @@
                       <tr>
                         <td>{{ $data->sender_name }}</td>
                         <td>{{ $data->sender_email }}</td>
+                        <td>{{ $data->phone }}</td>
+                        <td>{{ $data->country }}</td>
+                        <td>{{ $data->inquiry_list }}</td>
                         <td>{{ $data->message }}</td>
                         <td><a href="#" class="btn btn-danger w-100">Delete</a></td>
                       </tr>

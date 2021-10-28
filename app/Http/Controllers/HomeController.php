@@ -91,6 +91,7 @@ class HomeController extends Controller
         ];
 
         $inbox = new Inbox;
+        $inbox->msg_type = "contact";
         $inbox->sender_name = $validatedData['name'];
         $inbox->sender_email = $validatedData['email'];
         $inbox->message = $validatedData['msg'];
@@ -101,6 +102,12 @@ class HomeController extends Controller
     }
 
     public function sendEmailInquiry(Request $request){
+
+        if (is_array($request->input('list'))){
+            $list = implode(', ', $request->input('list'));
+        }else{
+            $list = $request->input('list');
+        } 
 
         $validatedData = $request->validate([
     		'name' => 'required|max:255',
@@ -119,7 +126,17 @@ class HomeController extends Controller
             'message' => $validatedData['message'],
         ];
 
-        // dd($detailsInquiry);
+        $inbox = new Inbox;
+        $inbox->msg_type = "inquiry";
+        $inbox->sender_name = $validatedData['name'];
+        $inbox->sender_email = $validatedData['email'];
+        $inbox->phone = $validatedData['phone'];
+        $inbox->country = $validatedData['country'];
+        $inbox->inquiry_list = $list;
+        $inbox->message = $validatedData['message'];
+        $inbox->save();
+
+        // dd($list);
 
         Mail::to('dummy.gusade@gmail.com')->send(new InquiryMail($detailsInquiry));
         return back()->with('success','Your inquiry message has been sent successfully!');

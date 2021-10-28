@@ -15,8 +15,12 @@ class CreateInboxTable extends Migration
     {
         Schema::create('inbox', function (Blueprint $table) {
             $table->id();
+            $table->enum('msg_type', ['contact', 'inquiry']);
             $table->string('sender_name');
             $table->string('sender_email');
+            $table->string('phone')->nullable();
+            $table->string('country')->nullable();
+            $table->text('inquiry_list')->nullable();
             $table->text('message');
         });
     }
