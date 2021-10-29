@@ -3,7 +3,7 @@
 
 @section('content')
 <!-- Start Header -->
-<header class="header">
+<div class="header">
     <div id="nav-container">
 
         <!-- Start Navbar -->
@@ -48,11 +48,11 @@
         <!-- End Navbar -->
     </div>
     <div class="header-content">
-            <div class="container">
+            <div class="container animatable fadeInUp">
 
                 <div class="col-md-12 my-auto mr-auto text-center">
-                    <h4 class="h5 sub-judul">Here you can find luxury high end property</h4>
-                    <h1 class="h1 h1-responsive judul">Find Your Perfect Home</h1>
+                    <h4 class="h5 sub-judul">Here you can find luxury high end properties</h4>
+                    <h1 class="h1 h1-responsive judul">Find Your Perfect Land or Home</h1>
                 </div>
 
                 <!-- Start Search Bar -->
@@ -99,15 +99,15 @@
 
             </div>
     </div>
-</header>
+</div>
 <!-- End Header -->
 
 <!--  Start Property Section -->
 
 <section id="property-section">
-    <div class="container-property">
+    <div class="container-property animatable fadeInUp">
         <h3 class="mb-3 text-center">Discover Our Featured Listings</h3>
-        <h6 class="h6 m-0 text-center">Discover some of the most popular listings in Toronto based on user reviews and ratings.</h6>
+        <h6 class="h6 m-0 text-center">Discover some of the most popular listings based on user reviews and ratings.</h6>
 
         <!--  Property Slider -->
 
@@ -365,7 +365,7 @@
         </div>
 
         <div class="text-right">
-            <a href="#">Find More Project  <i class="fas fa-long-arrow-alt-right margin-left mr-3"></i> </a>
+            <a href="/property-list">Find More Project  <i class="fas fa-long-arrow-alt-right margin-left mr-3"></i> </a>
         </div>
 
         <!--  Property Slider -->
@@ -375,25 +375,25 @@
 
 <!--  Hero Banner -->
 <section id="hero-banner">
-    <div class="container">
+    <div class="container animatable fadeInUp">
         <div class="row">
             <div class="col-md-5 my-auto mr-auto">
-                <h1 class="h1 h1-responsive">Find Your Next Perfect Place To Live.</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <button class="btn btn-theme-2">Get Started</button>
+                <h1 class="h1 h1-responsive">Create or Find Your Dream Project Land or Home.</h1>
+                <p>Equatorial Property is a team of specialists living and working in Bali for over 30 years , who are ready to assist you to find the ideal site for your vision , from residential villas, to larger scale hospitality projects let us help you to find the perfect property.</p>
+                <a class="btn btn-theme-2" href="/property-list">Get Started</a>
             </div>
 
             <div class="col-md-1"></div>
 
             <div class="col-lg-6 col-md-5 ml-auto my-5">
                 <div class=".banner-content">
-                    <!-- <img class="img-resize" src="/img/image-2.jpg" class="" alt=""> -->
+                    <img class="img-resize" src="/img/create-or-find.jpg" class="" alt="">
                     <!-- Image -->
 
-                    <video class="video" controls>
+                    {{-- <video class="video" controls>
                         <!-- Video -->
                         <source src="/video/shot2.mp4" type="video/mp4">
-                    </video>
+                    </video> --}}
 
                 </div>
             </div>
@@ -406,29 +406,76 @@
 <!--  Work Section -->
 
 <section id="work-section">
-    <div class="container">
-        <h6 class="h6 color-primary m-0">Work</h6>
-        <h1 class="h1 h1-responsive mb-4">How It Work</h1>
+    <div class="container animatable fadeInUp">
+        <h6 class="h6 color-primary m-0">Services</h6>
+        <h1 class="h1 h1-responsive mb-4">Our Services</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 
-        <div class="d-flex justify-content-between my-5">
-            <div class="service-show">
-                <i class="fas fa-search"></i>
-                <h4 class="h5 mb-4">Title 1</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.consectetur adipiscing elit adipiscing elit</p>
+        <div class="col-md-12 my-5">
+            <div class="row">
+                <div class="col-12 col-sm-6 col-md-3 d-flex align-items-stretch mb-2">
+                    <div class="card">
+                        <a href="/services">
+                        <div class="card-body">
+                            <img src="/img/services/1.png" class="img-icon" alt="" style="width: 100%; height:auto">
+                            <h4 class="h5 mb-4">Master Planning and Concept Design</h4>
+                        </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3 d-flex align-items-stretch mb-2">
+                    <div class="card">
+                        <a href="/services">
+                        <div class="card-body">
+                            <img src="/img/services/2.png" class="img-icon" alt="" style="width: 100%; height:auto">
+                            <h4 class="h5 mb-4">Schematic Development</h4>
+                        </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3 d-flex align-items-stretch mb-2">
+                    <div class="card">
+                        <a href="/services">
+                        <div class="card-body">
+                            <img src="/img/services/3.png" class="img-icon" alt="" style="width: 100%; height:auto">
+                            <h4 class="h5 mb-4">Detailed Design</h4>
+                        </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3 d-flex align-items-stretch mb-2">
+                    <div class="card">
+                        <a href="/services">
+                        <div class="card-body">
+                            <img src="/img/services/4.png" class="img-icon" alt="" style="width: 100%; height:auto">
+                            <h4 class="h5 mb-4">Construction & Tender Drawings</h4>
+                        </div>
+                        </a>
+                    </div>
+                </div>
             </div>
-
-            <div class="service-show">
-                <i class="fas fa-people-carry"></i>
-                <h4 class="h5 mb-4">Title 2</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.consectetur adipiscing elit adipiscing elit</p>
-            </div>
-
-            <div class="service-show">
-                <i class="fas fa-shield-alt"></i>
-                <h4 class="h5 mb-4">Title 3</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.consectetur adipiscing elit adipiscing elit</p>
-            </div>
+            
+            {{-- <div class="d-flex justify-content-between">
+                <div class="service-show">
+                    <img src="/img/services/1.png" class="img-icon" alt="" style="width: 100%; height:auto">
+                    <h4 class="h5 mb-4">Master Planning and Concept Design</h4>
+                </div>
+    
+                <div class="service-show">
+                    <img src="/img/services/2.png" class="img-icon" alt="" style="width: 100%; height:auto">
+                    <h4 class="h5 mb-4">Schematic Development</h4>
+                </div>
+    
+                <div class="service-show">
+                    <img src="/img/services/3.png" class="img-icon" alt="" style="width: 100%; height:auto">
+                    <h4 class="h5 mb-4">Detailed Design</h4>
+                </div>
+    
+                <div class="service-show">
+                    <img src="/img/services/4.png" class="img-icon" alt="" style="width: 100%; height:auto">
+                    <h4 class="h5 mb-4">Construction & Tender Drawings</h4>
+                </div>
+            </div> --}}
         </div>
 
     </div>
@@ -439,7 +486,7 @@
 
 <!--  About Section -->
 <section id="about-section">
-    <div class="container">
+    <div class="container animatable fadeInUp">
         <div class="row">
             <div class="col-md-6 my-auto">
                 <div class="image">
@@ -450,10 +497,9 @@
             <div class="col-lg-5 col-md-6 pl-lg-5 px-4 mt-md-0 mt-5">
                 <h6 class="h6 color-primary m-0">About Us</h6>
                 <h1 class="h1 h1-responsive mb-3">We Provide The Best Property For You</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <button class="btn btn-theme-2">Learn More</button>
+                <p>Equatorial Property is a professional team of legal, design & build property experts, bringing you 30+ years experience in Asian real estate, covering residential, commmercial & hospitaltiy design industry. </p>
+                <p>We provide an extensive network of highly reputable professionals & services to manage all aspects of your equatorial property requirements, from the selection process, purchasing, legal & site feasibility reviews, through to complete design & build assessments with property management & guidance on suitable designated services & appropriation for your property goals.</p>
+                <a class="btn btn-theme-2" href="/about">Learn More</a>
             </div>
         </div>
     </div>
@@ -498,11 +544,11 @@
 
 <!--  Feature property Section -->
 
-<section id="feature-section">
-    <div class="container">
+{{-- <section id="feature-section">
+    <div class="container animatable fadeInUp">
         <h6 class="h6 color-primary m-0">Recent</h6>
         <h1 class="h1 h1-responsive mb-4">Our Featured Properties</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>Our collection of properties and land parcels have been assessed and reviewed in accordance with due diligence.</p>
 
         <div class="col-md-11 mx-auto text-left">
 
@@ -651,19 +697,19 @@
             </div>
 
             <div class="my-4 text-center">
-                <button class="btn btn-theme">Load More</button>
+                <a class="btn btn-theme" href="/property-list">Load More</a>
             </div>
 
         </div>
     </div>
-</section>
+</section> --}}
 
 <!--  Feature property Section -->
 
 <!--  Testimonial Section -->
 
-<section id="testimonial-section">
-    <div class="container">
+{{-- <section id="testimonial-section">
+    <div class="container animatable fadeInUp">
         <h6 class="h6 color-primary m-0">Testimonial</h6>
         <h1 class="h1 h1-responsive mb-4">What They Are Saying</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -695,18 +741,21 @@
         </div>
 
     </div>
-</section>
+</section> --}}
 
 <!--  Testimonial Section -->
 
 
 
 <!--  Mail Section -->
-
+<hr class="w-75 ml-auto mr-auto custom">
 <section id="mail-section">
-    <div class="container">
-        <h1 class="h1 h1-responsive mb-4">Have Question in mind? <br>Let us help you!</h1>
-        <div class="col-lg-8 col-md-11 mx-auto form shadow">
+    <div class="container animatable fadeInUp">
+        <h1 class="h1 h1-responsive mb-4">Have a question...? Let us help you</h1>
+        <div class="col-md-12">
+            <button class="btn btn-theme">Contact Us</button>
+        </div>
+        {{-- <div class="col-lg-8 col-md-11 mx-auto form shadow">
             <div class="row">
                 <div class="col-md-9 my-auto">
                     <input type="text" name="" class="form-control" placeholder="Write Your Message Here">
@@ -716,11 +765,15 @@
                     <button class="btn btn-theme">Send</button>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 </section>
 
 <!--  Mail Section -->
+
+<a href="#" class="float" target="_blank">
+    <i class="fab fa-whatsapp my-float"></i>
+</a>
 
 
 <!--  Footer Section -->

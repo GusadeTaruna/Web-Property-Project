@@ -52,7 +52,7 @@
 
                 <div class="col-md-12 my-auto mr-auto text-center">
                     <h1 class="h1 h1-responsive judul">Contact Us</h1>
-                    <h4 class="h5 sub-judul">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h4>
+                    <h4 class="h5 sub-judul">Allow our expert team to support your inquiries, we can advise & recommend the best locations and areas for your needs, just ask us….</h4>
                 </div>
 
             </div>
@@ -63,7 +63,7 @@
 <!-- Start FAQ -->
 <section id="faqs">
     <div class="container">
-        <h1 class="judul">Let Us Know How We Can Help</h1>
+        <h1 class="judul">Let us know how we can help</h1>
         <p class="sub-judul">Feel free to contact us if you need some help, consultation or you have some other questions</p>
         <div class="col-md-12 mx-auto">
             @if (Session::has('success'))
@@ -98,38 +98,39 @@
 
         <div class="col-md-12 mx-auto">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 my-auto">
                     <div class="row">
                         <div class="col-lg-3 col-md-4 col-sm-3 col-3 my-auto text-center">
                             <i class="fas fa-map-marker-alt my-auto icon-responsive"></i>
                         </div>
                         <div class="col-lg-9 col-md-8 col-sm-9 col-9">
                             <h4 class="judul-detail mt-3">Address</h4>
-                            <p class="sub-detail">329 Queensberry Street, North Melbourne VIC 3051, Australia.</p>
+                            <p class="sub-detail">Jl. Tukad Barito Timur V No.3, Renon, Denpasar Selatan, Kota Denpasar, Bali 80226</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-4 my-auto">
                     <div class="row">
                         <div class="col-lg-3 col-md-4 col-sm-3 col-3 my-auto text-center">
                             <i class="fas fa-phone-alt my-auto icon-responsive"></i>
                         </div>
                         <div class="col-lg-9 col-md-8 col-sm-9 col-9">
                             <h4 class="judul-detail mt-3">Contact</h4>
-                            <p class="sub-detail">Mobile : 081234567821<br>Mail : support@mail.com</p>
+                            {{-- >Mobile : 081234567821<br> --}}
+                            <p class="sub-detail">Mail : <br>Info@equatorial-property.com <br>Davidj@equatorial-property.com</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-4 my-auto">
                     <div class="row">
                         <div class="col-lg-3 col-md-4 col-sm-3 col-3 my-auto text-center">
                             <i class="fas fa-clock my-auto icon-responsive"></i>
                         </div>
                         <div class="col-lg-9 col-md-8 col-sm-9 col-9">
                             <h4 class="judul-detail mt-3">Hour of Operation</h4>
-                            <p class="sub-detail">Monday - Friday: 09:00 - 20:00<br>Sunday & Saturday: 10:30 - 22:00</p>
+                            <p class="sub-detail">Monday - Friday 9-5pm</p>
                         </div>
                     </div>
                 </div>
