@@ -171,35 +171,30 @@
 .header{
     width: 100%;
     min-height: 100vh;
+    position: relative;
+}
+
+#banner-image{
+    width: 100%;
+    height: 100%;
+    position: absolute;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     backface-visibility: hidden;
-    position: relative;
-    animation: slidebg 15s ease-in-out infinite;
-    
-    
+    overflow:hidden;
+    background-color: var(--color-primary);
+    z-index: -1;
 }
 
-@keyframes slidebg {
-    /* 0%{
-        background-image:url(../img/header/2.jpg);
-    } */
-    0%{
-        background-image:url(../img/header/1.jpg);
-    }
-    25%{
-        background-image:url(../img/header/2.jpg);
-    }
-    50%{
-        background-image:url(../img/header/3.jpg);
-    }
-    75%{
-        background-image:url(../img/header/4.jpg);
-    }
-    100%{
-        background-image:url(../img/header/1.jpg);
-    }
+#banner-image img{
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+#banner-image img:first-child {
+    display: block;
 }
 
 
@@ -1499,6 +1494,47 @@ footer ul li a:hover {
 
 
 @media only screen and (max-width: 991px) {
+
+    .animated {
+		/*CSS transitions*/
+		-o-transition-property: none !important;
+		-moz-transition-property: none !important;
+		-ms-transition-property: none !important;
+		-webkit-transition-property: none !important;
+		transition-property: none !important;
+		/*CSS transforms*/
+		-o-transform: none !important;
+		-moz-transform: none !important;
+		-ms-transform: none !important;
+		-webkit-transform: none !important;
+		transform: none !important;
+		/*CSS animations*/
+		-webkit-animation: none !important;
+		-moz-animation: none !important;
+		-o-animation: none !important;
+		-ms-animation: none !important;
+		animation: none !important;
+	}
+
+    .animated.fadeInUp {
+        -webkit-animation-name: none;
+        -moz-animation-name: none;
+        -o-animation-name: none;
+        animation-name: none;
+    }
+
+    .animatable {
+  
+        /* initially hide animatable objects */
+        visibility: visible;
+        
+        /* initially pause animatable objects their animations */
+        -webkit-animation-play-state: none;   
+        -moz-animation-play-state: none;     
+        -ms-animation-play-state: none;
+        -o-animation-play-state: none;   
+        animation-play-state: none; 
+    }
 
     #nav-container{
         background: var(--color-primary);

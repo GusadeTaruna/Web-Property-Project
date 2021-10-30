@@ -4,6 +4,12 @@
 @section('content')
 <!-- Start Header -->
 <div class="header">
+    <div id="banner-image">
+        <img class="active" src="/img/header/1.jpg"/>
+        <img src="/img/header/2.jpg"/>  
+        <img src="/img/header/3.jpg"/> 
+        <img src="/img/header/4.jpg"/> 
+    </div>
     <div id="nav-container">
 
         <!-- Start Navbar -->

@@ -18,7 +18,7 @@ jQuery(function($) {
   var doAnimations = function() {
     
     // Calc current offset and get all animatables
-    var offset = $(window).scrollTop() + $(window).height(),
+    var offset = $(window).scrollTop() + ($(window).height()+100),
         $animatables = $('.animatable');
     
     // Unbind scroll handler if we have no animatables
@@ -41,3 +41,23 @@ jQuery(function($) {
   $(window).trigger('scroll');
 
 });
+
+
+window.setInterval(function (){
+  var images = $('#banner-image img');
+  var active, next;
+
+  images.each(function(index, img) {
+    if($(img).hasClass('active')) {
+      active = index;
+      next = (index === images.length - 1) ? 0 : index + 1;
+    }
+  });
+
+  $(images[active]).fadeOut(5, function() {
+    $(images[next]).fadeIn(1500);
+  });
+
+  $(images[next]).addClass('active');
+  $(images[active]).removeClass('active');
+}, 5000);

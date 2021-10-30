@@ -302,7 +302,15 @@
 
 
 				    <div class="iframe-container">
-						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.211572421172!2d115.1585144154124!3d-8.671419290665925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2476b9f8fdcfd%3A0x3c294beafe983b4f!2sKibarer%20Property!5e0!3m2!1sen!2sid!4v1633077247160!5m2!1sen!2sid" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+						<iframe
+                        width="600"
+                        height="450"
+                        style="border:0"
+                        loading="lazy"
+                        allowfullscreen
+                        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCtvsXTO4yCs1lo6E-GvZOKSN_FNSCdSqY
+                            &q={{ ucwords(strtolower($data->property_location)) }}">
+                        </iframe>
 					</div>
 					</p>
 				  </div>
