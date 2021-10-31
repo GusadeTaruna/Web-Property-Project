@@ -57,7 +57,12 @@
     <!-- swiper -->
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     <script type="text/javascript" src="/js/script.js"></script>
+    <script type="text/javascript" src="/js/jquery.easeScroll.js"></script>
     
+    <script>
+        $("html").easeScroll();
+    </script>
+
     <script>
         var swiper = new Swiper('#property-slider .swiper', {
             // Optional parameters

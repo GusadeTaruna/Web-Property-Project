@@ -81,6 +81,11 @@
     <script type="text/javascript" src="/js/multiselect/bootstrap-multiselect.js"></script>
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     <script type="text/javascript" src="/js/product-listing.js"></script>
+    <script type="text/javascript" src="/js/jquery.easeScroll.js"></script>
+    
+    <script>
+        $("html").easeScroll();
+    </script>
     <!-- Initialize the plugin: -->
 
     <script>

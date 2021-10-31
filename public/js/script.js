@@ -54,8 +54,8 @@ window.setInterval(function (){
     }
   });
 
-  $(images[active]).fadeOut(5, function() {
-    $(images[next]).fadeIn(1500);
+  $(images[active]).fadeOut(0, function() {
+    $(images[next]).fadeIn(500);
   });
 
   $(images[next]).addClass('active');

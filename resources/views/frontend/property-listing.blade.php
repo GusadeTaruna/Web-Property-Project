@@ -136,7 +136,7 @@
 							<div class="row">
 								<div class="d-flex align-items-center mb-3">
 									@foreach(session('inquiry') as $id => $details)
-										<p class="mb-0 mr-1 text-inquiry">[{{ $details['code'] }}] {{ $details['name'] }}</p>
+										<p class="mb-0 mr-1 text-inquiry">[{{ $details['code'] }}] {{ ucwords(strtolower($details['name'])) }}</p>
 										<a href="{{ route('remove.from.cart',$id) }}" class="btn-delete mr-3" onclick="return confirm('Are you sure to remove it from your inquiry list?');"><i class="fas fa-times"></i></a>
 									@endforeach
 								</div>
