@@ -21,6 +21,7 @@ class CreatePropertyListTable extends Migration
             $table->string('property_name');
             $table->string('property_location');
             $table->string('property_status');
+            $table->string('property_image');
             $table->string('price');
             $table->text('description');
             $table->string('site_area');
@@ -50,6 +51,7 @@ class CreatePropertyListTable extends Migration
             $table->boolean('access_road')->nullable();
             $table->string('access_road_width')->nullable();
             $table->text('surrounding_sites_desc')->nullable();
+            $table->timestamps();
             
         });
     }

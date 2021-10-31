@@ -18,16 +18,16 @@ class PropertyController extends Controller
         $property = Property::all();
         $property_type = ZoningType::all();
         $huruf = "PB-";
-        $count = Property::where('property_type', 1)->count();
+        $count = Property::selectRaw('RIGHT(property_code, 1) as lastcode')->orderBy('lastcode', 'DESC')->first();
 
-        if($count > 0) {
-            $propertyCode = $huruf . sprintf("%03s", $count+1);
+        if($count->lastcode > 0) {
+            $propertyCode = $huruf . sprintf("%03s", $count->lastcode+1);
         }else {
             $propertyCode = $huruf . sprintf("%03s", 1);
         }
         
         return view('backend.property.property-create',compact('propertyCode','property_type'));
-        // dd($propertCode);
+        // dd($count);
     }
 
     public function store(Request $request){
@@ -55,11 +55,32 @@ class PropertyController extends Controller
         //     'dining' => 'required'
     	// ]);
 
+        //upload image function
+        $this->validate($request, 
+        [
+            'images' => 'required',
+            'images.*' => 'image|mimes:png,jpg,jpeg,svg|max:1024'
+        ],
+        [
+            'images.*.max' => 'The images must not be greater than 1 MB.'
+        ]);
+
+        if($request->hasFile('images')){
+            $counter = 0;
+            foreach($request->file('images') as $image){
+                $getFileExt = $image->getClientOriginalExtension();
+                $name=time().'PR'.$counter++.'.'.$getFileExt;
+                $image->move(public_path().'/property-image/',$name); //folder path
+                $data[] = $name;
+            }
+        }
+
     	$property = new Property;
         $property->property_type = 1;
     	$property->property_code = $request->code;
 		$property->property_name = $request->property_name;
 		$property->property_location = $request->location;
+        $property->property_image = json_encode($data);
 		$property->price = $request->price;
 		$property->property_status = $request->status;
 		$property->site_plan = $request->site_plan;

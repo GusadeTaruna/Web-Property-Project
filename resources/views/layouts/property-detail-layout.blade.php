@@ -24,7 +24,7 @@
 
     @yield('content')
 
-        <!-- Modal -->
+        <!-- Modal Inquiry now -->
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -71,6 +71,18 @@
             </div>
         </div>
 
+        {{-- IMage Modal --}}
+        <div class="modal fade" id="imageModalCenter" tabindex="-1" role="dialog" aria-labelledby="imageModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" style="max-width: 60%" role="document">
+            <div class="modal-content">
+                <div class="modal-body p-0">
+                    <img src="" class="showPic"  style="width: 100%; height: auto; object-fit:cover">
+                </div>
+            </div>
+            </div>
+        </div>
+        {{-- IMage Modal --}}
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -83,11 +95,12 @@
     <script type="text/javascript" src="/js/product-listing.js"></script>
     <script type="text/javascript" src="/js/jquery.easeScroll.js"></script>
     
+    {{-- script smooth scroll --}}
     <script>
         $("html").easeScroll();
     </script>
-    <!-- Initialize the plugin: -->
 
+    {{-- script slider image --}}
     <script>
         var swiper = new Swiper('#image-slider .swiper', {
             // Optional parameters
@@ -147,6 +160,7 @@
 
     </script>
 
+    {{-- script adding name of property to modal inquiry list --}}
     <script>
         $(document).on("click", ".inquiry-btn", function () {
             var listStore = $(this).data('id');
@@ -158,5 +172,16 @@
             // $('#addBookDialog').modal('show');
         });
     </script>
+
+    {{-- script passing img from blade to modal --}}
+    <script>
+        $('.openImg').click(function() {
+            var src =$(this).attr('src');
+
+            $('.showPic').attr('src', src);
+        });
+    </script>
+
+    
 </body>
 </html>

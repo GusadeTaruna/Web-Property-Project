@@ -56,64 +56,22 @@
     <section id="image-section">
     	<div class="col-lg-12 p-0">
     		<div id="image-slider">
+				
                 <div class="swiper">
                     <div class="swiper-wrapper">
+						@foreach ($property as $image)
+						<?php foreach (json_decode($image->property_image)as $picture) { ?>
                         <div class="swiper-slide">
-                            <a href="#">
-                                <div class="image-list">
-                                    <div class="image">
-                                        <img src="/img/image-1.jpg" alt="">
-                                    </div>
-                                </div>
-                            </a>
+							<div class="image-list">
+								<div class="image">
+									<img class="openImg" data-toggle="modal" data-target="#imageModalCenter" src="{{ asset('/property-image/'.$picture) }}"/>
+								</div>
+							</div>
                         </div>
-                        <div class="swiper-slide">
-                            <a href="#">
-                                <div class="image-list">
-                                    <div class="image">
-                                        <img src="/img/image-2.jpg" alt="">
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="#">
-                                <div class="image-list">
-                                    <div class="image">
-                                        <img src="/img/image-5.jpg" alt="">
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="#">
-                                <div class="image-list">
-                                    <div class="image">
-                                        <img src="/img/image-3.jpg" alt="">
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="#">
-                                <div class="image-list">
-                                    <div class="image">
-                                        <img src="/img/image-4.jpg" alt="">
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="#">
-                                <div class="image-list">
-                                    <div class="image">
-                                        <img src="/img/image-5.jpg" alt="">
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
+						<?php } ?>
+						@endforeach
                     </div>
+				
                 </div>
         	</div>
     	</div>
@@ -256,8 +214,8 @@
 			<div class="col-lg-6">
 				<div class="card">
 				  <div class="card-body">
-					<h5 class="card-title mb-4">Property Location</h5>
-					<div class="row mb-2">
+					<h5 class="card-title mb-4">Property Area</h5>
+					{{-- <div class="row mb-2">
 				    	<div class="col-lg-4">
 				    		<div class="detail-text d-flex justify-content-start">
 
@@ -298,7 +256,7 @@
 						    	<p class="card-text">Sample Zip Code</p>
 						    </div>
 				    	</div>
-				    </div>
+				    </div> --}}
 
 
 				    <div class="iframe-container">

@@ -11,8 +11,6 @@ class Property extends Model
     use HasFactory;
     protected $table = "property_list";
 
-    public $timestamps = false;
-
     public function zoning_list()
     {
     	return $this->belongsTo(ZoningType::class, 'zoning');

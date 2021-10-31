@@ -9,6 +9,18 @@
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
+          <div class="col-sm-12">
+            @if ($errors->any())
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            @endif
+          </div>
           <div class="col-md-1"></div>
           <div class="col-md-11">
             <h1>Add New Property</h1>
@@ -31,7 +43,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="/admin/property/create" method="post">
+              <form action="/admin/property/create" method="post" enctype="multipart/form-data">
                 @csrf
 
                 <div class="card-body">
@@ -179,7 +191,7 @@
                   </div>
 
                   <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                       <div class="form-group">
                         <label for="zoning-land">Zoning Land Use</label>
                         <select name="zoning_type" class="custom-select" required>
@@ -188,6 +200,18 @@
                             <option value="{{ $type->id }}">{{ $type->nama_tipe }}</option>
                           @endforeach
                         </select>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="images">Property Image</label>
+                        <div class="input-group">
+                          <div class="custom-file">
+                            <input type="file" name="images[]" class="custom-file-input @error('images') is-invalid @enderror" id="propertyImages" multiple required>
+                            <label class="custom-file-label" for="propertyImages">Choose file</label>
+                            {!!$errors->first('image', '<span class="text-danger">:message</span>')!!}
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
