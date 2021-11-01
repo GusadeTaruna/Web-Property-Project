@@ -18,25 +18,47 @@ class LandController extends Controller
         $land = Property::all();
         $land_type = ZoningType::all();
         $huruf = "L-";
-        $count = Property::where('property_type', 2)->count();
+        $count = Property::selectRaw('RIGHT(property_code, 1) as lastcode')->orderBy('lastcode', 'DESC')->where('property_type','=','2')->first();
 
-        if($count > 0) {
-            $landCode = $huruf . sprintf("%03s", $count+1);
-        }else {
+        if(is_null($count)){
             $landCode = $huruf . sprintf("%03s", 1);
+        }else{
+            if($count->lastcode > 0) {
+                $landCode = $huruf . sprintf("%03s", $count->lastcode+1);
+            }
         }
-        
+
         return view('backend.land.land-create',compact('landCode','land_type'));
         // dd($propertCode);
     }
 
     public function store(Request $request){
 
+        $this->validate($request, 
+        [
+            'images' => 'required',
+            'images.*' => 'image|mimes:png,jpg,jpeg,svg|max:1024'
+        ],
+        [
+            'images.*.max' => 'The images must not be greater than 1 MB.'
+        ]);
+
+        if($request->hasFile('images')){
+            $counter = 0;
+            foreach($request->file('images') as $image){
+                $getFileExt = $image->getClientOriginalExtension();
+                $name=time().'LND'.$counter++.'.'.$getFileExt;
+                $image->move(public_path().'/property-image/',$name); //folder path
+                $data[] = $name;
+            }
+        }
+
     	$property = new Property;
         $property->property_type = 2;
     	$property->property_code = $request->code;
 		$property->property_name = $request->land_name;
 		$property->property_location = $request->land_location;
+        $property->property_image = json_encode($data);
 		$property->price = $request->price;
 		$property->property_status = $request->status;
 		$property->site_plan = $request->site_plan;
@@ -78,10 +100,15 @@ class LandController extends Controller
         if(!$property->save()){
             return back()->with('errorMsg', 'Error adding Data');
         }else{
-            return redirect('/admin/dashboard')->with('success', 'Land Data successfully added');
+            return redirect('/admin/land')->with('success', 'Land Data successfully added');
         }
 
     	// return redirect('/admin/dashboard')->with('success', 'Berhasil');
 
+    }
+
+    public function read($id){
+        $land = Property::where('property_code',$id)->get();
+        return view('backend.land.land-read', compact('land'));
     }
 }

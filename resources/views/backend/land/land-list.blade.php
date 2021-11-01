@@ -9,6 +9,19 @@
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
+          <div class="col-sm-12">
+            @if(session()->has('success'))
+              <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            @endif
+          </div>
+        </div>
+        
+        <div class="row mb-2">
           <div class="col-sm-12 d-flex justify-content-between">
             <h1>Land List</h1>
             <a href="/admin/land/create" class="btn btn-success my-auto">Add New Land</a>
@@ -44,7 +57,7 @@
                       <td>{{ ucwords(strtolower($data->property_location)) }}</td>
                       <td>IDR {{ number_format($data->price,0,'','.') }}</td>
                       <td>{{ $data->property_status }}</td>
-                      <td><a href="#" class="btn btn-primary w-100">View</a></td>
+                      <td><a href="{{ route('read-land',$data->property_code) }}" class="btn btn-primary w-100">View</a></td>
                     </tr>
                     @endforeach
                     

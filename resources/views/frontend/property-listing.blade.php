@@ -165,18 +165,21 @@
 								</div>
 
 								<div class="d-flex justify-content-between">
-									<div class="feature-features">
-										<i class="fas fa-bed"></i>
-										<p>4 Beds</p>
-									</div>
-									<div class="feature-features">
-										<i class="fas fa-bath"></i>
-										<p>3 Bath</p>
-									</div>
-									<div class="feature-features">
-										<i class="fas fa-warehouse"></i>
-										<p>1 Garage</p>
-									</div>
+									@if ($data->property_type == 1)
+										<div class="feature-features">
+											<i class="fas fa-bed"></i>
+											<p>4 Beds</p>
+										</div>
+										<div class="feature-features">
+											<i class="fas fa-bath"></i>
+											<p>3 Bath</p>
+										</div>
+										<div class="feature-features">
+											<i class="fas fa-warehouse"></i>
+											<p>1 Garage</p>
+										</div>
+									@endif
+									
 									<div class="feature-features">
 										<i class="fas fa-pencil-ruler"></i>
 										<p>1200 sqm</p>

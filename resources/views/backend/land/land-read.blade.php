@@ -23,7 +23,6 @@
           </div>
           <div class="col-md-1"></div>
           <div class="col-md-11">
-            <h1>Add New Land</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -39,24 +38,46 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Input the land info below</h3>
+                <h3 class="card-title">Land Info</h3>
               </div>
               <!-- /.card-header -->
-              <!-- form start -->
-              <form action="/admin/land/create" method="post" enctype="multipart/form-data">
-                @csrf
+              @foreach ($land as $data)
                 <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8">
+                            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-inner">
+						            <?php foreach (json_decode($data->property_image)as $picture) { ?>
+                                    <div class="carousel-item">
+                                        <img class="openImg d-block w-100 mb-4" data-toggle="modal" data-target="#imageModalCenter" src="{{ asset('/property-image/'.$picture) }}" style="border-radius: 30px; height:500px; object-fit:cover">
+                                    </div>
+                                    <?php } ?>
+                                </div>
+                                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                  <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                  <span class="sr-only">Next</span>
+                                </a>
+                              </div>
+                        </div>
+                        <div class="col-md-2"></div>
+                    </div>
+
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="code">Land Code</label>
-                        <input type="email" name="code" value="{{ $landCode }}" class="form-control" readonly="readonly" id="code" placeholder="{{ $landCode }}">
+                        <br>{{ $data->property_code }}
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="name">Land Name</label>
-                        <input type="text" name="land_name" class="form-control" id="name" placeholder="Input name here">
+                        <br>{{ $data->property_name }}
                       </div>
                     </div>
                   </div>
@@ -65,13 +86,13 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="location">Location</label>
-                        <input type="text" name="land_location" class="form-control" id="location" placeholder="Input location here">
+                        <br>{{ $data->property_location }}
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="price">Price</label>
-                        <input type="text" name="price" class="form-control" id="price" placeholder="Input location here">
+                        <br>{{ number_format($data->price,0,'','.') }}
                       </div>
                     </div>
                   </div>
@@ -80,17 +101,17 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="status">Status</label>
-                        <input type="text" name="status" class="form-control" id="status" placeholder="Input location here">
+                        <br>{{ $data->property_status }}
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="site-plan">Site Plan</label>
-                        <select name="site_plan" class="custom-select" required>
-                          <option selected disabled>Choose One</option>
-                          <option value="0">Yes</option>
-                          <option value="1">No</option>
-                        </select>
+                        @if ($data->site_plan == 0)
+                            <br>No
+                        @else
+                            <br>Yes
+                        @endif
                       </div>
                     </div>
                   </div>
@@ -99,13 +120,13 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="site-area">Site Area (m2)</label>
-                        <input name="site_area" type="text" class="form-control" id="site-area" placeholder="Input Site Area here">
+                        <br>{{ $data->site_area }}
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="building-area">Site Dimensions</label>
-                        <input name="site_dimension" type="text" class="form-control" id="site-dimension" placeholder="Input Site Dimensions here">
+                        <br>{{ $data->site_dimension }}
                       </div>
                     </div>
                   </div>
@@ -114,22 +135,17 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="pdma">PDMA Water</label>
-                        <select name="pdma" class="custom-select" required>
-                          <option selected disabled>Choose One</option>
-                          <option value="bor">Bor</option>
-                          <option value="well">Well</option>
-                          <option value="0">No</option>
-                        </select>
+                        <br>{{ $data->pdma_water }}
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="imb">IMB</label>
-                        <select name="imb" class="custom-select" required>
-                          <option selected disabled>Choose One</option>
-                          <option value="0">Yes</option>
-                          <option value="1">No</option>
-                        </select>
+                        @if ($data->imb == 0)
+                            <br>No
+                        @else
+                            <br>Yes
+                        @endif
                       </div>
                     </div>
                   </div>
@@ -138,18 +154,13 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="building-area">PLN / Power (kV)</label>
-                        <input name="pln" type="text" class="form-control" id="pln" placeholder="0">
+                        <br>{{ $data->power_kv }}
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="zoning-land">Zoning Types</label>
-                        <select name="zone_type" class="custom-select">
-                          <option selected disabled>Choose One</option>
-                          @foreach ($land_type as $type)
-                            <option value="{{ $type->id }}">{{ $type->nama_tipe }}</option>
-                          @endforeach
-                        </select>
+                        <br>{{ $data->zoning_list->nama_tipe }}
                       </div>
                     </div>
                   </div>
@@ -158,7 +169,7 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label for="description">Description</label>
-                        <textarea name="description" class="form-control" id="description" rows="3" placeholder="Input property description here..."></textarea>
+                        <br>{{ $data->description }}
                       </div>
                     </div>
                   </div>
@@ -167,21 +178,21 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="topography-plan">Topography plan</label>
-                        <select name="topography" class="custom-select" required>
-                          <option selected disabled>Choose One</option>
-                          <option value="0">Yes</option>
-                          <option value="1">No</option>
-                        </select>
+                        @if ($data->topography_plan == 0)
+                            <br>No
+                        @else
+                            <br>Yes
+                        @endif
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="soil-test">Soil Test</label>
-                        <select name="soil_test" class="custom-select">
-                          <option selected disabled>Choose One</option>
-                          <option value="0">Yes</option>
-                          <option value="1">No</option>
-                        </select>
+                        @if ($data->soil_test == 0)
+                            <br>No
+                        @else
+                            <br>Yes
+                        @endif
                       </div>
                     </div>
                   </div>
@@ -190,13 +201,13 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="slope-ratio">Slope Ratio</label>
-                        <input name="slope_ratio" type="text" class="form-control" id="slope-ratio" placeholder="Input Slope Ratio here">
+                        <br>{{ $data->slope_ratio }}
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="building-ratio">Building Ratio</label>
-                        <input name="building_ratio" type="text" class="form-control" id="building-ratio" placeholder="Input Building Ratio here">
+                        <br>{{ $data->building_ratio }}
                       </div>
                     </div>
                   </div>
@@ -205,53 +216,38 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="rain-average">Rain Average (Year)</label>
-                        <input name="rain_average" type="text" class="form-control" id="rain-average" placeholder="Input Rain Average per year here">
+                        <br>{{ $data->rain_avg_year }}
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="humidity-average">Humidity Average (Year)</label>
-                        <input name="humidity_average" type="text" class="form-control" id="humidity-average" placeholder="Input Humidity Average per year here">
+                        <br>{{ $data->humidity_avg_year }}
                       </div>
                     </div>
                   </div>
 
                   <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="city-draw">City Draw</label>
+                            <br>{{ $data->city_draw }}
+                        </div>
+                    </div>
+                    <div class="col-md-4">
                       <div class="form-group">
                         <label for="access-road">Access Road</label>
-                        <select name="access_road" class="custom-select" required>
-                          <option selected disabled>Choose One</option>
-                          <option value="0">Yes</option>
-                          <option value="1">No</option>
-                        </select>
+                        @if ($data->access_road == 0)
+                            <br>No
+                        @else
+                            <br>Yes
+                        @endif
                       </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                       <div class="form-group">
                         <label for="road-width">Access Road Width</label>
-                        <input name="road_width" type="text" class="form-control" id="road-width" placeholder="Input Access Road Width here">
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label for="city-draw">City Draw</label>
-                        <input name="city_draw" type="text" class="form-control" id="city-draw" placeholder="Input City Draw here">
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label for="images">Land Image</label>
-                        <div class="input-group">
-                          <div class="custom-file">
-                            <input type="file" name="images[]" class="custom-file-input @error('images') is-invalid @enderror" id="landImages" multiple required>
-                            <label class="custom-file-label" for="landImages">Choose file</label>
-                            {!!$errors->first('image', '<span class="text-danger">:message</span>')!!}
-                          </div>
-                        </div>
+                        <br>{{ $data->access_road_width }}
                       </div>
                     </div>
                   </div>
@@ -260,7 +256,7 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label for="description">Surrounding Sites Description</label>
-                        <textarea name="sites_description" class="form-control" id="sites-description" rows="3" placeholder="Input Surrounding Sites Description here..."></textarea>
+                        <br>{{ $data->surrounding_sites_desc }}
                       </div>
                     </div>
                   </div>
@@ -275,78 +271,73 @@
 
                   <div class="row">
                     <div class="col-md-4">
-                      <div class="input-group mb-3">
+                    <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                          <span class="input-group-text" id="basic-addon1">
+                        <span class="input-group-text" id="basic-addon1">
                             <i class="fas fa-school"></i>
-                          </span>
+                        </span>
                         </div>
-                        <input type="text" name="school" class="form-control" placeholder="School (km)" aria-label="school" aria-describedby="basic-addon1">
-                      </div>
+                        <label class="form-control">School = {{ $data->school_distance }} km</label>
+                    </div>
                     </div>
                     <div class="col-md-4">
-                      <div class="input-group mb-3">
+                    <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                          <span class="input-group-text" id="basic-addon1">
+                        <span class="input-group-text" id="basic-addon1">
                             <i class="fas fa-hospital"></i>
-                          </span>
+                        </span>
                         </div>
-                        <input type="text" name="hospital" class="form-control" placeholder="Hospital (km)" aria-label="hospital" aria-describedby="basic-addon1">
-                      </div>
+                        <label class="form-control">Hospital = {{ $data->hospital_distance }} km</label>
+                    </div>
                     </div>
                     <div class="col-md-4">
-                      <div class="input-group mb-3">
+                    <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                          <span class="input-group-text" id="basic-addon1">
+                        <span class="input-group-text" id="basic-addon1">
                             <i class="fas fa-plane-departure"></i>
-                          </span>
+                        </span>
                         </div>
-                        <input type="text" name="airport" class="form-control" placeholder="Airport (km)" aria-label="airport" aria-describedby="basic-addon1">
-                      </div>
+                        <label class="form-control">Airport = {{ $data->airport_distance }} km</label>
                     </div>
-                  </div>
+                    </div>
+                </div>
 
-                  <div class="row">
+                <div class="row">
                     <div class="col-md-4">
-                      <div class="input-group mb-3">
+                    <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                          <span class="input-group-text" id="basic-addon1">
+                        <span class="input-group-text" id="basic-addon1">
                             <i class="fas fa-store-alt"></i>
-                          </span>
+                        </span>
                         </div>
-                        <input type="text" name="supermarket" class="form-control" placeholder="Supermarket (km)" aria-label="supermarket" aria-describedby="basic-addon1">
-                      </div>
+                        <label class="form-control">Supermarket = {{ $data->supermarket_distance }} km</label>
+                    </div>
                     </div>
                     <div class="col-md-4">
-                      <div class="input-group mb-3">
+                    <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                          <span class="input-group-text" id="basic-addon1">
+                        <span class="input-group-text" id="basic-addon1">
                             <i class="fas fa-umbrella-beach"></i>
-                          </span>
+                        </span>
                         </div>
-                        <input type="text" name="beach" class="form-control" placeholder="Beach (km)" aria-label="beach" aria-describedby="basic-addon1">
-                      </div>
+                        <label class="form-control">Beach = {{ $data->beach_distance }} km</label>
+                    </div>
                     </div>
                     <div class="col-md-4">
-                      <div class="input-group mb-3">
+                    <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                          <span class="input-group-text" id="basic-addon1">
+                        <span class="input-group-text" id="basic-addon1">
                             <i class="fas fa-utensils"></i>
-                          </span>
+                        </span>
                         </div>
-                        <input type="text" name="dining" class="form-control" placeholder="Fine Dining (km)" aria-label="dining" aria-describedby="basic-addon1">
-                      </div>
+                        <label class="form-control">Fine dining = {{ $data->fine_dining_distance }} km</label>
                     </div>
-                  </div>
+                    </div>
+                </div>
           
                 </div>
                 <!-- /.card-body -->
-
-                <div class="card-footer text-right">
-                  <button class="btn btn-danger w-25">Cancel</button>
-                  <button type="submit" class="btn btn-primary w-25">Submit</button>
-                </div>
-              </form>
+                @endforeach
             </div>
             <!-- /.card -->
 

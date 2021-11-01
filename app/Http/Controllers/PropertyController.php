@@ -18,7 +18,7 @@ class PropertyController extends Controller
         $property = Property::all();
         $property_type = ZoningType::all();
         $huruf = "PB-";
-        $count = Property::selectRaw('RIGHT(property_code, 1) as lastcode')->orderBy('lastcode', 'DESC')->first();
+        $count = Property::selectRaw('RIGHT(property_code, 1) as lastcode')->orderBy('lastcode', 'DESC')->where('property_type','=','1')->first();
 
         if(is_null($count)){
             $propertyCode = $huruf . sprintf("%03s", 1);

@@ -68,6 +68,7 @@ Route::get('/admin/property-categories', [DashboardController::class, 'propertyC
 Route::get('/admin/land', [LandController::class, 'index'])->name('land')->middleware('auth');
 Route::get('/admin/land/create', [LandController::class, 'create'])->name('create-land')->middleware('auth');
 Route::post('/admin/land/create', [LandController::class, 'store'])->middleware('auth');
+Route::get('/admin/land/{id}', [LandController::class, 'read'])->name('read-land')->middleware('auth');
 
 Route::get('/admin/list-admin', [DashboardController::class, 'adminList'])->name('list-admin')->middleware('auth');
 

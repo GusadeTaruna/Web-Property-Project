@@ -92,7 +92,7 @@
                         <div class="col-md-6">
                         <div class="form-group">
                             <label for="price">Price</label>
-                            <br>{{ $data->price }}
+                            <br>{{ number_format($data->price,0,'','.') }}
                         </div>
                         </div>
                     </div>
@@ -107,7 +107,11 @@
                         <div class="col-md-6">
                         <div class="form-group">
                             <label for="site-plan">Site Plan</label>
-                            <br>{{ $data->site_plan }}
+                            @if ($data->site_plan == 0)
+                                <br>No
+                            @else
+                                <br>Yes
+                            @endif
                         </div>
                         </div>
                     </div>
@@ -152,7 +156,11 @@
                         <div class="col-md-6">
                         <div class="form-group">
                             <label for="imb">IMB</label>
-                            <br>{{ $data->imb }}
+                            @if ($data->imb == 0)
+                                <br>No
+                            @else
+                                <br>Yes
+                            @endif
                         </div>
                         </div>
                     </div>
@@ -161,7 +169,7 @@
                         <div class="col-md-12">
                         <div class="form-group">
                             <label for="zoning-land">Zoning Land Use</label>
-                            <br>{{ $data->zoning }}
+                            <br>{{ $data->zoning_list->nama_tipe }}
                         </div>
                         </div>
                     </div>
@@ -191,7 +199,7 @@
                                 <i class="fas fa-school"></i>
                             </span>
                             </div>
-                            <label class="form-control">{{ $data->school_distance }} KM</label>
+                            <label class="form-control">School = {{ $data->school_distance }} km</label>
                         </div>
                         </div>
                         <div class="col-md-4">
@@ -201,7 +209,7 @@
                                 <i class="fas fa-hospital"></i>
                             </span>
                             </div>
-                            <label class="form-control">{{ $data->hospital_distance }} KM</label>
+                            <label class="form-control">Hospital = {{ $data->hospital_distance }} km</label>
                         </div>
                         </div>
                         <div class="col-md-4">
@@ -211,7 +219,7 @@
                                 <i class="fas fa-plane-departure"></i>
                             </span>
                             </div>
-                            <label class="form-control">{{ $data->airport_distance }} KM</label>
+                            <label class="form-control">Airport = {{ $data->airport_distance }} km</label>
                         </div>
                         </div>
                     </div>
@@ -224,7 +232,7 @@
                                 <i class="fas fa-store-alt"></i>
                             </span>
                             </div>
-                            <label class="form-control">{{ $data->supermarket_distance }} KM</label>
+                            <label class="form-control">Supermarket = {{ $data->supermarket_distance }} km</label>
                         </div>
                         </div>
                         <div class="col-md-4">
@@ -234,7 +242,7 @@
                                 <i class="fas fa-umbrella-beach"></i>
                             </span>
                             </div>
-                            <label class="form-control">{{ $data->beach_distance }} KM</label>
+                            <label class="form-control">Beach = {{ $data->beach_distance }} km</label>
                         </div>
                         </div>
                         <div class="col-md-4">
@@ -244,7 +252,7 @@
                                 <i class="fas fa-utensils"></i>
                             </span>
                             </div>
-                            <label class="form-control">{{ $data->fine_dining_distance }} KM</label>
+                            <label class="form-control">Fine dining = {{ $data->fine_dining_distance }} km</label>
                         </div>
                         </div>
                     </div>
