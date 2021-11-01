@@ -58,7 +58,7 @@
                           <td>{{ ucwords(strtolower($data->property_location)) }}</td>
                           <td>IDR {{ number_format($data->price,0,'','.') }}</td>
                           <td>{{ $data->property_status }}</td>
-                          <td><a href="#" class="btn btn-primary w-100">View</a></td>
+                          <td><a href="{{ route('read-property',$data->property_code) }}" class="btn btn-primary w-100">View</a></td>
                       </tr>
                     @endforeach
                   </tbody>

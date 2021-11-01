@@ -20,10 +20,12 @@ class PropertyController extends Controller
         $huruf = "PB-";
         $count = Property::selectRaw('RIGHT(property_code, 1) as lastcode')->orderBy('lastcode', 'DESC')->first();
 
-        if($count->lastcode > 0) {
-            $propertyCode = $huruf . sprintf("%03s", $count->lastcode+1);
-        }else {
+        if(is_null($count)){
             $propertyCode = $huruf . sprintf("%03s", 1);
+        }else{
+            if($count->lastcode > 0) {
+                $propertyCode = $huruf . sprintf("%03s", $count->lastcode+1);
+            }
         }
         
         return view('backend.property.property-create',compact('propertyCode','property_type'));
@@ -116,5 +118,10 @@ class PropertyController extends Controller
 
     	// $request->session()->flash('success', 'Registrasi Berhasil! anda sekarang dapat Log In');
         
+    }
+
+    public function read($id){
+        $property = Property::where('property_code',$id)->get();
+        return view('backend.property.property-read', compact('property'));
     }
 }

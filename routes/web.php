@@ -60,6 +60,7 @@ Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('das
 Route::get('/admin/property', [PropertyController::class, 'index'])->name('property')->middleware('auth');
 Route::get('/admin/property/create', [PropertyController::class, 'create'])->name('create-property')->middleware('auth');
 Route::post('/admin/property/create', [PropertyController::class, 'store'])->middleware('auth');
+Route::get('/admin/property/{id}', [PropertyController::class, 'read'])->name('read-property')->middleware('auth');
 
 Route::get('/admin/property-type', [DashboardController::class, 'propertyType'])->name('property-type')->middleware('auth');
 Route::get('/admin/property-categories', [DashboardController::class, 'propertyCategories'])->name('property-cateories')->middleware('auth');

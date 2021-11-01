@@ -182,6 +182,18 @@
 
     @yield('content')
 
+    {{-- IMage Modal --}}
+    <div class="modal fade" id="imageModalCenter" tabindex="-1" role="dialog" aria-labelledby="imageModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" style="max-width: 60%" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <img src="" class="showPic" style="width: 100%; height: auto; object-fit:cover">
+            </div>
+        </div>
+        </div>
+    </div>
+    {{-- IMage Modal --}}
+
     <footer class="main-footer">
         <strong>Copyright &copy; <a href="/">BRAND NAME</a>.</strong>
         All rights reserved.
@@ -266,6 +278,20 @@
                 $(this).next('.custom-file-label').html(fileName);
             }
         })
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('#carouselExampleControls').find('.carousel-item').first().addClass('active');
+        });
+    </script>
+
+    <script>
+        $('.openImg').click(function() {
+            var src =$(this).attr('src');
+
+            $('.showPic').attr('src', src);
+        });
     </script>
 
 </body>

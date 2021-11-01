@@ -75,7 +75,7 @@
         <div class="modal fade" id="imageModalCenter" tabindex="-1" role="dialog" aria-labelledby="imageModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" style="max-width: 60%" role="document">
             <div class="modal-content">
-                <div class="modal-body p-0">
+                <div class="modal-body">
                     <img src="" class="showPic"  style="width: 100%; height: auto; object-fit:cover">
                 </div>
             </div>
