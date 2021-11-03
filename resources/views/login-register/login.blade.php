@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="login-box">
-  <div class="login-logo">
-    <a href="../../index2.html"><b>LOGO</b></a>
+  <div class="login-logo mb-3">
+    <a href="/admin"><img src="/img/logo/logo.png" style="width: 250px; height: auto;"></img></a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
@@ -63,7 +63,7 @@
           </div> --}}
           <!-- /.col -->
           <div class="col-12 mb-2">
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+            <button type="submit" class="btn btn-primary btn-block" style="background: #a5876a; border: none;">Sign In</button>
           </div>
           <!-- /.col -->
         </div>
@@ -72,7 +72,7 @@
       {{-- <p class="mb-1 mt-4 text-center">
       </p> --}}
       <p class="mb-0 mt-2 text-center">
-        <a href="forgot-password.html">Lupa Password</a>
+        <a href="forgot-password.html" style="color: #a5876a;">Lupa Password</a>
       </p>
     </div>
     <!-- /.login-card-body -->

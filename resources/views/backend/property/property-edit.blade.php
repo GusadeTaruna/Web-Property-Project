@@ -43,21 +43,24 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="/admin/property/create" method="post" enctype="multipart/form-data">
+              @foreach ($property as $data)
+              <form action="{{ url('/admin/property/update/'.$data->id ) }}" method="post" enctype="multipart/form-data">
                 @csrf
+                @method('PUT')
 
+                
                 <div class="card-body">
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="code">Property Code</label>
-                        <input type="text" name="code" value={{ $propertyCode }} class="form-control" readonly="readonly" id="code" placeholder="{{ $propertyCode }}" required>
+                        <input type="text" name="code" value="{{ $data->property_code }}" class="form-control" readonly="readonly" id="code" placeholder="{{ $data->property_code }}" >
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="name">Property Name</label>
-                        <input type="text" name="property_name" class="form-control @error('property_name') is-invalid @enderror" required value="{{ old('property_name') }}" id="property_name" placeholder="Input name here">
+                        <input type="text" name="property_name" class="form-control @error('property_name') is-invalid @enderror"  value="{{$data->property_name}}" id="property_name" placeholder="{{$data->property_name}}">
                         @error('property_name')
                           <div class="invalid-feedback">
                             {{ $message }}
@@ -71,7 +74,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="location">Location</label>
-                        <input type="text" name="location" class="form-control @error('location') is-invalid @enderror" required value="{{ old('location') }}" id="location" placeholder="Input Location here">
+                        <input type="text" name="location" class="form-control @error('location') is-invalid @enderror"  value="{{$data->property_location}}" id="location" placeholder="{{$data->property_location}}">
                         @error('location')
                           <div class="invalid-feedback">
                             {{ $message }}
@@ -82,7 +85,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="price">Price</label>
-                        <input type="text" name="price" class="form-control @error('price') is-invalid @enderror" required value="{{ old('price') }}" id="price" placeholder="Input Price here">
+                        <input type="text" name="price" class="form-control @error('price') is-invalid @enderror"  value="{{$data->price}}" id="price" placeholder="{{$data->price}}">
                         @error('price')
                           <div class="invalid-feedback">
                             {{ $message }}
@@ -96,7 +99,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="status">Status</label>
-                        <input type="text" name="status" class="form-control @error('status') is-invalid @enderror" required value="{{ old('status') }}" id="status" placeholder="Input Status here">
+                        <input type="text" name="status" class="form-control @error('status') is-invalid @enderror"  value="{{$data->property_status}}" id="status" placeholder="{{$data->property_status}}">
                         @error('status')
                           <div class="invalid-feedback">
                             {{ $message }}
@@ -107,10 +110,16 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="site-plan">Site Plan</label>
-                        <select name="site_plan" class="custom-select" required>
-                          <option selected disabled>Choose One</option>
-                          <option value="0">Yes</option>
-                          <option value="1">No</option>
+                        <select name="site_plan" class="custom-select" >
+                          @if($data->site_plan==0)
+                            <option disabled>Choose One</option>
+                            <option value="0" selected>Yes</option>
+                            <option value="1">No</option>
+                          @else
+                            <option disabled>Choose One</option>
+                            <option value="0">Yes</option>
+                            <option value="1" selected>No</option>
+                          @endif
                         </select>
                       </div>
                     </div>
@@ -120,7 +129,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="site-area">Site Area (m2)</label>
-                        <input type="text" name="site_area" class="form-control @error('site_area') is-invalid @enderror" required value="{{ old('site_area') }}" id="site_area" placeholder="Input Site Area here" >
+                        <input type="text" name="site_area" class="form-control @error('site_area') is-invalid @enderror"  value="{{$data->site_area}}" id="site_area" placeholder="{{$data->site_area}}" >
                         @error('site_area')
                           <div class="invalid-feedback">
                             {{ $message }}
@@ -131,7 +140,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="building_area">Building Area (m2)</label>
-                        <input type="text" name="building_area" class="form-control @error('building_area') is-invalid @enderror" required value="{{ old('building_area') }}" id="building_area" placeholder="Input Building Area here" >
+                        <input type="text" name="building_area" class="form-control @error('building_area') is-invalid @enderror"  value="{{$data->building_area}}" id="building_area" placeholder="{{$data->building_area}}" >
                         @error('building_area')
                           <div class="invalid-feedback">
                             {{ $message }}
@@ -145,7 +154,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="power_kv">PLN / Power (kV)</label>
-                        <input type="text" name="power_kv" class="form-control @error('power_kv') is-invalid @enderror" required value="{{ old('power_kv') }}" id="power_kv" placeholder="0">
+                        <input type="text" name="power_kv" class="form-control @error('power_kv') is-invalid @enderror"  value="{{$data->power_kv}}" id="power_kv" placeholder="{{$data->power_kv}}">
                         @error('power_kv')
                           <div class="invalid-feedback">
                             {{ $message }}
@@ -156,7 +165,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="generator">Generator (kV)</label>
-                        <input type="text" name="generator" class="form-control @error('generator') is-invalid @enderror" required value="{{ old('generator') }}" id="generator" placeholder="0">
+                        <input type="text" name="generator" class="form-control @error('generator') is-invalid @enderror"  value="{{$data->generator_kv}}" id="generator" placeholder="{{$data->generator_kv}}">
                         @error('generator')
                           <div class="invalid-feedback">
                             {{ $message }}
@@ -170,21 +179,39 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="pdma">PDMA Water</label>
-                        <select name="pdma" class="custom-select" required>
-                          <option selected disabled>Choose One</option>
-                          <option value="bor">Bor</option>
-                          <option value="well">Well</option>
-                          <option value="0">No</option>
+                        <select name="pdma" class="custom-select" >
+                          @if($data->pdma_water== "Bor")
+                            <option disabled>Choose One</option>
+                            <option selected value="bor">Bor</option>
+                            <option value="well">Well</option>
+                            <option value="0">No</option>
+                          @elseif ($data->pdma_water== "Well")
+                            <option disabled>Choose One</option>
+                            <option value="bor">Bor</option>
+                            <option selected value="well">Well</option>
+                            <option value="0">No</option>
+                          @elseif ($data->pdma_water== "0")
+                            <option disabled>Choose One</option>
+                            <option value="bor">Bor</option>
+                            <option value="well">Well</option>
+                            <option selected value="0">No</option>
+                          @endif
                         </select>
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="imb">IMB</label>
-                        <select name="imb" class="custom-select" required>
-                          <option selected disabled>Choose One</option>
-                          <option value="0">Yes</option>
-                          <option value="1">No</option>
+                        <select name="imb" class="custom-select" >
+                          @if($data->imb==0)
+                            <option disabled>Choose One</option>
+                            <option value="0" selected>Yes</option>
+                            <option value="1">No</option>
+                          @else
+                            <option disabled>Choose One</option>
+                            <option value="0">Yes</option>
+                            <option value="1" selected>No</option>
+                          @endif
                         </select>
                       </div>
                     </div>
@@ -194,10 +221,10 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="zoning-land">Zoning Land Use</label>
-                        <select name="zoning_type" class="custom-select" required>
-                          <option selected disabled>Choose One</option>
+                        <select name="zoning_type" class="custom-select" >
+                          <option disabled>Choose One</option>
                           @foreach ($property_type as $type)
-                            <option value="{{ $type->id }}">{{ $type->nama_tipe }}</option>
+                            <option value="{{ $type->id }}" {{$data->zoning == $type->id  ? 'selected' : ''}}>{{ $type->nama_tipe }}</option>
                           @endforeach
                         </select>
                       </div>
@@ -207,8 +234,8 @@
                         <label for="images">Property Image</label>
                         <div class="input-group">
                           <div class="custom-file">
-                            <input type="file" name="images[]" class="custom-file-input @error('images') is-invalid @enderror" id="propertyImages" multiple required>
-                            <label class="custom-file-label" for="propertyImages">Choose file</label>
+                            <input type="file" name="images[]" class="custom-file-input @error('images') is-invalid @enderror" id="propertyImages" multiple>
+                            <label class="custom-file-label" for="propertyImages">This property have {{$count_image}} Images</label>
                             {!!$errors->first('image', '<span class="text-danger">:message</span>')!!}
                           </div>
                         </div>
@@ -220,7 +247,7 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label for="description">Description</label>
-                        <textarea class="form-control @error('description') is-invalid @enderror" required value="{{ old('description') }}" name="description" id="description" rows="3" placeholder="Input property description here..."></textarea>
+                        <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description" rows="3" placeholder="{{$data->description}}">{{$data->description}}</textarea>
                         @error('description')
                           <div class="invalid-feedback">
                             {{ $message }}
@@ -246,7 +273,7 @@
                             <i class="fas fa-school"></i>
                           </span>
                         </div>
-                        <input type="text" name="school" class="form-control @error('school') is-invalid @enderror" required value="{{ old('school') }}" placeholder="School (km)" aria-label="school" aria-describedby="basic-addon1">
+                        <input type="text" name="school" class="form-control @error('school') is-invalid @enderror"  value="{{$data->school_distance}}" placeholder="{{$data->school_distance}}" aria-label="school" aria-describedby="basic-addon1">
                         @error('school')
                           <div class="invalid-feedback">
                             {{ $message }}
@@ -261,7 +288,7 @@
                             <i class="fas fa-hospital"></i>
                           </span>
                         </div>
-                        <input type="text" name="hospital" class="form-control @error('hospital') is-invalid @enderror" required value="{{ old('hospital') }}" placeholder="Hospital (km)" aria-label="hospital" aria-describedby="basic-addon1">
+                        <input type="text" name="hospital" class="form-control @error('hospital') is-invalid @enderror"  value="{{$data->hospital_distance}}" placeholder="{{$data->hospital_distance}}" aria-label="hospital" aria-describedby="basic-addon1">
                         @error('hospital')
                           <div class="invalid-feedback">
                             {{ $message }}
@@ -276,7 +303,7 @@
                             <i class="fas fa-plane-departure"></i>
                           </span>
                         </div>
-                        <input type="text" name="airport" class="form-control @error('airport') is-invalid @enderror" required value="{{ old('airport') }}" placeholder="Airport (km)" aria-label="airport" aria-describedby="basic-addon1">
+                        <input type="text" name="airport" class="form-control @error('airport') is-invalid @enderror"  value="{{$data->airport_distance}}" placeholder="{{$data->airport_distance}}" aria-label="airport" aria-describedby="basic-addon1">
                         @error('airport')
                           <div class="invalid-feedback">
                             {{ $message }}
@@ -294,7 +321,7 @@
                             <i class="fas fa-store-alt"></i>
                           </span>
                         </div>
-                        <input type="text" name="supermarket" class="form-control @error('supermarket') is-invalid @enderror" required value="{{ old('supermarket') }}" placeholder="Supermarket (km)" aria-label="supermarket" aria-describedby="basic-addon1">
+                        <input type="text" name="supermarket" class="form-control @error('supermarket') is-invalid @enderror"  value="{{$data->supermarket_distance}}" placeholder="{{$data->supermarket_distance}}" aria-label="supermarket" aria-describedby="basic-addon1">
                         @error('supermarket')
                           <div class="invalid-feedback">
                             {{ $message }}
@@ -309,7 +336,7 @@
                             <i class="fas fa-umbrella-beach"></i>
                           </span>
                         </div>
-                        <input type="text" name="beach" class="form-control @error('beach') is-invalid @enderror" required value="{{ old('beach') }}" placeholder="Beach (km)" aria-label="beach" aria-describedby="basic-addon1">
+                        <input type="text" name="beach" class="form-control @error('beach') is-invalid @enderror"  value="{{$data->beach_distance}}" placeholder="{{$data->beach_distance}}" aria-label="beach" aria-describedby="basic-addon1">
                         @error('beach')
                           <div class="invalid-feedback">
                             {{ $message }}
@@ -324,7 +351,7 @@
                             <i class="fas fa-utensils"></i>
                           </span>
                         </div>
-                        <input type="text" name="dining" class="form-control @error('dining') is-invalid @enderror" required value="{{ old('dining') }}" placeholder="Fine Dining (km)" aria-label="dining" aria-describedby="basic-addon1">
+                        <input type="text" name="dining" class="form-control @error('dining') is-invalid @enderror"  value="{{$data->fine_dining_distance}}" placeholder="{{$data->fine_dining_distance}}" aria-label="dining" aria-describedby="basic-addon1">
                         @error('dining')
                           <div class="invalid-feedback">
                             {{ $message }}
@@ -333,7 +360,7 @@
                       </div>
                     </div>
                   </div>
-          
+                
                 </div>
                 <!-- /.card-body -->
 
@@ -342,6 +369,7 @@
                   <button type="submit" class="btn btn-success w-25">Submit</button>
                 </div>
               </form>
+              @endforeach
             </div>
             <!-- /.card -->
 

@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Property;
 use App\Models\ZoningType;
+use Illuminate\Support\Facades\File;
 
 class PropertyController extends Controller
 {
     //
     public function index(){
-        $property = Property::join('zoning_type', 'property_list.zoning', '=', 'zoning_type.id')->where('property_type',1)->get();
+        $property = Property::where('property_type',1)->get();
         return view('backend.property.property-list',compact('property'));
     }
 
@@ -123,5 +124,100 @@ class PropertyController extends Controller
     public function read($id){
         $property = Property::where('property_code',$id)->get();
         return view('backend.property.property-read', compact('property'));
+    }
+
+
+    public function edit($id)
+    {
+        $property = Property::where('property_code',$id)->get();
+        $property_type = ZoningType::all();
+        $count_image = count(json_decode($property['0']->property_image));
+        // dd($count_image);
+        return view('backend.property.property-edit', compact('property','property_type','count_image'));
+        // return response()->json($post, 200); 
+    }
+
+    public function update(Request $request, $id)
+    {
+        $property = Property::findOrFail($id);
+
+
+        if ($request->hasFile('images')) {
+            request()->validate(
+                ['images.*' => 'image|mimes:png,jpg,jpeg,svg|max:1024'],
+                ['images.*.max' => 'The images must not be greater than 1 MB.']
+            );
+
+            $images = json_decode($property->property_image);
+            foreach($images as $image){
+
+                $image_path = public_path().'/property-image/'.$image;
+
+                if(File::exists($image_path)) {
+                    File::delete($image_path);
+                }
+            }
+
+            $counter = 0;
+            foreach($request->file('images') as $image){
+                $getFileExt = $image->getClientOriginalExtension();
+                $name=time().'PR'.$counter++.'.'.$getFileExt;
+                $image->move(public_path().'/property-image/',$name); //folder path
+                $data[] = $name;
+            }
+            $update = Property::where('id', $id)->update([
+                 'property_image' => json_encode($data)
+            ]);
+        }
+
+        $property->property_type = 1;
+        $property->property_code = $request->code;
+        $property->property_name = $request->property_name;
+        $property->property_location = $request->location;
+        $property->price = $request->price;
+        $property->property_status = $request->status;
+        $property->site_plan = $request->site_plan;
+        $property->site_area = $request->site_area;
+        $property->building_area = $request->building_area;
+        $property->power_kv = $request->power_kv;
+        $property->generator_kv = $request->generator;
+        $property->pdma_water = $request->pdma;
+        $property->imb = $request->imb;
+        $property->zoning = $request->zoning_type;
+        $property->description = $request->description;
+        $property->school_distance = $request->school;
+        $property->hospital_distance = $request->hospital;
+        $property->airport_distance = $request->airport;
+        $property->supermarket_distance = $request->supermarket;
+        $property->beach_distance = $request->beach;
+        $property->fine_dining_distance = $request->dining;
+        $property->update();
+
+             
+       return redirect('/admin/property')->with('success',' Data updated successfully!');
+    }
+
+    public function destroy($id)
+    {
+        $property = Property::findOrFail($id);
+        $images = json_decode($property->property_image); //mecah array multi image
+        foreach($images as $image){
+
+            $image_path = public_path().'/property-image/'.$image; //ambil 1 1 image yang ada di array
+
+            if(File::exists($image_path)) { //kalo file imagenya ada
+                File::delete($image_path); //hapus dari folder local
+            }
+        }
+
+        $property->delete();
+
+        if($property){
+         //redirect dengan pesan sukses
+         return redirect('/admin/property')->with('success',' Data deleted successfully!');
+        }else{
+        //redirect dengan pesan error
+        return redirect('/admin/property')->with('error','Error Deleting Data!');
+        }
     }
 }

@@ -7,8 +7,6 @@
     <title>@yield('title')</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- MDB -->
-    <link href="/css/mdb/mdb.min.css" rel="stylesheet" />
     <!-- swiper -->
     <link rel="stylesheet" href="/css/swiperjs/swiper-bundle.min.css" />
     <link rel="stylesheet" href="/css/multiselect/bootstrap-multiselect.css" type="text/css"/>
@@ -19,6 +17,7 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+    <!-- custom -->
 </head>
 <body class="hold-transition login-page">
 

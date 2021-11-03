@@ -61,6 +61,9 @@ Route::get('/admin/property', [PropertyController::class, 'index'])->name('prope
 Route::get('/admin/property/create', [PropertyController::class, 'create'])->name('create-property')->middleware('auth');
 Route::post('/admin/property/create', [PropertyController::class, 'store'])->middleware('auth');
 Route::get('/admin/property/{id}', [PropertyController::class, 'read'])->name('read-property')->middleware('auth');
+Route::get('/admin/property/edit/{id}', [PropertyController::class, 'edit'])->name('edit-property')->middleware('auth');
+Route::put('/admin/property/update/{id}', [PropertyController::class, 'update'])->name('update-property')->middleware('auth');
+Route::delete('/admin/property/delete/{id}', [PropertyController::class, 'destroy'])->name('delete-property')->middleware('auth');
 
 Route::get('/admin/property-type', [DashboardController::class, 'propertyType'])->name('property-type')->middleware('auth');
 Route::get('/admin/property-categories', [DashboardController::class, 'propertyCategories'])->name('property-cateories')->middleware('auth');

@@ -30,6 +30,8 @@
     <link rel="stylesheet" href="/adminlte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="/adminlte/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="/adminlte/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+    <!-- custom -->
+    <link rel="stylesheet" type="text/css" href="/css/backend.css">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -74,8 +76,8 @@
         <aside class="main-sidebar sidebar-light-primary elevation-4">
             <!-- Brand Logo -->
             <a href="/admin/dashboard" class="brand-link text-center">
-                {{-- <img src="/adminlte/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="img-circle elevation-3 w-100" style="opacity: .8"> --}}
-                <span class="font-weight-bold text-primary">LOGO</span>
+                <img src="/img/logo/logo.png" alt="Dashboard" style="width: 200px;height: auto;" style="opacity: .8">
+<!--                 <span class="font-weight-bold text-primary">LOGO</span> -->
             </a>
 
             <!-- Sidebar -->
@@ -195,7 +197,7 @@
     {{-- IMage Modal --}}
 
     <footer class="main-footer">
-        <strong>Copyright &copy; <a href="/">BRAND NAME</a>.</strong>
+        <strong>Copyright &copy; <a href="/admin" style="color: #a5876a;">Equatorial Properties</a>.</strong>
         All rights reserved.
     </footer>
     </div>
