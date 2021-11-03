@@ -200,20 +200,17 @@
 
 
 #nav-container{
-	padding: 0 10%;
+    padding: 0 10%;
+    background-color: #fff;
+    position: fixed;
+    z-index: 20;
+    min-width: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 nav.navbar {
     box-shadow: none;
     color: var(--color-secondary);
-}
-
-.fixed{
-	min-width: 100%;
-	position: fixed;
-	z-index: 20;
-	background-color: #fff;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .header nav.navbar .navbar-brand {
@@ -226,30 +223,18 @@ nav.navbar {
 .header nav.navbar .nav-link {
     font-size: 15px;
     font-family: var(--font-poppin);
-    color: #fff;
-    font-weight: 500;
-    padding: 10px 15px;
-    transition: 0.5s ease;
-}	
-
-.header .fixed nav.navbar .nav-link {
-    font-size: 15px;
-    font-family: var(--font-poppin);
     color: var(--color-primary);
     font-weight: 500;
     padding: 10px 15px;
     transition: 0.5s ease;
-}	
+}
+
+.header nav.navbar .nav-item .icon-responsive{
+    display: none;
+}
 
 .header .navbar .nav-link:hover,
 .header .navbar .nav-link.active {
-    background-color: var(--color-primary);
-    color: #ffffff;
-    border-radius: 50px;
-}
-
-.header .fixed .navbar .nav-link:hover,
-.header .fixed .navbar .nav-link.active {
     background-color: var(--color-primary);
     color: #fff;
     border-radius: 50px;
@@ -258,10 +243,6 @@ nav.navbar {
 
 .header nav.navbar .nav-item {
     margin: auto 5px;
-}
-
-.header nav.navbar .nav-item .icon-responsive{
-    display: none;
 }
 
 .navbar-toggler {
