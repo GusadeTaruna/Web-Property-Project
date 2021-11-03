@@ -11,7 +11,7 @@
 
             <!-- Navbar brand -->
             <a class="navbar-brand" href="/">
-                <img src="/img/logo/logo.png" alt="" style="width: 180px; height:auto">
+                <img src="/img/logo/logo.png" alt="" class="logo-nav">
             </a>
 
             <!-- Toggle button -->
@@ -148,54 +148,9 @@
 
 <!--  Footer Section -->
 
-<footer id="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-2 col-md-3 my-lg-auto my-4">
-                <h4 class="h3">Brand</h4>
-            </div>
-            <div class="col-lg-2 col-md-3 col-6 my-lg-auto my-4">
-                <h6 class="m-0 h6">Quick Links</h6>
-                <hr>
-                <ul>
-                    <li><a href="#">Architecture</a></li>
-                    <li><a href="#">Agency</a></li>
-                    <li><a href="#">Asset</a></li>
-                    <li><a href="#">Building</a></li>
-                    <li><a href="#">Business Rate</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-2 col-md-3 col-6 my-lg-auto my-4">
-                <h6 class="m-0 h6">Location</h6>
-                <hr>
-                <ul>
-                    <li><a href="#">Location 1</a></li>
-                    <li><a href="#">Location 2</a></li>
-                    <li><a href="#">Location 3</a></li>
-                    <li><a href="#">Location 4</a></li>
-                    <li><a href="#">Location 5</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-2 col-md-3 col-6 my-lg-auto my-4">
-                <h6 class="m-0 h6">Services</h6>
-                <hr>
-                <ul>
-                    <li><a href="#">Service 1</a></li>
-                    <li><a href="#">Service 2</a></li>
-                    <li><a href="#">Service 3</a></li>
-                    <li><a href="#">Service 4</a></li>
-                    <li><a href="#">Service 5</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-2">
-                <h6 class="m-0 h6">Contact</h6>
-                <hr>
-                <ul>
-                    <li>Contact A</a></li>
-                    <li>Contact B</a></li>
-                </ul>
-            </div>
-        </div>
+<footer id="sticky-footer" class="flex-shrink-0 py-4">
+    <div class="text-center">
+      <small>&copy; Equatorial Properties. All rights reserved</small>
     </div>
 </footer>
 
