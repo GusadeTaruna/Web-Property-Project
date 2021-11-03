@@ -11,7 +11,9 @@
             <nav class="navbar navbar-expand-lg">
 
                 <!-- Navbar brand -->
-                <a class="navbar-brand" href="#">Logo</a>
+                <a class="navbar-brand" href="/">
+					<img src="/img/logo/logo.png" alt="" style="width: 180px; height:auto">
+				</a>
 
                 <!-- Toggle button -->
                 <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

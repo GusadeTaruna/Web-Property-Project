@@ -191,10 +191,11 @@ header.header {
 
 #nav-container{
     padding: 0 10%;
-    background-color: var(--color-primary);
+    background-color: #fff;
     position: fixed;
     z-index: 20;
     min-width: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 nav.navbar {
@@ -212,7 +213,7 @@ nav.navbar {
 .header nav.navbar .nav-link {
     font-size: 15px;
     font-family: var(--font-poppin);
-    color: #fff;
+    color: var(--color-primary);
     font-weight: 500;
     padding: 10px 15px;
     transition: 0.5s ease;
@@ -224,8 +225,8 @@ nav.navbar {
 
 .header .navbar .nav-link:hover,
 .header .navbar .nav-link.active {
-    background-color: #ffffff;
-    color: var(--color-primary);
+    background-color: var(--color-primary);
+    color: #fff;
     border-radius: 50px;
 }
 
@@ -260,7 +261,7 @@ nav.navbar {
 
 #product-listing{
     width: 100%;
-    padding: 80px 100px;
+    padding: 120px 100px;
     font-family: var(--font-poppin);
 }
 

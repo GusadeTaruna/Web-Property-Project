@@ -212,7 +212,8 @@ nav.navbar {
 	min-width: 100%;
 	position: fixed;
 	z-index: 20;
-	background-color: var(--color-primary);
+	background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .header nav.navbar .navbar-brand {
@@ -231,6 +232,15 @@ nav.navbar {
     transition: 0.5s ease;
 }	
 
+.header .fixed nav.navbar .nav-link {
+    font-size: 15px;
+    font-family: var(--font-poppin);
+    color: var(--color-primary);
+    font-weight: 500;
+    padding: 10px 15px;
+    transition: 0.5s ease;
+}	
+
 .header .navbar .nav-link:hover,
 .header .navbar .nav-link.active {
     background-color: var(--color-primary);
@@ -240,8 +250,8 @@ nav.navbar {
 
 .header .fixed .navbar .nav-link:hover,
 .header .fixed .navbar .nav-link.active {
-    background-color: #ffffff;
-    color: var(--color-primary);
+    background-color: var(--color-primary);
+    color: #fff;
     border-radius: 50px;
 }
 
