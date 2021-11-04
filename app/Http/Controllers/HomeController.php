@@ -95,6 +95,8 @@ class HomeController extends Controller
         $inbox->sender_name = $validatedData['name'];
         $inbox->sender_email = $validatedData['email'];
         $inbox->message = $validatedData['msg'];
+        $inbox->status_msg_seen = 0;
+        $inbox->status_msg_respon = 0;
         $inbox->save();
 
         Mail::to('dummy.gusade@gmail.com')->send(new ContactMail($details));
@@ -134,6 +136,8 @@ class HomeController extends Controller
         $inbox->country = $validatedData['country'];
         $inbox->inquiry_list = $list;
         $inbox->message = $validatedData['message'];
+        $inbox->status_msg_seen = 0;
+        $inbox->status_msg_respon = 0;
         $inbox->save();
 
         // dd($list);

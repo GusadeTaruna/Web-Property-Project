@@ -366,7 +366,7 @@
 
 					<div class="row">
 				    	<div class="col-lg-12">
-				    		<div class="detail-text d-flex justify-content-start">
+				    		<div class="detail-text">
 						    	<p class="card-title mr-1">Surrounding Sites Description :</p>
 						    	<p class="card-text">{{ $data->surrounding_sites_desc }}</p>
 						    </div>

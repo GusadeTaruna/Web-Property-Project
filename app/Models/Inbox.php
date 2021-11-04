@@ -9,6 +9,4 @@ class Inbox extends Model
 {
     use HasFactory;
     protected $table = "inbox";
-
-    public $timestamps = false;
 }

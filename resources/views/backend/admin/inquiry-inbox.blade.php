@@ -33,7 +33,7 @@
                     <th>Country</th>
                     <th>List Inquiry</th>
                     <th>Message</th>
-                    <th>Action</th>
+                    <th style="text-align: center;">Action</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -45,7 +45,18 @@
                         <td>{{ $data->country }}</td>
                         <td>{{ $data->inquiry_list }}</td>
                         <td>{{ $data->message }}</td>
-                        <td><a href="#" class="btn btn-danger w-100">Delete</a></td>
+                        <form method="POST" action="{{ route('delete-inquiry', $data->id) }}">
+                          @csrf
+                          @method('DELETE')
+                        <td style="text-align: center;">
+                          @if ($data->status_msg_seen==0)
+                            <a href="{{ route('read-inquiry',$data->id) }}" class="btn btn-success w-100 mb-2">View</a>
+                          @elseif($data->status_msg_seen==1)
+                            <a href="{{ route('read-inquiry',$data->id) }}" class="btn btn-secondary w-100 mb-2">Seen</a>
+                          @endif
+                          <button type="submit" class="btn btn-danger w-100 mb-2" onclick="return confirm('Are you sure want to delete this message?');">Delete</button>
+                        </td>
+                        </form>
                       </tr>
                     @endforeach
                   </tbody>

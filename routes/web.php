@@ -65,15 +65,22 @@ Route::get('/admin/property/edit/{id}', [PropertyController::class, 'edit'])->na
 Route::put('/admin/property/update/{id}', [PropertyController::class, 'update'])->name('update-property')->middleware('auth');
 Route::delete('/admin/property/delete/{id}', [PropertyController::class, 'destroy'])->name('delete-property')->middleware('auth');
 
-Route::get('/admin/property-type', [DashboardController::class, 'propertyType'])->name('property-type')->middleware('auth');
-Route::get('/admin/property-categories', [DashboardController::class, 'propertyCategories'])->name('property-cateories')->middleware('auth');
-
 Route::get('/admin/land', [LandController::class, 'index'])->name('land')->middleware('auth');
 Route::get('/admin/land/create', [LandController::class, 'create'])->name('create-land')->middleware('auth');
 Route::post('/admin/land/create', [LandController::class, 'store'])->middleware('auth');
 Route::get('/admin/land/{id}', [LandController::class, 'read'])->name('read-land')->middleware('auth');
+Route::get('/admin/land/edit/{id}', [LandController::class, 'edit'])->name('edit-land')->middleware('auth');
+Route::put('/admin/land/update/{id}', [LandController::class, 'update'])->name('update-land')->middleware('auth');
+Route::delete('/admin/land/delete/{id}', [LandController::class, 'destroy'])->name('delete-land')->middleware('auth');
 
 Route::get('/admin/list-admin', [DashboardController::class, 'adminList'])->name('list-admin')->middleware('auth');
 
 Route::get('/admin/inbox-contact', [DashboardController::class, 'msgInbox'])->name('contact-inbox')->middleware('auth');
+Route::get('/admin/inbox-contact/{id}', [DashboardController::class, 'readMsgInbox'])->name('read-inbox')->middleware('auth');
+Route::get('/admin/inbox-respond/{id}', [DashboardController::class, 'inboxResponded'])->name('respond-inbox')->middleware('auth');
+Route::delete('/admin/inbox-contact/delete/{id}', [DashboardController::class, 'deleteInbox'])->name('delete-inbox')->middleware('auth');
+
 Route::get('/admin/inbox-inquiry', [DashboardController::class, 'inquiryInbox'])->name('inquiry-inbox')->middleware('auth');
+Route::get('/admin/inbox-inquiry/{id}', [DashboardController::class, 'readInquiryInbox'])->name('read-inquiry')->middleware('auth');
+Route::get('/admin/inquiry-respond/{id}', [DashboardController::class, 'inquiryResponded'])->name('respond-inquiry')->middleware('auth');
+Route::delete('/admin/inbox-inquiry/delete/{id}', [DashboardController::class, 'deleteInquiry'])->name('delete-inquiry')->middleware('auth');

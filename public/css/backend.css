@@ -33,3 +33,8 @@
 .card-primary:not(.card-outline)>.card-header{
 	background-color: #a5876a;
 }
+
+[class*=sidebar-light-] .nav-sidebar>.nav-item.menu-open>.nav-link, [class*=sidebar-light-] .nav-sidebar>.nav-item:hover>.nav-link{
+	color: #fff;
+	background-color: #a5876a;
+}

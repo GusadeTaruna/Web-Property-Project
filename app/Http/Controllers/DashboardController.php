@@ -18,14 +18,6 @@ class DashboardController extends Controller
         // dd($property_list);
     }
 
-    public function listProperty(){
-        return view('backend.property.property-list');
-    }
-
-    public function propertyType(){
-        return view('backend.property.property-type');
-    }
-
     public function propertyCategories(){
         return view('backend.property.property-categories');
     }
@@ -40,12 +32,74 @@ class DashboardController extends Controller
         return view('backend.admin.contact-inbox',compact('inbox'));
     }
 
+    public function readMsgInbox($id){
+        $message = Inbox::where('id',$id)->get();
+        $updateStat = Inbox::findOrFail($id);
+        if($updateStat->status_msg_seen==0) {
+            $updateStat->status_msg_seen = 1;
+            $updateStat->save();
+        }
+        return view('backend.admin.contact-inbox-read',compact('message'));
+    }
+
+    public function inboxResponded($id){
+        $updateStat = Inbox::findOrFail($id);
+        if($updateStat->status_msg_respon==0) {
+            $updateStat->status_msg_respon = 1;
+            $updateStat->save();
+        }
+        return back();
+    }
+
+    public function deleteInbox($id){
+        $message = Inbox::findOrFail($id);
+        $message->delete();
+
+        if($message){
+         //redirect dengan pesan sukses
+            return redirect('/admin/inbox-contact')->with('success',' Data deleted successfully!');
+        }else{
+        //redirect dengan pesan error
+            return redirect('/admin/inbox-contact')->with('error','Error Deleting Data!');
+        }
+    }
+
     public function inquiryInbox(){
         $inbox = Inbox::where('msg_type', '=', 'inquiry')->get();
         return view('backend.admin.inquiry-inbox',compact('inbox'));
     }
 
-    public function createProperty(){
-        return view('backend.property.property-create');
+    public function readInquiryInbox($id){
+        $message = Inbox::where('id',$id)->get();
+        $updateStat = Inbox::findOrFail($id);
+        if($updateStat->status_msg_seen==0) {
+            $updateStat->status_msg_seen = 1;
+            $updateStat->save();
+        }
+        return view('backend.admin.inquiry-inbox-read',compact('message'));
     }
+
+    public function inquiryResponded($id){
+        $updateStat = Inbox::findOrFail($id);
+        if($updateStat->status_msg_respon==0) {
+            $updateStat->status_msg_respon = 1;
+            $updateStat->save();
+        }
+        return back();
+    }
+
+    public function deleteInquiry($id){
+        $message = Inbox::findOrFail($id);
+        $message->delete();
+
+        if($message){
+         //redirect dengan pesan sukses
+            return redirect('/admin/inbox-inquiry')->with('success',' Data deleted successfully!');
+        }else{
+        //redirect dengan pesan error
+            return redirect('/admin/inbox-inquiry')->with('error','Error Deleting Data!');
+        }
+    }
+
+    
 }

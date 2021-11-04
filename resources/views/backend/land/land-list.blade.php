@@ -18,6 +18,14 @@
                 </button>
               </div>
             @endif
+            @if(session()->has('error'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              {{ session('error') }}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          @endif
           </div>
         </div>
         
@@ -57,7 +65,15 @@
                       <td>{{ ucwords(strtolower($data->property_location)) }}</td>
                       <td>IDR {{ number_format($data->price,0,'','.') }}</td>
                       <td>{{ $data->property_status }}</td>
-                      <td><a href="{{ route('read-land',$data->property_code) }}" class="btn btn-primary w-100">View</a></td>
+                      <form method="POST" action="{{ route('delete-land', $data->id) }}">
+                        @csrf
+                        @method('DELETE')
+                        <td style="text-align: center;">
+                          <a href="{{ route('read-land',$data->property_code) }}" class="btn btn-success mb-2">View</a>
+                          <a href="{{ route('edit-land',$data->property_code) }}" class="btn btn-primary mb-2">Edit</a>
+                          <button type="submit" class="btn btn-danger mb-2" onclick="return confirm('Are you sure want to delete this property?');">Delete</button>
+                        </td>
+                      </form>
                     </tr>
                     @endforeach
                     

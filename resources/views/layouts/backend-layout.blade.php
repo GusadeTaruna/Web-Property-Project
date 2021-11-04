@@ -117,12 +117,12 @@
                                         <p>List Property</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
+                                {{-- <li class="nav-item">
                                     <a href="/admin/property-type" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Property Request Listing</p>
                                     </a>
-                                </li>
+                                </li> --}}
                             </ul>
                         </li>
 
@@ -138,12 +138,12 @@
                                         <p>List Land</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
+                                {{-- <li class="nav-item">
                                     <a href="/admin/property-type" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Land Request Listing</p>
                                     </a>
-                                </li> 
+                                </li>  --}}
                             </ul>
                         </li>
                         <li class="nav-item">

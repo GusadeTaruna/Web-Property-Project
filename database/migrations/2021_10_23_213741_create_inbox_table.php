@@ -22,6 +22,9 @@ class CreateInboxTable extends Migration
             $table->string('country')->nullable();
             $table->text('inquiry_list')->nullable();
             $table->text('message');
+            $table->boolean('status_msg_seen')->nullable();
+            $table->boolean('status_msg_respon')->nullable();
+            $table->timestamps();
         });
     }
 
