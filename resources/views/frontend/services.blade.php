@@ -82,10 +82,10 @@
         </div>
 
         <div class="col-md-12 text-center filter-content master">
-            {{-- <div class="col-md-6 image m-auto mt-5 mb-3">
-                <img src="/img/services/img-placeholder.jpg" alt="">
-            </div> --}}
-            <img src="/img/services/1.png" class="img-icon" alt="">
+            <div class="col-md-6 image m-auto mt-5 mb-3">
+                <img src="/img/services/img-1.jpg" alt="">
+            </div>
+            {{-- <img src="/img/services/1.png" class="img-icon" alt=""> --}}
             <h1 class="h1 h1-responsive mt-0">Master Planning and Concept Design</h1>
             <div class="col-md-6 m-auto">
                 <p>
@@ -95,7 +95,10 @@
         </div>
 
         <div class="col-md-12 text-center none-display filter-content schematic">
-            <img src="/img/services/2.png" class="img-icon" alt="">
+            <div class="col-md-6 image m-auto mt-5 mb-3">
+                <img src="/img/services/img-3.jpg" alt="">
+            </div>
+            {{-- <img src="/img/services/2.png" class="img-icon" alt=""> --}}
             <h1 class="h1 h1-responsive mt-0">Schematic Development</h1>
             <div class="col-md-6 m-auto">
                 <p>
@@ -105,7 +108,10 @@
         </div>
 
         <div class="col-md-12 text-center none-display filter-content detailed">
-            <img src="/img/services/3.png" class="img-icon" alt="">
+            <div class="col-md-6 image m-auto mt-5 mb-3">
+                <img src="/img/services/img-4.jpg" alt="">
+            </div>
+            {{-- <img src="/img/services/3.png" class="img-icon" alt=""> --}}
             <h1 class="h1 h1-responsive mt-0">Detailed Design</h1>
             <div class="col-md-6 m-auto">
                 <p>
@@ -115,7 +121,10 @@
         </div>
 
         <div class="col-md-12 text-center none-display filter-content construction">
-            <img src="/img/services/4.png" class="img-icon" alt="">
+            <div class="col-md-6 image m-auto mt-5 mb-3">
+                <img src="/img/services/img-2.jpg" alt="">
+            </div>
+            {{-- <img src="/img/services/4.png" class="img-icon" alt=""> --}}
             <h1 class="h1 h1-responsive mt-0">Construction & Tender Drawings</h1>
             <div class="col-md-6 m-auto">
                 <p>

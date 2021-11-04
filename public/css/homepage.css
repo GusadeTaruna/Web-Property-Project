@@ -600,6 +600,13 @@ nav.navbar {
     font-weight: 400;
 }
 
+#work-section .card-img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    object-position:center;
+}
+
 
 /*#work-section .service-show{
 	padding: 20px 30px;
@@ -1701,6 +1708,16 @@ footer {
 
     /*Mail Responsive*/
 
+    /* work section */
+    #work-section .card-img {
+        height: 250px;
+    }
+
+    #work-section .card {
+        width: 100%;
+        height: 370px;
+    }
+    /* work section */
 
     /*Footer Responsive*/
 

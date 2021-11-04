@@ -418,48 +418,57 @@
         <h6 class="h6 color-primary m-0">Services</h6>
         <h1 class="h1 h1-responsive mb-4">Our Services</h1>
         <div class="col-md-12 my-5">
-            <div class="row">
-                <div class="col-12 col-sm-6 col-md-3 d-flex align-items-stretch mb-2">
-                    <div class="card">
-                        <a href="/services">
-                        <div class="card-body">
-                            <img src="/img/services/1.png" class="img-icon" alt="" style="width: 100%; height:auto">
-                            <h4 class="h5 mb-4">Master Planning and Concept Design</h4>
+            <!-- Slider main container -->
+            <div class="swiper">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide">
+                        <div class="card">
+                            <a href="/services">
+                            <div class="card-body">
+                                <img src="/img/services/img-1.jpg" class="card-img mb-4" alt="">
+                                <h4 class="h5">Master Planning and Concept Design</h4>
+                            </div>
+                            </a>
                         </div>
-                        </a>
                     </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-3 d-flex align-items-stretch mb-2">
-                    <div class="card">
-                        <a href="/services">
-                        <div class="card-body">
-                            <img src="/img/services/2.png" class="img-icon" alt="" style="width: 100%; height:auto">
-                            <h4 class="h5 mb-4">Schematic Development</h4>
+                    <div class="swiper-slide">
+                        <div class="card">
+                            <a href="/services">
+                            <div class="card-body">
+                                <img src="/img/services/img-3.jpg" class="card-img mb-4" alt="">
+                                <h4 class="h5">Schematic Development</h4>
+                            </div>
+                            </a>
                         </div>
-                        </a>
                     </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-3 d-flex align-items-stretch mb-2">
-                    <div class="card">
-                        <a href="/services">
-                        <div class="card-body">
-                            <img src="/img/services/3.png" class="img-icon" alt="" style="width: 100%; height:auto">
-                            <h4 class="h5 mb-4">Detailed Design</h4>
+                    <div class="swiper-slide">
+                        <div class="card">
+                            <a href="/services">
+                            <div class="card-body">
+                                <img src="/img/services/img-4.jpg" class="card-img mb-4" alt="">
+                                <h4 class="h5">Detailed Design</h4>
+                            </div>
+                            </a>
                         </div>
-                        </a>
                     </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-3 d-flex align-items-stretch mb-2">
-                    <div class="card">
-                        <a href="/services">
-                        <div class="card-body">
-                            <img src="/img/services/4.png" class="img-icon" alt="" style="width: 100%; height:auto">
-                            <h4 class="h5 mb-4">Construction & Tender Drawings</h4>
+                    <div class="swiper-slide">
+                        <div class="card">
+                            <a href="/services">
+                            <div class="card-body">
+                                <img src="/img/services/img-2.jpg" class="card-img mb-4" alt="">
+                                <h4 class="h5">Construction & Tender Drawings</h4>
+                            </div>
+                            </a>
                         </div>
-                        </a>
                     </div>
                 </div>
             </div>
+
+            {{-- illustration --}}
+            {{-- <img src="/img/services/1.png" class="img-icon" alt="" style="width: 100%; height:auto">
+            <h4 class="h5 mb-4">Master Planning and Concept Design</h4> --}}
             
             {{-- <div class="d-flex justify-content-between">
                 <div class="service-show">
@@ -496,7 +505,7 @@
         <div class="row">
             <div class="col-md-6 my-auto">
                 <div class="image">
-                    <img src="/img/image-5.jpg" alt="">
+                    <img src="/img/image-7.jpg" alt="">
                 </div>
             </div>
 
