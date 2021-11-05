@@ -58,20 +58,23 @@
 			<div class="col-lg-3 col-xxl-2">
 				<div class="card">
 				  <div class="card-body">
-				  	<h5 class="card-title mb-4 text-center">Property Search</h5>
-				  	<!-- Code Search -->
-					<select name="type" class="custom-select mb-3">
-						<option selected disabled>Property Type</option>
-						<option value="1">Property Building</option>
-						<option value="2">Land</option>
-					</select>
-					<input type="text" name="code" id="code" placeholder="Property Code" class="form-control mb-3">
-					<input type="text" name="location" id="location" placeholder="Location area" class="form-control mb-3">
-					<label for="amount" class="text-center" style="font-weight: bold; width:100%">Price range:</label>
-					<input type="text" class="text-center mb-3" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;width:100%;">
-					<div id="slider-range" class="mb-4"></div>
-					<button class="btn btn-orange w-100">Search</button>
-
+				  	<form class="form" method="get" action="{{ route('search.property') }}">
+					  	<h5 class="card-title mb-4 text-center">Property Search</h5>
+					  	<!-- Code Search -->
+						<select name="type" id="select-type" class="custom-select mb-3">
+							<option value="0" selected disabled>Property Type</option>
+							<option value="1">Property Building</option>
+							<option value="2">Land</option>
+						</select>
+						<input type="text" name="code" id="code" placeholder="Property Code" class="form-control mb-3" onkeyup="successCode()">
+						<input type="text" name="location" id="location" placeholder="Location area" class="form-control mb-3" onkeyup="successLoc()">
+						<label for="price" class="text-center" style="font-weight: bold; width:100%">Price range:</label>
+	                    <input type="hidden" name="minPrice" id="minPrice">
+	                    <input type="hidden" name="maxPrice" id="maxPrice">
+	                    <input type="text" name="" class="text-center mb-3" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;width:100%;">
+	                    <div id="slider-range" class="mb-4"></div>
+						<button type="submit" class="btn btn-orange w-100" id="search-btn" disabled>Search</button>	
+					</form>
 				  </div>
 				</div>
 			</div>
@@ -115,73 +118,81 @@
 				</div>
 				@endif
 				<div class="row">
-					@foreach ( $property as $data )
-					<div class="col-lg-6 col-xxl-4 col-md-5 my-2">
-						<a href={{ route('property-detail',$data->property_code) }}>
-							<div class="property-list shadow">
-								<div class="image">
-									<div class="tag-container d-flex justify-content-start">
-										<div class="tag-featured mt-2">Featured</div>
-										<div class="tag-sale mt-2">For Sale</div>
+					@if(session()->has('notFound'))
+						<div class="col-lg-12 col-xxl-4 col-md-5 m-auto text-center">
+							<img src="/img/svg/no-result.svg" class="img-not-found">
+							<h1 class="text-center text-not-found">No results found</h1>
+							<a href="/property-list" class="btn btn-theme w-50 btn-not-found">Reload</a>
+						</div>
+					@else
+						@foreach ( $property as $data )
+						<div class="col-lg-6 col-xxl-4 col-md-5 my-2">
+							<a href={{ route('property-detail',$data->property_code) }}>
+								<div class="property-list shadow">
+									<div class="image">
+										<div class="tag-container d-flex justify-content-start">
+											<div class="tag-featured mt-2">Featured</div>
+											<div class="tag-sale mt-2">For Sale</div>
+										</div>
+										<img src="{{ asset('/property-image/'.array_values(json_decode($data->property_image))[0]) }}" alt="">
 									</div>
-									<img src="{{ asset('/property-image/'.array_values(json_decode($data->property_image))[0]) }}" alt="">
-								</div>
-								<div class="text-left item-header">
-									<h4 class="h5 item-name">[{{ $data->property_code }}] {{ ucwords(strtolower($data->property_name)) }}</h4>
-									<p class="h6 mb-3">{{ ucwords(strtolower($data->property_location)) }}</p>
-								</div>
-
-								<div class="d-flex justify-content-between">
-									@if ($data->property_type == 1)
-										<div class="feature-features">
-											<i class="fas fa-bed"></i>
-											<p>4 Beds</p>
-										</div>
-										<div class="feature-features">
-											<i class="fas fa-bath"></i>
-											<p>3 Bath</p>
-										</div>
-										<div class="feature-features">
-											<i class="fas fa-warehouse"></i>
-											<p>1 Garage</p>
-										</div>
-									@endif
-									
-									<div class="feature-features">
-										<i class="fas fa-pencil-ruler"></i>
-										<p>1200 sqm</p>
+									<div class="text-left item-header">
+										<h4 class="h5 item-name">[{{ $data->property_code }}] {{ ucwords(strtolower($data->property_name)) }}</h4>
+										<p class="h6 mb-3">{{ ucwords(strtolower($data->property_location)) }}</p>
 									</div>
-								</div>
 
-								<hr class="feature-hr">
-								<div class="col-md-12">
 									<div class="d-flex justify-content-between">
-										<p class="price">Price : </p>
-										<p class="price">IDR {{ number_format($data->price,0,'','.') }}</p>
+										@if ($data->property_type == 1)
+											<div class="feature-features">
+												<i class="fas fa-bed"></i>
+												<p>4 Beds</p>
+											</div>
+											<div class="feature-features">
+												<i class="fas fa-bath"></i>
+												<p>3 Bath</p>
+											</div>
+											<div class="feature-features">
+												<i class="fas fa-warehouse"></i>
+												<p>1 Garage</p>
+											</div>
+										@endif
+										
+										<div class="feature-features">
+											<i class="fas fa-pencil-ruler"></i>
+											<p>1200 sqm</p>
+										</div>
 									</div>
-								</div>
 
-								<div class="col-md-12 mb-1 text-center">
-									<div class="row">
-										<div class="col-12 col-md-4 p-0 mb-2">
-											<a class="btn btn-theme-3 inquiry-btn" style="font-size: 11px" href="#" data-toggle="modal" data-target="#exampleModalCenter" data-id="[{{ $data->property_code }}] {{ ucwords(strtolower($data->property_name)) }}">Inquire now</a>
-										</div>
-										<div class="col-12 col-md-4 p-0 mb-2">
-											<a class="btn btn-theme-3 " style="font-size: 11px" href="{{ route('add.to.cart', $data->id) }}">Add to enquiry</a>
-										</div>
-										<div class="col-12 col-md-4 p-0 mb-2">
-											<a class="btn btn-theme-3" style="font-size: 11px" href={{ route('property-detail',$data->property_code) }}>Show Details</a>
+									<hr class="feature-hr">
+									<div class="col-md-12">
+										<div class="d-flex justify-content-between">
+											<p class="price">Price : </p>
+											<p class="price">IDR {{ number_format($data->price,0,'','.') }}</p>
 										</div>
 									</div>
-								</div>
 
-							</div>
-						</a>
-					</div>
-					@endforeach
-					<div class="pagination justify-content-center mt-3">
-						{!! $property->links() !!}
-					</div>
+									<div class="col-md-12 mb-1 text-center">
+										<div class="row">
+											<div class="col-12 col-md-4 p-0 mb-2">
+												<a class="btn btn-theme-3 inquiry-btn" style="font-size: 11px" href="#" data-toggle="modal" data-target="#exampleModalCenter" data-id="[{{ $data->property_code }}] {{ ucwords(strtolower($data->property_name)) }}">Inquire now</a>
+											</div>
+											<div class="col-12 col-md-4 p-0 mb-2">
+												<a class="btn btn-theme-3 " style="font-size: 11px" href="{{ route('add.to.cart', $data->id) }}">Add to enquiry</a>
+											</div>
+											<div class="col-12 col-md-4 p-0 mb-2">
+												<a class="btn btn-theme-3" style="font-size: 11px" href={{ route('property-detail',$data->property_code) }}>Show Details</a>
+											</div>
+										</div>
+									</div>
+
+								</div>
+							</a>
+						</div>
+						@endforeach
+						<div class="pagination justify-content-center mt-3">
+							{!! $property->links() !!}
+						</div>
+					@endif
 				</div>
 			</div>
 		</div>

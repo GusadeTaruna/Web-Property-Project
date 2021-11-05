@@ -17,6 +17,29 @@ class HomeController extends Controller
         return view('frontend.index');
     }
 
+    public function search_property(){
+        $property = Property::where('property_type', 'LIKE', '%' . request()->code . '%')
+                        ->when(request()->type, function($query) {
+                            $query->where('property_type', request()->type);
+                        })
+                        ->when(request()->location, function($query) {
+                            $query->where('property_location', 'LIKE', '%' . request()->location . '%');
+                        })
+                        ->when(request()->minPrice&&request()->maxPrice, function($query) {
+                            $query->whereBetween('price', [request()->minPrice, request()->maxPrice]);
+                        })
+                        ->when(request()->price, function($query) {
+                            $query->where('price', 'LIKE', '%' . request()->price . '%'); 
+                        })->paginate(9);
+
+        // dd($property->total());
+        if($property->total()>0){
+            return view('frontend.property-listing', compact('property'));
+        }else{
+            return redirect('/property-list')->with('notFound', 'No results found');
+        }
+    }
+
     public function propertyListing(){
         $property = Property::paginate(9);
         return view('frontend.property-listing', compact('property'));

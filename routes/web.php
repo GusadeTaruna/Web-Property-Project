@@ -41,6 +41,8 @@ Route::get('/contact-us', [HomeController::class, 'contactUs'])->name('contact-u
 Route::post('/send-message',[HomeController::class, 'sendEmail'])->name('contact.send');
 Route::post('/send-message-inquiry',[HomeController::class, 'sendEmailInquiry'])->name('inquiry.send');
 
+//searching
+Route::get('/search-property', [HomeController::class, 'search_property'])->name('search.property');
 
 
 Route::get('/admin', function(){

@@ -66,41 +66,29 @@
                 <!-- Start Search Bar -->
 
                 <div id="search-section">
-                    <div class="col-lg-10 mx-auto search-area shadow">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <p>Location</p>
-                                <select>
-                                    <option>All Cities</option>
-                                    <option>Location 1</option>
-                                    <option>Location 2</option>
-                                </select>
+                    <form class="form" method="get" action="{{ route('search.property') }}">
+                       <div class="col-lg-10 mx-auto search-area shadow">
+                            <div class="row">
+                                <div class="col-md-4 my-auto">
+                                    <input class="w-100 form-control" type="text" name="location" id="location" placeholder="Location" onkeyup="success()">
+                                </div>
+                                <div class="col-md-4 my-auto">
+                                    <select name="type" id="select-type" class="w-100 form-control">
+                                        <option selected disabled value="0">Property Type</option>
+                                        <option value="1">Property Building</option>
+                                        <option value="2">Land</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-2 col-md-3 ml-auto my-auto">
+                                    <button class="btn btn-advance shadow-none" type="button" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-sliders-h my-auto primary"></i><br><span class="primary">Advanced Search</span></button>
+                                </div>
+                            
+                                <div class="col-lg-2 col-md-3 ml-auto my-auto">
+                                    <button class="btn btn-theme" type="submit" id="search-btn" disabled>Search</button>
+                                </div>
                             </div>
-                            <div class="col-md-3">
-                                <p>Type</p>
-                                <select>
-                                    <option>Select One</option>
-                                    <option>Type 1</option>
-                                    <option>Type 2</option>
-                                </select>
-                            </div>
-                            <div class="col-md-2">
-                                <p>Price</p>
-                                <select>
-                                    <option>Average</option>
-                                    <option>Max Price</option>
-                                    <option>Min Price</option>
-                                </select>
-                            </div>
-                            <div class="col-lg-2 col-md-3 ml-auto my-auto">
-                                <button class="btn btn-advance shadow-none" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-sliders-h my-auto"></i><br> Advanced Search</button>
-                            </div>
-                        
-                            <div class="col-lg-2 col-md-3 ml-auto my-auto">
-                                <button class="btn btn-theme">Search</button>
-                            </div>
-                        </div>
-                    </div>
+                        </div> 
+                    </form>
                 </div>
 
                 <!-- End Search Bar -->

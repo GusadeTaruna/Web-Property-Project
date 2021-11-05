@@ -274,6 +274,27 @@ nav.navbar {
     font-family: "cerebri";
 }
 
+input#amount:focus{
+    outline: none;
+}
+
+.ui-widget-header{
+    background: var(--color-orange) !important;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active{
+    border-radius: 50px;
+    border: 1px solid var(--color-orange) !important; 
+}
+
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus, .ui-button:hover, .ui-button:focus{
+    border: 1px solid var(--color-orange) !important; 
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover{
+    background: var(--color-orange) !important;
+}   
+
 /*Header*/
 
 
@@ -354,19 +375,40 @@ nav.navbar {
 }
 
 #search-section .search-area input {
-    border: 1px solid #ffffff;
     outline: none;
+    border: .5px solid var(--color-primary);
+    height: 50px;
+    padding: 8px 11px;
+    border-radius: 10px;
+}
+
+#search-section .search-area select {
+    outline: none;
+    border: .5px solid var(--color-primary);
+    color: var(--color-primary);
+    height: 50px;
+    padding: 8px 11px;
+    border-radius: 10px;
+}
+
+#search-section .search-area input::placeholder{
+    color: var(--color-primary);
+    opacity: 1;
 }
 
 #search-section .search-area input:focus {
     outline-color: none;
     box-shadow: none;
-    border: 1px solid var(--color-secondary);
+    border: 1px solid var(--color-primary);
 }
 
 #search-section .search-area button.btn-theme {
     border-radius: 30px;
     padding: 12px 40px;
+}
+
+.primary{
+    color: var(--color-primary);
 }
 
 /*Search*/

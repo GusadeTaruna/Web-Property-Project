@@ -103,18 +103,89 @@
 
     <script>
         $( function() {
-        $( "#slider-range" ).slider({
-            range: true,
-            min: 0,
-            max: 1000,
-            values: [ 75, 300 ],
-            slide: function( event, ui ) {
-            $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-            }
-        });
-        $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
-            " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+            // Create our number formatter.
+            var formatter = new Intl.NumberFormat('id-ID', {
+              style: 'currency',
+              currency: 'IDR',
+
+              // These options are needed to round to whole numbers if that's what you want.
+              minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
+              maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
+            });
+            $( "#slider-range" ).slider({
+                range: true,
+                min: 0,
+                max: 1000000,
+                values: [ 0, 100 ],
+                slide: function( event, ui ) {
+                    $("#minPrice").val(ui.values[0]);
+                    $("#maxPrice").val(ui.values[1]);
+                    if (ui.values[ 0 ] == 0 && ui.values[ 1 ]==0) {
+                        $('#search-btn').prop("disabled", true);
+                    }else{
+                        $('#search-btn').prop("disabled", false);
+                    }
+                    $( "#amount" ).val( "USD " + formatter.format(ui.values[ 0 ]) + " - USD " + formatter.format(ui.values[ 1 ]));
+                }
+            });
+            $( "#amount" ).val("Move the slider below");
         } );
+    </script>
+
+    <script>
+        $(document).ready(function () {
+          $('#select-type').val("0");
+          
+          $('#select-type').change(function () {
+            selectVal = $('#select-type').val();
+           
+            if (selectVal == 0) {
+               $('#search-btn').prop("disabled", true);
+            }
+            else {
+              $('#search-btn').prop("disabled", false);
+            }
+          })
+          
+        });
+    </script>
+
+    <script>
+        function successLoc() {
+         if(document.getElementById("location").value==="") { 
+                document.getElementById('search-btn').disabled = true; 
+            } else { 
+                document.getElementById('search-btn').disabled = false;
+            }
+        }
+    </script>
+
+    <script>
+        function successCode() {
+         if(document.getElementById("code").value==="") { 
+                document.getElementById('search-btn').disabled = true; 
+            } else { 
+                document.getElementById('search-btn').disabled = false;
+            }
+        }
+    </script>
+
+    <script>
+        $(document).ready(function () {
+          $('#select-type').val("0");
+          
+          $('#select-type').change(function () {
+            selectVal = $('#select-type').val();
+           
+            if (selectVal == 0) {
+               $('#search-btn').prop("disabled", true);
+            }
+            else {
+              $('#search-btn').prop("disabled", false);
+            }
+          })
+          
+        });
     </script>
 
 </body>

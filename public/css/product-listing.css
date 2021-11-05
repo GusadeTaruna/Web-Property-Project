@@ -304,6 +304,20 @@ nav.navbar {
     font-size: 13px;
 }
 
+.text-not-found{
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+.btn-not-found{
+    font-size: 17px;
+}
+
+.img-not-found{
+    height: 400px;
+    width: auto;
+}
+
 #product-listing .property-list p {
     font-size: 15px !important;
     color: #636c72;
@@ -418,6 +432,10 @@ nav.navbar {
 #product-listing .price {
     font-family: "cerebri-bold";
     font-size: 15px;
+}
+
+input#amount:focus{
+    outline: none;
 }
 
 .ui-widget-header{
