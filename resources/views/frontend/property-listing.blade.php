@@ -58,55 +58,20 @@
 			<div class="col-lg-3 col-xxl-2">
 				<div class="card">
 				  <div class="card-body">
-				  	<h5 class="card-title mb-3">Property Search</h5>
+				  	<h5 class="card-title mb-4 text-center">Property Search</h5>
 				  	<!-- Code Search -->
-				  	<p class="card-text mt-3 mb-1">Code</p>
-				    <input type="text" placeholder="Write property code here" class="form-control"/>
-					<!-- Location Search -->
-				    <p class="card-text mt-3 mb-1">Location</p>
-					<select id="location-select" multiple="multiple">
-					    <option value="location1">Location 1</option>
-					    <option value="location2">Location 2</option>
-					    <option value="location3">Location 3</option>
-					    <option value="location4">Location 4</option>
-					    <option value="location5">Location 5</option>
-					    <option value="location6">Location 6</option>
+					<select name="type" class="custom-select mb-3">
+						<option selected disabled>Property Type</option>
+						<option value="1">Property Building</option>
+						<option value="2">Land</option>
 					</select>
-					<!-- Property Type Search -->
-				    <p class="card-text mt-3 mb-1">Property Type</p>
-					<select id="type-select" multiple="multiple">
-					    <option value="type1">Type 1</option>
-					    <option value="type2">Type 2</option>
-					    <option value="type3">Type 3</option>
-					</select>
-					<!-- Bedrooms Search -->
-				    <p class="card-text mt-3 mb-1">Bedrooms</p>
-					<select id="bed-select" multiple="multiple">
-					    <option value="bed1">Bedrooms 1</option>
-					    <option value="bed2">Bedrooms 2</option>
-					    <option value="bed3">Bedrooms 3</option>
-					</select>
-					<!-- Title Search -->
-				    <p class="card-text mt-3 mb-1">Title</p>
-					<select id="title-select" multiple="multiple">
-					    <option value="title1">Title 1</option>
-					    <option value="title2">Title 2</option>
-					    <option value="title3">Title 3</option>
-					</select>
-					<!-- Minimum Price Search -->
-				    <p class="card-text mt-3 mb-1">Minimum Price</p>
-					<select id="minimum-select" multiple="multiple">
-					    <option value="price1">Price 1</option>
-					    <option value="price2">Price 2</option>
-					    <option value="price3">Price 3</option>
-					</select>
-					<!-- Maximum Price Search -->
-				    <p class="card-text mt-3 mb-1">Maximum Price</p>
-					<select id="maximum-select" multiple="multiple">
-					    <option value="price1">Price 1</option>
-					    <option value="price2">Price 2</option>
-					    <option value="price3">Price 3</option>
-					</select>
+					<input type="text" name="code" id="code" placeholder="Property Code" class="form-control mb-3">
+					<input type="text" name="location" id="location" placeholder="Location area" class="form-control mb-3">
+					<label for="amount" class="text-center" style="font-weight: bold; width:100%">Price range:</label>
+					<input type="text" class="text-center mb-3" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;width:100%;">
+					<div id="slider-range" class="mb-4"></div>
+					<button class="btn btn-orange w-100">Search</button>
+
 				  </div>
 				</div>
 			</div>

@@ -91,6 +91,26 @@ body{
     transition: 0.5s ease;
 }
 
+.btn-orange {
+    box-shadow: none;
+    margin: 0;
+    font-family: var(--font-poppin);
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: capitalize;
+    background-color: var(--color-orange);
+    color: #ffffff;
+    padding: 8px 20px;
+    border-radius: 20px;
+    transition: 0.5s ease;
+}
+
+.btn-orange:hover {
+    background-color:#cf7718;
+    color: #ffffff;
+    box-shadow: none;
+}
+
 .btn-inquiry {
     box-shadow: none;
     margin: 0;
@@ -400,15 +420,35 @@ nav.navbar {
     font-size: 15px;
 }
 
+.ui-widget-header{
+    background: var(--color-orange) !important;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active{
+    border-radius: 50px;
+    border: 1px solid var(--color-orange) !important; 
+}
+
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus, .ui-button:hover, .ui-button:focus{
+    border: 1px solid var(--color-orange) !important; 
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover{
+    background: var(--color-orange) !important;
+}
+
 /*Footer section*/
 
 footer {
-    width: 100%;
     padding: 0 50px;
     background-color: var(--color-primary);
     font-family: var(--font-poppin);
     color: #ffffff;
-    margin-top: 30px;
+
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
 }
 /*Footer section*/
 
