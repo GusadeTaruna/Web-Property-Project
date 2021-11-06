@@ -314,8 +314,8 @@ nav.navbar {
 }
 
 .img-not-found{
-    height: 400px;
-    width: auto;
+    height: auto;
+    width: 500px;
 }
 
 #product-listing .property-list p {
@@ -485,6 +485,18 @@ footer {
 }
 
 @media only screen and (max-width: 991px) {
+    body{
+        margin-bottom: 0;
+    }
+    footer {
+        position: relative;
+    }
+
+    .img-not-found{
+        height: auto;
+        width: 300px;
+    }
+
     #nav-container{
         background: #fff;
         min-width: 100%;
@@ -508,6 +520,10 @@ footer {
         background-size: 90% 3px;
         background-position: left bottom;*/
     }
+
+    #product-listing .property-list p{
+        font-size: 12px !important;
+    }
 }
 
 @media only screen and (max-width: 580px) {
@@ -519,5 +535,9 @@ footer {
     
     #product-listing{
         padding: 80px 10px;
+    }
+
+    #product-listing .property-list p{
+        font-size: 13px !important;
     }
 }

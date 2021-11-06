@@ -18,7 +18,7 @@ class HomeController extends Controller
     }
 
     public function search_property(){
-        $property = Property::where('property_type', 'LIKE', '%' . request()->code . '%')
+        $property = Property::where('property_code', 'LIKE', '%' . request()->code . '%')
                         ->when(request()->type, function($query) {
                             $query->where('property_type', request()->type);
                         })
