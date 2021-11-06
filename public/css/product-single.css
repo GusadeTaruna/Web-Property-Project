@@ -261,6 +261,39 @@ nav.navbar {
     object-fit: cover;
 }
 
+.swiper-button-prev{
+    font-weight: bold;
+    width: 45px;
+    color: #fff;
+    background: var(--color-primary);
+    border-radius: 50%;
+    padding: 10px;
+    border: 0;
+    left: 50px !important;
+    transition: .3s ease-in-out;
+}
+
+.swiper-button-next{
+    font-weight: bold;
+    width: 45px;
+    color: #fff;
+    background: var(--color-primary);
+    border-radius: 50%;
+    padding: 10px;
+    border: 0;
+    right: 50px !important;
+    transition: .3s ease-in-out;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover{
+    background-color: var(--color-acent);
+}
+
+.swiper-button-next:after, .swiper-button-prev:after {
+    font-size: 15px !important;
+}
+
 /*image section*/
 
 

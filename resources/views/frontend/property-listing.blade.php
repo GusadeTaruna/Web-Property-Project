@@ -71,9 +71,9 @@
 						<label for="price" class="text-center" style="font-weight: bold; width:100%">Price range:</label>
 	                    <input type="hidden" name="minPrice" id="minPrice">
 	                    <input type="hidden" name="maxPrice" id="maxPrice">
-	                    <input type="text" name="" class="text-center mb-3" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;width:100%;">
+	                    <input type="text" name="" class="text-center mb-3" id="amount" readonly style="border:0; color:#a5876a; font-weight:bold;width:100%;">
 	                    <div id="slider-range" class="mb-4"></div>
-						<button type="submit" class="btn btn-orange w-100" id="search-btn" disabled>Search</button>	
+						<button type="submit" class="btn btn-theme w-100" id="search-btn" disabled>Search</button>	
 					</form>
 				  </div>
 				</div>
@@ -131,8 +131,8 @@
 								<div class="property-list shadow">
 									<div class="image">
 										<div class="tag-container d-flex justify-content-start">
-											<div class="tag-featured mt-2">Featured</div>
-											<div class="tag-sale mt-2">For Sale</div>
+											{{-- <div class="tag-featured mt-2">Featured</div>
+											<div class="tag-sale mt-2">For Sale</div> --}}
 										</div>
 										<img src="{{ asset('/property-image/'.array_values(json_decode($data->property_image))[0]) }}" alt="">
 									</div>
@@ -159,7 +159,7 @@
 										
 										<div class="feature-features">
 											<i class="fas fa-pencil-ruler"></i>
-											<p>1200 sqm</p>
+											<p>{{  number_format($data->site_area,0,'','.') }} sqm</p>
 										</div>
 									</div>
 
@@ -167,10 +167,10 @@
 									<div class="col-md-12">
 										<div class="d-flex justify-content-between">
 											<p class="price">Price : </p>
-											@if (is_string($data->price))
+											@if (!is_numeric($data->price))
 												<p class="price">{{ $data->price }}</p>
 											@else
-												<p class="price">IDR {{ number_format($data->price,0,'','.') }}</p>
+												<p class="price">{{ number_format($data->price,0,'','.') }}</p>
 											@endif
 										</div>
 									</div>

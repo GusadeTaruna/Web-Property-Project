@@ -43,6 +43,8 @@
     <script>
         var swiper = new Swiper('#about-slider .swiper', {
             // Optional parameters
+            observer: true,
+            observeParents: true,
             loop: true,
             autoplay: {
                 delay: 2000,
@@ -52,6 +54,8 @@
 
         var swiper = new Swiper('#agent-slider .swiper', {
             // Optional parameters
+            observer: true,
+            observeParents: true,
             loop: true,
             slidesPerView: 4,
             spaceBetween: 30,

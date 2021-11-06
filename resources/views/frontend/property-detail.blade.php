@@ -73,6 +73,9 @@
 						<?php } ?>
 						@endforeach
                     </div>
+
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div>
 				
                 </div>
         	</div>
@@ -121,10 +124,10 @@
 	    	</div>
 	    	<div class="col-lg-4 my-auto">
 				<div class="harga-row">
-				@if (is_string($data->price))
+				@if (!is_numeric($data->price))
 					<h1 class="harga">{{ $data->price }}</h1>
 				@else
-					<h1 class="harga">IDR {{ number_format($data->price,0,'','.') }}</h1>
+					<h1 class="harga">{{ number_format($data->price,0,'','.') }}</h1>
 				@endif
 				</div>
 				<div class="inquiry-row">
@@ -161,10 +164,10 @@
 				    	<div class="col-lg-6">
 				    		<div class="detail-text d-flex justify-content-start">
 						    	<p class="card-title mr-1">Price :</p>
-								@if (is_string($data->price))
+								@if (!is_numeric($data->price))
 									<p class="card-text">{{ $data->price }}</p>
 								@else
-									<p class="card-text">IDR {{ number_format($data->price,0,'','.') }}</p>
+									<p class="card-text">{{ number_format($data->price,0,'','.') }}</p>
 								@endif
 						    	
 						    </div>

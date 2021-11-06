@@ -72,13 +72,7 @@
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <div class="image">
-                                    <img src="/img/about/4.jpg" alt="">
-                                </div>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <div class="image">
-                                    <img src="/img/about/3.jpg" alt="">
+                                    <img src="/img/about/1.jpg" alt="">
                                 </div>
                             </div>
 
@@ -90,7 +84,37 @@
 
                             <div class="swiper-slide">
                                 <div class="image">
-                                    <img src="/img/about/1.jpg" alt="">
+                                    <img src="/img/about/3.jpg" alt="">
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="image">
+                                    <img src="/img/about/4.jpg" alt="">
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="image">
+                                    <img src="/img/about/6.jpg" alt="">
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="image">
+                                    <img src="/img/about/5.jpg" alt="">
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="image">
+                                    <img src="/img/about/7.jpg" alt="">
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="image">
+                                    <img src="/img/about/8.jpg" alt="">
                                 </div>
                             </div>
 
@@ -181,6 +205,29 @@
                 </div>
 
                 <div class="swiper-slide">
+                    <a href="/cv/cv-mile.pdf" download="cv-mile.pdf">
+                        <div class="card">
+                            <div class="card-body shadow">
+                                <div class="row">
+                                    <div class="col-md-12 col-lg-12 col-xxl-5 my-auto">
+                                        <img src="/img/agent/miles.jpg" alt="">
+                                    </div>
+                            
+                                    <div class="col-md-12 col-lg-12 col-xxl-7 d-flex flex-column">
+                                        <p class="agent-name font-weight-bold mb-0 mt-2">Miles Humphreys</p>
+                                        <p class="agent-pos">Lead Architect</p>
+                                        <div class="agent-desc mb-3">
+                                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit, repudiandae sequi modi mollitia, illum earum provident qui commodi ullam libero alias, hic aliquam eos exercitationem tempora est! Doloremque, libero quod?</p>
+                                        </div>
+                                        <button class="btn btn-details mt-auto">See Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="swiper-slide">
                     <a href="/cv/cv-martin.pdf" download="cv-martin.pdf">
                         <div class="card">
                             <div class="card-body shadow">
@@ -205,28 +252,7 @@
                     </a>
                 </div>
 
-                <div class="swiper-slide">
-                    <a href="/cv/cv-mile.pdf" download="cv-mile.pdf">
-                        <div class="card">
-                            <div class="card-body shadow">
-                                <div class="row">
-                                    <div class="col-md-12 col-lg-12 col-xxl-5 my-auto">
-                                        <img src="/img/agent/miles.jpg" alt="">
-                                    </div>
-                            
-                                    <div class="col-md-12 col-lg-12 col-xxl-7 d-flex flex-column">
-                                        <p class="agent-name font-weight-bold mb-0 mt-2">Miles Humphreys</p>
-                                        <p class="agent-pos">Lead Architect</p>
-                                        <div class="agent-desc mb-3">
-                                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit, repudiandae sequi modi mollitia, illum earum provident qui commodi ullam libero alias, hic aliquam eos exercitationem tempora est! Doloremque, libero quod?</p>
-                                        </div>
-                                        <button class="btn btn-details mt-auto">See Details</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                
             </div>
         </div>
     </div>

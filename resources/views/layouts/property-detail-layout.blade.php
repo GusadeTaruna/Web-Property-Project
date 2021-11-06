@@ -104,12 +104,22 @@
     <script>
         var swiper = new Swiper('#image-slider .swiper', {
             // Optional parameters
+            observer: true,
+            observeParents: true,
             loop: true,
             slidesPerView: 4,
             spaceBetween: 30,
             centeredSlides: true,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            keyboard: {
+                enabled: true,
+                onlyInViewport: false,
+            },
             autoplay: {
-                delay: 4000,
+                delay: 2000,
                 disableOnInteraction: false,
             },
 

@@ -50,7 +50,7 @@
                     <label for="price" class="text-center" style="font-weight: bold; width:100%">Price range:</label>
                     <input type="hidden" name="minPrice" id="minPrice">
                     <input type="hidden" name="maxPrice" id="maxPrice">
-                    <input type="text" name="" class="text-center mb-3" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;width:100%;">
+                    <input type="text" name="" class="text-center mb-3" id="amount" readonly style="border:0; color:#a5876a; font-weight:bold;width:100%;">
                     <div id="slider-range" class="mb-4"></div>
                 </div>
                 <div class="modal-footer">
@@ -65,6 +65,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js" integrity="sha512-0bEtK0USNd96MnO4XhH8jhv3nyRF0eK87pJke6pkYf3cM0uDIhNJy9ltuzqgypoIFXw3JSuiy04tVk4AjpZdZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <!-- MDB -->
@@ -81,12 +82,23 @@
     <script>
         var swiper = new Swiper('#property-slider .swiper', {
             // Optional parameters
+            observer: true,
+            observeParents: true,
             loop: true,
             slidesPerView: 4,
             spaceBetween: 30,
             centeredSlides: true,
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            keyboard: {
+                enabled: true,
+                onlyInViewport: false,
+            },
             autoplay: {
-                delay: 3000,
+                delay: 2000,
                 disableOnInteraction: false,
             },
     
@@ -109,9 +121,13 @@
                 },
                 768: {
                     slidesPerView: 2,
-                    spaceBetween: 20,
+                    spaceBetween: 10,
                 },
                 1024: {
+                    slidesPerView: 2.5,
+                    spaceBetween: 10,
+                },
+                1500: {
                     slidesPerView: 3,
                     spaceBetween: 30,
                 },
@@ -120,6 +136,8 @@
     
         var swiper = new Swiper('#testimonial-slider .swiper', {
             // Optional parameters
+            observer: true,
+            observeParents: true,
             loop: true,
             autoplay: {
                 delay: 3000,
@@ -129,12 +147,22 @@
 
         var swiper = new Swiper('#work-section .swiper', {
             // Optional parameters
+            observer: true,
+            observeParents: true,
             loop: true,
             slidesPerView: 2,
             spaceBetween: 30,
             centeredSlides: true,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            keyboard: {
+                enabled: true,
+                onlyInViewport: false,
+            },
             autoplay: {
-                delay: 3000,
+                delay: 2000,
                 disableOnInteraction: false,
             },
 
@@ -171,8 +199,6 @@
         $( function() {
             // Create our number formatter.
             var formatter = new Intl.NumberFormat('id-ID', {
-              style: 'currency',
-              currency: 'IDR',
 
               // These options are needed to round to whole numbers if that's what you want.
               minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
@@ -182,7 +208,7 @@
                 range: true,
                 min: 0,
                 max: 1000000,
-                values: [ 0, 100 ],
+                values: [ 0, 90000 ],
                 slide: function( event, ui ) {
                     $("#minPrice").val(ui.values[0]);
                     $("#maxPrice").val(ui.values[1]);

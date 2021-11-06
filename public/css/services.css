@@ -156,7 +156,7 @@ header.header {
     background-position: center;
     background-size: cover;
     position: relative;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../img/image-6.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/image-6.jpg);
 }
 
 #nav-container{
@@ -242,7 +242,7 @@ nav.navbar {
 }
 
 #about-section h1{
-    color: var(--color-orange);
+    color: var(--color-primary);
     font-family: "cerebri-bold";
     font-size: 33px;
 }

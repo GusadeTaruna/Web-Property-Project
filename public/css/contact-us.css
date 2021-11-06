@@ -133,7 +133,7 @@ header.header {
     background-position: center;
     background-size: cover;
     position: relative;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../img/image-1.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/image-1.jpg);
 }
 
 #nav-container{
@@ -228,7 +228,7 @@ nav.navbar {
 }
 
 #faqs .judul {
-    color: var(--color-orange);
+    color: var(--color-primary);
     font-family: "cerebri-bold";
     text-align: center;
     font-size: 30px;
@@ -287,7 +287,7 @@ nav.navbar {
 }
 
 .judul-detail{
-    color: var(--color-orange);
+    color: var(--color-primary);
     font-family: "cerebri-bold";
     font-size: 20px;
 }

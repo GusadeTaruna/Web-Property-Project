@@ -109,7 +109,7 @@
 
         <div class="col-md-12 text-center none-display filter-content detailed">
             <div class="col-md-6 image m-auto mt-5 mb-3">
-                <img src="/img/services/img-4.jpg" alt="">
+                <img src="/img/services/img-5.jpg" alt="">
             </div>
             {{-- <img src="/img/services/3.png" class="img-icon" alt=""> --}}
             <h1 class="h1 h1-responsive mt-0">Detailed Design</h1>

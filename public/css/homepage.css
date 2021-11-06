@@ -72,6 +72,7 @@
     margin: 0;
     padding: 0;
     font-family: "cerebri";
+    outline: 0;
 }
 
 .bg-primary {
@@ -279,21 +280,29 @@ input#amount:focus{
 }
 
 .ui-widget-header{
-    background: var(--color-orange) !important;
+    background: var(--color-primary) !important;
 }
 
 .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active{
     border-radius: 50px;
-    border: 1px solid var(--color-orange) !important; 
+    border: 1px solid var(--color-primary) !important;
+    background: #fff;
+    font-size: 12px;
 }
 
 .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus, .ui-button:hover, .ui-button:focus{
-    border: 1px solid var(--color-orange) !important; 
+    border: 1px solid var(--color-primary) !important; 
 }
 
 .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover{
-    background: var(--color-orange) !important;
+    background: var(--color-primary) !important;
 }   
+
+.ui-widget.ui-widget-content{
+    height: 7px;
+    border: 0;
+}
+
 
 /*Header*/
 
@@ -310,7 +319,7 @@ input#amount:focus{
 
 #hero-banner h1 {
     font-family: "cerebri-bold";
-    color: var(--color-orange);
+    color: var(--color-primary);
 }
 
 #hero-banner p {
@@ -460,7 +469,7 @@ input#amount:focus{
 
 #property-section h3 {
     font-family: "cerebri-bold";
-    color: var(--color-orange);
+    color: var(--color-primary);
     
 }
 
@@ -504,7 +513,7 @@ input#amount:focus{
 
 #property-section .text-right a {
     font-family: "cerebri-bold";
-    color: var(--color-orange);
+    color: var(--color-primary);
     font-size: 14px;
     font-weight: 500;
     transition: 1s ease;
@@ -512,7 +521,7 @@ input#amount:focus{
 }
 
 #property-section .text-right a:hover {
-    color: var(--color-primary);
+    color: var(--color-acent);
 }
 
 #property-section #property-slider {
@@ -524,6 +533,39 @@ input#amount:focus{
 #property-slider .swiper {
     width: 100%;
     height: 100%;
+}
+
+.swiper-button-prev{
+    font-weight: bold;
+    width: 45px;
+    color: #fff;
+    background: var(--color-primary);
+    border-radius: 50%;
+    padding: 10px;
+    border: 0;
+    left: 50px !important;
+    transition: .3s ease-in-out;
+}
+
+.swiper-button-next{
+    font-weight: bold;
+    width: 45px;
+    color: #fff;
+    background: var(--color-primary);
+    border-radius: 50%;
+    padding: 10px;
+    border: 0;
+    right: 50px !important;
+    transition: .3s ease-in-out;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover{
+    background-color: var(--color-acent);
+}
+
+.swiper-button-next:after, .swiper-button-prev:after {
+    font-size: 12px !important;
 }
 
 #property-slider .swiper .swiper-slide .property-list {
@@ -547,7 +589,7 @@ input#amount:focus{
 }
 
 #property-slider .swiper .swiper-slide .property-list .btn-property:hover {
-    color: var(--color-orange);
+    color: var(--color-primary);
 }
 
 #property-slider .swiper .swiper-slide .property-list .image {
@@ -603,7 +645,7 @@ input#amount:focus{
 }
 
 #work-section h1 {
-    color: var(--color-orange);
+    color: var(--color-primary);
     font-family: "cerebri-bold";
 }
 
@@ -681,7 +723,7 @@ input#amount:focus{
 }
 
 #about-section h1 {
-    color: var(--color-orange);
+    color: var(--color-primary);
     font-family: "cerebri-bold";
 }
 
@@ -866,7 +908,7 @@ input#amount:focus{
 
 #mail-section h1{
     width: 100%;
-    color: var(--color-orange);
+    color: var(--color-primary);
     font-family: "cerebri-bold";
 }
 
@@ -1497,11 +1539,28 @@ footer {
 
 
 /*Responsive*/
+@media only screen and (max-width: 1500px){
+    .swiper-button-prev{
+        left: 0 !important;
+    }
+    
+    .swiper-button-next{
+        right: 0 !important;
+    }
+}
 
 @media only screen and (max-width: 1400px) {
 
     .container-property{
         padding: 0 20px;
+    }
+
+    .swiper-button-prev{
+        left: 30px !important;
+    }
+    
+    .swiper-button-next{
+        right: 30px !important;
     }
 
 }
@@ -1527,11 +1586,43 @@ footer {
     .container-property{
         padding: 0;
     }
+
+    #property-slider .swiper .swiper-slide .property-list p{
+        font-size: 12px !important;
+    }
 }
 
 
 
 @media only screen and (max-width: 991px) {
+
+    #property-section .swiper-button-prev{
+        width: 35px;
+        height: 35px;
+        left: 25px !important;
+    }
+    
+    #property-section .swiper-button-next{
+        width: 35px;
+        height: 35px;
+        right: 25px !important;
+    }
+
+    #work-section .swiper-button-prev{
+        width: 35px;
+        height: 35px;
+        left: 10px !important;
+    }
+
+    #work-section .swiper-button-next{
+        width: 35px;
+        height: 35px;
+        right: 10px !important;
+    }
+
+    #work-section h4{
+        font-size: 15px;
+    }
 
     .animated {
 		/*CSS transitions*/
@@ -1665,6 +1756,7 @@ footer {
 
 @media only screen and (max-width: 580px) {
     /*Responsive Search*/
+    
 
     .logo-nav{
         width: 120px; 
@@ -1703,6 +1795,38 @@ footer {
     }
 
     /*Responsive Search*/
+
+    #property-section .swiper-button-prev{
+        width: 35px;
+        height: 35px;
+        opacity: .95;
+        left: 45px !important;
+    }
+    
+    #property-section .swiper-button-next{
+        width: 35px;
+        height: 35px;
+        opacity: .95;
+        right: 45px !important;
+    }
+
+    #work-section .swiper-button-prev{
+        width: 35px;
+        height: 35px;
+        opacity: .95;
+        left: 10px !important;
+    }
+    
+    #work-section .swiper-button-next{
+        width: 35px;
+        height: 35px;
+        opacity: .95;
+        right: 10px !important;
+    }
+
+    #property-slider .swiper .swiper-slide .property-list .btn-property{
+        font-size: 13px;
+    }
 
     /*Services Responsive*/
 
