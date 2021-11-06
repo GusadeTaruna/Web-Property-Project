@@ -121,7 +121,11 @@
 	    	</div>
 	    	<div class="col-lg-4 my-auto">
 				<div class="harga-row">
-				<h1 class="harga">IDR {{ number_format($data->price,0,'','.') }}</h1>
+				@if (is_string($data->price))
+					<h1 class="harga">{{ $data->price }}</h1>
+				@else
+					<h1 class="harga">IDR {{ number_format($data->price,0,'','.') }}</h1>
+				@endif
 				</div>
 				<div class="inquiry-row">
 					<button class="btn btn-theme mr-2 inquiry-btn" data-toggle="modal" data-target="#exampleModalCenter" data-id="[{{ $data->property_code }}] {{ ucwords(strtolower($data->property_name)) }}">Inquiry now</button>
@@ -157,7 +161,12 @@
 				    	<div class="col-lg-6">
 				    		<div class="detail-text d-flex justify-content-start">
 						    	<p class="card-title mr-1">Price :</p>
-						    	<p class="card-text">IDR {{ number_format($data->price,0,'','.') }}</p>
+								@if (is_string($data->price))
+									<p class="card-text">{{ $data->price }}</p>
+								@else
+									<p class="card-text">IDR {{ number_format($data->price,0,'','.') }}</p>
+								@endif
+						    	
 						    </div>
 				    	</div>
 				    </div>

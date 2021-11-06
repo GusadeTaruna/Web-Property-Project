@@ -167,7 +167,11 @@
 									<div class="col-md-12">
 										<div class="d-flex justify-content-between">
 											<p class="price">Price : </p>
-											<p class="price">IDR {{ number_format($data->price,0,'','.') }}</p>
+											@if (is_string($data->price))
+												<p class="price">{{ $data->price }}</p>
+											@else
+												<p class="price">IDR {{ number_format($data->price,0,'','.') }}</p>
+											@endif
 										</div>
 									</div>
 
