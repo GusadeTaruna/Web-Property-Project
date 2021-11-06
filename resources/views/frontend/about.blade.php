@@ -235,6 +235,10 @@
     
 </section>
 
+<a href="https://wa.me/+6281337104119" class="float" target="_blank">
+    <i class="fab fa-whatsapp my-float"></i>
+</a>
+
 <!--  Footer Section -->
 
 <footer id="sticky-footer" class="flex-shrink-0 py-4">
