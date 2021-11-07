@@ -100,7 +100,7 @@
 
 <!--  Start Property Section -->
 
-<section id="property-section">
+{{-- <section id="property-section">
     <div class="container-property animatable fadeInUp">
         <h3 class="mb-3 text-center">Discover Our Featured Listings</h3>
         <h6 class="h6 m-0 text-center">Discover some of the most popular listings based on user reviews and ratings.</h6>
@@ -379,7 +379,7 @@
 
         <!--  Property Slider -->
     </div>
-</section>
+</section> --}}
 <!--  End Property Section -->
 
 <!--  Hero Banner -->

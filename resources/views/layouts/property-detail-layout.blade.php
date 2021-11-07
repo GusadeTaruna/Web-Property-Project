@@ -96,9 +96,9 @@
     <script type="text/javascript" src="/js/jquery.easeScroll.js"></script>
     
     {{-- script smooth scroll --}}
-    <script>
+    {{-- <script>
         $("html").easeScroll();
-    </script>
+    </script> --}}
 
     {{-- script slider image --}}
     <script>

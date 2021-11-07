@@ -126,7 +126,7 @@
 						</div>
 					@else
 						@foreach ( $property as $data )
-						<div class="col-lg-6 col-xxl-4 col-md-5 my-2">
+						<div class="col-lg-6 col-xxl-4 col-md-6 my-2">
 							<a href={{ route('property-detail',$data->property_code) }}>
 								<div class="property-list shadow">
 									<div class="image">
@@ -145,15 +145,15 @@
 										@if ($data->property_type == 1)
 											<div class="feature-features">
 												<i class="fas fa-bed"></i>
-												<p>4 Beds</p>
+												<p>{{ $data->bed_qty }} Bedroom</p>
 											</div>
 											<div class="feature-features">
 												<i class="fas fa-bath"></i>
-												<p>3 Bath</p>
+												<p>{{ $data->bath_qty }} Bathroom</p>
 											</div>
 											<div class="feature-features">
 												<i class="fas fa-warehouse"></i>
-												<p>1 Garage</p>
+												<p>{{ $data->garage_qty }} Garage</p>
 											</div>
 										@endif
 										
@@ -178,13 +178,13 @@
 									<div class="col-md-12 mb-1 text-center">
 										<div class="row">
 											<div class="col-12 col-md-4 p-0 mb-2">
-												<a class="btn btn-theme-3 inquiry-btn" style="font-size: 11px" href="#" data-toggle="modal" data-target="#exampleModalCenter" data-id="[{{ $data->property_code }}] {{ ucwords(strtolower($data->property_name)) }}">Inquire now</a>
+												<a class="btn btn-theme-3 inquiry-btn d-flex justify-content-center align-items-center" style="font-size: 11px" href="#" data-toggle="modal" data-target="#exampleModalCenter" data-id="[{{ $data->property_code }}] {{ ucwords(strtolower($data->property_name)) }}">Inquire now</a>
 											</div>
 											<div class="col-12 col-md-4 p-0 mb-2">
-												<a class="btn btn-theme-3 " style="font-size: 11px" href="{{ route('add.to.cart', $data->id) }}">Add to enquiry</a>
+												<a class="btn btn-theme-3 d-flex justify-content-center align-items-center" style="font-size: 11px" href="{{ route('add.to.cart', $data->id) }}">Add to enquiry</a>
 											</div>
 											<div class="col-12 col-md-4 p-0 mb-2">
-												<a class="btn btn-theme-3" style="font-size: 11px" href={{ route('property-detail',$data->property_code) }}>Show Details</a>
+												<a class="btn btn-theme-3 d-flex justify-content-center align-items-center" style="font-size: 11px;" href={{ route('property-detail',$data->property_code) }}>Show Details</a>
 											</div>
 										</div>
 									</div>

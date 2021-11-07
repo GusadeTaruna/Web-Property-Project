@@ -136,22 +136,11 @@
 				</div>
 	    	</div>
 		</div>
-		
+
 		<div class="row mb-4">
 			<div class="col-lg-1"></div>
-			<div class="col-lg-6">
-				<div class="card">
-				  <div class="card-body">
-				    <h5 class="card-title mb-4">Description</h5>
-				    <p class="card-text">
-				      {{$data->description}}
-				    </p>
-				  </div>
-				</div>
-			</div>
-
-			<div class="col-lg-4">
-				<div class="card">
+			<div class="col-lg-5">
+				<div class="card atas">
 				  <div class="card-body">
 				    <h5 class="card-title mb-4">Property Details</h5>
 				    <div class="row">
@@ -221,11 +210,79 @@
 				  </div>
 				</div>
 			</div>
+
+			<div class="col-lg-5">
+				<div class="card atas">
+					<div class="card-body">
+					  <h5 class="card-title mb-4">Distance to nearest</h5>
+					  <div class="row">
+						  <div class="col-lg-6">
+							  <div class="detail-text d-flex justify-content-start">
+								  <p class="card-title mr-1">School :</p>
+								  <p class="card-text">{{ $data->school_distance }} km</p>
+							  </div>
+						  </div>
+						  <div class="col-lg-6">
+							  <div class="detail-text d-flex justify-content-start">
+								  <p class="card-title mr-1">Airport :</p>
+								  <p class="card-text">{{ $data->airport_distance }} km</p>
+							  </div>
+						  </div>
+					  </div>
+  
+					  <div class="row">
+						<div class="col-lg-6">
+							<div class="detail-text d-flex justify-content-start">
+								<p class="card-title mr-1">Beach :</p>
+								<p class="card-text">{{ $data->beach_distance }} km</p>
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="detail-text d-flex justify-content-start">
+								<p class="card-title mr-1">Fine Dining :</p>
+								<p class="card-text">{{ $data->fine_dining_distance }} km</p>
+							</div>
+						</div>
+					</div>
+  
+					  <div class="row">
+						  <div class="col-lg-6">
+							  <div class="detail-text d-flex justify-content-start">
+								  <p class="card-title mr-1">Supermarket :</p>
+								  <p class="card-text">{{ $data->supermarket_distance }} km</p>
+							  </div>
+						  </div>
+						  <div class="col-lg-6">
+							  <div class="detail-text d-flex justify-content-start">
+								  <p class="card-title mr-1">Hospital :</p>
+								  <p class="card-text">{{ $data->hospital_distance }} km</p>
+							  </div>
+						  </div>
+					  </div>
+  
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-1"></div>
+		</div>
+		
+		<div class="row mb-4">
+			<div class="col-lg-1"></div>
+			<div class="col-lg-10">
+				<div class="card">
+				  <div class="card-body">
+				    <h5 class="card-title mb-4">Description</h5>
+				    <p class="card-text">
+				      {{$data->description}}
+				    </p>
+				  </div>
+				</div>
+			</div>
 		</div>
 
 		<div class="row mb-4">
 			<div class="col-lg-1"></div>
-			<div class="col-lg-6">
+			<div class="col-lg-5">
 				<div class="card">
 				  <div class="card-body">
 					<h5 class="card-title mb-4">Property Area</h5>
@@ -284,13 +341,36 @@
                             &q={{ ucwords(strtolower($data->property_location)) }}">
                         </iframe>
 					</div>
-					</p>
 				  </div>
 				</div>
 			</div>
 
 			
-			<div class="col-lg-4">
+			<div class="col-lg-5">
+				<div class="card mb-4">
+					<div class="card-body">
+						<h5 class="card-title mb-4">Video</h5>
+						<div class="iframe-container">
+						@php
+						$string = $data->video_link;
+						$link = preg_replace(
+									"/\s*[a-zA-Z\/\/:\.]*youtu(be.com\/watch\?v=|.be\/)([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i",
+									"<iframe src=\"//www.youtube.com/embed/$2\" allowfullscreen></iframe>",
+									$string
+									
+								);
+								echo $link
+						@endphp
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+
+		<div class="row mb-4">
+			<div class="col-lg-1"></div>
+			<div class="col-lg-10">
 				@if ($data->property_type==2)
 				<div class="card mb-4">
 				  <div class="card-body">
@@ -389,58 +469,7 @@
 				</div>
 				@endif
 
-				<div class="card">
-					<div class="card-body">
-					  <h5 class="card-title mb-4">Distance to nearest:</h5>
-					  <div class="row">
-						  <div class="col-lg-6">
-							  <div class="detail-text d-flex justify-content-start">
-								  <p class="card-title mr-1">School :</p>
-								  <p class="card-text">{{ $data->school_distance }} km</p>
-							  </div>
-						  </div>
-						  <div class="col-lg-6">
-							  <div class="detail-text d-flex justify-content-start">
-								  <p class="card-title mr-1">Airport :</p>
-								  <p class="card-text">{{ $data->airport_distance }} km</p>
-							  </div>
-						  </div>
-					  </div>
-  
-					  <div class="row">
-						<div class="col-lg-6">
-							<div class="detail-text d-flex justify-content-start">
-								<p class="card-title mr-1">Beach :</p>
-								<p class="card-text">{{ $data->beach_distance }} km</p>
-							</div>
-						</div>
-						<div class="col-lg-6">
-							<div class="detail-text d-flex justify-content-start">
-								<p class="card-title mr-1">Fine Dining :</p>
-								<p class="card-text">{{ $data->fine_dining_distance }} km</p>
-							</div>
-						</div>
-					</div>
-  
-					  <div class="row">
-						  <div class="col-lg-6">
-							  <div class="detail-text d-flex justify-content-start">
-								  <p class="card-title mr-1">Supermarket :</p>
-								  <p class="card-text">{{ $data->supermarket_distance }} km</p>
-							  </div>
-						  </div>
-						  <div class="col-lg-6">
-							  <div class="detail-text d-flex justify-content-start">
-								  <p class="card-title mr-1">Hospital :</p>
-								  <p class="card-text">{{ $data->hospital_distance }} km</p>
-							  </div>
-						  </div>
-					  </div>
-  
-					</div>
-				</div>
 			</div>
-			
 		</div>
 		@endforeach
     </section>

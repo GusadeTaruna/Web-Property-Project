@@ -85,6 +85,7 @@ class PropertyController extends Controller
 		$property->property_location = $request->location;
         $property->property_image = json_encode($data);
 		$property->price = $request->price;
+        $property->video_link = $request->video;
 		$property->property_status = $request->status;
 		$property->site_plan = $request->site_plan;
         $property->site_area = $request->site_area;
@@ -95,6 +96,9 @@ class PropertyController extends Controller
         $property->imb = $request->imb;
         $property->zoning = $request->zoning_type;
         $property->description = $request->description;
+        $property->bed_qty = $request->bed;
+        $property->bath_qty = $request->bath;
+        $property->garage_qty = $request->garage;
         $property->school_distance = $request->school;
         $property->hospital_distance = $request->hospital;
         $property->airport_distance = $request->airport;
@@ -141,7 +145,6 @@ class PropertyController extends Controller
     {
         $property = Property::findOrFail($id);
 
-
         if ($request->hasFile('images')) {
             request()->validate(
                 ['images.*' => 'image|mimes:png,jpg,jpeg,svg|max:1024'],
@@ -175,6 +178,7 @@ class PropertyController extends Controller
         $property->property_name = $request->property_name;
         $property->property_location = $request->location;
         $property->price = $request->price;
+        $property->video_link = $request->video;
         $property->property_status = $request->status;
         $property->site_plan = $request->site_plan;
         $property->site_area = $request->site_area;
@@ -185,6 +189,9 @@ class PropertyController extends Controller
         $property->imb = $request->imb;
         $property->zoning = $request->zoning_type;
         $property->description = $request->description;
+        $property->bed_qty = $request->bed;
+        $property->bath_qty = $request->bath;
+        $property->garage_qty = $request->garage;
         $property->school_distance = $request->school;
         $property->hospital_distance = $request->hospital;
         $property->airport_distance = $request->airport;

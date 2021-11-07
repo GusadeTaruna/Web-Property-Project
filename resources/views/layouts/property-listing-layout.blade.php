@@ -86,9 +86,9 @@
     <script type="text/javascript" src="/js/product-listing.js"></script>
     <script type="text/javascript" src="/js/jquery.easeScroll.js"></script>
     
-    <script>
+    {{-- <script>
         $("html").easeScroll();
-    </script>
+    </script> --}}
     <!-- Initialize the plugin: -->
     <script>
         $(document).on("click", ".inquiry-btn", function () {

@@ -219,9 +219,79 @@
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
+                        <label for="video">Video Link</label>
+                        <input type="text" name="video" class="form-control @error('video') is-invalid @enderror" required value="{{ old('video') }}" id="video" placeholder="Input video link here">
+                        @error('video')
+                          <div class="invalid-feedback">
+                            {{ $message }}
+                          </div>
+                        @enderror
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
                         <label for="description">Description</label>
                         <textarea class="form-control @error('description') is-invalid @enderror" required value="{{ old('description') }}" name="description" id="description" rows="3" placeholder="Input property description here..."></textarea>
                         @error('description')
+                          <div class="invalid-feedback">
+                            {{ $message }}
+                          </div>
+                        @enderror
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row mt-4">
+                    <div class="col-md-12 text-center">
+                      <div class="form-group">
+                        <label for="distance">Facilities</label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1">
+                            <i class="fas fa-bed"></i>
+                          </span>
+                        </div>
+                        <input type="text" name="bed" class="form-control @error('bed') is-invalid @enderror" required value="{{ old('bed') }}" placeholder="Bedroom" aria-label="bed" aria-describedby="basic-addon1">
+                        @error('bed')
+                          <div class="invalid-feedback">
+                            {{ $message }}
+                          </div>
+                        @enderror
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1">
+                            <i class="fas fa-bath"></i>
+                          </span>
+                        </div>
+                        <input type="text" name="bath" class="form-control @error('bath') is-invalid @enderror" required value="{{ old('bath') }}" placeholder="Bathroom" aria-label="bath" aria-describedby="basic-addon1">
+                        @error('bath')
+                          <div class="invalid-feedback">
+                            {{ $message }}
+                          </div>
+                        @enderror
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1">
+                            <i class="fas fa-warehouse"></i>
+                          </span>
+                        </div>
+                        <input type="text" name="garage" class="form-control @error('garage') is-invalid @enderror" required value="{{ old('garage') }}" placeholder="Garage" aria-label="garage" aria-describedby="basic-addon1">
+                        @error('garage')
                           <div class="invalid-feedback">
                             {{ $message }}
                           </div>

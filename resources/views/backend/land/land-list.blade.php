@@ -63,7 +63,11 @@
                       <td>{{ $data->property_code }}</td>
                       <td>{{ ucwords(strtolower($data->property_name)) }}</td>
                       <td>{{ ucwords(strtolower($data->property_location)) }}</td>
-                      <td>IDR {{ number_format($data->price,0,'','.') }}</td>
+                      @if (!is_numeric($data->price))
+                        <td>{{ $data->price }}</td>
+                      @else
+                        <td>{{ number_format($data->price,0,'','.') }}</td>
+                      @endif
                       <td>{{ $data->property_status }}</td>
                       <form method="POST" action="{{ route('delete-land', $data->id) }}">
                         @csrf

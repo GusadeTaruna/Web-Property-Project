@@ -246,9 +246,82 @@
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
+                        <label for="video">Video Link</label>
+                        <input type="text" name="video" class="form-control @error('video') is-invalid @enderror"  value="{{$data->video_link}}" id="generator" placeholder="{{$data->video_link}}">
+                        @error('video')
+                          <div class="invalid-feedback">
+                            {{ $message }}
+                          </div>
+                        @enderror
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
                         <label for="description">Description</label>
                         <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description" rows="3" placeholder="{{$data->description}}">{{$data->description}}</textarea>
                         @error('description')
+                          <div class="invalid-feedback">
+                            {{ $message }}
+                          </div>
+                        @enderror
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row mt-4">
+                    <div class="col-md-12 text-center">
+                      <div class="form-group">
+                        <label for="distance">Facilities</label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-4">
+                      <label for="bed">Bedroom</label>
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1">
+                            <i class="fas fa-bed"></i>
+                          </span>
+                        </div>
+                        <input type="text" name="bed" class="form-control @error('bed') is-invalid @enderror" placeholder="{{ $data->bed_qty }}" value="{{ $data->bed_qty }}" aria-label="bed" aria-describedby="basic-addon1">
+                        @error('bed')
+                          <div class="invalid-feedback">
+                            {{ $message }}
+                          </div>
+                        @enderror
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <label for="bath">Bathroom</label>
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1">
+                            <i class="fas fa-bath"></i>
+                          </span>
+                        </div>
+                        <input type="text" name="bath" class="form-control @error('bath') is-invalid @enderror" value="{{ $data->bath_qty }}" placeholder="{{ $data->bath_qty }}" aria-label="bath" aria-describedby="basic-addon1">
+                        @error('bath')
+                          <div class="invalid-feedback">
+                            {{ $message }}
+                          </div>
+                        @enderror
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <label for="garage">Garage</label>
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1">
+                            <i class="fas fa-warehouse"></i>
+                          </span>
+                        </div>
+                        <input type="text" name="garage" class="form-control @error('garage') is-invalid @enderror" value="{{ $data->garage_qty }}" placeholder="{{ $data->garage_qty }}" aria-label="garage" aria-describedby="basic-addon1">
+                        @error('garage')
                           <div class="invalid-feedback">
                             {{ $message }}
                           </div>
@@ -267,6 +340,7 @@
 
                   <div class="row">
                     <div class="col-md-4">
+                      <label for="school">School</label>
                       <div class="input-group mb-3">
                         <div class="input-group-prepend">
                           <span class="input-group-text" id="basic-addon1">
@@ -282,6 +356,7 @@
                       </div>
                     </div>
                     <div class="col-md-4">
+                      <label for="hospital">Hospital</label>
                       <div class="input-group mb-3">
                         <div class="input-group-prepend">
                           <span class="input-group-text" id="basic-addon1">
@@ -297,6 +372,7 @@
                       </div>
                     </div>
                     <div class="col-md-4">
+                      <label for="airport">Airport</label>
                       <div class="input-group mb-3">
                         <div class="input-group-prepend">
                           <span class="input-group-text" id="basic-addon1">
@@ -315,6 +391,7 @@
 
                   <div class="row">
                     <div class="col-md-4">
+                      <label for="supermarket">Supermarket</label>
                       <div class="input-group mb-3">
                         <div class="input-group-prepend">
                           <span class="input-group-text" id="basic-addon1">
@@ -330,6 +407,7 @@
                       </div>
                     </div>
                     <div class="col-md-4">
+                      <label for="beach">Beach</label>
                       <div class="input-group mb-3">
                         <div class="input-group-prepend">
                           <span class="input-group-text" id="basic-addon1">
@@ -345,6 +423,7 @@
                       </div>
                     </div>
                     <div class="col-md-4">
+                      <label for="dining">Fine Dining</label>
                       <div class="input-group mb-3">
                         <div class="input-group-prepend">
                           <span class="input-group-text" id="basic-addon1">

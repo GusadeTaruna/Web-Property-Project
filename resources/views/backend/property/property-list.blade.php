@@ -67,7 +67,7 @@
                           @if (is_string($data->price))
                             <td>{{ $data->price }}</td>
                           @else
-                            <td>IDR {{ number_format($data->price,0,'','.') }}</td>
+                            <td>{{ number_format($data->price,0,'','.') }}</td>
                           @endif
                           <td>{{ $data->property_status }}</td>
                           <form method="POST" action="{{ route('delete-property', $data->id) }}">

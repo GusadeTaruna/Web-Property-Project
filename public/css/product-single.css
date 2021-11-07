@@ -320,6 +320,10 @@ nav.navbar {
     border-radius: 0;
 }
 
+#property-detail .atas{
+    height: 210px;
+}
+
 #property-detail .card-text{
     color: #636c72;
 }
@@ -383,6 +387,16 @@ footer {
         justify-content: start;
     }
 
+    #property-detail .atas{
+        height: 220px;
+    }
+
+}
+
+@media only screen and (max-width: 1200px) {
+    #property-detail .atas{
+        height: 240px;
+    }
 }
 
 @media only screen and (max-width: 991px) {
@@ -408,6 +422,10 @@ footer {
         /*background: linear-gradient(to right, #F16A70, #F16A70) no-repeat;
         background-size: 90% 3px;
         background-position: left bottom;*/
+    }
+
+    #property-detail .atas{
+        height: 100%;
     }
 }
 

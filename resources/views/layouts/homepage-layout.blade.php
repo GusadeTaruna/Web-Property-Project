@@ -75,9 +75,9 @@
     <script type="text/javascript" src="/js/script.js"></script>
     <script type="text/javascript" src="/js/jquery.easeScroll.js"></script>
     
-    <script>
+    {{-- <script>
         $("html").easeScroll();
-    </script>
+    </script> --}}
 
     <script>
         var swiper = new Swiper('#property-slider .swiper', {

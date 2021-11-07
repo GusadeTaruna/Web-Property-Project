@@ -1,6 +1,6 @@
 @extends('layouts.backend-layout')
 
-@section('title', 'Add New Land')
+@section('title', 'Land Data')
 
 @section('content')
   <!-- Content Wrapper. Contains page content -->
@@ -92,7 +92,11 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="price">Price</label>
-                        <br>{{ number_format($data->price,0,'','.') }}
+                        @if (!is_numeric($data->price))
+                          <br>{{ $data->price }}
+                        @else
+                          <br>{{ number_format($data->price,0,'','.') }}
+                        @endif
                       </div>
                     </div>
                   </div>
@@ -125,10 +129,16 @@
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
+                          <label for="city-draw">City Draw</label>
+                          <br>{{ $data->city_draw }}
+                      </div>
+                  </div>
+                    {{-- <div class="col-md-6">
+                      <div class="form-group">
                         <label for="building-area">Site Dimensions</label>
                         <br>{{ $data->site_dimension }}
                       </div>
-                    </div>
+                    </div> --}}
                   </div>
 
                   <div class="row">
@@ -228,13 +238,7 @@
                   </div>
 
                   <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="city-draw">City Draw</label>
-                            <br>{{ $data->city_draw }}
-                        </div>
-                    </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                       <div class="form-group">
                         <label for="access-road">Access Road</label>
                         @if ($data->access_road == 0)
@@ -244,7 +248,7 @@
                         @endif
                       </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                       <div class="form-group">
                         <label for="road-width">Access Road Width</label>
                         <br>{{ $data->access_road_width }}
@@ -257,6 +261,47 @@
                       <div class="form-group">
                         <label for="description">Surrounding Sites Description</label>
                         <br>{{ $data->surrounding_sites_desc }}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row mt-4">
+                    <div class="col-md-12 text-center">
+                        <div class="form-group">
+                            <label for="distance">Facilities</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1">
+                            <i class="fas fa-bed"></i>
+                          </span>
+                        </div>
+                        <label class="form-control">Bedroom = {{ $data->bed_qty }}</label>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1">
+                            <i class="fas fa-bath"></i>
+                          </span>
+                        </div>
+                        <label class="form-control">Bathroom = {{ $data->bath_qty }}</label>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1">
+                            <i class="fas fa-warehouse"></i>
+                          </span>
+                        </div>
+                        <label class="form-control">Garage = {{ $data->garage_qty }}</label>
                       </div>
                     </div>
                   </div>

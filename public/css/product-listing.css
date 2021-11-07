@@ -338,7 +338,6 @@ nav.navbar {
 .feature-features {
     list-style: none;
     display: inline-block;
-    padding: 0 5px;
     text-align: center;
 }
 
@@ -481,6 +480,9 @@ footer {
 @media only screen and (max-width: 1200px) {
     #feature-ul {
         margin-top: 20px;
+    }
+    #product-listing .property-list p{
+        font-size: 12px !important;
     }
 }
 
