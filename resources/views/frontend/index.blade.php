@@ -779,7 +779,7 @@
 <hr class="w-75 ml-auto mr-auto custom">
 <section id="mail-section">
     <div class="container animatable fadeInUp">
-        <h1 class="h1 h1-responsive mb-4">Have a question...? Let us help you</h1>
+        <h1 class="h1 h1-responsive mb-4">Have a question... Let us help you</h1>
         <div class="col-md-12">
             <button class="btn btn-theme">Contact Us</button>
         </div>
