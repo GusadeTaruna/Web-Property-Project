@@ -22,20 +22,14 @@ class RegisterController extends Controller
     	
     	$validatedData = $request->validate([
     		'nama' => 'required|max:255',
-    		'username' => 'required|min:5|max:100|unique:users',
     		'email' => 'required|email:dns|unique:users',
-    		'tanggal' => 'required',
-    		'kelamin' => 'required',
     		'telephone' => 'required|numeric|min:9',
     		'password' => 'required|min:5|max:255|confirmed'
     	]);
 
     	$user = new User;
     	$user->name = $validatedData['nama'];
-		$user->username = $validatedData['username'];
 		$user->email = $validatedData['email'];
-		$user->tanggal_lahir = $validatedData['tanggal'];
-		$user->jenis_kelamin = $validatedData['kelamin'];
 		$user->no_telepon = $validatedData['telephone'];
 		$user->role = 2;
 		$user->password = Hash::make($validatedData['password']);
@@ -45,6 +39,6 @@ class RegisterController extends Controller
 
     	// $request->session()->flash('success', 'Registrasi Berhasil! anda sekarang dapat Log In');
 
-    	return redirect('/admin/dashboard')->with('success', 'Registrasi Berhasil! anda sekarang dapat Log In');
+    	return redirect('/admin/dashboard')->with('success', $validatedData['nama'].' Account has been successfully created!');
     }
 }

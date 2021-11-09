@@ -167,7 +167,12 @@
 									<div class="col-md-12">
 										<div class="d-flex justify-content-between">
 											<p class="price">Price : </p>
-											<p class="price">{{ $data->currency }} {{ number_format($data->price,0,'','.') }}</p>
+											@if ($data->currency=="POI")
+												<p class="price">Price on Inquiry</p>
+											@else
+												<p class="price">{{ $data->currency }} {{ number_format($data->price,0,'','.') }}</p>
+											@endif
+											
 										</div>
 									</div>
 

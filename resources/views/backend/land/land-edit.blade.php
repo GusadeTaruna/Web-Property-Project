@@ -92,7 +92,7 @@
                                   @if($data->currency)
                                   <select class="currency-selector" name="currency">
                                     @foreach($currencys as $currency)
-                                      <option value="{{$currency}}" {{($currency==$options)? 'selected':'' }}>{{$currency}}</option>
+                                      <option data-symbol="{{$currency}}" value="{{$currency}}" {{($currency==$options)? 'selected':'' }}>{{$currency}}</option>
                                     @endforeach
                                   </select>
                                   @endif

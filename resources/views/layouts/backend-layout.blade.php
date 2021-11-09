@@ -315,11 +315,18 @@
         function updateSymbol(e){
             var selected = $(".currency-selector option:selected");
             $(".currency-symbol").text(selected.data("symbol"))
-            $(".currency-amount").prop("placeholder", selected.data("placeholder"))
+            if (selected.data("symbol")=="POI"){
+                $(".currency-amount").prop('readonly', true);
+                $(".currency-amount").prop("placeholder", "Price on Inquiry")
+                $(".currency-amount").prop("value", 0)
+            }else{
+                $(".currency-amount").prop('readonly', false);
+                $(".currency-amount").prop("placeholder", selected.data("placeholder"))
+            }
             $('.currency-addon-fixed').text(selected.text())
         }
 
-        $(".currency-selector").on("change", updateSymbol)
+        $(".currency-selector").on("load change", updateSymbol)
         updateSymbol()
     </script>
 </body>

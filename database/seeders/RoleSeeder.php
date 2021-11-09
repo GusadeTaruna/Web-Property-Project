@@ -25,12 +25,18 @@ class RoleSeeder extends Seeder
 
         DB::table('users')->insert([
             'name' => 'Super User 1',
-            'username' => 'superuser',
             'email' => 'work.gusade@gmail.com',
             'password' => Hash::make('gusadetaruna09'),
-            'tanggal_lahir'=> '1999-08-02',
-            'jenis_kelamin' => 'Pria',
             'no_telepon' => '085857279746',
+            'role' => '1',
+            'created_at' => \Carbon\Carbon::now(),
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'Super User 2',
+            'email' => 'testing@email.com',
+            'password' => Hash::make('testing'),
+            'no_telepon' => '081234432543',
             'role' => '1',
             'created_at' => \Carbon\Carbon::now(),
         ]);

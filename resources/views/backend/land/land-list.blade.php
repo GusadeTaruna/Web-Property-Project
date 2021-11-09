@@ -63,7 +63,11 @@
                       <td>{{ $data->property_code }}</td>
                       <td>{{ ucwords(strtolower($data->property_name)) }}</td>
                       <td>{{ ucwords(strtolower($data->property_location)) }}</td>
-                      <td>{{ $data->currency }} {{ number_format($data->price,0,'','.') }}</td>
+                      @if ($data->currency=="POI")
+                        <td>Price on Inquiry</td>
+                      @else
+                        <td>{{ $data->currency }} {{ number_format($data->price,0,'','.') }}</td>
+                      @endif
                       <td>{{ $data->property_status }}</td>
                       <form method="POST" action="{{ route('delete-land', $data->id) }}">
                         @csrf

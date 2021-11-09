@@ -31,8 +31,6 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Role</th>
-                    <th>Date of Birth</th>
-                    <th>Gender</th>
                     <th>Phone Number</th>
                   </tr>
                   </thead>
@@ -42,8 +40,6 @@
                         <td>{{ $users->name }}</td>
                         <td>{{ $users->email }}</td>
                         <td>{{ $users->nama_role }}</td>
-                        <td>{{ $users->tanggal_lahir }}</td>
-                        <td>{{ $users->jenis_kelamin }}</td>
                         <td>{{ $users->no_telepon }}</td>
                       </tr>
                     @endforeach

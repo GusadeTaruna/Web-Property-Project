@@ -79,11 +79,17 @@ class PropertyController extends Controller
             }
         }
 
-        $price_usd = Currency::convert()
-                    ->from($request->currency)
-                    ->to('USD')
-                    ->amount($request->price)
-                    ->get();
+        // dd($request->price);
+
+        if($request->price==0){
+            $price_usd = 0;
+        }else{
+            $price_usd = Currency::convert()
+                        ->from($request->currency)
+                        ->to('USD')
+                        ->amount($request->price)
+                        ->get();
+        }
 
     	$property = new Property;
         $property->property_type = 1;
@@ -182,11 +188,15 @@ class PropertyController extends Controller
             ]);
         }
 
-        $price_usd = Currency::convert()
-                    ->from($request->currency)
-                    ->to('USD')
-                    ->amount($request->price)
-                    ->get();
+        if($request->price==0){
+            $price_usd = 0;
+        }else{
+            $price_usd = Currency::convert()
+                        ->from($request->currency)
+                        ->to('USD')
+                        ->amount($request->price)
+                        ->get();
+        }
 
         // dd($price_usd);
 

@@ -3,7 +3,7 @@
 @section('content')
 <div class="login-box">
   <div class="login-logo mb-3">
-    <a href="/admin"><img src="/img/logo/logo.png" style="width: 250px; height: auto;"></img></a>
+    <a href="/admin"><img src="/img/logo/logo.png" style="width: 230px; height: auto;"></img></a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
@@ -31,14 +31,14 @@
       <form action="/admin/login" method="post">
         @csrf
         <div class="input-group mb-3">
-          <input type="username" name="username" class="form-control @error('username') is-invalid 
-          @enderror" placeholder="Username" autofocus required value="{{ old('username') }}">
+          <input type="email" name="email" class="form-control @error('email') is-invalid 
+          @enderror" placeholder="Email address" autofocus required value="{{ old('email') }}">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-user"></span>
+              <span class="fas fa-envelope"></span>
             </div>
           </div>
-          @error('username')
+          @error('email')
             <div class="invalid-feedback">
               {{ $message }}
             </div>
@@ -71,9 +71,9 @@
 
       {{-- <p class="mb-1 mt-4 text-center">
       </p> --}}
-      <p class="mb-0 mt-2 text-center">
+      {{-- <p class="mb-0 mt-2 text-center">
         <a href="forgot-password.html" style="color: #a5876a;">Lupa Password</a>
-      </p>
+      </p> --}}
     </div>
     <!-- /.login-card-body -->
   </div>

@@ -26,3 +26,13 @@ label{
 	margin-bottom: 10px;
 	font-size: 12px;
 }
+
+.btn-success{
+	background: #a5876a;
+	border:none;
+}
+
+.btn-success:hover,
+.btn-success:focus{
+	background: #ff931e !important;
+}

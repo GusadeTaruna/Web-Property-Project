@@ -55,11 +55,15 @@ class LandController extends Controller
             }
         }
 
-        $price_usd = Currency::convert()
-                    ->from($request->currency)
-                    ->to('USD')
-                    ->amount($request->price)
-                    ->get();
+        if($request->price==0){
+            $price_usd = 0;
+        }else{
+            $price_usd = Currency::convert()
+                        ->from($request->currency)
+                        ->to('USD')
+                        ->amount($request->price)
+                        ->get();
+        }
 
     	$property = new Property;
         $property->property_type = 2;
@@ -169,11 +173,15 @@ class LandController extends Controller
             ]);
         }
 
-        $price_usd = Currency::convert()
-                    ->from($request->currency)
-                    ->to('USD')
-                    ->amount($request->price)
-                    ->get();
+        if($request->price==0){
+            $price_usd = 0;
+        }else{
+            $price_usd = Currency::convert()
+                        ->from($request->currency)
+                        ->to('USD')
+                        ->amount($request->price)
+                        ->get();
+        }
 
         $property->property_type = 2;
     	$property->property_code = $request->code;
