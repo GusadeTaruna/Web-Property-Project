@@ -82,12 +82,40 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="price">Price</label>
-                        <input type="text" name="price" class="form-control @error('price') is-invalid @enderror" required value="{{ old('price') }}" id="price" placeholder="Input Price here">
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <div class="input-group-text">
+                              <select class="currency-selector" name="currency">
+                                <option data-symbol="POI" data-placeholder="Price on Inquiry" value="POI">POI</option>
+                                <option data-symbol="$" data-placeholder="0.00" value="USD" selected>USD</option>
+                                <option data-symbol="Rp." data-placeholder="0.00" value="IDR">IDR</option>
+                                <option data-symbol="€" data-placeholder="0.00" value="EUR">EUR</option>
+                                <option data-symbol="£" data-placeholder="0.00" value="GBP">GBP</option>
+                                <option data-symbol="¥" data-placeholder="0" value="JPY">JPY</option>
+                                <option data-symbol="$" data-placeholder="0.00" value="CAD">CAD</option>
+                                <option data-symbol="$" data-placeholder="0.00" value="AUD">AUD</option>
+                                <option data-symbol="₩" data-placeholder="0.00" value="KRW">KRW</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="input-group-prepend">
+                            <div class="input-group-text">
+                              <div class="input-group-addon currency-symbol">$</div>
+                            </div>
+                          </div>
+                          <input type="number" name="price" step="0.01" class="form-control currency-amount @error('price') is-invalid @enderror" value="{{ old('price') }}" id="price" placeholder="0.00">
+                          @error('price')
+                            <div class="invalid-feedback">
+                              {{ $message }}
+                            </div>
+                          @enderror
+                        </div>
+                        {{-- <input type="text" name="price" class="form-control @error('price') is-invalid @enderror" required value="{{ old('price') }}" id="price" placeholder="Input Price here">
                         @error('price')
                           <div class="invalid-feedback">
                             {{ $message }}
                           </div>
-                        @enderror
+                        @enderror --}}
                       </div>
                     </div>
                   </div>

@@ -124,11 +124,7 @@
 	    	</div>
 	    	<div class="col-lg-4 my-auto">
 				<div class="harga-row">
-				@if (!is_numeric($data->price))
-					<h1 class="harga">{{ $data->price }}</h1>
-				@else
-					<h1 class="harga">{{ number_format($data->price,0,'','.') }}</h1>
-				@endif
+					<h1 class="harga">{{ $data->currency }} {{ number_format($data->price,0,'','.') }}</h1>
 				</div>
 				<div class="inquiry-row">
 					<button class="btn btn-theme mr-2 inquiry-btn" data-toggle="modal" data-target="#exampleModalCenter" data-id="[{{ $data->property_code }}] {{ ucwords(strtolower($data->property_name)) }}">Inquiry now</button>

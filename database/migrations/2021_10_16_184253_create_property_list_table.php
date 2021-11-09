@@ -22,7 +22,9 @@ class CreatePropertyListTable extends Migration
             $table->string('property_location');
             $table->string('property_status');
             $table->string('property_image');
-            $table->string('price');
+            $table->string('currency');
+            $table->bigInteger('price');
+            $table->integer('price_usd');
             $table->text('description');
             $table->text('video_link')->nullable();
             $table->string('site_area');

@@ -167,11 +167,7 @@
 									<div class="col-md-12">
 										<div class="d-flex justify-content-between">
 											<p class="price">Price : </p>
-											@if (!is_numeric($data->price))
-												<p class="price">{{ $data->price }}</p>
-											@else
-												<p class="price">{{ number_format($data->price,0,'','.') }}</p>
-											@endif
+											<p class="price">{{ $data->currency }} {{ number_format($data->price,0,'','.') }}</p>
 										</div>
 									</div>
 

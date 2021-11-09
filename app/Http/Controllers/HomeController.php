@@ -18,21 +18,31 @@ class HomeController extends Controller
     }
 
     public function search_property(){
-        $property = Property::where('property_code', 'LIKE', '%' . request()->code . '%')
-                        ->when(request()->type, function($query) {
-                            $query->where('property_type', request()->type);
-                        })
-                        ->when(request()->location, function($query) {
-                            $query->where('property_location', 'LIKE', '%' . request()->location . '%');
-                        })
-                        ->when(request()->minPrice&&request()->maxPrice, function($query) {
-                            $query->whereBetween('price', [request()->minPrice, request()->maxPrice]);
-                        })
-                        ->when(request()->price, function($query) {
-                            $query->where('price', 'LIKE', '%' . request()->price . '%'); 
-                        })->paginate(9);
+        
+        $code = request()->code;
+        $type = request()->type;
+        $location = request()->location;
+        $minimal_price = request()->minPrice;
+        if(is_null($minimal_price)){
+            $minimal_price = 0;
+        }
+        $maximal_price = request()->maxPrice;
 
-        // dd($property->total());
+        $property = Property::when($code, function ($q) use ($code) {
+            return $q->where('property_code', 'like', '%'.$code.'%');
+        })
+        ->when($type, function ($q) use ($type) {
+            return $q->where('property_type', 'like', '%'.$type.'%');
+        })
+        ->when($location, function ($q) use ($location) {
+            return $q->where('property_location', 'like', '%'.$location.'%');
+        })
+        ->when($maximal_price, function ($q) use ($minimal_price,$maximal_price) {
+            return $q->whereBetween('price_usd', [$minimal_price, $maximal_price]);
+        })
+        ->paginate(9);
+
+        // dd($property);
         if($property->total()>0){
             return view('frontend.property-listing', compact('property'));
         }else{

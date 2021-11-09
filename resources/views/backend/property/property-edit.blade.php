@@ -85,12 +85,33 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="price">Price</label>
-                        <input type="text" name="price" class="form-control @error('price') is-invalid @enderror"  value="{{$data->price}}" id="price" placeholder="{{$data->price}}">
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <div class="input-group-text">
+                              <?php $currencys = array("POI", "USD", "IDR","EUR","GBP","JPY","CAD","AUD","KRW");   ?>
+                              <?php $options=$data->currency ?>
+                              @if($data->currency)
+                              <select class="currency-selector" name="currency">
+                                @foreach($currencys as $currency)
+                                  <option value="{{$currency}}" {{($currency==$options)? 'selected':'' }}>{{$currency}}</option>
+                                @endforeach
+                              </select>
+                              @endif
+                            </div>
+                          </div>
+                          <input type="number" name="price" step="0.01" class="form-control currency-amount @error('price') is-invalid @enderror" value="{{$data->price}}" id="price" placeholder="0.00">
+                          @error('price')
+                            <div class="invalid-feedback">
+                              {{ $message }}
+                            </div>
+                          @enderror
+                        </div>
+                        {{-- <input type="text" name="price" class="form-control @error('price') is-invalid @enderror"  value="{{$data->price}}" id="price" placeholder="{{$data->price}}">
                         @error('price')
                           <div class="invalid-feedback">
                             {{ $message }}
                           </div>
-                        @enderror
+                        @enderror --}}
                       </div>
                     </div>
                   </div>

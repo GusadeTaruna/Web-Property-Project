@@ -38,3 +38,8 @@
 	color: #fff;
 	background-color: #a5876a;
 }
+
+.currency-selector{
+	border:0;
+	background:transparent;
+}

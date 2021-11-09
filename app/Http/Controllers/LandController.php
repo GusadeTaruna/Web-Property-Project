@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Property;
 use App\Models\ZoningType;
 use Illuminate\Support\Facades\File;
+use AmrShawky\LaravelCurrency\Facade\Currency;
 
 class LandController extends Controller
 {
@@ -54,13 +55,21 @@ class LandController extends Controller
             }
         }
 
+        $price_usd = Currency::convert()
+                    ->from($request->currency)
+                    ->to('USD')
+                    ->amount($request->price)
+                    ->get();
+
     	$property = new Property;
         $property->property_type = 2;
     	$property->property_code = $request->code;
 		$property->property_name = $request->land_name;
 		$property->property_location = $request->land_location;
         $property->property_image = json_encode($data);
+        $property->currency = $request->currency;
 		$property->price = $request->price;
+        $property->price_usd = $price_usd;
         $property->video_link = $request->video;
 		$property->property_status = $request->status;
 		$property->site_plan = $request->site_plan;
@@ -160,11 +169,19 @@ class LandController extends Controller
             ]);
         }
 
+        $price_usd = Currency::convert()
+                    ->from($request->currency)
+                    ->to('USD')
+                    ->amount($request->price)
+                    ->get();
+
         $property->property_type = 2;
     	$property->property_code = $request->code;
 		$property->property_name = $request->land_name;
 		$property->property_location = $request->land_location;
+        $property->currency = $request->currency;
 		$property->price = $request->price;
+        $property->price_usd = $price_usd;
         $property->video_link = $request->video;
 		$property->property_status = $request->status;
 		$property->site_plan = $request->site_plan;

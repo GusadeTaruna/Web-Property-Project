@@ -92,11 +92,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="price">Price</label>
-                        @if (!is_numeric($data->price))
-                          <br>{{ $data->price }}
-                        @else
-                          <br>{{ number_format($data->price,0,'','.') }}
-                        @endif
+                        <br>{{ $data->currency }} {{ number_format($data->price,0,'','.') }}
                       </div>
                     </div>
                   </div>
