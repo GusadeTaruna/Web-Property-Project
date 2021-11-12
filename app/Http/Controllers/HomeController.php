@@ -132,7 +132,7 @@ class HomeController extends Controller
         $inbox->status_msg_respon = 0;
         $inbox->save();
 
-        Mail::to('dummy.gusade@gmail.com')->send(new ContactMail($details));
+        Mail::to('info@equatorial-property.com')->send(new ContactMail($details));
         return back()->with('success','Your message has been sent successfully!');
     }
 
@@ -175,7 +175,7 @@ class HomeController extends Controller
 
         // dd($list);
 
-        Mail::to('dummy.gusade@gmail.com')->send(new InquiryMail($detailsInquiry));
+        Mail::to('info@equatorial-property.com')->send(new InquiryMail($detailsInquiry));
         return back()->with('success','Your inquiry message has been sent successfully!');
     }
 }

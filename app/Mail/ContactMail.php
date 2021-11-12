@@ -31,6 +31,7 @@ class ContactMail extends Mailable
      */
     public function build()
     {
-        return $this->from($this->details['email_from'],$this->details['name'])->subject('Contact Us - Message from '.$this->details['name'])->view('emails.contact-mail');
+        // return $this->from("$this->details['email_from'],$this->details['name']")->subject('Contact Us - Message from '.$this->details['name'])->view('emails.contact-mail');
+        return $this->from("info@equatorial-property.com")->subject('Contact Us - Message from '.$this->details['name'])->view('emails.contact-mail');
     }
 }
