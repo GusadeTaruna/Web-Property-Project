@@ -10,7 +10,7 @@
 
             <!-- Navbar brand -->
             <a class="navbar-brand" href="/">
-                <img src="/img/logo/logo.png" alt="" class="logo-nav">
+                <img src="/img/logo/logo-1.svg" alt="" class="logo-nav">
             </a>
 
             <!-- Toggle button -->
@@ -215,9 +215,9 @@
                             
                                     <div class="col-md-12 col-lg-12 col-xxl-7 d-flex flex-column">
                                         <p class="agent-name font-weight-bold mb-0 mt-2">Miles Humphreys</p>
-                                        <p class="agent-pos">Lead Architect</p>
+                                        <p class="agent-pos">Principal - Architecture & Masterplanning & Design</p>
                                         <div class="agent-desc mb-3">
-                                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit, repudiandae sequi modi mollitia, illum earum provident qui commodi ullam libero alias, hic aliquam eos exercitationem tempora est! Doloremque, libero quod?</p>
+                                            <p>Miles graduated in New Zealand as an architect and has spent the bulk of his architectural career in western Europe; Scandinavia; Southern & Easton Africa prior to setting up his permanent architectural studio in Bali, Indonesia in 2007. Since then Miles has executed an array of high end resort end Hotel designs within Indonesia as a well as East Africa; Russia; Panama; Costa Rica and India. Presently he is working on projects in Mexico, Guam and the Bahamas.</p>
                                         </div>
                                         <button class="btn btn-details mt-auto">See Details</button>
                                     </div>
@@ -238,7 +238,7 @@
                             
                                     <div class="col-md-12 col-lg-12 col-xxl-7 d-flex flex-column">
                                         <p class="agent-name font-weight-bold mb-0 mt-2">Marthin Gunardhy</p>
-                                        <p class="agent-pos">Indonesian Architectural Representative</p>
+                                        <p class="agent-pos">Executive Architect</p>
                                         <div class="agent-desc mb-3">
                                             <p>
                                                 Marthin is certified professional architect from Indonesian Institute of Architects, and a certified as ASEAN Architect from ASEAN Architect Council. In 2019 he completed his Master Degree on Urban Planning and also qualified as a Certified Greenship Professional from Green Building Council Indonesia.

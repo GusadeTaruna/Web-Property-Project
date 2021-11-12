@@ -12,7 +12,7 @@
 
                 <!-- Navbar brand -->
                 <a class="navbar-brand" href="/">
-					<img src="/img/logo/logo.png" alt="" class="logo-nav">
+					<img src="/img/logo/logo-1.svg" alt="" class="logo-nav">
 				</a>
 
                 <!-- Toggle button -->

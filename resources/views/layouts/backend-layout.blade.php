@@ -146,14 +146,16 @@
                                 </li>  --}}
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a href="/admin/list-admin" class="nav-link {{ request()->is('admin/list-admin') ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-user"></i>
-                                <p>
-                                    Admin
-                                </p>
-                            </a>
-                        </li>
+                        @if (Auth::user()->role == 1)
+                            <li class="nav-item">
+                                <a href="/admin/list-admin" class="nav-link {{ request()->is('admin/list-admin') ? 'active' : '' }}">
+                                    <i class="nav-icon fas fa-user"></i>
+                                    <p>
+                                        Admin
+                                    </p>
+                                </a>
+                            </li>
+                        @endif
 
                         <li class="nav-item">
                             <a href="#" class="nav-link {{ request()->is('admin/inbox-contact')||request()->is('inbox-inquiry') ? 'active' : '' }}">

@@ -84,9 +84,9 @@ class LandController extends Controller
         $property->imb = $request->imb;
         $property->zoning = $request->zone_type;
         $property->description = $request->description;
-        $property->bed_qty = $request->bed;
-        $property->bath_qty = $request->bath;
-        $property->garage_qty = $request->garage;
+        $property->bed_qty = 0;
+        $property->bath_qty = 0;
+        $property->garage_qty = 0;
         $property->school_distance = $request->school;
         $property->hospital_distance = $request->hospital;
         $property->airport_distance = $request->airport;
@@ -200,9 +200,9 @@ class LandController extends Controller
         $property->imb = $request->imb;
         $property->zoning = $request->zone_type;
         $property->description = $request->description;
-        $property->bed_qty = $request->bed;
-        $property->bath_qty = $request->bath;
-        $property->garage_qty = $request->garage;
+        $property->bed_qty = 0;
+        $property->bath_qty = 0;
+        $property->garage_qty = 0;
         $property->school_distance = $request->school;
         $property->hospital_distance = $request->hospital;
         $property->airport_distance = $request->airport;

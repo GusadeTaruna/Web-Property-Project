@@ -21,7 +21,7 @@
                 <div class="col-md-12">
                  <label class="form-label" style="color:#a5876a;font-weight:bold;">Name:</label>
                  <div class="form-outline w-100 mb-3">
-                    <input type="text" id="nama" name="nama" placeholder="Input your name here" class="form-control form-control-lg @error('nama') is-invalid @enderror" required value="{{ old('nama') }}" />
+                    <input type="text" id="nama" name="nama" placeholder="Input name here" class="form-control form-control-lg @error('nama') is-invalid @enderror" required value="{{ old('nama') }}" />
                     @error('nama')
                       <div class="invalid-feedback">
                         {{ $message }}
@@ -38,7 +38,7 @@
                 <div class="col-md-12">
                  <label class="form-label"style="color:#a5876a;font-weight:bold;">Email Address:</label>
                   <div class="form-outline w-100 mb-3">
-                    <input type="email" id="email" name="email" placeholder="Input your email here" class="form-control form-control-lg @error('email') is-invalid @enderror" required value="{{ old('email') }}"/>
+                    <input type="email" id="email" name="email" placeholder="Input email here" class="form-control form-control-lg @error('email') is-invalid @enderror" required value="{{ old('email') }}"/>
                     @error('email')
                       <div class="invalid-feedback">
                         {{ $message }}
@@ -49,7 +49,7 @@
                 <div class="col-md-12">
                   <label class="form-label" style="color:#a5876a;font-weight:bold;">Phone number:</label>
                   <div class="form-outline mb-3">
-                    <input type="tel" id="telephone" name="telephone" placeholder="Input your phone number here" class="form-control form-control-lg @error('telephone') is-invalid @enderror" required value="{{ old('telephone') }}"/>
+                    <input type="tel" id="telephone" name="telephone" placeholder="Input phone number here" class="form-control form-control-lg @error('telephone') is-invalid @enderror" required value="{{ old('telephone') }}"/>
                     @error('telephone')
                       <div class="invalid-feedback">
                         {{ $message }}
@@ -65,7 +65,7 @@
                 <div class="col-md-12">
                  <label class="form-label" style="color:#a5876a;font-weight:bold;">Password:</label>
                  <div class="form-outline w-100 mb-3">
-                    <input type="password" id="password" name="password" placeholder="Input your password here" class="form-control form-control-lg @error('password') is-invalid @enderror" required/>
+                    <input type="password" id="password" name="password" placeholder="Input password here" class="form-control form-control-lg @error('password') is-invalid @enderror" required/>
                     @error('password')
                       <div class="invalid-feedback">
                         {{ $message }}
@@ -76,7 +76,7 @@
                 <div class="col-md-12">
                   <label class="form-label" style="color:#a5876a;font-weight:bold;">Confirm Password:</label>
                    <div class="form-outline mb-3">
-                    <input type="password" id="konfirmasi" placeholder="Input your password once again here" name="password_confirmation" class="form-control form-control-lg @error('password_confirmation') is-invalid @enderror" required/>
+                    <input type="password" id="konfirmasi" placeholder="Input password once again here" name="password_confirmation" class="form-control form-control-lg @error('password_confirmation') is-invalid @enderror" required/>
                     @error('password_confirmation')
                       <div class="invalid-feedback">
                         {{ $message }}
@@ -92,7 +92,7 @@
               </div>
 
               <div class="mt-3 text-center">
-                <label class="form-label select-label">Sudah punya akun? <a href="/admin/login" style="color:#a5876a;font-weight:bold;">Login</a></label>
+                <label class="form-label select-label">Already have an account? <a href="/admin/login" style="color:#a5876a;font-weight:bold;">Login</a></label>
               </div>
 
             </form>

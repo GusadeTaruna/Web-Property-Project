@@ -306,7 +306,7 @@
                     </div>
                   </div>
 
-                  <div class="row mt-4">
+                  {{-- <div class="row mt-4">
                     <div class="col-md-12 text-center">
                       <div class="form-group">
                         <label for="distance">Facilities</label>
@@ -360,7 +360,7 @@
                         @enderror
                       </div>
                     </div>
-                  </div>
+                  </div> --}}
 
                   <div class="row mt-4">
                     <div class="col-md-12 text-center">

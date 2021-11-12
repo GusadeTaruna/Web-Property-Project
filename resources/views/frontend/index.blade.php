@@ -17,7 +17,7 @@
 
             <!-- Navbar brand -->
             <a class="navbar-brand" href="/">
-                <img src="/img/logo/logo.png" alt="" class="logo-nav">
+                <img src="/img/logo/logo-1.svg" alt="" class="logo-nav">
             </a>
 
             <!-- Toggle button -->
@@ -60,7 +60,7 @@
 
                 <div class="col-md-12 my-auto mr-auto text-center">
                     <h4 class="h5 sub-judul">Here you can find luxury high end properties</h4>
-                    <h1 class="h1 h1-responsive judul">Find Your Perfect Land or Home</h1>
+                    <h1 class="h1 h1-responsive judul">Find Your Ideal Land or Home</h1>
                 </div>
 
                 <!-- Start Search Bar -->
