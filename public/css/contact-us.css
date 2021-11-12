@@ -193,7 +193,7 @@ nav.navbar {
 
 .header .header-content {
     position: absolute;
-    top: 60%;
+    top: 80%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: #ffffff;
@@ -201,7 +201,7 @@ nav.navbar {
 }
 
 .judul {
-    font-family: "cerebri-bold";
+    font-family: "cerebri";
     font-size: 40px;
 }
 
