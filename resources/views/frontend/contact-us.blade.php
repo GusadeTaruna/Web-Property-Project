@@ -73,6 +73,11 @@
                     {{ Session::get('success') }}
                 </div>
             @endif
+            @if (Session::has('errorContact'))
+                <div class="alert alert-danger" role="alert">
+                    {{ Session::get('errorContact') }}
+                </div>
+            @endif
             <form method="post" action="{{ route('contact.send') }}" enctype="multipart/form-data">
             @csrf
                 <input class="form-control contact-form mb-3 @error('name') is-invalid @enderror" type="text" name="name" placeholder="Your Name" value="{{ old('name') }}" required/>

@@ -123,17 +123,27 @@ class HomeController extends Controller
             'msg' => $validatedData['msg'],
         ];
 
-        $inbox = new Inbox;
-        $inbox->msg_type = "contact";
-        $inbox->sender_name = $validatedData['name'];
-        $inbox->sender_email = $validatedData['email'];
-        $inbox->message = $validatedData['msg'];
-        $inbox->status_msg_seen = 0;
-        $inbox->status_msg_respon = 0;
-        $inbox->save();
-
         Mail::to('info@equatorial-property.com')->send(new ContactMail($details));
-        return back()->with('success','Your message has been sent successfully!');
+
+        if( count(Mail::failures()) > 0 ) {
+
+            // echo "There was one or more failures. They were: <br />";
+         
+            // foreach(Mail::failures() as $email_address) {
+            //     echo " - $email_address <br />";
+            //  }
+             return back()->with('errorContact','Something went wrong!');
+         } else {
+            $inbox = new Inbox;
+            $inbox->msg_type = "contact";
+            $inbox->sender_name = $validatedData['name'];
+            $inbox->sender_email = $validatedData['email'];
+            $inbox->message = $validatedData['msg'];
+            $inbox->status_msg_seen = 0;
+            $inbox->status_msg_respon = 0;
+            $inbox->save();
+            return back()->with('success','Your message has been sent successfully!');
+         }
     }
 
     public function sendEmailInquiry(Request $request){
