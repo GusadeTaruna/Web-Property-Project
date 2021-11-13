@@ -86,7 +86,7 @@
                   <!-- small box -->
                   <div class="small-box bg-danger">
                       <div class="inner">
-                          <h3>10</h3>
+                          <h3>{{ $inbox_list }}</h3>
                           <p>Inbox</p>
                       </div>
                       <div class="icon">

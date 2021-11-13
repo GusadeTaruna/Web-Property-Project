@@ -14,7 +14,8 @@ class DashboardController extends Controller
     public function index(){
         $property_list = Property::where('property_type',1)->count();
         $land_list = Property::where('property_type',2)->count();
-        return view('backend.index', compact('property_list','land_list'));
+        $inbox_list = Inbox::where('status_msg_seen',0)->count();
+        return view('backend.index', compact('property_list','land_list','inbox_list'));
         // dd($property_list);
     }
 

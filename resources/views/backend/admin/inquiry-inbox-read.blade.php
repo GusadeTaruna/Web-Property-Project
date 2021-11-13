@@ -53,7 +53,7 @@
                     <span style="font-weight: bold">Message :</span> <br>
                     <p>{{ $messages->message }}</p>
                     @if ($messages->status_msg_respon==0)
-                        <a class="btn btn-success" href="{{ route('respond-inquiry',$messages->id) }}">Click this if you already responded</a>
+                        <a class="btn btn-success" href="https://srv133.niagahoster.com:2096/cpsess9436350195/3rdparty/roundcube/?_task=mail&_mbox=INBOX">Click to respond</a>
                     @elseif($messages->status_msg_respon==1)
                         <a class="btn btn-secondary" href="#">This message has been responded</a>
                     @endif
