@@ -8,6 +8,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\LandController;
+use App\Http\Controllers\CustomizePageController;
+use App\Models\CustomizePage;
 
 /*
 |--------------------------------------------------------------------------
@@ -86,3 +88,7 @@ Route::get('/admin/inbox-inquiry', [DashboardController::class, 'inquiryInbox'])
 Route::get('/admin/inbox-inquiry/{id}', [DashboardController::class, 'readInquiryInbox'])->name('read-inquiry')->middleware('auth');
 Route::get('/admin/inquiry-respond/{id}', [DashboardController::class, 'inquiryResponded'])->name('respond-inquiry')->middleware('auth');
 Route::delete('/admin/inbox-inquiry/delete/{id}', [DashboardController::class, 'deleteInquiry'])->name('delete-inquiry')->middleware('auth');
+
+Route::get('/admin/customize/homepage', [CustomizePageController::class, 'create'])->name('customize-homepage')->middleware('auth');
+Route::post('/admin/customize/homepage/create', [CustomizePageController::class, 'store'])->middleware('auth');
+Route::put('/admin/customize/homepage/update/{id}', [CustomizePageController::class, 'update'])->name('update-homepage')->middleware('auth');

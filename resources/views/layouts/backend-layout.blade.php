@@ -108,13 +108,19 @@
                         <li class="nav-item">
                             <a href="#" class="nav-link {{ request()->is('admin/property') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-building"></i>
-                                <p>Property<i class="fas fa-angle-left right"></i></p>
+                                <p>Listing<i class="fas fa-angle-left right"></i></p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="/admin/property" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>List Property</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/admin/land" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>List Land</p>
                                     </a>
                                 </li>
                                 {{-- <li class="nav-item">
@@ -126,7 +132,7 @@
                             </ul>
                         </li>
 
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="#" class="nav-link {{ request()->is('admin/land') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-street-view"></i>
                                 <p>Land<i class="fas fa-angle-left right"></i></p>
@@ -138,14 +144,9 @@
                                         <p>List Land</p>
                                     </a>
                                 </li>
-                                {{-- <li class="nav-item">
-                                    <a href="/admin/property-type" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Land Request Listing</p>
-                                    </a>
-                                </li>  --}}
                             </ul>
-                        </li>
+                        </li> --}}
+
                         @if (Auth::user()->role == 1)
                             <li class="nav-item">
                                 <a href="/admin/list-admin" class="nav-link {{ request()->is('admin/list-admin') ? 'active' : '' }}">
@@ -177,6 +178,40 @@
                                 </li> 
                             </ul>
                         </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link {{ request()->is('admin/customize/homepage') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-edit"></i>
+                                <p>Customize Page<i class="fas fa-angle-left right"></i></p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/admin/customize/homepage" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Home Page</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>About Us</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Services</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Contact Us</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -330,6 +365,35 @@
 
         $(".currency-selector").on("load change", updateSymbol)
         updateSymbol()
+    </script>
+
+    {{-- customize homepage --}}
+    <script>
+        $("#right_select").change(function () {
+            var selected_option = $('#right_select').val();
+            if (selected_option === "images_input_right") {
+                $('#images_input_right').show();
+                $("#video_input_right").hide();
+            }
+            if (selected_option === "video_input_right") {
+                $("#video_input_right").show();
+                $('#images_input_right').hide();
+            }
+        })
+    </script>
+
+    <script>
+        $("#left_select").change(function () {
+            var selected_option = $('#left_select').val();
+            if (selected_option === "images_input_left") {
+                $('#images_input_left').show();
+                $("#video_input_left").hide();
+            }
+            if (selected_option === "video_input_left") {
+                $("#video_input_left").show();
+                $('#images_input_left').hide();
+            }
+        })
     </script>
 </body>
 </html>

@@ -25,6 +25,19 @@
             </div><!-- /.col -->
         </div><!-- /.row -->
         @endif
+
+        @if(session()->has('errorMsg'))
+        <div class="row mb-2">
+            <div class="col-sm-12">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ session('errorMsg') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+        @endif
         
           <div class="row mb-2">
               <div class="col-sm-6">
