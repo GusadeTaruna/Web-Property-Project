@@ -80,26 +80,11 @@
     </script> --}}
 
     <script>
-        const swiper = new Swiper('#banner-image .swiper', {
-            // Optional parameters
-            observer: true,
-            observeParents: true,
-            loop: true,
-            slidesPerView: 1,
-            centeredSlides: true,
-            autoplay: {
-                delay: 4000,
-                disableOnInteraction: false,
-            },
-        });
-    </script>
-
-    <script>
         var swiper = new Swiper('#property-slider .swiper', {
             // Optional parameters
             observer: true,
             observeParents: true,
-            loop: true,
+            loop: false,
             slidesPerView: 4,
             spaceBetween: 30,
             centeredSlides: true,
@@ -131,11 +116,11 @@
                     spaceBetween: 10,
                 },
                 640: {
-                    slidesPerView: 1,
+                    slidesPerView: 1.5,
                     spaceBetween: 10,
                 },
-                768: {
-                    slidesPerView: 2,
+                712: {
+                    slidesPerView: 1.5,
                     spaceBetween: 10,
                 },
                 1024: {
@@ -207,6 +192,19 @@
                     spaceBetween: 30,
                 },
             }
+        });
+
+        var swiper = new Swiper('#banner-image .swiper', {
+            // Optional parameters
+            observer: true,
+            observeParents: true,
+            loop: true,
+            slidesPerView: 1,
+            centeredSlides: true,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
         });
     </script>
 

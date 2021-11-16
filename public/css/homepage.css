@@ -435,6 +435,24 @@ input#amount:focus{
 
 /*Services section*/
 
+.iframe-container{
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Ratio 16:9 ( 100%/16*9 = 56.25% ) */
+}
+.iframe-container > *{
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
 #services-section {
     padding: 100px 0;
     font-family: var(--font-poppin);
@@ -537,7 +555,7 @@ input#amount:focus{
 
 #property-section #property-slider {
     width: 100%;
-    height: 450px;
+    height: 500px;
     margin-top: 50px;
 }
 
@@ -1578,6 +1596,14 @@ footer {
 
 @media only screen and (max-width: 1200px) {
 
+    #property-ul .property-features{
+        padding-right: 12px;
+    }
+
+    #property-slider .swiper .swiper-slide .property-list p{
+        font-size: 13px !important;
+    }
+
     #search-section .search-area {
         padding: 20px 80px;
     }
@@ -1591,6 +1617,10 @@ footer {
         padding: 0;
     }
 
+    #work-section h4{
+        font-size: 16px;
+    }
+
 }
 
 @media only screen and (max-width: 1024px){
@@ -1601,6 +1631,7 @@ footer {
     #property-slider .swiper .swiper-slide .property-list p{
         font-size: 12px !important;
     }
+
 }
 
 
@@ -1629,10 +1660,6 @@ footer {
         width: 35px;
         height: 35px;
         right: 10px !important;
-    }
-
-    #work-section h4{
-        font-size: 15px;
     }
 
     .animated {
@@ -1767,7 +1794,23 @@ footer {
 
 @media only screen and (max-width: 580px) {
     /*Responsive Search*/
+
+    html,
+    body{
+        width:100%;
+        overflow-x:hidden;
+    }
     
+    .float{
+        width: 40px;
+        height: 40px;
+        bottom: 50px;
+        font-size: 20px;
+    }
+
+     .my-float{
+        margin-top:12px;
+    }
 
     .logo-nav{
         width: 120px; 
@@ -1819,6 +1862,18 @@ footer {
         height: 35px;
         opacity: .95;
         right: 45px !important;
+    }
+
+    #property-section .item-name{
+        font-size: 13px;
+    }
+
+    #property-ul .property-features{
+        padding-right: 11px;
+    }
+
+    .price{
+        font-size: 13px;
     }
 
     #work-section .swiper-button-prev{
@@ -1903,4 +1958,14 @@ footer {
     }
 
     /*Footer Responsive*/
+}
+
+@media only screen and (max-width: 360px) {
+    #property-ul .property-features{
+        padding-right: 4px;
+    }
+
+    .header .header-content{
+        top: 60%;
+    }
 }

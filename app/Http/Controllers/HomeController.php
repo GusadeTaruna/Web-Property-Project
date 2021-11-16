@@ -16,7 +16,10 @@ class HomeController extends Controller
     //
     public function index(){
         $homepage_data = CustomizePage::all();
-        return view('frontend.index', compact('homepage_data'));
+        $listing_data = Property::orderBy('created_at','desc')->paginate(6);
+        // dd($listing_data);
+        // if($homepage_data->isEmpty()){}
+        return view('frontend.index', compact('homepage_data','listing_data'));
     }
 
     public function search_property(){
