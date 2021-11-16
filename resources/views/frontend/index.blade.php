@@ -3,97 +3,111 @@
 
 @section('content')
 <!-- Start Header -->
+<div id="nav-container">
+
+    <!-- Start Navbar -->
+    <nav class="navbar navbar-expand-lg">
+
+        <!-- Navbar brand -->
+        <a class="navbar-brand" href="/">
+            <img src="/img/logo/logo-1.svg" alt="" class="logo-nav">
+        </a>
+
+        <!-- Toggle button -->
+        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="fas fa-bars"></span>
+        </button>
+
+        <!-- Collapsible wrapper -->
+        <div class="collapse navbar-collapse justify-content-end fixed-nav" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+
+                 <!-- Link -->
+                 <li class="nav-item">
+                    <a class="nav-link active" href="/"><i class="fas fa-home my-auto icon-responsive"></i> Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about"><i class="fas fa-user-friends my-auto icon-responsive"></i> About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/services"><i class="fas fa-user-friends my-auto icon-responsive"></i> Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/property-list"><i class="fas fa-stream my-auto icon-responsive"></i> Listing</a>
+                </li>
+                {{-- <li class="nav-item">
+                    <a class="nav-link" href="/faq"><i class="fas fa-question-circle my-auto icon-responsive"></i> FAQ</a>
+                </li> --}}
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact-us"><i class="fas fa-phone my-auto icon-responsive"></i> Contact Us</a>
+                </li>
+
+            </ul>
+
+        </div>
+    </nav>
+    <!-- End Navbar -->
+</div>
 <div class="header">
-    <div id="banner-image">
-        <img class="active" src="/img/header/1.jpg"/>
-        <img src="/img/header/2.jpg"/>  
-        <img src="/img/header/3.jpg"/> 
-        <img src="/img/header/4.jpg"/> 
-    </div>
-    <div id="nav-container">
-
-        <!-- Start Navbar -->
-        <nav class="navbar navbar-expand-lg">
-
-            <!-- Navbar brand -->
-            <a class="navbar-brand" href="/">
-                <img src="/img/logo/logo-1.svg" alt="" class="logo-nav">
-            </a>
-
-            <!-- Toggle button -->
-            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="fas fa-bars"></span>
-            </button>
-
-            <!-- Collapsible wrapper -->
-            <div class="collapse navbar-collapse justify-content-end fixed-nav" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-
-                     <!-- Link -->
-                     <li class="nav-item">
-                        <a class="nav-link active" href="/"><i class="fas fa-home my-auto icon-responsive"></i> Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/about"><i class="fas fa-user-friends my-auto icon-responsive"></i> About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/services"><i class="fas fa-user-friends my-auto icon-responsive"></i> Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/property-list"><i class="fas fa-stream my-auto icon-responsive"></i> Properties</a>
-                    </li>
-                    {{-- <li class="nav-item">
-                        <a class="nav-link" href="/faq"><i class="fas fa-question-circle my-auto icon-responsive"></i> FAQ</a>
-                    </li> --}}
-                    <li class="nav-item">
-                        <a class="nav-link" href="/contact-us"><i class="fas fa-phone my-auto icon-responsive"></i> Contact Us</a>
-                    </li>
-
-                </ul>
-
-            </div>
-        </nav>
-        <!-- End Navbar -->
-    </div>
     <div class="header-content">
-            <div class="container animatable fadeInUp">
+        <div class="container animatable fadeInUp">
 
-                <div class="col-md-12 my-auto mr-auto text-center">
-                    <h4 class="h5 sub-judul">Here you can find luxury high end properties</h4>
-                    <h1 class="h1 h1-responsive judul">Find Your Ideal Land or Home</h1>
-                </div>
-
-                <!-- Start Search Bar -->
-
-                <div id="search-section">
-                    <form class="form" method="get" action="{{ route('search.property') }}">
-                       <div class="col-lg-10 mx-auto search-area shadow">
-                            <div class="row">
-                                <div class="col-md-4 my-auto">
-                                    <input class="w-100 form-control" type="text" name="location" id="location" placeholder="Location" onkeyup="success()">
-                                </div>
-                                <div class="col-md-4 my-auto">
-                                    <select name="type" id="select-type" class="w-100 form-control">
-                                        <option selected disabled value="0">Property Type</option>
-                                        <option value="1">Property Building</option>
-                                        <option value="2">Land</option>
-                                    </select>
-                                </div>
-                                <div class="col-lg-2 col-md-3 ml-auto my-auto">
-                                    <button class="btn btn-advance shadow-none" type="button" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-sliders-h my-auto primary"></i><br><span class="primary">Advanced Search</span></button>
-                                </div>
-                            
-                                <div class="col-lg-2 col-md-3 ml-auto my-auto">
-                                    <button class="btn btn-theme" type="submit" id="search-btn" disabled>Search</button>
-                                </div>
-                            </div>
-                        </div> 
-                    </form>
-                </div>
-
-                <!-- End Search Bar -->
-
+            <div class="col-md-12 my-auto mr-auto text-center">
+                @foreach ($homepage_data as $data)
+                    <h4 class="h5 sub-judul">{{ $data->header_sub_title }}</h4>
+                    <h1 class="h1 h1-responsive judul">{{ $data->header_title }}</h1>
+                @endforeach
             </div>
+
+            <!-- Start Search Bar -->
+
+            <div id="search-section">
+                <form class="form" method="get" action="{{ route('search.property') }}">
+                <div class="col-lg-10 mx-auto search-area shadow">
+                        <div class="row">
+                            <div class="col-md-4 my-auto">
+                                <input class="w-100 form-control" type="text" name="location" id="location" placeholder="Location" onkeyup="success()">
+                            </div>
+                            <div class="col-md-4 my-auto">
+                                <select name="type" id="select-type" class="w-100 form-control">
+                                    <option selected disabled value="0">Listing</option>
+                                    <option value="1">Property</option>
+                                    <option value="2">Land</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-2 col-md-3 ml-auto my-auto">
+                                <button class="btn btn-advance shadow-none" type="button" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-sliders-h my-auto primary"></i><br><span class="primary">Advanced Search</span></button>
+                            </div>
+                        
+                            <div class="col-lg-2 col-md-3 ml-auto my-auto">
+                                <button class="btn btn-theme" type="submit" id="search-btn" disabled>Search</button>
+                            </div>
+                        </div>
+                    </div> 
+                </form>
+            </div>
+
+            <!-- End Search Bar -->
+
+        </div>
+    </div>
+    <div id="banner-image">
+        <!-- Slider main container -->
+        <div class="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                @foreach ($homepage_data as $data)
+				<?php foreach (json_decode($data->header_image)as $picture) { ?>
+                <div class="swiper-slide">
+                    <img src="{{ asset('/home-asset/'.$picture) }}"/>
+                </div>
+                <?php } ?>
+				@endforeach
+            </div>
+        </div> 
+    
+        
     </div>
 </div>
 <!-- End Header -->
@@ -387,17 +401,23 @@
     <div class="container animatable fadeInUp">
         <div class="row">
             <div class="col-md-5 my-auto mr-auto">
-                <h1 class="h1 h1-responsive">Create or Find Your Dream Project Land or Home.</h1>
-                <p>Equatorial Property is a team of specialists living and working in Bali for over 30 years , who are ready to assist you to find the ideal site for your vision , from residential villas, to larger scale hospitality projects let us help you to find the perfect property.</p>
+                @foreach ($homepage_data as $data)
+                    <h1 class="h1 h1-responsive">{{ $data->left_section_title }}</h1>
+                    <p>{{ $data->left_section_sub_title }}</p>
+                @endforeach
                 <a class="btn btn-theme-2" href="/property-list">Get Started</a>
             </div>
 
             <div class="col-md-1"></div>
 
             <div class="col-lg-6 col-md-5 ml-auto my-5">
-                <div class=".banner-content">
-                    <img class="img-resize" src="/img/create-or-find.jpg" class="" alt="">
+                <div class="banner-content">
+                    @foreach ($homepage_data as $data)
+				    <?php foreach (json_decode($data->right_section_image_or_vid)as $picture) { ?>
+                    <img class="img-resize" src="{{ asset('/home-asset/'.$picture) }}" class="" alt="">
                     <!-- Image -->
+                    <?php } ?>
+				    @endforeach
 
                     {{-- <video class="video" controls>
                         <!-- Video -->
@@ -518,15 +538,21 @@
         <div class="row">
             <div class="col-md-6 my-auto">
                 <div class="image">
-                    <img src="/img/image-7.jpg" alt="">
+                    @foreach ($homepage_data as $data)
+				    <?php foreach (json_decode($data->left_section_image_or_vid)as $picture) { ?>
+                    <img src="{{ asset('/home-asset/'.$picture) }}" class="" alt="">
+                    <!-- Image -->
+                    <?php } ?>
+				    @endforeach
                 </div>
             </div>
 
             <div class="col-lg-5 col-md-6 pl-lg-5 px-4 mt-md-0 mt-5">
                 <h6 class="h6 color-primary m-0">About Us</h6>
-                <h1 class="h1 h1-responsive mb-3">We Provide The Best Property For You</h1>
-                <p>Equatorial Property is a professional team of legal, design & build property experts, bringing you 30+ years experience in Asian real estate, covering residential, commmercial & hospitaltiy design industry. </p>
-                <p>We provide an extensive network of highly reputable professionals & services to manage all aspects of your equatorial property requirements, from the selection process, purchasing, legal & site feasibility reviews, through to complete design & build assessments with property management & guidance on suitable designated services & appropriation for your property goals.</p>
+                @foreach ($homepage_data as $data)
+                    <h1 class="h1 h1-responsive mb-3">{{ $data->right_section_title }}</h1>
+                    <p>{{ $data->right_section_sub_title }}</p>
+                @endforeach
                 <a class="btn btn-theme-2" href="/about">Learn More</a>
             </div>
         </div>
@@ -779,7 +805,9 @@
 <hr class="w-75 ml-auto mr-auto custom">
 <section id="mail-section">
     <div class="container animatable fadeInUp">
-        <h1 class="h1 h1-responsive mb-4">Have a question... Let us help you</h1>
+        @foreach ($homepage_data as $data)
+            <h1 class="h1 h1-responsive mb-4">{{ $data->center_section_text }}</h1>
+        @endforeach
         <div class="col-md-12">
             <button class="btn btn-theme">Contact Us</button>
         </div>

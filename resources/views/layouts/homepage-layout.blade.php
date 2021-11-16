@@ -80,6 +80,21 @@
     </script> --}}
 
     <script>
+        const swiper = new Swiper('#banner-image .swiper', {
+            // Optional parameters
+            observer: true,
+            observeParents: true,
+            loop: true,
+            slidesPerView: 1,
+            centeredSlides: true,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+        });
+    </script>
+
+    <script>
         var swiper = new Swiper('#property-slider .swiper', {
             // Optional parameters
             observer: true,

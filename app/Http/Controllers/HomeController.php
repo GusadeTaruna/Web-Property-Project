@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Property;
 use App\Models\ZoningType;
 use App\Models\Inbox;
+use App\Models\CustomizePage;
 use App\Mail\ContactMail;
 use App\Mail\InquiryMail;
 use Mail;
@@ -14,7 +15,8 @@ class HomeController extends Controller
 {
     //
     public function index(){
-        return view('frontend.index');
+        $homepage_data = CustomizePage::all();
+        return view('frontend.index', compact('homepage_data'));
     }
 
     public function search_property(){
