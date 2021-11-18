@@ -155,12 +155,12 @@
 
         <!--  Property Slider -->
         <div class="row">
-            <div class="col-lg-1 p-0">
+            <div class="col-1 col-md-1 col-lg-1 p-0">
                 <div class="swiper-button-prev"></div>
             </div>
             
             
-            <div class="col-11 col-md-12 col-lg-10 p-0 mx-auto">
+            <div class="col-10 col-md-10 col-lg-10 p-0 mx-auto">
                 <div id="property-slider">
                     <div class="swiper">
                         <div class="swiper-wrapper">
@@ -230,7 +230,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-1 p-0">
+            <div class="col-1 col-md-1 col-lg-1 p-0">
                 <div class="swiper-button-next"></div>
             </div>
         </div>
@@ -313,7 +313,7 @@
 
 <section id="work-section">
     <div class="container animatable fadeInUp">
-        <h6 class="h6 color-primary m-0">Services</h6>
+        {{-- <h6 class="h6 color-primary m-0">Services</h6> --}}
         <h1 class="h1 h1-responsive mb-4">Our Services</h1>
         <div class="row">
             <div class="col-1 col-md-1 p-0">
@@ -327,46 +327,20 @@
                         <!-- Additional required wrapper -->
                         <div class="swiper-wrapper">
                             <!-- Slides -->
+                            @foreach ($service_data as $service)
                             <div class="swiper-slide">
                                 <div class="card">
                                     <a href="/services">
                                     <div class="card-body">
-                                        <img src="/img/services/img-1.jpg" class="card-img mb-4" alt="">
-                                        <h4 class="h5">Master Planning and Concept Design</h4>
+                                        <?php foreach (json_decode($service->service_img)as $picture) { ?>
+                                            <img src="{{ asset('/service-asset/'.$picture) }}" class="card-img mb-4" alt="">
+                                        <?php } ?>
+                                        <h4 class="h5">{{ $service->service_name }}</h4>
                                     </div>
                                     </a>
                                 </div>
                             </div>
-                            <div class="swiper-slide">
-                                <div class="card">
-                                    <a href="/services">
-                                    <div class="card-body">
-                                        <img src="/img/services/img-3.jpg" class="card-img mb-4" alt="">
-                                        <h4 class="h5">Schematic Development</h4>
-                                    </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="card">
-                                    <a href="/services">
-                                    <div class="card-body">
-                                        <img src="/img/services/img-5.jpg" class="card-img mb-4" alt="">
-                                        <h4 class="h5">Detailed Design</h4>
-                                    </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="card">
-                                    <a href="/services">
-                                    <div class="card-body">
-                                        <img src="/img/services/img-2.jpg" class="card-img mb-4" alt="">
-                                        <h4 class="h5">Construction & Tender Drawings</h4>
-                                    </div>
-                                    </a>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
         
@@ -752,7 +726,7 @@
 
 <!--  Footer Section -->
 
-<footer id="sticky-footer" class="flex-shrink-0 py-4">
+<footer class="mt-auto py-4">
     <div class="text-center">
       <small>&copy; Equatorial Properties. All rights reserved</small>
     </div>

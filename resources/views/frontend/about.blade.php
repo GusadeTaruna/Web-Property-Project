@@ -187,7 +187,7 @@
                             
                                     <div class="col-md-12 col-lg-12 col-xxl-7 d-flex flex-column ">
                                         <p class="agent-name font-weight-bold mb-0 mt-2">David James</p>
-                                        <p class="agent-pos">Principal Sales & Marketing</p>
+                                        <p class="agent-pos">Principal - Sales & Marketing</p>
                                         <div class="agent-desc mb-3">
                                             <p>David holds both a Bachelor of Arts degree from
                                                 Victoria College, as well as a Bachelor of Interior
@@ -217,7 +217,7 @@
                                         <p class="agent-name font-weight-bold mb-0 mt-2">Miles Humphreys</p>
                                         <p class="agent-pos">Principal - Architecture & Masterplanning & Design</p>
                                         <div class="agent-desc mb-3">
-                                            <p>Miles graduated in New Zealand as an architect and has spent the bulk of his architectural career in western Europe; Scandinavia; Southern & Easton Africa prior to setting up his permanent architectural studio in Bali, Indonesia in 2007. Since then Miles has executed an array of high end resort end Hotel designs within Indonesia as a well as East Africa; Russia; Panama; Costa Rica and India. Presently he is working on projects in Mexico, Guam and the Bahamas.</p>
+                                            <p>Miles graduated in New Zealand as an architect and has spent the bulk of his architectural career in western Europe; Scandinavia; Southern & Easten Africa prior to setting up his permanent architectural studio in Bali, Indonesia in 2007. Since then Miles has executed an array of high end resort end Hotel designs within Indonesia as a well as East Africa; Russia; Panama; Costa Rica and India. Presently he is working on projects in Mexico, Guam and the Bahamas.</p>
                                         </div>
                                         <button class="btn btn-details mt-auto">See Details</button>
                                     </div>
@@ -267,7 +267,7 @@
 
 <!--  Footer Section -->
 
-<footer id="sticky-footer" class="flex-shrink-0 py-4">
+<footer class="mt-auto py-4">
     <div class="text-center">
       <small>&copy; Equatorial Properties. All rights reserved</small>
     </div>

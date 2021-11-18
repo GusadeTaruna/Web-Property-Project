@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Property;
 use App\Models\ZoningType;
 use App\Models\Inbox;
-use App\Models\CustomizePage;
+use App\Models\CustomizeHome;
+use App\Models\CustomizeServices;
 use App\Mail\ContactMail;
 use App\Mail\InquiryMail;
 use Mail;
@@ -15,11 +16,12 @@ class HomeController extends Controller
 {
     //
     public function index(){
-        $homepage_data = CustomizePage::all();
+        $homepage_data = CustomizeHome::all();
+        $service_data = CustomizeServices::all();
         $listing_data = Property::orderBy('created_at','desc')->paginate(6);
         // dd($listing_data);
         // if($homepage_data->isEmpty()){}
-        return view('frontend.index', compact('homepage_data','listing_data'));
+        return view('frontend.index', compact('homepage_data','listing_data','service_data'));
     }
 
     public function search_property(){
@@ -104,7 +106,8 @@ class HomeController extends Controller
     }
 
     public function services(){
-        return view('frontend.services');
+        $services = CustomizeServices::all();
+        return view('frontend.services',compact('services'));
     }
 
     public function faq(){

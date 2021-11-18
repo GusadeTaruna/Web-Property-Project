@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CustomizePage;
+use App\Models\CustomizeHome;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
-class CustomizePageController extends Controller
+class CustomizeHomePageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +27,7 @@ class CustomizePageController extends Controller
     public function create()
     {
         //
-        $homepage_check = CustomizePage::all();
+        $homepage_check = CustomizeHome::all();
         $homepage_array = $homepage_check->toArray();
         // dd($homepage_array);
         if($homepage_check->isEmpty()){
@@ -35,7 +35,7 @@ class CustomizePageController extends Controller
             return view('backend.custom-page.home-create', compact('value'));
         }else{
             $id_home = $homepage_array[0]['id'];
-            $value = CustomizePage::where('id',$id_home)->first();
+            $value = CustomizeHome::where('id',$id_home)->first();
             if ($homepage_array[0]['header_image']==null){
                 $count_image_header = 0;
             }else{
@@ -70,7 +70,7 @@ class CustomizePageController extends Controller
     {
         //
         
-        $homepage = new CustomizePage;
+        $homepage = new CustomizeHome;
         $homepage->header_title = $request->header_title;
         $homepage->header_sub_title = $request->header_sub_title;
         $this->validate($request, 
@@ -173,10 +173,10 @@ class CustomizePageController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\CustomizePage  $customizePage
+     * @param  \App\Models\CustomizeHome  $CustomizeHome
      * @return \Illuminate\Http\Response
      */
-    public function show(CustomizePage $customizePage)
+    public function show(CustomizeHome $CustomizeHome)
     {
         //
     }
@@ -184,10 +184,10 @@ class CustomizePageController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\CustomizePage  $customizePage
+     * @param  \App\Models\CustomizeHome  $CustomizeHome
      * @return \Illuminate\Http\Response
      */
-    public function edit(CustomizePage $customizePage)
+    public function edit(CustomizeHome $CustomizeHome)
     {
         //
     }
@@ -196,13 +196,13 @@ class CustomizePageController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\CustomizePage  $customizePage
+     * @param  \App\Models\CustomizeHome  $CustomizeHome
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         //
-        $homepage = CustomizePage::findOrFail($id);
+        $homepage = CustomizeHome::findOrFail($id);
 
         if ($request->hasFile('header_image')) {
             request()->validate(
@@ -226,7 +226,7 @@ class CustomizePageController extends Controller
                     $name=time().'HEADER'.$counter++.'.'.$getFileExt;
                     $image->move(public_path().'/home-asset/',$name); //folder path
                     $data[] = $name;
-                    $update = CustomizePage::where('id', $id)->update([
+                    $update = CustomizeHome::where('id', $id)->update([
                         'header_image' => json_encode($data)
                    ]);
                 }
@@ -259,7 +259,7 @@ class CustomizePageController extends Controller
                         $name=time().'RIGHT'.$counter++.'.'.$getFileExt;
                         $image->move(public_path().'/home-asset/',$name); //folder path
                         $data_right[] = $name;
-                        $update = CustomizePage::where('id', $id)->update([
+                        $update = CustomizeHome::where('id', $id)->update([
                             'right_section_image_or_vid' => json_encode($data_right)
                         ]);
                     }
@@ -270,7 +270,7 @@ class CustomizePageController extends Controller
                         $name=time().'RIGHT'.$counter++.'.'.$getFileExt;
                         $image->move(public_path().'/home-asset/',$name); //folder path
                         $data_right[] = $name;
-                        $update = CustomizePage::where('id', $id)->update([
+                        $update = CustomizeHome::where('id', $id)->update([
                             'right_section_image_or_vid' => json_encode($data_right)
                         ]);
                     }
@@ -315,7 +315,7 @@ class CustomizePageController extends Controller
                         $name=time().'LEFT'.$counter++.'.'.$getFileExt;
                         $image->move(public_path().'/home-asset/',$name); //folder path
                         $data_left[] = $name;
-                        $update = CustomizePage::where('id', $id)->update([
+                        $update = CustomizeHome::where('id', $id)->update([
                             'left_section_image_or_vid' => json_encode($data_left)
                         ]);
                     }
@@ -327,7 +327,7 @@ class CustomizePageController extends Controller
                         $name=time().'LEFT'.$counter++.'.'.$getFileExt;
                         $image->move(public_path().'/home-asset/',$name); //folder path
                         $data_left[] = $name;
-                        $update = CustomizePage::where('id', $id)->update([
+                        $update = CustomizeHome::where('id', $id)->update([
                             'left_section_image_or_vid' => json_encode($data_left)
                         ]);
                     }
@@ -363,10 +363,10 @@ class CustomizePageController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\CustomizePage  $customizePage
+     * @param  \App\Models\CustomizeHome  $CustomizeHome
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CustomizePage $customizePage)
+    public function destroy(CustomizeHome $CustomizeHome)
     {
         //
     }

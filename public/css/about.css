@@ -223,6 +223,7 @@ nav.navbar {
 .judul {
     font-family: "cerebri";
     font-size: 40px;
+    display: none;
 }
 
 .sub-judul {
@@ -240,7 +241,7 @@ nav.navbar {
 
 #about-section h1{
     color: var(--color-primary);
-    font-family: "cerebri-bold";
+    font-family: "cerebri";
 }
 
 #about-section p{
@@ -281,7 +282,7 @@ nav.navbar {
 
 #agent-section h3 {
     color: var(--color-primary);
-    font-family: "cerebri-bold";
+    font-family: "cerebri";
 }
 
 
@@ -346,7 +347,7 @@ nav.navbar {
 
 #more-section h1 {
     color: var(--color-primary);
-    font-family: "cerebri-bold";
+    font-family: "cerebri";
 }
 
 #more-section h4 {
@@ -433,11 +434,15 @@ nav.navbar {
 /*Footer section*/
 
 footer {
-    width: 100%;
     padding: 0 50px;
     background-color: var(--color-primary);
     font-family: var(--font-poppin);
     color: #ffffff;
+    height: 70px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
 }
 
 /*Footer section*/
@@ -461,6 +466,8 @@ footer {
 }
 
 @media only screen and (max-width: 991px) {
+
+    
 
     #nav-container{
         background: #fff;
@@ -538,6 +545,7 @@ footer {
 
     .judul {
         font-size: 30px;
+        display: block;
     }
 
     .sub-judul {

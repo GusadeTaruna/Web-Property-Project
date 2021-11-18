@@ -69,6 +69,60 @@
     }); // document ready
     </script>
 
+    <script>
+        const swiper = new Swiper('.swiper', {
+            // Optional parameters
+            direction: 'horizontal',
+            loop: false,
+            observer: true,
+            observeParents: true,
+            centeredSlides: true,
+            slidesPerView: 2,
+            spaceBetween: 20,
+
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+
+            keyboard: {
+                enabled: true,
+                onlyInViewport: false,
+            },
+
+            breakpoints: {
+                280: {
+                    slidesPerView: 1,
+                    spaceBetween: 5,
+                },
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 5,
+                },
+                360: {
+                    slidesPerView: 1,
+                    spaceBetween: 5,
+                },
+                640: {
+                    slidesPerView: 1,
+                    spaceBetween: 5,
+                },
+                712: {
+                    slidesPerView: 1.2,
+                    spaceBetween: 5,
+                },
+                1024: {
+                    slidesPerView: 2,
+                    spaceBetween: 15,
+                },
+                1500: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+            }
+        });
+    </script>
+
 
 </body>
 </html>

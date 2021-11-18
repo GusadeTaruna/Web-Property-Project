@@ -8,8 +8,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\LandController;
-use App\Http\Controllers\CustomizePageController;
-use App\Models\CustomizePage;
+use App\Http\Controllers\CustomizeHomePageController;
+use App\Http\Controllers\CustomizeServicesPageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -89,6 +89,13 @@ Route::get('/admin/inbox-inquiry/{id}', [DashboardController::class, 'readInquir
 Route::get('/admin/inquiry-respond/{id}', [DashboardController::class, 'inquiryResponded'])->name('respond-inquiry')->middleware('auth');
 Route::delete('/admin/inbox-inquiry/delete/{id}', [DashboardController::class, 'deleteInquiry'])->name('delete-inquiry')->middleware('auth');
 
-Route::get('/admin/customize/homepage', [CustomizePageController::class, 'create'])->name('customize-homepage')->middleware('auth');
-Route::post('/admin/customize/homepage/create', [CustomizePageController::class, 'store'])->middleware('auth');
-Route::put('/admin/customize/homepage/update/{id}', [CustomizePageController::class, 'update'])->name('update-homepage')->middleware('auth');
+Route::get('/admin/customize/homepage', [CustomizeHomePageController::class, 'create'])->name('customize-homepage')->middleware('auth');
+Route::post('/admin/customize/homepage/create', [CustomizeHomePageController::class, 'store'])->middleware('auth');
+Route::put('/admin/customize/homepage/update/{id}', [CustomizeHomePageController::class, 'update'])->name('update-homepage')->middleware('auth');
+
+Route::get('/admin/customize/services', [CustomizeServicesPageController::class, 'index'])->name('customize-service')->middleware('auth');
+Route::get('/admin/customize/services/create', [CustomizeServicesPageController::class, 'create'])->name('service-create')->middleware('auth');
+Route::post('/admin/customize/services/create', [CustomizeServicesPageController::class, 'store'])->middleware('auth');
+Route::get('/admin/customize/services/edit/{id}', [CustomizeServicesPageController::class, 'edit'])->name('edit-service')->middleware('auth');
+Route::put('/admin/customize/services/update/{id}', [CustomizeServicesPageController::class, 'update'])->name('update-service')->middleware('auth');
+Route::delete('/admin/customize/services/delete/{id}', [CustomizeServicesPageController::class, 'destroy'])->name('delete-service')->middleware('auth');

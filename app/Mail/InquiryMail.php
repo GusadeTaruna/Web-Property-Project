@@ -32,6 +32,7 @@ class InquiryMail extends Mailable
     public function build()
     {
         // dd($this->detailsInquiry['inquiry_list']);
-        return $this->from($this->detailsInquiry['email'],$this->detailsInquiry['name'])->subject('Inquiry - Message from '.$this->detailsInquiry['name'])->view('emails.inquiry-mail');
+        // return $this->from($this->detailsInquiry['email'],$this->detailsInquiry['name'])->subject('Inquiry - Message from '.$this->detailsInquiry['name'])->view('emails.inquiry-mail');
+        return $this->from("info@equatorial-property.com")->subject('Inquiry - Message from '.$this->detailsInquiry['name'])->view('emails.inquiry-mail');
     }
 }

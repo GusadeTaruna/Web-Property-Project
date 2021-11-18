@@ -198,7 +198,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="/admin/customize/services" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Services</p>
                                     </a>

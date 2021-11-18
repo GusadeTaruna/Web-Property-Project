@@ -226,6 +226,7 @@ nav.navbar {
 .judul {
     font-family: "cerebri";
     font-size: 40px;
+    display: none;
 }
 
 .sub-judul {
@@ -239,6 +240,46 @@ nav.navbar {
 #about-section{
     width: 100%;
     padding: 70px 0;
+}
+
+#property-slider .swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-button-prev{
+    position: relative;
+    font-weight: bold;
+    width: 45px;
+    color: #fff;
+    top: 0;
+    background: var(--color-primary);
+    border-radius: 50%;
+    padding: 10px;
+    border: 0;
+    transition: .3s ease-in-out;
+}
+
+.swiper-button-next{
+    position: relative;
+    font-weight: bold;
+    width: 45px;
+    color: #fff;
+    top: 0;
+    background: var(--color-primary);
+    border-radius: 50%;
+    padding: 10px;
+    border: 0;
+    transition: .3s ease-in-out;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover{
+    background-color: var(--color-acent);
+}
+
+.swiper-button-next:after, .swiper-button-prev:after {
+    font-size: 12px !important;
 }
 
 #about-section h1{
@@ -440,11 +481,15 @@ nav.navbar {
 /*Footer section*/
 
 footer {
-    width: 100%;
     padding: 0 50px;
     background-color: var(--color-primary);
     font-family: var(--font-poppin);
     color: #ffffff;
+    height: 70px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
 }
 /*Footer section*/
 
@@ -467,6 +512,10 @@ footer {
 }
 
 @media only screen and (max-width: 991px) {
+
+    .btn-theme{
+        font-size: 10px;
+    }
 
     #nav-container{
         background: #fff;
@@ -544,6 +593,7 @@ footer {
 
     .judul {
         font-size: 30px;
+        display: block;
     }
 
     .sub-judul {
@@ -562,6 +612,16 @@ footer {
 }
 
 @media only screen and (max-width: 580px) {
+    .swiper-button-prev{
+        width: 30px;
+        height: 30px;
+    }
+    
+    .swiper-button-next{
+        width: 30px;
+        height: 30px;
+    }
+
     /*Responsive Search*/
     .logo-nav{
         width: 120px; 

@@ -203,10 +203,12 @@ nav.navbar {
 .judul {
     font-family: "cerebri";
     font-size: 40px;
+    display: none;
 }
 
 .sub-judul {
     font-family: "cerebri";
+    display: none;
 }
 
 /*Header*/
@@ -232,10 +234,12 @@ nav.navbar {
     font-family: "cerebri-bold";
     text-align: center;
     font-size: 30px;
+    display: block;
 }
 
 #faqs .sub-judul {
     text-align: center;
+    display: block;
 }
 
 #faqs .accordion {
@@ -341,11 +345,15 @@ nav.navbar {
 /*Footer section*/
 
 footer {
-    width: 100%;
     padding: 0 50px;
     background-color: var(--color-primary);
     font-family: var(--font-poppin);
     color: #ffffff;
+    height: 70px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
 }
 
 /*Footer section*/
@@ -446,10 +454,12 @@ footer {
 
     .judul {
         font-size: 30px;
+        display: block;
     }
 
     .sub-judul {
         font-size: 15px;
+        display: block;
     }
 
     #feature-ul .feature-features {

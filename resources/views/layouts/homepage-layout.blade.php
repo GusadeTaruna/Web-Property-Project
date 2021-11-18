@@ -149,7 +149,7 @@
             // Optional parameters
             observer: true,
             observeParents: true,
-            loop: true,
+            loop: false,
             slidesPerView: 2,
             spaceBetween: 30,
             centeredSlides: true,
