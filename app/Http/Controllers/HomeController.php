@@ -10,6 +10,7 @@ use App\Models\CustomizeHome;
 use App\Models\CustomizeServices;
 use App\Models\CustomizeAbout;
 use App\Models\TeamMember;
+use App\Models\CustomizeContact;
 use App\Mail\ContactMail;
 use App\Mail\InquiryMail;
 use Mail;
@@ -119,7 +120,8 @@ class HomeController extends Controller
     }
 
     public function contactUs(){
-        return view('frontend.contact-us');
+        $contact_data = CustomizeContact::all();
+        return view('frontend.contact-us',compact('contact_data'));
     }
 
     public function sendEmail(Request $request){

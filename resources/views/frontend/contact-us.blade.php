@@ -111,8 +111,18 @@
                             <i class="fas fa-map-marker-alt my-auto icon-responsive"></i>
                         </div>
                         <div class="col-lg-9 col-md-8 col-sm-9 col-9">
-                            <h4 class="judul-detail mt-3">Address</h4>
-                            <p class="sub-detail">Jl. Tukad Barito Timur V No.3, Renon, Denpasar Selatan, Kota Denpasar, Bali 80226</p>
+                            <h4 class="judul-detail mt-3">Bali Office</h4>
+                            @if ($contact_data->isEmpty())
+                                <p class="sub-detail">Jl. Tukad Barito Timur V No.3, Renon, Denpasar Selatan, Kota Denpasar, Bali 80226</p>
+                            @else
+                                @foreach ($contact_data as $data)
+                                    @if (is_null($data->address))
+                                        <p class="sub-detail">Jl. Tukad Barito Timur V No.3, Renon, Denpasar Selatan, Kota Denpasar, Bali 80226</p>
+                                    @else
+                                        <p class="sub-detail">{{ $data->address }}</p>
+                                    @endif
+                                @endforeach
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -125,7 +135,17 @@
                         <div class="col-lg-9 col-md-8 col-sm-9 col-9">
                             <h4 class="judul-detail mt-3">Contact</h4>
                             {{-- >Mobile : 081234567821<br> --}}
-                            <p class="sub-detail">Mail : <br>Info@equatorial-property.com <br>Davidj@equatorial-property.com</p>
+                            @if ($contact_data->isEmpty())
+                                <p class="sub-detail">Mail : <br>Info@equatorial-property.com <br>Davidj@equatorial-property.com</p>
+                            @else
+                                @foreach ($contact_data as $data)
+                                    @if (is_null($data->contact))
+                                        <p class="sub-detail">Mail : <br>Info@equatorial-property.com <br>Davidj@equatorial-property.com</p>
+                                    @else
+                                        <p class="sub-detail">{{ $data->contact }}</p>
+                                    @endif
+                                @endforeach
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -136,8 +156,18 @@
                             <i class="fas fa-clock my-auto icon-responsive"></i>
                         </div>
                         <div class="col-lg-9 col-md-8 col-sm-9 col-9">
-                            <h4 class="judul-detail mt-3">Hour of Operation</h4>
-                            <p class="sub-detail">Monday - Friday 9-5pm</p>
+                            <h4 class="judul-detail mt-3">Operating Hours</h4>
+                            @if ($contact_data->isEmpty())
+                                <p class="sub-detail">Monday - Friday 9-5pm</p>
+                            @else
+                                @foreach ($contact_data as $data)
+                                    @if (is_null($data->operation_hour))
+                                        <p class="sub-detail">Monday - Friday 9-5pm</p>
+                                    @else
+                                        <p class="sub-detail">{{ $data->operation_hour }}</p>
+                                    @endif
+                                @endforeach
+                            @endif
                         </div>
                     </div>
                 </div>

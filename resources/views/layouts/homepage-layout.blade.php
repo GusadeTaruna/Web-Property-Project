@@ -134,6 +134,28 @@
             }
         });
     
+        var swiper = new Swiper('#hero-banner .swiper', {
+            // Optional parameters
+            observer: true,
+            observeParents: true,
+            loop: false,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+        });
+
+        var swiper = new Swiper('#about-section .swiper', {
+            // Optional parameters
+            observer: true,
+            observeParents: true,
+            loop: false,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+        });
+
         var swiper = new Swiper('#testimonial-slider .swiper', {
             // Optional parameters
             observer: true,

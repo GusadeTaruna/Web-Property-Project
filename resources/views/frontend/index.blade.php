@@ -291,7 +291,16 @@
             <div class="col-lg-6 col-md-5 ml-auto my-5">
                 <div class="banner-content">
                     @if ($homepage_data->isEmpty() || is_null($homepage_data[0]['right_section_image_or_vid']))
-                        <img class="img-resize" src="img/create-or-find.jpg" class="" alt="">
+                        <!-- Slider main container -->
+                        <div class="swiper">
+                            <!-- Additional required wrapper -->
+                            <div class="swiper-wrapper">
+                                <!-- Slides -->
+                                <div class="swiper-slide">
+                                    <img class="img-resize" src="img/create-or-find.jpg" class="" alt="">
+                                </div>
+                            </div>
+                        </div>
                     @elseif(!is_array(json_decode($homepage_data[0]['right_section_image_or_vid'])))
                         <div class="iframe-container">
                             @php
@@ -306,12 +315,20 @@
                             @endphp
                         </div>
                     @else
-                         @foreach ($homepage_data as $data)
+                    <div class="swiper">
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
+                            <!-- Slides -->
+                            @foreach ($homepage_data as $data)
                             <?php foreach (json_decode($data->right_section_image_or_vid)as $picture) { ?>
-                            <img class="img-resize" src="{{ asset('/home-asset/'.$picture) }}" class="" alt="">
+                                <div class="swiper-slide">
+                                    <img class="img-resize" src="{{ asset('/home-asset/'.$picture) }}" class="" alt="">
+                                </div>
                             <!-- Image -->
-                            <?php } ?>
-                        @endforeach
+                            <?php } ?>      
+                            @endforeach
+                        </div>
+                    </div>
                     @endif
 
                     {{-- <video class="video" controls>
@@ -408,7 +425,16 @@
             <div class="col-md-6 my-auto">
                 <div class="image">
                     @if ($homepage_data->isEmpty() || is_null($homepage_data[0]['left_section_image_or_vid']))
-                        <img src="img/image-7.jpg" class="" alt="">
+                        <!-- Slider main container -->
+                        <div class="swiper">
+                            <!-- Additional required wrapper -->
+                            <div class="swiper-wrapper">
+                            <!-- Slides -->
+                                <div class="swiper-slide">
+                                    <img src="img/image-7.jpg" class="" alt="">
+                                </div>
+                            </div>
+                        </div>
                     @elseif(!is_array(json_decode($homepage_data[0]['left_section_image_or_vid'])))
                         <div class="iframe-container">
                             @php
@@ -423,12 +449,19 @@
                             @endphp
                         </div>
                     @else
+                    <div class="swiper">
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
                         @foreach ($homepage_data as $data)
-                        <?php foreach (json_decode($data->left_section_image_or_vid)as $picture) { ?>
-                        <img src="{{ asset('/home-asset/'.$picture) }}" class="" alt="">
-                        <!-- Image -->
-                        <?php } ?>
+                            <?php foreach (json_decode($data->left_section_image_or_vid)as $picture) { ?>
+                                <div class="swiper-slide">
+                                    <img src="{{ asset('/home-asset/'.$picture) }}" class="" alt="">
+                                </div>
+                            <!-- Image -->
+                            <?php } ?>
                         @endforeach
+                        </div>
+                    </div>
                     @endif
                 </div>
             </div>

@@ -11,6 +11,8 @@ use App\Http\Controllers\LandController;
 use App\Http\Controllers\CustomizeHomePageController;
 use App\Http\Controllers\CustomizeServicesPageController;
 use App\Http\Controllers\CustomizeAboutPageController;
+use App\Http\Controllers\CustomizeContactPageController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -111,4 +113,9 @@ Route::post('/admin/customize/about-us/create/team', [CustomizeAboutPageControll
 Route::get('/admin/customize/about-us/team/edit/{id}', [CustomizeAboutPageController::class, 'edit'])->name('edit-team')->middleware('auth');
 Route::put('/admin/customize/about-us/team/update/{id}', [CustomizeAboutPageController::class, 'update'])->name('update-team')->middleware('auth');
 Route::delete('/admin/customize/about-us/team/delete/{id}', [CustomizeAboutPageController::class, 'destroy'])->name('delete-team')->middleware('auth');
+
+
+Route::get('/admin/customize/contact', [CustomizeContactPageController::class, 'create'])->name('customize-contact')->middleware('auth');
+Route::post('/admin/customize/contact/create', [CustomizeContactPageController::class, 'store'])->middleware('auth');
+Route::put('/admin/customize/contact/update/{id}', [CustomizeContactPageController::class, 'update'])->name('update-contact')->middleware('auth');
 
