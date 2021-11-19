@@ -114,19 +114,37 @@
                 <!-- Slides -->
                 @if ($homepage_data->isEmpty())
                     <div class="swiper-slide">
-                        <img src="img/image-5.jpg"/>
+                        <img src="img/header/1.jpg"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="img/image-6.jpg"/>
+                        <img src="img/header/2.jpg"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/header/3.jpg"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/header/4.jpg"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/header/5.jpg"/>
                     </div>
                 @else
                     @foreach ($homepage_data as $data)
                         @if (is_null(json_decode($data->header_image)))
                             <div class="swiper-slide">
-                                <img src="img/image-5.jpg"/>
+                                <img src="img/header/1.jpg"/>
                             </div>
                             <div class="swiper-slide">
-                                <img src="img/image-6.jpg"/>
+                                <img src="img/header/2.jpg"/>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/header/3.jpg"/>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/header/4.jpg"/>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/header/5.jpg"/>
                             </div>
                         @else
                             <?php foreach (json_decode($data->header_image)as $picture) { ?>

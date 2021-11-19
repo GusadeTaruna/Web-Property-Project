@@ -8,6 +8,8 @@ use App\Models\ZoningType;
 use App\Models\Inbox;
 use App\Models\CustomizeHome;
 use App\Models\CustomizeServices;
+use App\Models\CustomizeAbout;
+use App\Models\TeamMember;
 use App\Mail\ContactMail;
 use App\Mail\InquiryMail;
 use Mail;
@@ -102,7 +104,9 @@ class HomeController extends Controller
     }
 
     public function about(){
-        return view('frontend.about');
+        $about_data = CustomizeAbout::all();
+        $team_data = TeamMember::all();
+        return view('frontend.about',compact('about_data','team_data'));
     }
 
     public function services(){

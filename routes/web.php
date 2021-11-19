@@ -10,6 +10,7 @@ use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\LandController;
 use App\Http\Controllers\CustomizeHomePageController;
 use App\Http\Controllers\CustomizeServicesPageController;
+use App\Http\Controllers\CustomizeAboutPageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -99,3 +100,15 @@ Route::post('/admin/customize/services/create', [CustomizeServicesPageController
 Route::get('/admin/customize/services/edit/{id}', [CustomizeServicesPageController::class, 'edit'])->name('edit-service')->middleware('auth');
 Route::put('/admin/customize/services/update/{id}', [CustomizeServicesPageController::class, 'update'])->name('update-service')->middleware('auth');
 Route::delete('/admin/customize/services/delete/{id}', [CustomizeServicesPageController::class, 'destroy'])->name('delete-service')->middleware('auth');
+
+Route::get('/admin/customize/about-us', [CustomizeAboutPageController::class, 'index'])->name('customize-about')->middleware('auth');
+Route::get('/admin/customize/about-us/create', [CustomizeAboutPageController::class, 'createPage'])->name('about-create')->middleware('auth');
+Route::post('/admin/customize/about-us/create', [CustomizeAboutPageController::class, 'storePage'])->middleware('auth');
+Route::put('/admin/customize/about-us/update/{id}', [CustomizeAboutPageController::class, 'updatePage'])->name('update-about')->middleware('auth');
+
+Route::get('/admin/customize/about-us/create/team', [CustomizeAboutPageController::class, 'create'])->name('team-create')->middleware('auth');
+Route::post('/admin/customize/about-us/create/team', [CustomizeAboutPageController::class, 'store'])->middleware('auth');
+Route::get('/admin/customize/about-us/team/edit/{id}', [CustomizeAboutPageController::class, 'edit'])->name('edit-team')->middleware('auth');
+Route::put('/admin/customize/about-us/team/update/{id}', [CustomizeAboutPageController::class, 'update'])->name('update-team')->middleware('auth');
+Route::delete('/admin/customize/about-us/team/delete/{id}', [CustomizeAboutPageController::class, 'destroy'])->name('delete-team')->middleware('auth');
+

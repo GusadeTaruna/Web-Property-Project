@@ -1,6 +1,6 @@
 @extends('layouts.backend-layout')
 
-@section('title', 'Edit service')
+@section('title', 'Edit Member')
 
 @section('content')
   <!-- Content Wrapper. Contains page content -->
@@ -23,7 +23,7 @@
           </div>
           <div class="col-md-1"></div>
           <div class="col-md-11">
-            <h1>Edit service</h1>
+            <h1>Edit Member</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -42,8 +42,8 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              @foreach ($services as $data)
-              <form action="{{ url('/admin/customize/services/update/'.$data->id ) }}" method="post" enctype="multipart/form-data">
+              @foreach ($team as $data)
+              <form action="{{ url('/admin/customize/about-us/team/update/'.$data->id ) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 
@@ -51,9 +51,9 @@
 
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="service_name">Service name</label>
-                            <input type="text" name="service_name" value="{{ $data->service_name }}" class="form-control @error('service_name') is-invalid @enderror" id="service_name" placeholder="Input service name here">
-                            @error('service_name')
+                            <label for="member_name">Name</label>
+                            <input type="text" name="member_name" value="{{ $data->agent_name }}" class="form-control @error('member_name') is-invalid @enderror" id="member_name" placeholder="Input name here">
+                            @error('member_name')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
@@ -63,9 +63,9 @@
                     
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="service_desc">Service description</label>
-                            <input type="text" name="service_desc" class="form-control @error('service_desc') is-invalid @enderror" value="{{ $data->service_desc }}" id="service_desc" placeholder="Input service description here">
-                            @error('service_desc')
+                            <label for="member_dep">Department</label>
+                            <input type="text" name="member_dep" class="form-control @error('member_dep') is-invalid @enderror" value="{{ $data->agent_title }}" id="member_dep" placeholder="Input department here">
+                            @error('member_dep')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
@@ -75,11 +75,23 @@
 
                     <div class="col-md-12">
                         <div class="form-group">
-                          <label for="service_image">Service Image</label>
+                            <label for="desc">Description</label>
+                            <input type="text" name="desc" class="form-control @error('desc') is-invalid @enderror" value="{{ $data->agent_desc }}" id="desc" placeholder="Input description here">
+                            @error('desc')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="profile">Photo</label>
                           <div class="input-group">
                             <div class="custom-file">
-                              <input type="file" name="service_image[]" class="custom-file-input @error('service_image') is-invalid @enderror" id="service_image">
-                              <label class="custom-file-label" for="service_image">Change Image</label>
+                              <input type="file" name="profile[]" class="custom-file-input @error('profile') is-invalid @enderror" id="profile">
+                              <label class="custom-file-label" for="profile">Change Image</label>
                               {!!$errors->first('image', '<span class="text-danger">:message</span>')!!}
                             </div>
                           </div>
@@ -88,9 +100,30 @@
 
                     <div class="col-md-12">
                         <div class="form-group">
-                            <?php foreach (json_decode($data->service_img)as $picture) { ?>
-                                <img class="d-block w-50 mx-auto" src="{{ asset('/service-asset/'.$picture) }}">
+                            <?php foreach (json_decode($data->agent_photo)as $picture) { ?>
+                                <img class="d-block w-25 mx-auto" src="{{ asset('/about-asset/'.$picture) }}">
                             <?php } ?>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="file_cv">CV File</label><br>
+                            <?php foreach (json_decode($data->agent_cv)as $file_cv) { ?>
+                                <a href="{{ asset('/about-asset/cv/'.$file_cv) }}" download="{{ $file_cv }}" class="btn btn-success">Download CV</a>
+                              <?php } ?>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="file_cv">Change CV File</label>
+                          <div class="input-group">
+                            <div class="custom-file">
+                              <input type="file" name="file_cv[]" class="custom-file-input @error('file_cv') is-invalid @enderror" id="file_cv">
+                              <label class="custom-file-label" for="file_cv">Choose file</label>
+                            </div>
+                          </div>
                         </div>
                     </div>
 
@@ -99,7 +132,7 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer text-right">
-                  <a class="btn btn-danger w-25" href="/admin/customize/services">Cancel</a>
+                  <a class="btn btn-danger w-25" href="/admin/customize/about-us">Cancel</a>
                   <button type="submit" class="btn btn-success w-25">Submit</button>
                 </div>
               </form>

@@ -57,7 +57,7 @@
             observer: true,
             observeParents: true,
             loop: true,
-            slidesPerView: 4,
+            slidesPerView: 3,
             spaceBetween: 30,
             centeredSlides: true,
             autoplay: {

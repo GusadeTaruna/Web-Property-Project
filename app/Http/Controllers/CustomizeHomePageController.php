@@ -157,10 +157,10 @@ class CustomizeHomePageController extends Controller
             && $request->left_title==null && $request->left_desc==null && $request->image_right==null && $request->video_right==null
             && $request->right_title==null && $request->right_desc==null && $request->image_left==null && $request->video_left==null
             && $request->center_text==null){
-            return redirect('/admin/dashboard')->with('errorMsg', 'Nothing to customize');
+            return redirect('/admin/customize/homepage')->with('errorMsg', 'Nothing to customize');
         }else{
             $homepage->save();
-            return redirect('/admin/dashboard')->with('success', 'Homepage successfully edited');
+            return redirect('/admin/customize/homepage')->with('success', 'Homepage successfully edited');
         }
 
         // dd($request->header_title==null && $request->header_sub_title==null && $request->header_image==null
@@ -231,7 +231,16 @@ class CustomizeHomePageController extends Controller
                    ]);
                 }
             }else{
-
+                $counter = 0;
+                foreach($request->file('header_image') as $image){
+                    $getFileExt = $image->getClientOriginalExtension();
+                    $name=time().'HEADER'.$counter++.'.'.$getFileExt;
+                    $image->move(public_path().'/home-asset/',$name); //folder path
+                    $data[] = $name;
+                    $update = CustomizeHome::where('id', $id)->update([
+                        'header_image' => json_encode($data)
+                   ]);
+                }
             }
             
         }
@@ -357,7 +366,7 @@ class CustomizeHomePageController extends Controller
         $homepage->right_section_sub_title = $request->right_desc;
         $homepage->center_section_text = $request->center_text;
         $homepage->update();
-        return redirect('/admin/dashboard')->with('success',' Homepage successfully edited');
+        return redirect('/admin/customize/homepage')->with('success',' Homepage successfully edited');
     }
 
     /**

@@ -192,7 +192,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="/admin/customize/about-us" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>About Us</p>
                                     </a>

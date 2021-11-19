@@ -140,7 +140,7 @@ class CustomizeServicesPageController extends Controller
         $services->service_desc = $request->service_desc;
         $services->update();
 
-        return redirect('/admin/customize/services')->with('success', 'Service Data successfully added');
+        return redirect('/admin/customize/services')->with('success', 'Service Data successfully updated');
     }
 
     /**
