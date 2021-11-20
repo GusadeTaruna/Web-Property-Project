@@ -114,9 +114,9 @@
 	    		<p class="mt-0 mb-2">{{ ucwords(strtolower($data->property_location)) }}</p>
 	    		<div class="d-flex justify-content-start">
 					@if ($data->property_type == 1)
-						<p class="mr-3"><i class="fas fa-bed"></i> 4 Beds</p>
-						<p class="mr-3"><i class="fas fa-bath"></i> 3 Bath</p>
-						<p class="mr-3"><i class="fas fa-warehouse"></i> 1 Garage</p>
+						<p class="mr-3"><i class="fas fa-bed"></i> {{ $data->bed_qty }} Bedroom</p>
+						<p class="mr-3"><i class="fas fa-bath"></i> {{ $data->bath_qty }} Bathroom</p>
+						<p class="mr-3"><i class="fas fa-warehouse"></i> {{ $data->garage_qty }} Garage</p>
 					@else
 					@endif
 	    			<p class="mr-3"><i class="fas fa-pencil-ruler"></i> {{  number_format($data->site_area,0,'','.') }} sqm</p>
@@ -157,7 +157,7 @@
 								@if (!is_numeric($data->price))
 									<p class="card-text">{{ $data->price }}</p>
 								@else
-									<p class="card-text">{{ number_format($data->price,0,'','.') }}</p>
+									<p class="card-text">{{ $data->currency }} {{ number_format($data->price,0,'','.') }}</p>
 								@endif
 						    	
 						    </div>
@@ -183,13 +183,13 @@
 				    	<div class="col-lg-6">
 				    		<div class="detail-text d-flex justify-content-start">
 						    	<p class="card-title mr-1">Bedrooms :</p>
-						    	<p class="card-text">4</p>
+						    	<p class="card-text">{{ $data->bed_qty }}</p>
 						    </div>
 				    	</div>
 				    	<div class="col-lg-6">
 				    		<div class="detail-text d-flex justify-content-start">
 						    	<p class="card-title mr-1">Bathrooms :</p>
-						    	<p class="card-text">6</p>
+						    	<p class="card-text">{{ $data->bath_qty }}</p>
 						    </div>
 				    	</div>
 				    </div>

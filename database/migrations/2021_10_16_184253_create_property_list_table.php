@@ -57,6 +57,7 @@ class CreatePropertyListTable extends Migration
             $table->boolean('access_road')->nullable();
             $table->string('access_road_width')->nullable();
             $table->text('surrounding_sites_desc')->nullable();
+            $table->bigInteger('view_count')->nullable();
             $table->timestamps();
             
         });

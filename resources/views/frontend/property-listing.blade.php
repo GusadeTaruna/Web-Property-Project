@@ -194,7 +194,7 @@
 													<a class="btn btn-theme-3 inquiry-btn d-flex justify-content-center align-items-center" style="font-size: 11px" href="#" data-toggle="modal" data-target="#exampleModalCenter" data-id="[{{ $data->property_code }}] {{ ucwords(strtolower($data->property_name)) }}">Inquire now</a>
 												</div>
 												<div class="col-12 col-md-4 p-0 mb-2">
-													<a class="btn btn-theme-3 d-flex justify-content-center align-items-center" style="font-size: 11px" href="{{ route('add.to.cart', $data->id) }}">Add to enquiry</a>
+													<a class="btn btn-theme-3 d-flex justify-content-center align-items-center" style="font-size: 11px" href="{{ route('add.to.cart', $data->id) }}">Add to Inquiry</a>
 												</div>
 												<div class="col-12 col-md-4 p-0 mb-2">
 													<a class="btn btn-theme-3 d-flex justify-content-center align-items-center" style="font-size: 11px;" href={{ route('property-detail',$data->property_code) }}>Show Details</a>

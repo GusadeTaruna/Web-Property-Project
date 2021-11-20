@@ -66,7 +66,7 @@ class HomeController extends Controller
             $property = Property::orderBy('created_at','desc')->paginate(9);
         }
         if ($sort_by == "most-viewed"){
-            $property = Property::orderBy('created_at','desc')->paginate(9); //belum nambah count view di db property list
+            $property = Property::orderBy('view_count','desc')->paginate(9);
         }
         if ($sort_by == "highest-price"){
             $property = Property::orderBy('price_usd','desc')->paginate(9);
@@ -77,20 +77,6 @@ class HomeController extends Controller
         return view('frontend.property-listing', compact('property'));
     }
 
-    public function view_property(){
-        
-    }
-
-    public function highest_property(){
-        $property = Property::orderBy('price_usd','desc')->get();
-        dd($property);
-    }
-
-    public function lowest_property(){
-        $property = Property::orderBy('price_usd','asc')->get();
-        dd($property);
-    }
-
     public function propertyListing(){
         $property = Property::paginate(9);
         return view('frontend.property-listing', compact('property'));
@@ -99,7 +85,17 @@ class HomeController extends Controller
     public function propertyDetail($id)
     {
         $property = Property::where('property_code',$id)->get();
-        // dd($property);
+        foreach ($property as $object){ 
+            if(is_null($object->view_count)){
+                $view_count = 1;
+            }else{
+                $view_count = $object->view_count + 1;
+            }
+            // dd($view_count);
+            $object->view_count = $view_count;
+            $object->update();
+        }
+        
         return view('frontend.property-detail', compact('property'));
     }
 
