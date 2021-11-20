@@ -60,6 +60,37 @@ class HomeController extends Controller
         }
     }
 
+    public function sort_property(Request $request){
+        $sort_by = $request->filter_by;
+        if($sort_by == "most-recent"){
+            $property = Property::orderBy('created_at','desc')->paginate(9);
+        }
+        if ($sort_by == "most-viewed"){
+            $property = Property::orderBy('created_at','desc')->paginate(9); //belum nambah count view di db property list
+        }
+        if ($sort_by == "highest-price"){
+            $property = Property::orderBy('price_usd','desc')->paginate(9);
+        }
+        if ($sort_by == "lowest-price"){
+            $property = Property::orderBy('price_usd','asc')->paginate(9);
+        }
+        return view('frontend.property-listing', compact('property'));
+    }
+
+    public function view_property(){
+        
+    }
+
+    public function highest_property(){
+        $property = Property::orderBy('price_usd','desc')->get();
+        dd($property);
+    }
+
+    public function lowest_property(){
+        $property = Property::orderBy('price_usd','asc')->get();
+        dd($property);
+    }
+
     public function propertyListing(){
         $property = Property::paginate(9);
         return view('frontend.property-listing', compact('property'));

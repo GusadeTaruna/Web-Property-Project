@@ -80,9 +80,16 @@
 			</div>
 
 			<div class="col-lg-9 col-xxl-10 mt-4 mt-md-4 mt-lg-0">
-				<div class="col-md-12">
-					<div class="alert alert-danger alert-dismissible fade show" role="alert">
-					</div>
+				<div class="col-md-2">
+					<form class="form" id="formRecent" method="get" action="{{ route('sort.property') }}">
+						<select name="filter_by" id="filter_by" class="custom-select mb-3">
+							<option value="0" selected disabled>Sort by</option>
+							<option value="most-recent">Most Recent</option>
+							<option value="most-viewed">Most Viewed</option>
+							<option value="highest-price">Highest Price</option>
+							<option value="lowest-price">Lowest Price</option>
+						</select>
+					</form>
 				</div>
 				<div class="col-md-12">
 					@if(session()->has('errorAddInquiry'))

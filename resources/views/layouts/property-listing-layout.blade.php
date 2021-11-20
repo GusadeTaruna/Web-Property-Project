@@ -187,5 +187,15 @@
         });
     </script>
 
+    <script>
+        $(document).ready(function () {
+            
+            $("#filter_by").change(function(){
+                $("#formRecent").submit();
+                // alert("Hello! I am an alert box!!");
+            });
+        });
+    </script>
+
 </body>
 </html>

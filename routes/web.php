@@ -48,7 +48,8 @@ Route::post('/send-message-inquiry',[HomeController::class, 'sendEmailInquiry'])
 
 //searching
 Route::get('/search-property', [HomeController::class, 'search_property'])->name('search.property');
-
+//sort by
+Route::get('/sort-listing', [HomeController::class, 'sort_property'])->name('sort.property');
 
 Route::get('/admin', function(){
     return redirect('/admin/dashboard');
