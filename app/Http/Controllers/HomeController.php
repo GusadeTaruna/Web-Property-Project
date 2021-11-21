@@ -199,6 +199,7 @@ class HomeController extends Controller
     		'name' => 'required|max:255',
     		'email' => 'required|email:dns|unique:users',
             'phone' => 'required',
+            'contact_method' => 'required',
             'country' => 'required',
             'message' => 'required'
     	]);
@@ -207,6 +208,7 @@ class HomeController extends Controller
             'name' => $validatedData['name'],
             'email' =>  $validatedData['email'],
             'phone' => $validatedData['phone'],
+            'contact_method' => implode($request->contact_method,','),
             'country' => $validatedData['country'],
             'inquiry_list' => $request->input('list'),
             'message' => $validatedData['message'],
@@ -217,6 +219,7 @@ class HomeController extends Controller
         $inbox->sender_name = $validatedData['name'];
         $inbox->sender_email = $validatedData['email'];
         $inbox->phone = $validatedData['phone'];
+        $inbox->contact_method = implode($request->contact_method,',');
         $inbox->country = $validatedData['country'];
         $inbox->inquiry_list = $list;
         $inbox->message = $validatedData['message'];

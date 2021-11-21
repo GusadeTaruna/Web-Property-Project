@@ -20,6 +20,7 @@ class CreateInboxTable extends Migration
             $table->string('sender_email');
             $table->string('phone')->nullable();
             $table->string('country')->nullable();
+            $table->string('contact_method')->nullable();
             $table->text('inquiry_list')->nullable();
             $table->text('message');
             $table->boolean('status_msg_seen')->nullable();

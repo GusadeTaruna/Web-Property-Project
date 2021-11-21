@@ -58,6 +58,25 @@
                         <input type="email" class="form-control mb-2" placeholder="Input your email here" name="email">
                         <label for="name">Phone :</label>
                         <input type="phone" class="form-control mb-2" placeholder="Input your phone number here" name="phone">
+                        <label for="name">Prefered Contact Method :</label>
+                        <div class="form-check">
+                            <input class="form-check-input" name="contact_method[]" type="checkbox" value="Email" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                            Email
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" name="contact_method[]" type="checkbox" value="Phone" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                            Phone
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" name="contact_method[]" type="checkbox" value="WhatsApp" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                            WhatsApp
+                            </label>
+                        </div>
                         <label for="country">Nasionality :</label>
                         <select class="form-control mb-2" name="country">
                             <option value="" disabled selected>Choose one</option>

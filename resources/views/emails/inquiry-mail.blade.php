@@ -9,9 +9,10 @@
 <body>
     <h2>New Inquiry Message arrived!</h2>
     <div>
-        <h3>Email from : {{ $detailsInquiry['name'] }} ({{ $detailsInquiry['email'] }})</h3>
-        <h3>Country : {{ $detailsInquiry['country'] }}</h3>
-        <h3>Phone Number : {{ $detailsInquiry['phone'] }}</h3>
+        <p style="font-weight: bold">Email from : {{ $detailsInquiry['name'] }} ({{ $detailsInquiry['email'] }})</p>
+        <p style="font-weight: bold">Country : {{ $detailsInquiry['country'] }}</p>
+        <p style="font-weight: bold">Phone Number : {{ $detailsInquiry['phone'] }}</p>
+        <p style="font-weight: bold">Prefered contact method : {{ $detailsInquiry['contact_method'] }}</p>
         <br>
         <h3>Inquiry List :
             @if (is_array($detailsInquiry['inquiry_list']))
@@ -28,8 +29,9 @@
             
         </h3>
     </div>
-    Message: <br>
-    <p>{{ $detailsInquiry['message'] }}</p>
+    <br>
+    <h5>Message :</h5>
+    <h5>{{ $detailsInquiry['message'] }}</h5>
     
 </body>
 </html>
