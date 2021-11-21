@@ -49,6 +49,7 @@
                 <table id="example1" class="table table-striped">
                   <thead>
                   <tr>
+                    <th>Listing status</th>
                     <th>Land Code</th>
                     <th>Land Name</th>
                     <th>Location</th>
@@ -60,6 +61,7 @@
                   <tbody>
                     @foreach ($land as $data)
                     <tr>
+                      <td>{{ $data->data_status }}</td>
                       <td>{{ $data->property_code }}</td>
                       <td>{{ ucwords(strtolower($data->property_name)) }}</td>
                       <td>{{ ucwords(strtolower($data->property_location)) }}</td>

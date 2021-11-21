@@ -48,11 +48,13 @@
                         <div class="col-md-8">
                             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner">
-						            <?php foreach (json_decode($data->property_image)as $picture) { ?>
+                                  @if (!is_null($data->property_image))
+						                        <?php foreach (json_decode($data->property_image)as $picture) { ?>
                                     <div class="carousel-item">
                                         <img class="openImg d-block w-100 mb-4" data-toggle="modal" data-target="#imageModalCenter" src="{{ asset('/property-image/'.$picture) }}" style="border-radius: 30px; height:500px; object-fit:cover">
                                     </div>
                                     <?php } ?>
+                                  @endif
                                 </div>
                                 <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -166,7 +168,9 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="zoning-land">Zoning Types</label>
-                        <br>{{ $data->zoning_list->nama_tipe }}
+                        @if (!is_null($data->zoning))
+                          <br>{{ $data->zoning_list->nama_tipe }}
+                        @endif
                       </div>
                     </div>
                   </div>
@@ -261,46 +265,6 @@
                     </div>
                   </div>
 
-                  <div class="row mt-4">
-                    <div class="col-md-12 text-center">
-                        <div class="form-group">
-                            <label for="distance">Facilities</label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-4">
-                      <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text" id="basic-addon1">
-                            <i class="fas fa-bed"></i>
-                          </span>
-                        </div>
-                        <label class="form-control">Bedroom = {{ $data->bed_qty }}</label>
-                      </div>
-                    </div>
-                    <div class="col-md-4">
-                      <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text" id="basic-addon1">
-                            <i class="fas fa-bath"></i>
-                          </span>
-                        </div>
-                        <label class="form-control">Bathroom = {{ $data->bath_qty }}</label>
-                      </div>
-                    </div>
-                    <div class="col-md-4">
-                      <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text" id="basic-addon1">
-                            <i class="fas fa-warehouse"></i>
-                          </span>
-                        </div>
-                        <label class="form-control">Garage = {{ $data->garage_qty }}</label>
-                      </div>
-                    </div>
-                  </div>
 
                   <div class="row mt-4">
                     <div class="col-md-12 text-center">

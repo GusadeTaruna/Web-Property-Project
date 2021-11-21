@@ -87,7 +87,7 @@
                             <div class="input-group mb-3">
                               <div class="input-group-prepend">
                                 <div class="input-group-text">
-                                  <?php $currencys = array("POI", "USD", "IDR","EUR","GBP","JPY","CAD","AUD","KRW");   ?>
+                                  <?php $currencys = array("POI", "USD", "IDR","EUR","GBP","JPY","CAD","AUD","KRW","HKD","CNY");   ?>
                                   <?php $options=$data->currency ?>
                                   @if($data->currency)
                                   <select class="currency-selector" name="currency">
@@ -200,6 +200,11 @@
                               <option value="bor">Bor</option>
                               <option value="well">Well</option>
                               <option selected value="0">No</option>
+                            @else
+                              <option selected disabled>Choose One</option>
+                              <option value="bor">Bor</option>
+                              <option value="well">Well</option>
+                              <option value="0">No</option>
                             @endif
                           </select>
                       </div>

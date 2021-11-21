@@ -21,7 +21,7 @@ class HomeController extends Controller
     public function index(){
         $homepage_data = CustomizeHome::all();
         $service_data = CustomizeServices::all();
-        $listing_data = Property::orderBy('created_at','desc')->paginate(6);
+        $listing_data = Property::where('data_status','Published')->orderBy('created_at','desc')->paginate(6);
         // dd($listing_data);
         // if($homepage_data->isEmpty()){}
         return view('frontend.index', compact('homepage_data','listing_data','service_data'));
@@ -39,16 +39,16 @@ class HomeController extends Controller
         $maximal_price = request()->maxPrice;
 
         $property = Property::when($code, function ($q) use ($code) {
-            return $q->where('property_code', 'like', '%'.$code.'%');
+            return $q->where('data_status','Published')->where('property_code', 'like', '%'.$code.'%');
         })
         ->when($type, function ($q) use ($type) {
-            return $q->where('property_type', 'like', '%'.$type.'%');
+            return $q->where('data_status','Published')->where('property_type', 'like', '%'.$type.'%');
         })
         ->when($location, function ($q) use ($location) {
-            return $q->where('property_location', 'like', '%'.$location.'%');
+            return $q->where('data_status','Published')->where('property_location', 'like', '%'.$location.'%');
         })
         ->when($maximal_price, function ($q) use ($minimal_price,$maximal_price) {
-            return $q->whereBetween('price_usd', [$minimal_price, $maximal_price]);
+            return $q->where('data_status','Published')->whereBetween('price_usd', [$minimal_price, $maximal_price]);
         })
         ->paginate(9);
 
@@ -63,22 +63,22 @@ class HomeController extends Controller
     public function sort_property(Request $request){
         $sort_by = $request->filter_by;
         if($sort_by == "most-recent"){
-            $property = Property::orderBy('created_at','desc')->paginate(9);
+            $property = Property::where('data_status','Published')->orderBy('created_at','desc')->paginate(9);
         }
         if ($sort_by == "most-viewed"){
-            $property = Property::orderBy('view_count','desc')->paginate(9);
+            $property = Property::where('data_status','Published')->orderBy('view_count','desc')->paginate(9);
         }
         if ($sort_by == "highest-price"){
-            $property = Property::orderBy('price_usd','desc')->paginate(9);
+            $property = Property::where('data_status','Published')->orderBy('price_usd','desc')->paginate(9);
         }
         if ($sort_by == "lowest-price"){
-            $property = Property::orderBy('price_usd','asc')->paginate(9);
+            $property = Property::where('data_status','Published')->orderBy('price_usd','asc')->paginate(9);
         }
         return view('frontend.property-listing', compact('property'));
     }
 
     public function propertyListing(){
-        $property = Property::paginate(9);
+        $property = Property::where('data_status','Published')->paginate(9);
         return view('frontend.property-listing', compact('property'));
     }
 

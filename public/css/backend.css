@@ -30,6 +30,10 @@
 	background: #ff931e !important;
 }
 
+.btn-success.disabled, .btn-success:disabled{
+	background: #a5876a;
+}
+
 .card-primary:not(.card-outline)>.card-header{
 	background-color: #a5876a;
 }

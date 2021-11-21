@@ -395,5 +395,27 @@
             }
         })
     </script>
+
+    <script>
+        $(document).on('change keyup', function(e){
+        let filled = true;
+            $("#saveForm input").each(function() {
+            let value = this.value
+            if ((value)&&(value.trim() !=''))
+                {
+                    filled = false
+                }else{
+                    filled = true
+                    return false
+                }
+            });
+        
+        if(filled){
+                $('#btnSubmit').text('Draft');
+            }else{
+                $('#btnSubmit').text('Submit');
+            }
+        })
+    </script>
 </body>
 </html>

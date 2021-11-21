@@ -48,11 +48,13 @@
                         <div class="col-md-8">
                             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner">
-						            <?php foreach (json_decode($data->property_image)as $picture) { ?>
+                                  @if (!is_null($data->property_image))
+                                  <?php foreach (json_decode($data->property_image)as $picture) { ?>
                                     <div class="carousel-item">
                                         <img class="openImg d-block w-100 mb-4" data-toggle="modal" data-target="#imageModalCenter" src="{{ asset('/property-image/'.$picture) }}" style="border-radius: 30px; height:500px; object-fit:cover">
                                     </div>
-                                    <?php } ?>
+                                  <?php } ?>
+                                  @endif
                                 </div>
                                 <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -100,7 +102,7 @@
                     <div class="row">
                         <div class="col-md-6">
                         <div class="form-group">
-                            <label for="status">Status</label>
+                            <label for="status">Property Status</label>
                             <br>{{ $data->property_status }}
                         </div>
                         </div>
@@ -169,7 +171,9 @@
                         <div class="col-md-12">
                         <div class="form-group">
                             <label for="zoning-land">Zoning Land Use</label>
+                            @if (!is_null($data->zoning))
                             <br>{{ $data->zoning_list->nama_tipe }}
+                            @endif
                         </div>
                         </div>
                     </div>

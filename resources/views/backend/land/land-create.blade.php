@@ -43,7 +43,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="/admin/land/create" method="post" enctype="multipart/form-data">
+              <form id="saveForm" action="/admin/land/create" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                   <div class="row">
@@ -84,6 +84,8 @@
                                 <option data-symbol="$" data-placeholder="0.00" value="CAD">CAD</option>
                                 <option data-symbol="$" data-placeholder="0.00" value="AUD">AUD</option>
                                 <option data-symbol="₩" data-placeholder="0.00" value="KRW">KRW</option>
+                                <option data-symbol="HK$" data-placeholder="0.00" value="HKD">HKD</option>
+                                <option data-symbol="¥" data-placeholder="0.00" value="CNY">CNY</option>
                               </select>
                             </div>
                           </div>
@@ -113,7 +115,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="site-plan">Site Plan</label>
-                        <select name="site_plan" class="custom-select" required>
+                        <select name="site_plan" class="custom-select" >
                           <option selected disabled>Choose One</option>
                           <option value="0">Yes</option>
                           <option value="1">No</option>
@@ -132,7 +134,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="imb">IMB</label>
-                        <select name="imb" class="custom-select" required>
+                        <select name="imb" class="custom-select" >
                           <option selected disabled>Choose One</option>
                           <option value="0">Yes</option>
                           <option value="1">No</option>
@@ -151,7 +153,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="pdma">PDMA Water</label>
-                        <select name="pdma" class="custom-select" required>
+                        <select name="pdma" class="custom-select" >
                           <option selected disabled>Choose One</option>
                           <option value="bor">Bor</option>
                           <option value="well">Well</option>
@@ -194,7 +196,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="topography-plan">Topography plan</label>
-                        <select name="topography" class="custom-select" required>
+                        <select name="topography" class="custom-select" >
                           <option selected disabled>Choose One</option>
                           <option value="0">Yes</option>
                           <option value="1">No</option>
@@ -247,7 +249,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="access-road">Access Road</label>
-                        <select name="access_road" class="custom-select" required>
+                        <select name="access_road" class="custom-select" >
                           <option selected disabled>Choose One</option>
                           <option value="0">Yes</option>
                           <option value="1">No</option>
@@ -274,7 +276,7 @@
                         <label for="images">Land Image</label>
                         <div class="input-group">
                           <div class="custom-file">
-                            <input type="file" name="images[]" class="custom-file-input @error('images') is-invalid @enderror" id="landImages" multiple required>
+                            <input type="file" name="images[]" class="custom-file-input @error('images') is-invalid @enderror" id="landImages" multiple >
                             <label class="custom-file-label" for="landImages">Choose file</label>
                             {!!$errors->first('image', '<span class="text-danger">:message</span>')!!}
                           </div>
@@ -287,7 +289,7 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label for="video">Video Link</label>
-                        <input type="text" name="video" class="form-control @error('video') is-invalid @enderror" required value="{{ old('video') }}" id="video" placeholder="Input video link here">
+                        <input type="text" name="video" class="form-control @error('video') is-invalid @enderror"  value="{{ old('video') }}" id="video" placeholder="Input video link here">
                         @error('video')
                           <div class="invalid-feedback">
                             {{ $message }}
@@ -322,7 +324,7 @@
                             <i class="fas fa-bed"></i>
                           </span>
                         </div>
-                        <input type="text" name="bed" class="form-control @error('bed') is-invalid @enderror" required value="{{ old('bed') }}" placeholder="Bedroom" aria-label="bed" aria-describedby="basic-addon1">
+                        <input type="text" name="bed" class="form-control @error('bed') is-invalid @enderror"  value="{{ old('bed') }}" placeholder="Bedroom" aria-label="bed" aria-describedby="basic-addon1">
                         @error('bed')
                           <div class="invalid-feedback">
                             {{ $message }}
@@ -337,7 +339,7 @@
                             <i class="fas fa-bath"></i>
                           </span>
                         </div>
-                        <input type="text" name="bath" class="form-control @error('bath') is-invalid @enderror" required value="{{ old('bath') }}" placeholder="Bathroom" aria-label="bath" aria-describedby="basic-addon1">
+                        <input type="text" name="bath" class="form-control @error('bath') is-invalid @enderror"  value="{{ old('bath') }}" placeholder="Bathroom" aria-label="bath" aria-describedby="basic-addon1">
                         @error('bath')
                           <div class="invalid-feedback">
                             {{ $message }}
@@ -352,7 +354,7 @@
                             <i class="fas fa-warehouse"></i>
                           </span>
                         </div>
-                        <input type="text" name="garage" class="form-control @error('garage') is-invalid @enderror" required value="{{ old('garage') }}" placeholder="Garage" aria-label="garage" aria-describedby="basic-addon1">
+                        <input type="text" name="garage" class="form-control @error('garage') is-invalid @enderror"  value="{{ old('garage') }}" placeholder="Garage" aria-label="garage" aria-describedby="basic-addon1">
                         @error('garage')
                           <div class="invalid-feedback">
                             {{ $message }}
@@ -441,7 +443,7 @@
 
                 <div class="card-footer text-right">
                   <button class="btn btn-danger w-25">Cancel</button>
-                  <button type="submit" class="btn btn-primary w-25">Submit</button>
+                  <button id="btnSubmit" type="submit" class="btn btn-success w-25">Draft</button>
                 </div>
               </form>
             </div>

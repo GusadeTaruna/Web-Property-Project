@@ -50,17 +50,19 @@
                 <table id="example1" class="table table-striped">
                   <thead>
                   <tr>
+                    <th>Listing status</th>
                     <th>Property Code</th>
                     <th>Property Name</th>
                     <th>Location</th>
                     <th>Price</th>
-                    <th>Status</th>
+                    <th>Property Status</th>
                     <th style="text-align: center;">More Details</th>
                   </tr>
                   </thead>
                   <tbody>
                     @foreach ($property as $data)
                       <tr>
+                          <td>{{ $data->data_status }}</td>
                           <td>{{ $data->property_code }}</td>
                           <td>{{ ucwords(strtolower($data->property_name)) }}</td>
                           <td>{{ ucwords(strtolower($data->property_location)) }}</td>

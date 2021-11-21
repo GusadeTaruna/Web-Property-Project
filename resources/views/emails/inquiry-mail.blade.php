@@ -10,7 +10,7 @@
     <h2>New Inquiry Message arrived!</h2>
     <div>
         <p style="font-weight: bold">Email from : {{ $detailsInquiry['name'] }} ({{ $detailsInquiry['email'] }})</p>
-        <p style="font-weight: bold">Country : {{ $detailsInquiry['country'] }}</p>
+        <p style="font-weight: bold">Nationality : {{ $detailsInquiry['country'] }}</p>
         <p style="font-weight: bold">Phone Number : {{ $detailsInquiry['phone'] }}</p>
         <p style="font-weight: bold">Prefered contact method : {{ $detailsInquiry['contact_method'] }}</p>
         <br>
