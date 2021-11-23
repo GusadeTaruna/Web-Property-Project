@@ -7,7 +7,7 @@
   <div class="container py-5 h-100">
     <div class="row justify-content-center h-100">
       <div class="col-12 col-lg-9 col-xl-12 text-center mb-4">
-         <a href="/admin"><img src="/img/logo/logo.png" style="width: 230px; height: auto;"></img></a>
+         <a href="/admin"><img src="/img/logo/logo-1.svg" style="width: 230px; height: auto;"></img></a>
       </div>
       <div class="col-12 col-lg-9 col-xl-5">
         <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">

@@ -51,7 +51,13 @@ class CustomizeAboutPageController extends Controller
                 $count_image = count(json_decode($about_array[0]['team_img']));
             }
 
-            return view('backend.custom-page.about-us.about-create', compact('value','count_image'));
+            if ($about_array[0]['team_header']==null){
+                $count_header = 0;
+            }else{
+                $count_header = count(json_decode($about_array[0]['team_header']));
+            }
+
+            return view('backend.custom-page.about-us.about-create', compact('value','count_image','count_header'));
         }
     }
 
@@ -118,11 +124,14 @@ class CustomizeAboutPageController extends Controller
         $about->team_desc = $request->team_desc;
         $this->validate($request, 
         [
-            'team_img.*' => 'image|mimes:png,jpg,jpeg,svg|max:1024'
+            'team_img.*' => 'image|mimes:png,jpg,jpeg,svg|max:1024',
+            'team_header.*' => 'image|mimes:png,jpg,jpeg,svg|max:1024'
         ],
         [
-            'team_img.*.max' => 'The images must not be greater than 1 MB.'
+            'team_img.*.max' => 'The images must not be greater than 1 MB.',
+            'team_header.*.max' => 'The images must not be greater than 1 MB.'
         ]);
+
         if($request->hasFile('team_img')){
             $counter = 0;
             foreach($request->file('team_img') as $image){
@@ -135,11 +144,26 @@ class CustomizeAboutPageController extends Controller
         }else{
             $about->team_img = NULL;
         }
+
+        if($request->hasFile('team_header')){
+            $counter = 0;
+            foreach($request->file('team_header') as $image){
+                $getFileExt = $image->getClientOriginalExtension();
+                $name=time().'ABH'.$counter++.'.'.$getFileExt;
+                $image->move(public_path().'/about-asset/',$name); //folder path
+                $data_header[] = $name;
+            }
+            $about->team_header = json_encode($data_header);
+        }else{
+            $about->team_header = NULL;
+        }
+
+
         $about->mission_title = $request->mission_title;
         $about->mission_desc = $request->mission_desc;
 
         if($request->team_title==null && $request->team_desc==null && $request->team_img==null
-            && $request->mission_title==null && $request->mission_desc==null){
+            && $request->team_header==null && $request->mission_title==null && $request->mission_desc==null){
             return redirect('/admin/customize/about-us/create')->with('errorMsg', 'Nothing to customize');
         }else{
             $about->save();
@@ -287,6 +311,47 @@ class CustomizeAboutPageController extends Controller
                     $data[] = $name;
                     $update = CustomizeAbout::where('id', $id)->update([
                         'team_img' => json_encode($data)
+                   ]);
+                }
+            }
+            
+        }
+
+        if ($request->hasFile('team_header')) {
+            request()->validate(
+                ['team_header.*' => 'image|mimes:png,jpg,jpeg,svg|max:1024'],
+                ['team_header.*.max' => 'The images must not be greater than 1 MB.']
+            );
+
+            $images_team = json_decode($about->team_header);
+            if ($images_team){
+                foreach($images_team as $image){
+
+                    $image_path = public_path().'/about-asset/'.$image;
+
+                    if(File::exists($image_path)) {
+                        File::delete($image_path);
+                    }
+                }
+                $counter = 0;
+                foreach($request->file('team_header') as $image){
+                    $getFileExt = $image->getClientOriginalExtension();
+                    $name=time().'ABH'.$counter++.'.'.$getFileExt;
+                    $image->move(public_path().'/about-asset/',$name); //folder path
+                    $data[] = $name;
+                    $update = CustomizeAbout::where('id', $id)->update([
+                        'team_header' => json_encode($data)
+                   ]);
+                }
+            }else{
+                $counter = 0;
+                foreach($request->file('team_header') as $image){
+                    $getFileExt = $image->getClientOriginalExtension();
+                    $name=time().'ABH'.$counter++.'.'.$getFileExt;
+                    $image->move(public_path().'/about-asset/',$name); //folder path
+                    $data[] = $name;
+                    $update = CustomizeAbout::where('id', $id)->update([
+                        'team_header' => json_encode($data)
                    ]);
                 }
             }

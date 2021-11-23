@@ -47,7 +47,7 @@
             <h1>Cuztomize About Us Page</h1>
           </div>
         </div>
-      </div><!-- /.container-fluid -->
+      </div><!-- /.container-fluid -->  
     </section>
 
     <!-- Main content -->
@@ -72,6 +72,18 @@
                         <div class="form-group">
                             <img src="/img/customize/img-about/1.jpg" class="d-block w-100 mb-4" alt="">
                         </div>
+                    </div>
+
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label for="team_header">Header image</label>
+                        <div class="input-group">
+                          <div class="custom-file">
+                            <input type="file" name="team_header[]" class="custom-file-input @error('team_header') is-invalid @enderror" id="team_header" multiple>
+                            <label class="custom-file-label" for="team_header">Choose file</label>
+                          </div>
+                        </div>
+                      </div>
                     </div>
 
                     <div class="col-md-12">
@@ -156,6 +168,18 @@
                         <div class="form-group">
                             <img src="/img/customize/img-about/1.jpg" class="d-block w-100 mb-4" alt="">
                         </div>
+                    </div>
+
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label for="team_header">Header image</label>
+                        <div class="input-group">
+                          <div class="custom-file">
+                            <input type="file" name="team_header[]" class="custom-file-input @error('team_header') is-invalid @enderror" id="team_header" multiple>
+                            <label class="custom-file-label" for="team_header">{{$count_header}} Images</label>
+                          </div>
+                        </div>
+                      </div>
                     </div>
 
                     <div class="col-md-12">

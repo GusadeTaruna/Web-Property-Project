@@ -76,7 +76,7 @@
         <aside class="main-sidebar sidebar-light-primary elevation-4">
             <!-- Brand Logo -->
             <a href="/admin/dashboard" class="brand-link text-center">
-                <img src="/img/logo/logo.png" alt="Dashboard" style="width: 200px;height: auto;" style="opacity: .8">
+                <img src="/img/logo/logo-1.svg" alt="Dashboard" style="width: 200px;height: auto;" style="opacity: .8">
 <!--                 <span class="font-weight-bold text-primary">LOGO</span> -->
             </a>
 

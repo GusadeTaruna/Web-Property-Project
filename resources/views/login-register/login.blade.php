@@ -3,7 +3,7 @@
 @section('content')
 <div class="login-box">
   <div class="login-logo mb-3">
-    <a href="/admin"><img src="/img/logo/logo.png" style="width: 230px; height: auto;"></img></a>
+    <a href="/admin"><img src="/img/logo/logo-1.svg" style="width: 230px; height: auto;"></img></a>
   </div>
   <!-- /.login-logo -->
   <div class="card">

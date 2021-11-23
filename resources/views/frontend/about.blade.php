@@ -2,62 +2,95 @@
 
 
 @section('content')
-<header class="header">
-    <div id="nav-container">
+<div id="nav-container">
 
-        <!-- Start Navbar -->
-        <nav class="navbar navbar-expand-lg">
+    <!-- Start Navbar -->
+    <nav class="navbar navbar-expand-lg">
 
-            <!-- Navbar brand -->
-            <a class="navbar-brand" href="/">
-                <img src="/img/logo/logo-1.svg" alt="" class="logo-nav">
-            </a>
+        <!-- Navbar brand -->
+        <a class="navbar-brand" href="/">
+            <img src="/img/logo/logo-1.svg" alt="" class="logo-nav">
+        </a>
 
-            <!-- Toggle button -->
-            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="fas fa-bars"></span>
-            </button>
+        <!-- Toggle button -->
+        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="fas fa-bars"></span>
+        </button>
 
-            <!-- Collapsible wrapper -->
-            <div class="collapse navbar-collapse justify-content-end fixed-nav" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
+        <!-- Collapsible wrapper -->
+        <div class="collapse navbar-collapse justify-content-end fixed-nav" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
 
-                    <!-- Link -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="/"><i class="fas fa-home my-auto icon-responsive"></i> Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/about"><i class="fas fa-user-friends my-auto icon-responsive"></i> About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/services"><i class="fas fa-user-friends my-auto icon-responsive"></i> Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/property-list"><i class="fas fa-stream my-auto icon-responsive"></i> Listing</a>
-                    </li>
-                    {{-- <li class="nav-item">
-                        <a class="nav-link" href="/faq"><i class="fas fa-question-circle my-auto icon-responsive"></i> FAQ</a>
-                    </li> --}}
-                    <li class="nav-item">
-                        <a class="nav-link" href="/contact-us"><i class="fas fa-phone my-auto icon-responsive"></i> Contact Us</a>
-                    </li>
+                 <!-- Link -->
+                 <li class="nav-item">
+                    <a class="nav-link" href="/"><i class="fas fa-home my-auto icon-responsive"></i> Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/about"><i class="fas fa-user-friends my-auto icon-responsive"></i> About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/services"><i class="fas fa-user-friends my-auto icon-responsive"></i> Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/property-list"><i class="fas fa-stream my-auto icon-responsive"></i> Listing</a>
+                </li>
+                {{-- <li class="nav-item">
+                    <a class="nav-link" href="/faq"><i class="fas fa-question-circle my-auto icon-responsive"></i> FAQ</a>
+                </li> --}}
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact-us"><i class="fas fa-phone my-auto icon-responsive"></i> Contact Us</a>
+                </li>
 
-                </ul>
+            </ul>
 
-            </div>
-        </nav>
-        <!-- End Navbar -->
-    </div>
+        </div>
+    </nav>
+    <!-- End Navbar -->
+</div>
+<div class="header">
     <div class="header-content">
-            <div class="container">
-
-                <div class="col-md-12 my-auto mr-auto text-center">
-                    <h1 class="h1 h1-responsive judul">About Us</h1>
-                </div>
-
-            </div>
+        <div class="col-md-12 my-auto mr-auto text-center">
+            <h1 class="h1 h1-responsive judul">About Us</h1>
+        </div>
     </div>
-</header>
+    <div id="banner-image">
+        <!-- Slider main container -->
+        <div class="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                @if ($about_data->isEmpty())
+                    <div class="swiper-slide">
+                        <img src="img/header/6.jpg"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/header/8.jpg"/>
+                    </div>
+                @else
+                    @foreach ($about_data as $data)
+                        @if (is_null(json_decode($data->team_header)))
+                            <div class="swiper-slide">
+                                <img src="img/header/6.jpg"/>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/header/8.jpg"/>
+                            </div> 
+                        @else
+                            <?php foreach (json_decode($data->team_header)as $picture) { ?>
+                                <div class="swiper-slide">
+                                    <img src="{{ asset('/about-asset/'.$picture) }}"/>
+                                </div>
+                            <?php } ?>
+                        @endif
+                    @endforeach
+                @endif
+                
+            </div>
+        </div> 
+    
+        
+    </div>
+</div>
 <!-- End Header -->
 
 <!-- Start About -->

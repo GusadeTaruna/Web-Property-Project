@@ -17,6 +17,7 @@ class CreateCustomAboutTable extends Migration
             $table->id();
             $table->string('team_title')->nullable();
             $table->text('team_desc')->nullable();
+            $table->string('team_header')->nullable();
             $table->string('team_img')->nullable();
             $table->string('mission_title')->nullable();
             $table->text('mission_desc')->nullable();
