@@ -175,7 +175,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="power_kv">PLN / Power (kV)</label>
-                        <input type="text" name="power_kv" class="form-control @error('power_kv') is-invalid @enderror"  value="{{ old('power_kv') }}" id="power_kv" placeholder="0">
+                        <input type="text" name="power_kv" class="form-control @error('power_kv') is-invalid @enderror"  value="{{ old('power_kv') }}" id="power_kv" placeholder="Leave blank if it has no value">
                         @error('power_kv')
                           <div class="invalid-feedback">
                             {{ $message }}
@@ -186,7 +186,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="generator">Generator (kV)</label>
-                        <input type="text" name="generator" class="form-control @error('generator') is-invalid @enderror"  value="{{ old('generator') }}" id="generator" placeholder="0">
+                        <input type="text" name="generator" class="form-control @error('generator') is-invalid @enderror"  value="{{ old('generator') }}" id="generator" placeholder="Leave blank if it has no value">
                         @error('generator')
                           <div class="invalid-feedback">
                             {{ $message }}
@@ -201,7 +201,7 @@
                       <div class="form-group">
                         <label for="pdma">PDMA Water</label>
                         <select name="pdma" class="custom-select">
-                          <option selected disabled>Choose One</option>
+                          <option selected disabled>Choose one (ignore if no PDMA)</option>
                           <option value="bor">Bor</option>
                           <option value="well">Well</option>
                           <option value="0">No</option>
@@ -212,7 +212,7 @@
                       <div class="form-group">
                         <label for="imb">IMB</label>
                         <select name="imb" class="custom-select" >
-                          <option selected disabled>Choose One</option>
+                          <option selected disabled>Choose One (ignore if no IMB)</option>
                           <option value="0">Yes</option>
                           <option value="1">No</option>
                         </select>
@@ -250,7 +250,7 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label for="video">Video Link</label>
-                        <input type="text" name="video" class="form-control @error('video') is-invalid @enderror"  value="{{ old('video') }}" id="video" placeholder="Input video link here">
+                        <input type="text" name="video" class="form-control @error('video') is-invalid @enderror"  value="{{ old('video') }}" id="video" placeholder="Leave blank if it has no value">
                         @error('video')
                           <div class="invalid-feedback">
                             {{ $message }}
@@ -290,7 +290,7 @@
                             <i class="fas fa-bed"></i>
                           </span>
                         </div>
-                        <input type="text" name="bed" class="form-control @error('bed') is-invalid @enderror"  value="{{ old('bed') }}" placeholder="Bedroom" aria-label="bed" aria-describedby="basic-addon1">
+                        <input type="text" name="bed" class="form-control @error('bed') is-invalid @enderror"  value="{{ old('bed') }}" placeholder="Bedroom (Leave blank if it has no value)" aria-label="bed" aria-describedby="basic-addon1">
                         @error('bed')
                           <div class="invalid-feedback">
                             {{ $message }}
@@ -305,7 +305,7 @@
                             <i class="fas fa-bath"></i>
                           </span>
                         </div>
-                        <input type="text" name="bath" class="form-control @error('bath') is-invalid @enderror"  value="{{ old('bath') }}" placeholder="Bathroom" aria-label="bath" aria-describedby="basic-addon1">
+                        <input type="text" name="bath" class="form-control @error('bath') is-invalid @enderror"  value="{{ old('bath') }}" placeholder="Bathroom (Leave blank if it has no value)" aria-label="bath" aria-describedby="basic-addon1">
                         @error('bath')
                           <div class="invalid-feedback">
                             {{ $message }}
@@ -320,7 +320,7 @@
                             <i class="fas fa-warehouse"></i>
                           </span>
                         </div>
-                        <input type="text" name="garage" class="form-control @error('garage') is-invalid @enderror"  value="{{ old('garage') }}" placeholder="Garage" aria-label="garage" aria-describedby="basic-addon1">
+                        <input type="text" name="garage" class="form-control @error('garage') is-invalid @enderror"  value="{{ old('garage') }}" placeholder="Garage (Leave blank if it has no value)" aria-label="garage" aria-describedby="basic-addon1">
                         @error('garage')
                           <div class="invalid-feedback">
                             {{ $message }}
@@ -439,7 +439,8 @@
 
                 <div class="card-footer text-right">
                   <a class="btn btn-danger w-25" href="/admin/property">Cancel</a>
-                  <button id="btnSubmit" type="submit" class="btn btn-success w-25">Draft</button>  
+                  <button id="btnSubmit" type="submit" name="btn_submit" value="draft_btn" class="btn btn-primary w-25">Draft</button>
+                  <button id="btnSubmit2" type="submit" name="btn_submit" value="publish_btn" class="btn btn-success w-25">Publish</button>  
                 </div>
               </form>
             </div>

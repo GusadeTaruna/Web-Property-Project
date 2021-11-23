@@ -37,7 +37,7 @@ class LandController extends Controller
     public function store(Request $request){
         $check_input = $request->filled(['code', 'land_name','land_location','price','currency','status','site_plan','site_area','pln'
         ,'pdma','imb','description','school','hospital','airport','supermarket','beach','dining']);
-        if($check_input){
+        if($request->btn_submit=="publish_btn"){
 
             $validatedData = $request->validate([
                 'code' => 'required',
@@ -48,7 +48,6 @@ class LandController extends Controller
                 'status' => 'required',
                 'site_plan' => 'required',
                 'site_area' => 'required',
-                'pln' => 'required',
                 'pdma' => 'required',
                 'imb' => 'required',
                 // 'zoning_type' => 'required',
@@ -68,7 +67,6 @@ class LandController extends Controller
                 'status.required' => 'You must enter the status of the property data',
                 'site_plan.required' => 'You must enter the site plan of the property data',
                 'site_area.required' => 'You must enter the site area of the property data',
-                'pln.required' => 'You must enter the PLN / Power (kV) of the property data',
                 'pdma.required' => 'You must enter the PDMA Water of the property data',
                 'imb.required' => 'You must enter the IMB of the property data',
                 'description.required' => 'You must enter the description of the property data',
@@ -123,7 +121,7 @@ class LandController extends Controller
             $property->site_plan = $validatedData['site_plan'];
             $property->site_area = $validatedData['site_area'];
             // $property->site_dimension = $request->site_dimension;
-            $property->power_kv = $validatedData['pln'];
+            $property->power_kv = 0;
             $property->pdma_water = $validatedData['pdma'];
             $property->imb = $validatedData['imb'];
             $property->zoning = $request->zone_type;
@@ -166,7 +164,7 @@ class LandController extends Controller
                 return redirect('/admin/land')->with('success', 'Land Data successfully added');
             }
         
-        }else{
+        }elseif($request->btn_submit=="draft_btn"){
 
             $this->validate($request, 
             [
@@ -364,7 +362,7 @@ class LandController extends Controller
         $property->access_road_width = $request->road_width;
         $property->surrounding_sites_desc = $request->sites_description;
 
-        $check_input = $request->filled(['code', 'land_name','land_location','price','currency','status','site_plan','site_area','pln'
+        $check_input = $request->filled(['code', 'land_name','land_location','price','currency','status','site_plan','site_area'
         ,'pdma','imb','video','description','school','hospital','airport','supermarket','beach','dining']);
         if($check_input){
             $property->data_status = "Published";
@@ -381,12 +379,14 @@ class LandController extends Controller
     {
         $property = Property::findOrFail($id);
         $images = json_decode($property->property_image); //mecah array multi image
-        foreach($images as $image){
+        if($images){
+            foreach($images as $image){
 
-            $image_path = public_path().'/property-image/'.$image; //ambil 1 1 image yang ada di array
-
-            if(File::exists($image_path)) { //kalo file imagenya ada
-                File::delete($image_path); //hapus dari folder local
+                $image_path = public_path().'/property-image/'.$image; //ambil 1 1 image yang ada di array
+    
+                if(File::exists($image_path)) { //kalo file imagenya ada
+                    File::delete($image_path); //hapus dari folder local
+                }
             }
         }
 

@@ -164,7 +164,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="building-area">PLN / Power (kV)</label>
-                        <input name="pln" type="text" class="form-control" id="pln" placeholder="0">
+                        <input name="pln" type="text" class="form-control" id="pln" placeholder="Leave blank if it has no value">
                       </div>
                     </div>
                   </div>
@@ -197,7 +197,7 @@
                       <div class="form-group">
                         <label for="topography-plan">Topography plan</label>
                         <select name="topography" class="custom-select" >
-                          <option selected disabled>Choose One</option>
+                          <option selected disabled>Choose One (ignore if no Topography plan)</option>
                           <option value="0">Yes</option>
                           <option value="1">No</option>
                         </select>
@@ -207,7 +207,7 @@
                       <div class="form-group">
                         <label for="soil-test">Soil Test</label>
                         <select name="soil_test" class="custom-select">
-                          <option selected disabled>Choose One</option>
+                          <option selected disabled>Choose One  (ignore if no Soil Test)</option>
                           <option value="0">Yes</option>
                           <option value="1">No</option>
                         </select>
@@ -219,13 +219,13 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="slope-ratio">Slope Ratio</label>
-                        <input name="slope_ratio" type="text" class="form-control" id="slope-ratio" placeholder="Input Slope Ratio here">
+                        <input name="slope_ratio" type="text" class="form-control" id="slope-ratio" placeholder="Leave blank if it has no value">
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="building-ratio">Building Ratio</label>
-                        <input name="building_ratio" type="text" class="form-control" id="building-ratio" placeholder="Input Building Ratio here">
+                        <input name="building_ratio" type="text" class="form-control" id="building-ratio" placeholder="Leave blank if it has no value">
                       </div>
                     </div>
                   </div>
@@ -234,13 +234,13 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="rain-average">Rain Average (Year)</label>
-                        <input name="rain_average" type="text" class="form-control" id="rain-average" placeholder="Input Rain Average per year here">
+                        <input name="rain_average" type="text" class="form-control" id="rain-average" placeholder="Leave blank if it has no value">
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="humidity-average">Humidity Average (Year)</label>
-                        <input name="humidity_average" type="text" class="form-control" id="humidity-average" placeholder="Input Humidity Average per year here">
+                        <input name="humidity_average" type="text" class="form-control" id="humidity-average" placeholder="Leave blank if it has no value">
                       </div>
                     </div>
                   </div>
@@ -250,7 +250,7 @@
                       <div class="form-group">
                         <label for="access-road">Access Road</label>
                         <select name="access_road" class="custom-select" >
-                          <option selected disabled>Choose One</option>
+                          <option selected disabled>Choose One (ignore if no Access Road)</option>
                           <option value="0">Yes</option>
                           <option value="1">No</option>
                         </select>
@@ -259,7 +259,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="road-width">Access Road Width</label>
-                        <input name="road_width" type="text" class="form-control" id="road-width" placeholder="Input Access Road Width here">
+                        <input name="road_width" type="text" class="form-control" id="road-width" placeholder="Leave blank if it has no value">
                       </div>
                     </div>
                   </div>
@@ -268,7 +268,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="city-draw">City Draw</label>
-                        <input name="city_draw" type="text" class="form-control" id="city-draw" placeholder="Input City Draw here">
+                        <input name="city_draw" type="text" class="form-control" id="city-draw" placeholder="Leave blank if it has no value">
                       </div>
                     </div>
                     <div class="col-md-6">
@@ -289,7 +289,7 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label for="video">Video Link</label>
-                        <input type="text" name="video" class="form-control @error('video') is-invalid @enderror"  value="{{ old('video') }}" id="video" placeholder="Input video link here">
+                        <input type="text" name="video" class="form-control @error('video') is-invalid @enderror"  value="{{ old('video') }}" id="video" placeholder="Leave blank if it has no value">
                         @error('video')
                           <div class="invalid-feedback">
                             {{ $message }}
@@ -443,7 +443,8 @@
 
                 <div class="card-footer text-right">
                   <button class="btn btn-danger w-25">Cancel</button>
-                  <button id="btnSubmit" type="submit" class="btn btn-success w-25">Draft</button>
+                  <button id="btnSubmit" type="submit" name="btn_submit" value="draft_btn" class="btn btn-primary w-25">Draft</button>
+                  <button id="btnSubmit2" type="submit" name="btn_submit" value="publish_btn" class="btn btn-success w-25">Publish</button> 
                 </div>
               </form>
             </div>

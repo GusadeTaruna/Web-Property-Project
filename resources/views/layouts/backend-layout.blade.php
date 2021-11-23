@@ -396,7 +396,7 @@
         })
     </script>
 
-    <script>
+    {{-- <script>
         $(document).on('change keyup', function(e){
         let filled = true;
             $("#saveForm input").each(function() {
@@ -416,6 +416,6 @@
                 $('#btnSubmit').text('Submit');
             }
         })
-    </script>
+    </script> --}}
 </body>
 </html>

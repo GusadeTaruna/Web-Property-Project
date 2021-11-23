@@ -28,6 +28,19 @@ class DashboardController extends Controller
         return view('backend.admin.admin-list',compact('user'));
     }
 
+    public function adminDestroy($id){
+        $admin = User::findOrFail($id);
+        $admin->delete();
+        if($admin){
+            //redirect dengan pesan sukses
+            return redirect('/admin/list-admin')->with('success',' Data deleted successfully!');
+        }else{
+        //redirect dengan pesan error
+            return redirect('/admin/list-admin')->with('error','Error Deleting Data!');
+        }
+
+    }
+
     public function msgInbox(){
         $inbox = Inbox::where('msg_type', '=', 'contact')->get();
         return view('backend.admin.contact-inbox',compact('inbox'));
