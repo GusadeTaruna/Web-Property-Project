@@ -234,7 +234,7 @@
     {{-- IMage Modal --}}
 
     <footer class="main-footer">
-        <strong>Copyright &copy; <a href="/admin" style="color: #a5876a;">Equatorial Properties</a>.</strong>
+        <strong>Copyright &copy; <a href="/admin" style="color: #a5876a;">Equatorial Property</a>.</strong>
         All rights reserved.
     </footer>
     </div>

@@ -479,7 +479,7 @@
 
     <footer class="mt-auto py-4">
 	    <div class="text-center">
-	      <small>&copy; Equatorial Properties. All rights reserved</small>
+	      <small>&copy; Equatorial Property. All rights reserved</small>
 	    </div>
 	</footer>
 
