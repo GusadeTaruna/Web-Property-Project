@@ -268,7 +268,7 @@ nav.navbar {
 
 .header .header-content {
     position: absolute;
-    top: 50%;
+    top: 80%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: #ffffff;
@@ -522,6 +522,15 @@ footer {
         /*background: linear-gradient(to right, #F16A70, #F16A70) no-repeat;
         background-size: 90% 3px;
         background-position: left bottom;*/
+    }
+
+    .header nav.navbar .nav-item .icon-responsive{
+        display: inline-block;
+        margin-right: 5px;
+    }
+
+    .fixed{
+        padding: 0 12px;
     }
 
     #product-listing .property-list p{

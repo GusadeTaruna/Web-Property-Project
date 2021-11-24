@@ -206,7 +206,7 @@ nav.navbar {
 
 .header .header-content {
     position: absolute;
-    top: 50%;
+    top: 80%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: #ffffff;
@@ -313,6 +313,7 @@ nav.navbar {
     font-family: "cerebri-bold";
     font-size: 24px;
     float: right;
+    margin-bottom: 0 !important;
 }
 
 
@@ -385,6 +386,7 @@ footer {
 
     #property-detail .harga{
         font-size: 20px;
+        margin-bottom: 0 !important;
     }
 
     #property-detail .harga-row{
@@ -426,6 +428,15 @@ footer {
         /*background: linear-gradient(to right, #F16A70, #F16A70) no-repeat;
         background-size: 90% 3px;
         background-position: left bottom;*/
+    }
+
+    .header nav.navbar .nav-item .icon-responsive{
+        display: inline-block;
+        margin-right: 5px;
+    }
+
+    .fixed{
+        padding: 0 12px;
     }
 
     #property-detail .atas{

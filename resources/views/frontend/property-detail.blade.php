@@ -32,7 +32,7 @@
 							<a class="nav-link" href="/about"><i class="fas fa-user-friends my-auto icon-responsive"></i> About Us</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/services"><i class="fas fa-user-friends my-auto icon-responsive"></i> Services</a>
+							<a class="nav-link" href="/services"><i class="fas fa-hands-helping my-auto icon-responsive"></i> Services</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link active" href="/property-list"><i class="fas fa-stream my-auto icon-responsive"></i> Listing</a>
@@ -130,6 +130,9 @@
 						<h1 class="harga">{{ $data->currency }} {{ number_format($data->price,0,'','.') }}</h1>
 					@endif
 					
+				</div>
+				<div class="harga-row">
+					<p class="mt-0"><span style="font-weight: bold">EST</span> : USD {{ number_format($data->price_usd,0,'','.') }}</p>	
 				</div>
 				<div class="inquiry-row">
 					<button class="btn btn-theme mr-2 inquiry-btn" data-toggle="modal" data-target="#exampleModalCenter" data-id="[{{ $data->property_code }}] {{ ucwords(strtolower($data->property_name)) }}">Inquiry now</button>

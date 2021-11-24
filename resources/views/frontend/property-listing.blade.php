@@ -32,7 +32,7 @@
 							<a class="nav-link" href="/about"><i class="fas fa-user-friends my-auto icon-responsive"></i> About Us</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/services"><i class="fas fa-user-friends my-auto icon-responsive"></i> Services</a>
+							<a class="nav-link" href="/services"><i class="fas fa-hands-helping my-auto icon-responsive"></i> Services</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link active" href="/property-list"><i class="fas fa-stream my-auto icon-responsive"></i> Listing</a>
