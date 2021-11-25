@@ -82,6 +82,8 @@ Route::put('/admin/land/update/{id}', [LandController::class, 'update'])->name('
 Route::delete('/admin/land/delete/{id}', [LandController::class, 'destroy'])->name('delete-land')->middleware('auth');
 
 Route::get('/admin/list-admin', [DashboardController::class, 'adminList'])->name('list-admin')->middleware('auth');
+Route::get('/admin/edit/{id}', [RegisterController::class, 'edit'])->name('edit-admin')->middleware('auth');
+Route::put('/admin/update/{id}', [RegisterController::class, 'update'])->name('update-admin')->middleware('auth');
 Route::delete('/admin/list-admin/delete/{id}', [DashboardController::class, 'adminDestroy'])->name('delete-admin')->middleware('auth');
 
 Route::get('/admin/inbox-contact', [DashboardController::class, 'msgInbox'])->name('contact-inbox')->middleware('auth');

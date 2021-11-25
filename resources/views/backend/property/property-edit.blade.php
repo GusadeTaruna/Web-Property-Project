@@ -257,6 +257,20 @@
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
+                        <label for="generator">Year Built</label>
+                        <input type="date" name="year_built" class="form-control @error('year_built') is-invalid @enderror" value="{{$data->year_built}}"  id="year_built">
+                        @error('year_built')
+                          <div class="invalid-feedback">
+                            {{ $message }}
+                          </div>
+                        @enderror
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
                         <label for="images">Property Image</label>
                         <div class="input-group">
                           <div class="custom-file">
@@ -267,10 +281,7 @@
                         </div>
                       </div>
                     </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                       <div class="form-group">
                         <label for="video">Video Link</label>
                         <input type="text" name="video" class="form-control @error('video') is-invalid @enderror"  value="{{$data->video_link}}" id="generator" placeholder="{{$data->video_link}}">

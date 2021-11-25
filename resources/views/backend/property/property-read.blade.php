@@ -168,7 +168,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                         <div class="form-group">
                             <label for="zoning-land">Zoning Land Use</label>
                             @if (!is_null($data->zoning))
@@ -176,6 +176,12 @@
                             @endif
                         </div>
                         </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                              <label for="year-built">Year Built</label>
+                              <br>{{ $data->year_built }}
+                          </div>
+                          </div>
                     </div>
 
                     <div class="row">

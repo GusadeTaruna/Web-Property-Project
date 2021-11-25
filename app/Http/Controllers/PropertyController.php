@@ -29,6 +29,15 @@ class PropertyController extends Controller
                 $propertyCode = $huruf . sprintf("%03s", $count->lastcode+1);
             }
         }
+        // $count = Property::select('id')->orderBy('id', 'DESC')->where('property_type','=','1')->first();
+
+        // if(is_null($count)){
+        //     $propertyCode = $huruf . sprintf("%03s", 1);
+        // }else{
+        //     if($count->id > 0) {
+        //         $propertyCode = $huruf . sprintf("%03s", $count->id++);
+        //     }
+        // }
         
         return view('backend.property.property-create',compact('propertyCode','property_type'));
         // dd($count);
@@ -36,7 +45,7 @@ class PropertyController extends Controller
 
     public function store(Request $request){
 
-        $check_input = $request->filled(['code', 'property_name','location','price','currency','status','site_plan','site_area','building_area','description','bed','bath','school','hospital','airport','supermarket','beach','dining']);
+        $check_input = $request->filled(['code', 'property_name','location','price','currency','status','site_plan','site_area','building_area','year_built','description','bed','bath','school','hospital','airport','supermarket','beach','dining']);
         if($request->btn_submit == "publish_btn"){
 
             $validatedData = $request->validate([
@@ -49,6 +58,7 @@ class PropertyController extends Controller
                 'site_plan' => 'required',
                 'site_area' => 'required',
                 'building_area' => 'required',
+                'year_built' => 'required',
                 // 'zoning_type' => 'required',
                 'description' => 'required',
                 'school' => 'required',
@@ -67,6 +77,7 @@ class PropertyController extends Controller
                 'site_plan.required' => 'You must enter the site plan of the property data',
                 'site_area.required' => 'You must enter the site area of the property data',
                 'building_area.required' => 'You must enter the building area of the property data',
+                'building_area.required' => 'You must enter the year built of the property data',
                 'description.required' => 'You must enter the description of the property data',
                 'school.required' => 'You must enter the School distance',
                 'hospital.required' => 'You must enter the Hospital distance',
@@ -122,8 +133,9 @@ class PropertyController extends Controller
             $property->site_plan = $validatedData['site_plan'];
             $property->site_area = $validatedData['site_area'];
             $property->building_area = $validatedData['building_area'];
-            $property->power_kv = $validatedData['power_kv'];
-            $property->generator_kv = $validatedData['generator'];
+            $property->year_built = $validatedData['year_built'];
+            $property->power_kv = $request->power_kv;
+            $property->generator_kv = $request->generator;
 
             if(is_null($request->pdma)){
                 $property->pdma_water = 0;
@@ -141,9 +153,9 @@ class PropertyController extends Controller
             
             $property->zoning = $request->zoning_type;
             $property->description = $validatedData['description'];
-            $property->bed_qty = $validatedData['bed'];
-            $property->bath_qty = $validatedData['bath'];
-            $property->garage_qty = $validatedData['garage'];
+            $property->bed_qty = $request->bed;
+            $property->bath_qty = $request->bath;
+            $property->garage_qty = $request->garage;
             $property->school_distance = $validatedData['school'];
             $property->hospital_distance = $validatedData['hospital'];
             $property->airport_distance = $validatedData['airport'];
@@ -211,6 +223,7 @@ class PropertyController extends Controller
             $property->site_plan = $request->site_plan;
             $property->site_area = $request->site_area;
             $property->building_area = $request->building_area;
+            $property->year_built = $request->year_built;
             $property->power_kv = $request->power_kv;
             $property->generator_kv = $request->generator;
             $property->pdma_water = $request->pdma;
@@ -329,6 +342,7 @@ class PropertyController extends Controller
         $property->site_plan = $request->site_plan;
         $property->site_area = $request->site_area;
         $property->building_area = $request->building_area;
+        $property->year_built = $request->year_built;
         $property->power_kv = $request->power_kv;
         $property->generator_kv = $request->generator;
         $property->pdma_water = $request->pdma;
@@ -345,7 +359,7 @@ class PropertyController extends Controller
         $property->beach_distance = $request->beach;
         $property->fine_dining_distance = $request->dining;
 
-        $check_input = $request->filled(['code', 'property_name','location','price','currency','status','site_plan','site_area','building_area','description','school','hospital','airport','supermarket','beach','dining']);
+        $check_input = $request->filled(['code', 'property_name','location','price','currency','status','site_plan','site_area','building_area','year_built','description','school','hospital','airport','supermarket','beach','dining']);
         if($check_input){
             $property->data_status = "Published";
         }else{

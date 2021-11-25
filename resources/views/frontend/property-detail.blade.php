@@ -174,18 +174,19 @@
 						    	<p class="card-text">{{ $data->property_status }}</p>
 						    </div>
 				    	</div>
-				    	<div class="col-lg-6">
+						<div class="col-lg-6">
 				    		<div class="detail-text d-flex justify-content-start">
-						    	<p class="card-title mr-1">Year Built :</p>
-						    	<p class="card-text">2021-01-09</p>
+						    	<p class="card-title mr-1">Zoning:</p>
+						    	<p class="card-text">{{ $data->zoning_list->nama_tipe }}</p>
 						    </div>
 				    	</div>
 				    </div>
 
+					@if ($data->property_type==1)
 				    <div class="row">
 				    	<div class="col-lg-6">
 				    		<div class="detail-text d-flex justify-content-start">
-						    	<p class="card-title mr-1">Bedrooms :</p>
+								<p class="card-title mr-1">Bedrooms :</p>
 						    	<p class="card-text">{{ $data->bed_qty }}</p>
 						    </div>
 				    	</div>
@@ -196,6 +197,7 @@
 						    </div>
 				    	</div>
 				    </div>
+					@endif
 
 				    <div class="row">
 				    	<div class="col-lg-6">
@@ -204,12 +206,14 @@
 						    	<p class="card-text">{{ $data->type->nama_tipe }}</p>
 						    </div>
 				    	</div>
+				    	@if ($data->property_type==1)
 				    	<div class="col-lg-6">
 				    		<div class="detail-text d-flex justify-content-start">
-						    	<p class="card-title mr-1">Zoning:</p>
-						    	<p class="card-text">{{ $data->zoning_list->nama_tipe }}</p>
+						    	<p class="card-title mr-1">Year Built :</p>
+						    	<p class="card-text">{{ $data->year_built }}</p>
 						    </div>
 				    	</div>
+						@endif
 				    </div>
 				  </div>
 				</div>

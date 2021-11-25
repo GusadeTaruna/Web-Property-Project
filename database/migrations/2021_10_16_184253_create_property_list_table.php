@@ -59,6 +59,7 @@ class CreatePropertyListTable extends Migration
             $table->text('surrounding_sites_desc')->nullable();
             $table->bigInteger('view_count')->nullable();
             $table->string('data_status')->nullable();
+            $table->date('year_built')->nullable();
             $table->timestamps();
             
         });

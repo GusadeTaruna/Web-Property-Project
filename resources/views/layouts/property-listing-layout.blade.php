@@ -79,7 +79,7 @@
                           WhatsApp
                         </label>
                     </div>
-                    <label for="country">Nasionality :</label>
+                    <label for="country">Nationality :</label>
                     <select class="form-control mb-2" name="country">
                         <option value="" disabled selected>Choose one</option>
                         <option value="afghan">Afghan</option>

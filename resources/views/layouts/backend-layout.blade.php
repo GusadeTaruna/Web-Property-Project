@@ -60,7 +60,7 @@
                         <img src="/adminlte/dist/img/admin.png" style="width: 50%; height:auto; margin:auto;" class="dropdown-header rounded-circle">
                         <span style="font-weight:bold;" class="dropdown-header">{{ auth()->user()->name }}</span>
                         <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item text-center">Edit Profile</a>
+                        <a href={{ route('edit-admin',auth()->user()->name) }} class="dropdown-item text-center">Edit Profile</a>
                         <div class="dropdown-divider"></div>
                         <form action="/admin/logout" method="post">
                             @csrf
