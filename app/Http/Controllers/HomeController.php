@@ -149,29 +149,29 @@ class HomeController extends Controller
     }
 
     public function blog(){
-        $blog = Blog::orderBy('created_at','desc')->first();
-        $blog_all = Blog::paginate(3);
+        $blog = Blog::where('status', 'Published')->orderBy('created_at','desc')->first();
+        $blog_all = Blog::where('status', 'Published')->paginate(3);
         // dd($blog);
         return view('frontend.blog',compact('blog','blog_all'));
     }
 
     public function blog_detail($id){
-        $blog = Blog::where('id',$id)->first();
-        $blog_all = Blog::paginate(3);
+        $blog = Blog::where('id',$id)->where('status', 'Published')->first();
+        $blog_all = Blog::where('status', 'Published')->paginate(3);
         // dd($blog);
         return view('frontend.blog',compact('blog','blog_all'));
     }
 
     public function fact(){
-        $fact = Facts::orderBy('created_at','desc')->first();
-        $fact_all = Facts::paginate(3);
+        $fact = Facts::where('status', 'Published')->orderBy('created_at','desc')->first();
+        $fact_all = Facts::where('status', 'Published')->paginate(3);
         // dd($blog);
         return view('frontend.facts',compact('fact','fact_all'));
     }
 
     public function fact_detail($id){
-        $fact = Facts::where('id',$id)->first();
-        $fact_all = Facts::paginate(3);
+        $fact = Facts::where('id',$id)->where('status', 'Published')->first();
+        $fact_all = Facts::where('status', 'Published')->paginate(3);
         // dd($blog);
         return view('frontend.facts',compact('fact','fact_all'));
     }

@@ -85,7 +85,7 @@
                 </div>
                 @endif
                 @foreach ($fact_all as $data)
-                <a href="{{ route('blog-detail',$data->id) }}">
+                <a href="{{ route('fact-detail',$data->id) }}">
                     <h1 class="text-center judul-content mb-1">{{ $data->fact_title }}</h1>
                 </a>
                 <p class="text-center category-content mb-2 mt-0">{{ $data->fact_category }} - <span>{{$data->created_at->format('F d, Y')}}</span></p>

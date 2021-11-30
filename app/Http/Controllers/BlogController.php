@@ -39,24 +39,71 @@ class BlogController extends Controller
     public function store(Request $request)
     {
         //
-        $blog = new Blog;
-        $blog->blog_title = $request->article_title;
-        $blog->blog_category = $request->article_category;
-        $blog->blog_content = $request->article_content;
-        /*$imgpath = request()->file('file')->store('uploads', 'public'); 
-        return response()->json(['location' => "/storage/$imgpath"]);*/
+        if($request->btn_submit == "publish_btn"){
+            $validatedData = $request->validate([
+                'article_title' => 'required',
+                'article_category' => 'required',
+                'article_content' => 'required',
+            ],
+            [
+                'article_title.required' => 'You must enter the article title',
+                'article_category.required' => 'You must enter the article category',
+                'article_content.required' => 'You must enter the article content',
+            ]);
 
-        if($request->hasFile('file')){
-            $mainImage = $request->file('file');
-            $filename = time().'.'.$mainImage->extension();
-            Image:make($mainImage)->save(public_path().'/blog-asset/'.$filename);
+            $blog = new Blog;
+            $blog->blog_title = $validatedData['article_title'];
+            $blog->blog_category = $validatedData['article_category'];
+            $blog->blog_content = $validatedData['article_content'];
+            $blog->status = "Published";
+            /*$imgpath = request()->file('file')->store('uploads', 'public'); 
+            return response()->json(['location' => "/storage/$imgpath"]);*/
 
-            return json_encode(['location' => asset(public_path().'/blog-asset/'.$filename)]);
+            if($request->hasFile('file')){
+                $mainImage = $request->file('file');
+                $filename = time().'.'.$mainImage->extension();
+                Image:make($mainImage)->save(public_path().'/blog-asset/'.$filename);
+
+                return json_encode(['location' => asset(public_path().'/blog-asset/'.$filename)]);
+            }
+            $blog->save();
+
+            
+            if(!$blog->save()){
+                return back()->with('errorMsg', 'Error adding Data');
+            }else{
+                return redirect('/admin/blog')->with('success', 'Article successfully published');
+            }
+            
+
+        }elseif($request->btn_submit == "draft_btn"){
+            $blog = new Blog;
+            $blog->blog_title = $request->article_title;
+            $blog->blog_category = $request->article_category;
+            $blog->blog_content = $request->article_content;
+            $blog->status = "Draft";
+            /*$imgpath = request()->file('file')->store('uploads', 'public'); 
+            return response()->json(['location' => "/storage/$imgpath"]);*/
+
+            // if($request->hasFile('file')){
+            //     $mainImage = $request->file('file');
+            //     $filename = time().'.'.$mainImage->extension();
+            //     Image:make($mainImage)->save(public_path().'/blog-asset/'.$filename);
+
+            //     return json_encode(['location' => asset(public_path().'/blog-asset/'.$filename)]);
+            // }
+        
+
+            $blog->save();
+
+            if(!$blog->save()){
+                return back()->with('errorMsg', 'Error adding Data');
+            }else{
+                return redirect('/admin/blog')->with('success', 'Article successfully drafted');
+            }
+            
         }
-    
-
-        $blog->save();
-        return redirect('/admin/blog')->with('success', 'Article successfully added');
+        
     }
 
     /**
@@ -99,6 +146,13 @@ class BlogController extends Controller
         $blog->blog_title = $request->article_title;
         $blog->blog_category = $request->article_category;
         $blog->blog_content = $request->article_content;
+        $check_input = $request->filled(['article_title', 'article_category','article_content']);
+        if($check_input){
+            $blog->status = "Published";
+        }else{
+            $blog->status = "Draft";
+        }
+
         $blog->update();
 
         return redirect('/admin/blog')->with('success', 'Blog article successfully updated');

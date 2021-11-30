@@ -51,14 +51,14 @@
                         <div class="col-md-12">
                             <div class="alert alert-warning show">
                             <p class="mb-0 text-bold">1. Make sure that image size used in Article content is smaller than 1Mb</p>
-                            <p class="mb-0 text-bold">2. Draft have not implemented yet</p>
+                            {{-- <p class="mb-0 text-bold">2. Draft have not implemented yet</p> --}}
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="article_title">Article Title</label>
-                                <input type="text" name="article_title" class="form-control @error('article_title') is-invalid @enderror" id="article_title" placeholder="Input article title here" value="{{$data->fact_title}}" required>
+                                <input type="text" name="article_title" class="form-control @error('article_title') is-invalid @enderror" id="article_title" placeholder="Input article title here" value="{{$data->fact_title}}">
                                 @error('article_title')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -69,7 +69,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="article_category">Article Category</label>
-                                <input type="text" name="article_category" class="form-control @error('article_category') is-invalid @enderror" id="article_category" placeholder="Input article category here" value="{{$data->fact_category}}" required>
+                                <input type="text" name="article_category" class="form-control @error('article_category') is-invalid @enderror" id="article_category" placeholder="Input article category here" value="{{$data->fact_category}}">
                                 @error('article_category')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -98,8 +98,7 @@
 
                     <div class="card-footer text-right">
                     <button class="btn btn-danger w-25">Cancel</button>
-                    <button id="btnSubmit" type="submit" name="btn_submit" value="draft_btn" class="btn btn-primary w-25">Draft</button>
-                    <button id="btnSubmit2" type="submit" name="btn_submit" value="publish_btn" class="btn btn-success w-25">Publish</button> 
+                    <button id="btnSubmit2" type="submit" name="btn_submit" value="publish_btn" class="btn btn-success w-25">Submit</button> 
                     </div>
                 </form> 
               @endforeach

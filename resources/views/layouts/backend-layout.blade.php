@@ -169,7 +169,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="/admin/fact" class="nav-link {{ request()->is('admin/blog') ? 'active' : '' }}">
+                            <a href="/admin/fact" class="nav-link {{ request()->is('admin/fact') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-info-circle"></i>
                                 <p>
                                     Facts
@@ -316,6 +316,7 @@
             path_absolute : "/",
             selector: "textarea#open-source-plugins",
             automatic_uploads: false,
+            menubar: false,
             height: 800,
             plugins: [
                 "advlist autolink lists link image charmap print preview hr anchor pagebreak",
@@ -323,7 +324,7 @@
                 "insertdatetime media nonbreaking save table contextmenu directionality",
                 "emoticons template paste textcolor colorpicker textpattern"
             ],
-            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image ",
+            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | fontselect fontsizeselect formatselect | bullist numlist outdent indent | link image ",
             relative_urls: false,
             images_upload_handler: function (blobInfo, success, failure) {
                 var xhr, formData;

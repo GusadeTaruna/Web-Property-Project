@@ -18,6 +18,7 @@ class CreateFactsTable extends Migration
             $table->string('fact_title')->nullable();
             $table->string('fact_category')->nullable();
             $table->longText('fact_content')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

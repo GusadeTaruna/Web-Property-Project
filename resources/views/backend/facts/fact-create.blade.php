@@ -49,19 +49,19 @@
                     <div class="col-md-12">
                         <div class="alert alert-warning show">
                           <p class="mb-0 text-bold">1. Make sure that image size used in Article content is smaller than 1Mb</p>
-                          <p class="mb-0 text-bold">2. Draft have not implemented yet</p>
+                          {{-- <p class="mb-0 text-bold">2. Draft have not implemented yet</p> --}}
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                           <label for="article_title">Article Title</label>
-                          <input type="text" name="article_title" class="form-control" id="article_title" placeholder="Input article title here" required>
+                          <input type="text" name="article_title" class="form-control" id="article_title" placeholder="Input article title here">
                         </div>
                       </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="article_category">Article Category</label>
-                        <input type="text" name="article_category" class="form-control" id="article_category" placeholder="Input article category here" required>
+                        <input type="text" name="article_category" class="form-control" id="article_category" placeholder="Input article category here">
                       </div>
                     </div>
                   </div>
