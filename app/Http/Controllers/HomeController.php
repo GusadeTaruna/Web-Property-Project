@@ -11,6 +11,7 @@ use App\Models\CustomizeServices;
 use App\Models\CustomizeAbout;
 use App\Models\TeamMember;
 use App\Models\CustomizeContact;
+use App\Models\Blog;
 use App\Mail\ContactMail;
 use App\Mail\InquiryMail;
 use Mail;
@@ -144,6 +145,20 @@ class HomeController extends Controller
 
     public function faq(){
         return view('frontend.faq');
+    }
+
+    public function blog(){
+        $blog = Blog::orderBy('created_at','desc')->first();
+        $blog_all = Blog::paginate(3);
+        // dd($blog);
+        return view('frontend.blog',compact('blog','blog_all'));
+    }
+
+    public function blog_detail($id){
+        $blog = Blog::where('id',$id)->first();
+        $blog_all = Blog::paginate(3);
+        // dd($blog);
+        return view('frontend.blog',compact('blog','blog_all'));
     }
 
     public function contactUs(){

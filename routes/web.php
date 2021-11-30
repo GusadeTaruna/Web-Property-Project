@@ -12,6 +12,7 @@ use App\Http\Controllers\CustomizeHomePageController;
 use App\Http\Controllers\CustomizeServicesPageController;
 use App\Http\Controllers\CustomizeAboutPageController;
 use App\Http\Controllers\CustomizeContactPageController;
+use App\Http\Controllers\BlogController;
 
 
 /*
@@ -41,6 +42,8 @@ Route::get('add-to-cart/{id}', [HomeController::class, 'addToCart'])->name('add.
 Route::get('remove-from-cart/{id}', [HomeController::class, 'remove'])->name('remove.from.cart');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/services', [HomeController::class, 'services'])->name('services');
+Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
+Route::get('/blog/{id}', [HomeController::class, 'blog_detail'])->name('blog-detail');
 // Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
 Route::get('/contact-us', [HomeController::class, 'contactUs'])->name('contact-us');
 Route::post('/send-message',[HomeController::class, 'sendEmail'])->name('contact.send');
@@ -122,4 +125,9 @@ Route::delete('/admin/customize/about-us/team/delete/{id}', [CustomizeAboutPageC
 Route::get('/admin/customize/contact', [CustomizeContactPageController::class, 'create'])->name('customize-contact')->middleware('auth');
 Route::post('/admin/customize/contact/create', [CustomizeContactPageController::class, 'store'])->middleware('auth');
 Route::put('/admin/customize/contact/update/{id}', [CustomizeContactPageController::class, 'update'])->name('update-contact')->middleware('auth');
+
+Route::get('/admin/blog', [BlogController::class, 'index'])->name('blog-index')->middleware('auth');
+Route::get('/admin/blog/create', [BlogController::class, 'create'])->name('blog-create')->middleware('auth');
+Route::post('/admin/blog/create', [BlogController::class, 'store'])->name('blog-store')->middleware('auth');
+Route::get('/admin/blog/{id}', [BlogController::class, 'show'])->name('show-blog')->middleware('auth');
 

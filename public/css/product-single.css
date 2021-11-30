@@ -164,7 +164,7 @@ nav.navbar {
 }
 
 .logo-nav{
-    width: 180px; 
+    width: 165px; 
     height:auto;
 }
 
@@ -176,7 +176,7 @@ nav.navbar {
 }
 
 .header nav.navbar .nav-link {
-    font-size: 15px;
+    font-size: 13px;
     font-family: var(--font-poppin);
     color: var(--color-primary);
     font-weight: 500;

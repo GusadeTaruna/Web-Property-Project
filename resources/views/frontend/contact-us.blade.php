@@ -42,6 +42,9 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="/contact-us"><i class="fas fa-phone my-auto icon-responsive"></i> Contact Us</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/blog"><i class="fas fa-newspaper my-auto icon-responsive"></i> Blog</a>
+                    </li>
 
                 </ul>
 

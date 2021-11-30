@@ -152,14 +152,14 @@ p {
     position: relative;
 }
 
-#banner-image{
+.banner-image{
     margin: auto;
     width: 100%;
-    height: 45vh;
+    height: auto;
     position: relative;
 }
 
-#banner-image img{
+.banner-image img{
     object-fit: cover;
     object-position: center;
     width: 100%;
@@ -167,21 +167,47 @@ p {
     border-radius: 0;
 }
 
-#banner-image:after {
-    content: '\A';
-    position: absolute;
-    z-index: 1;
-    width: 100%; height:100%;
-    top:0; left:0;
-    background:rgba(0,0,0,.4);
-    opacity: 1;
-    transition: all 1s;
-    -webkit-transition: all 1s;
+.header-container{
+    margin-top: 55px;
+    margin-bottom: 55px;
 }
 
-#banner-image .swiper {
-    width: 100%;
-    height: 100%;
+.judul-header{
+    font-size: 45px;
+}
+
+.judul-content{
+    font-size: 26px;
+}
+
+.category-content{
+    font-size: 15px;
+}
+
+.text-recomendation {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-height: 23px;     /* fallback */
+    max-height: 50%;      /* fallback */
+    -webkit-line-clamp: 5; /* number of lines to show */
+    -webkit-box-orient: vertical;
+ }
+
+ .has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
 }
 
 
@@ -202,7 +228,7 @@ nav.navbar {
 }
 
 .logo-nav{
-    width: 180px; 
+    width: 165px; 
     height:auto;
 }
 
@@ -510,7 +536,7 @@ footer {
     }
 
     .logo-nav{
-        width: 165px; 
+        width: 150px; 
         height:auto;
     }
 

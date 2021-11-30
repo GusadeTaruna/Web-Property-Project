@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title')</title>
 
+    <link rel="icon" href="/img/logo/logo-1.svg" type="image/icon type">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
@@ -159,6 +160,15 @@
                         @endif
 
                         <li class="nav-item">
+                            <a href="/admin/blog" class="nav-link {{ request()->is('admin/blog') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-newspaper"></i>
+                                <p>
+                                    Blog
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
                             <a href="#" class="nav-link {{ request()->is('admin/inbox-contact')||request()->is('inbox-inquiry') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-inbox"></i>
                                 <p>Inbox<i class="fas fa-angle-left right"></i></p>
@@ -287,7 +297,57 @@
     <script src="/adminlte/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
     <script src="/adminlte/plugins/datatables-buttons/js/buttons.print.min.js"></script>
     <script src="/adminlte/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+    <script src="https://cdn.tiny.cloud/1/jwanh1wc43jdfwqoov70xgnnaznt7tbp81o1zfy2yv1vsdvm/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <!-- Page specific script [Data Table]-->
+    
+
+
+    <script>
+        var editor_config = {
+            path_absolute : "/",
+            selector: "textarea#open-source-plugins",
+            automatic_uploads: false,
+            height: 500,
+            plugins: [
+                "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+                "searchreplace wordcount visualblocks visualchars code fullscreen",
+                "insertdatetime media nonbreaking save table contextmenu directionality",
+                "emoticons template paste textcolor colorpicker textpattern"
+            ],
+            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image ",
+            relative_urls: false,
+            images_upload_handler: function (blobInfo, success, failure) {
+                var xhr, formData;
+                xhr = new XMLHttpRequest();
+                xhr.withCredentials = false;
+                xhr.open('POST', '{{ route("blog-store") }}');
+                var token = document.getElementById("_token").value;
+                xhr.setRequestHeader("X-CSRF-Token", token);
+                xhr.onload = function() {
+                    var json;
+                    if (xhr.status != 200) {
+                        failure('HTTP Error: ' + xhr.status);
+                        return;
+                    }
+                    json = JSON.parse(xhr.responseText);
+      
+                    if (!json || typeof json.location != 'string'){
+                        failure('Invalid JSON: ' + xhr.responseText);
+                        return;
+                    }
+      
+                    success(json.location);
+                };
+                formData = new formData();
+                formData.append('file', blobInfo.blob(), blobInfo.fileName());
+                xhr.send(formData);
+            }
+      
+        };
+      
+        tinymce.init(editor_config);
+      </script>
+
     <script>
         $(function () {
           $("#example1").DataTable({
