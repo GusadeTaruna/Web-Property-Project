@@ -1,6 +1,6 @@
 @extends('layouts.backend-layout')
 
-@section('title', 'Blog List')
+@section('title', 'Fact List')
 
 @section('content')
   <!-- Content Wrapper. Contains page content -->
@@ -31,8 +31,8 @@
         
         <div class="row mb-2">
           <div class="col-sm-12 d-flex justify-content-between">
-            <h1>Blog List</h1>
-            <a href="/admin/blog/create" class="btn btn-success my-auto">Add New Article</a>
+            <h1>Fact List</h1>
+            <a href="/admin/fact/create" class="btn btn-success my-auto">Add New Article</a>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -56,16 +56,16 @@
                   </tr>
                   </thead>
                   <tbody>
-                    @foreach ($blog as $data)
+                    @foreach ($fact as $data)
                     <tr>
-                      <td>{{ $data->blog_title }}</td>
-                      <td>{{ $data->blog_category }}</td>
-                      <form method="POST" action="{{ route('delete-blog', $data->id) }}">
+                      <td>{{ $data->fact_title }}</td>
+                      <td>{{ $data->fact_category }}</td>
+                      <form method="POST" action="{{ route('delete-fact', $data->id) }}">
                         @csrf
                         @method('DELETE')
                         <td style="text-align: center;">
-                          <a href="{{ route('show-blog',$data->id) }}" class="btn btn-success mb-2">View content</a>
-                          <a href="{{ route('edit-blog',$data->id) }}" class="btn btn-primary mb-2">Edit</a>
+                          <a href="{{ route('show-fact',$data->id) }}" class="btn btn-success mb-2">View content</a>
+                          <a href="{{ route('edit-fact',$data->id) }}" class="btn btn-primary mb-2">Edit</a>
                           <button type="submit" class="btn btn-danger mb-2" onclick="return confirm('Are you sure want to delete this article?');">Delete</button>
                         </td>
                       </form>

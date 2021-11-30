@@ -13,6 +13,7 @@ use App\Http\Controllers\CustomizeServicesPageController;
 use App\Http\Controllers\CustomizeAboutPageController;
 use App\Http\Controllers\CustomizeContactPageController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\FactsController;
 
 
 /*
@@ -44,6 +45,8 @@ Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/services', [HomeController::class, 'services'])->name('services');
 Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
 Route::get('/blog/{id}', [HomeController::class, 'blog_detail'])->name('blog-detail');
+Route::get('/facts', [HomeController::class, 'fact'])->name('blog');
+Route::get('/facts/{id}', [HomeController::class, 'fact_detail'])->name('blog-detail');
 // Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
 Route::get('/contact-us', [HomeController::class, 'contactUs'])->name('contact-us');
 Route::post('/send-message',[HomeController::class, 'sendEmail'])->name('contact.send');
@@ -130,4 +133,15 @@ Route::get('/admin/blog', [BlogController::class, 'index'])->name('blog-index')-
 Route::get('/admin/blog/create', [BlogController::class, 'create'])->name('blog-create')->middleware('auth');
 Route::post('/admin/blog/create', [BlogController::class, 'store'])->name('blog-store')->middleware('auth');
 Route::get('/admin/blog/{id}', [BlogController::class, 'show'])->name('show-blog')->middleware('auth');
+Route::get('/admin/blog/edit/{id}', [BlogController::class, 'edit'])->name('edit-blog')->middleware('auth');
+Route::put('/admin/blog/update/{id}', [BlogController::class, 'update'])->name('update-blog')->middleware('auth');
+Route::delete('/admin/blog/delete/{id}', [BlogController::class, 'destroy'])->name('delete-blog')->middleware('auth');
+
+Route::get('/admin/fact', [FactsController::class, 'index'])->name('fact-index')->middleware('auth');
+Route::get('/admin/fact/create', [FactsController::class, 'create'])->name('fact-create')->middleware('auth');
+Route::post('/admin/fact/create', [FactsController::class, 'store'])->name('fact-store')->middleware('auth');
+Route::get('/admin/fact/{id}', [FactsController::class, 'show'])->name('show-fact')->middleware('auth');
+Route::get('/admin/fact/edit/{id}', [FactsController::class, 'edit'])->name('edit-fact')->middleware('auth');
+Route::put('/admin/fact/update/{id}', [FactsController::class, 'update'])->name('update-fact')->middleware('auth');
+Route::delete('/admin/fact/delete/{id}', [FactsController::class, 'destroy'])->name('delete-fact')->middleware('auth');
 

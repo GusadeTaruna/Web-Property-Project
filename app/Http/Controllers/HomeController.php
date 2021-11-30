@@ -12,6 +12,7 @@ use App\Models\CustomizeAbout;
 use App\Models\TeamMember;
 use App\Models\CustomizeContact;
 use App\Models\Blog;
+use App\Models\Facts;
 use App\Mail\ContactMail;
 use App\Mail\InquiryMail;
 use Mail;
@@ -159,6 +160,20 @@ class HomeController extends Controller
         $blog_all = Blog::paginate(3);
         // dd($blog);
         return view('frontend.blog',compact('blog','blog_all'));
+    }
+
+    public function fact(){
+        $fact = Facts::orderBy('created_at','desc')->first();
+        $fact_all = Facts::paginate(3);
+        // dd($blog);
+        return view('frontend.facts',compact('fact','fact_all'));
+    }
+
+    public function fact_detail($id){
+        $fact = Facts::where('id',$id)->first();
+        $fact_all = Facts::paginate(3);
+        // dd($blog);
+        return view('frontend.facts',compact('fact','fact_all'));
     }
 
     public function contactUs(){

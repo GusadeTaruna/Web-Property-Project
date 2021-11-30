@@ -1,4 +1,4 @@
-@extends('layouts.blog-layout')
+@extends('layouts.fact-layout')
 
 
 @section('content')
@@ -41,10 +41,10 @@
                     <a class="nav-link" href="/contact-us"><i class="fas fa-phone my-auto icon-responsive"></i> Contact Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="/blog"><i class="fas fa-newspaper my-auto icon-responsive"></i> Blog</a>
+                    <a class="nav-link" href="/blog"><i class="fas fa-newspaper my-auto icon-responsive"></i> Blog</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/facts"><i class="fas fa-info-circle my-auto icon-responsive"></i> Facts</a>
+                    <a class="nav-link active" href="/facts"><i class="fas fa-info-circle my-auto icon-responsive"></i> Facts</a>
                 </li>
 
             </ul>
@@ -57,40 +57,40 @@
 <section id="about-section">
     <div class="container-lg">
         <div class="text-center header-container">
-            <h1 class="judul-header">Equatorial Life</h1>
+            <h1 class="judul-header">Your Equatorial Lifestyle</h1>
             <hr>
         </div>
-        @if (is_null($blog))
+        @if (is_null($fact))
         <div class="col-lg-12" style="height: 100vh;width:100%">
             <h1 class="text-center judul-content m-1">No content</h1>
         </div>
         @else
         <div class="row">
             <div class="col-lg-7 col-md-6">
-                <p class="text-center category-content m-1">{{ $blog->blog_category }}</p>
-                <h1 class="text-center judul-content m-1">{{ $blog->blog_title }}</h1>
-                <p class="text-center category-content mb-4 mt-2">{{$blog->created_at->format('F d, Y')}}</p>
+                <p class="text-center category-content m-1">{{ $fact->fact_category }}</p>
+                <h1 class="text-center judul-content m-1">{{ $fact->fact_title }}</h1>
+                <p class="text-center category-content mb-4 mt-2">{{$fact->created_at->format('F d, Y')}}</p>
                 <div class="banner-image">
-                    {!! $blog->blog_content !!}
+                    {!! $fact->fact_content !!}
                 </div>
             </div>
 
             <div class="col-md-1"></div>
 
             <div class="col-md-4 mr-auto">
-                @if (!is_null($blog))
+                @if (!is_null($fact))
                 <div class="form-group has-search mb-4">
                     <span class="fa fa-search form-control-feedback"></span>
                     <input type="text" class="form-control" placeholder="Search">
                 </div>
                 @endif
-                @foreach ($blog_all as $data)
+                @foreach ($fact_all as $data)
                 <a href="{{ route('blog-detail',$data->id) }}">
-                    <h1 class="text-center judul-content mb-1">{{ $data->blog_title }}</h1>
+                    <h1 class="text-center judul-content mb-1">{{ $data->fact_title }}</h1>
                 </a>
-                <p class="text-center category-content mb-2 mt-0">{{ $data->blog_category }} - <span>{{$data->created_at->format('F d, Y')}}</span></p>
+                <p class="text-center category-content mb-2 mt-0">{{ $data->fact_category }} - <span>{{$data->created_at->format('F d, Y')}}</span></p>
                 <div class="banner-image">
-                    <span class="text-recomendation mb-4">{!! $data->blog_content !!}</span>
+                    <span class="text-recomendation mb-4">{!! $data->fact_content !!}</span>
                 </div>
                 @endforeach
                 

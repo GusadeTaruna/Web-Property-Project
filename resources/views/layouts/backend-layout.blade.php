@@ -169,6 +169,15 @@
                         </li>
 
                         <li class="nav-item">
+                            <a href="/admin/fact" class="nav-link {{ request()->is('admin/blog') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-info-circle"></i>
+                                <p>
+                                    Facts
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
                             <a href="#" class="nav-link {{ request()->is('admin/inbox-contact')||request()->is('inbox-inquiry') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-inbox"></i>
                                 <p>Inbox<i class="fas fa-angle-left right"></i></p>
@@ -307,7 +316,7 @@
             path_absolute : "/",
             selector: "textarea#open-source-plugins",
             automatic_uploads: false,
-            height: 500,
+            height: 800,
             plugins: [
                 "advlist autolink lists link image charmap print preview hr anchor pagebreak",
                 "searchreplace wordcount visualblocks visualchars code fullscreen",

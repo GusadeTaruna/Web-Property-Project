@@ -43,6 +43,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/blog"><i class="fas fa-newspaper my-auto icon-responsive"></i> Blog</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/facts"><i class="fas fa-info-circle my-auto icon-responsive"></i> Facts</a>
+                </li>
 
             </ul>
 

@@ -1,6 +1,6 @@
 @extends('layouts.backend-layout')
 
-@section('title', 'Add New Blog Article')
+@section('title', 'Add New Fact Article')
 
 @section('content')
   <!-- Content Wrapper. Contains page content -->
@@ -23,7 +23,7 @@
           </div>
           <div class="col-md-1"></div>
           <div class="col-md-11">
-            <h1>Add New Blog Article</h1>
+            <h1>Add New Fact Article</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -42,7 +42,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="/admin/blog/create" method="post" enctype="multipart/form-data">
+              <form action="/admin/fact/create" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                   <div class="row">

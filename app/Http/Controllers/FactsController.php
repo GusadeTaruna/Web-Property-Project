@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Blog;
+use App\Models\Facts;
 use Illuminate\Http\Request;
 
-class BlogController extends Controller
+class FactsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class BlogController extends Controller
     public function index()
     {
         //
-        $blog = Blog::all();
-        return view('backend.blog.blog-index',compact('blog'));
+        $fact = Facts::all();
+        return view('backend.facts.fact-index',compact('fact'));
     }
 
     /**
@@ -27,7 +27,7 @@ class BlogController extends Controller
     public function create()
     {
         //
-        return view('backend.blog.blog-create');
+        return view('backend.facts.fact-create');
     }
 
     /**
@@ -39,89 +39,89 @@ class BlogController extends Controller
     public function store(Request $request)
     {
         //
-        $blog = new Blog;
-        $blog->blog_title = $request->article_title;
-        $blog->blog_category = $request->article_category;
-        $blog->blog_content = $request->article_content;
+        $fact = new Facts;
+        $fact->fact_title = $request->article_title;
+        $fact->fact_category = $request->article_category;
+        $fact->fact_content = $request->article_content;
         /*$imgpath = request()->file('file')->store('uploads', 'public'); 
         return response()->json(['location' => "/storage/$imgpath"]);*/
 
         if($request->hasFile('file')){
             $mainImage = $request->file('file');
             $filename = time().'.'.$mainImage->extension();
-            Image:make($mainImage)->save(public_path().'/blog-asset/'.$filename);
+            Image:make($mainImage)->save(public_path().'/fact-asset/'.$filename);
 
-            return json_encode(['location' => asset(public_path().'/blog-asset/'.$filename)]);
+            return json_encode(['location' => asset(public_path().'/fact-asset/'.$filename)]);
         }
     
 
-        $blog->save();
-        return redirect('/admin/blog')->with('success', 'Article successfully added');
+        $fact->save();
+        return redirect('/admin/fact')->with('success', 'Article successfully added');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Blog  $blog
+     * @param  \App\Models\Facts  $facts
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
         //
-        $blog = Blog::where('id',$id)->get();
-        return view('backend.blog.blog-read',compact('blog'));
+        $fact = Facts::where('id',$id)->get();
+        return view('backend.facts.fact-read',compact('fact'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Blog  $blog
+     * @param  \App\Models\Facts  $facts
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         //
-        $blog = Blog::where('id',$id)->get();
-        return view('backend.blog.blog-edit',compact('blog'));
+        $fact = Facts::where('id',$id)->get();
+        return view('backend.facts.fact-edit',compact('blog'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Blog  $blog
+     * @param  \App\Models\Facts  $facts
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,$id)
     {
         //
-        $blog = Blog::findOrFail($id);
-        $blog->blog_title = $request->article_title;
-        $blog->blog_category = $request->article_category;
-        $blog->blog_content = $request->article_content;
-        $blog->update();
+        $fact = Facts::findOrFail($id);
+        $fact->fact_title = $request->article_title;
+        $fact->fact_category = $request->article_category;
+        $fact->fact_content = $request->article_content;
+        $fact->update();
 
-        return redirect('/admin/blog')->with('success', 'Blog article successfully updated');
+        return redirect('/admin/fact')->with('success', 'Fact article successfully updated');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Blog  $blog
+     * @param  \App\Models\Facts  $facts
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         //
-        $blog = Blog::findOrFail($id);
-        $blog->delete();
+        $fact = Facts::findOrFail($id);
+        $fact->delete();
 
-        if($blog){
+        if($fact){
          //redirect dengan pesan sukses
-         return redirect('/admin/blog')->with('success',' Article data deleted successfully!');
+         return redirect('/admin/fact')->with('success',' Article data deleted successfully!');
         }else{
         //redirect dengan pesan error
-        return redirect('/admin/blog')->with('error','Error Deleting Article!');
+        return redirect('/admin/fact')->with('error','Error Deleting Article!');
         }
     }
 }
