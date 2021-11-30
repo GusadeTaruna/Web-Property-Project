@@ -132,8 +132,10 @@
 				<div class="harga-row">
 					@if ($data->currency=="POI")
 						<h1 class="harga">Price on Inquiry</h1>
-					@else
+					@elseif ($data->property_type == 1)
 						<h1 class="harga">{{ $data->currency }} {{ number_format($data->price,0,'','.') }}</h1>
+					@elseif ($data->property_type == 2)
+						<h1 class="harga">{{ $data->currency }} {{ number_format($data->price,0,'','.') }} <span style="font-weight: lighter;font-size:17px">per 100m2</span> </h1>
 					@endif
 					
 				</div>
