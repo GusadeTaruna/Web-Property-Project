@@ -108,6 +108,26 @@
         });
     </script>
 
+    <script>
+        function successTitle() {
+            if(document.getElementById("title").value==="") { 
+                document.getElementById('search-btn').disabled = true; 
+            } else { 
+                document.getElementById('search-btn').disabled = false;
+            }
+        }
+    </script>
+
+    <script>
+        function successCategory() {
+            if(document.getElementById("category").value==="") { 
+                document.getElementById('search-btn').disabled = true; 
+            } else { 
+                document.getElementById('search-btn').disabled = false;
+            }
+        }
+    </script>
+
 
 </body>
 </html>

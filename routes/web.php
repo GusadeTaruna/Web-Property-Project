@@ -54,6 +54,7 @@ Route::post('/send-message-inquiry',[HomeController::class, 'sendEmailInquiry'])
 
 //searching
 Route::get('/search-property', [HomeController::class, 'search_property'])->name('search.property');
+Route::get('/search-blog', [HomeController::class, 'search_blog'])->name('search.blog');
 //sort by
 Route::get('/sort-listing', [HomeController::class, 'sort_property'])->name('sort.property');
 
@@ -138,8 +139,8 @@ Route::put('/admin/blog/update/{id}', [BlogController::class, 'update'])->name('
 Route::delete('/admin/blog/delete/{id}', [BlogController::class, 'destroy'])->name('delete-blog')->middleware('auth');
 
 Route::get('/admin/fact', [FactsController::class, 'index'])->name('fact-index')->middleware('auth');
-Route::get('/admin/fact/create', [FactsController::class, 'create'])->name('fact-create')->middleware('auth');
-Route::post('/admin/fact/create', [FactsController::class, 'store'])->name('fact-store')->middleware('auth');
+// Route::get('/admin/fact/create', [FactsController::class, 'create'])->name('fact-create')->middleware('auth');
+// Route::post('/admin/fact/create', [FactsController::class, 'store'])->name('fact-store')->middleware('auth');
 Route::get('/admin/fact/{id}', [FactsController::class, 'show'])->name('show-fact')->middleware('auth');
 Route::get('/admin/fact/edit/{id}', [FactsController::class, 'edit'])->name('edit-fact')->middleware('auth');
 Route::put('/admin/fact/update/{id}', [FactsController::class, 'update'])->name('update-fact')->middleware('auth');

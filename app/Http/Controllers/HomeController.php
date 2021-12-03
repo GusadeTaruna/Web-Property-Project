@@ -62,6 +62,28 @@ class HomeController extends Controller
         }
     }
 
+    public function search_blog(){
+        
+        $title = request()->title;
+        $category = request()->category;
+
+        $blog_all = Blog::when($title, function ($q) use ($title) {
+            return $q->where('status','Published')->where('blog_title', 'like', '%'.$title.'%');
+        })
+        ->when($category, function ($q) use ($category) {
+            return $q->where('status','Published')->where('blog_category', 'like', '%'.$category.'%');
+        })
+        ->paginate(12);
+
+        // dd($blog_all->total());
+        if($blog_all->total()>0){
+            return view('frontend.blog', compact('blog_all'));
+        }else{
+            return redirect('/blog')->with('notFound', 'No results found');
+        }
+    }
+
+
     public function sort_property(Request $request){
         $sort_by = $request->filter_by;
         if($sort_by == "most-recent"){
@@ -150,7 +172,7 @@ class HomeController extends Controller
 
     public function blog(){
         $blog = Blog::where('status', 'Published')->orderBy('created_at','desc')->first();
-        $blog_all = Blog::where('status', 'Published')->paginate(3);
+        $blog_all = Blog::where('status', 'Published')->paginate(12);
         // dd($blog);
         return view('frontend.blog',compact('blog','blog_all'));
     }
@@ -159,7 +181,7 @@ class HomeController extends Controller
         $blog = Blog::where('id',$id)->where('status', 'Published')->first();
         $blog_all = Blog::where('status', 'Published')->paginate(3);
         // dd($blog);
-        return view('frontend.blog',compact('blog','blog_all'));
+        return view('frontend.blog-backup',compact('blog','blog_all'));
     }
 
     public function fact(){

@@ -110,7 +110,7 @@ class FactsController extends Controller
     public function show($id)
     {
         //
-        $fact = Facts::where('id',$id)->get();
+        $fact = Facts::findOrFail($id)->where('id',$id)->get();
         return view('backend.facts.fact-read',compact('fact'));
     }
 
@@ -123,8 +123,8 @@ class FactsController extends Controller
     public function edit($id)
     {
         //
-        $fact = Facts::where('id',$id)->get();
-        return view('backend.facts.fact-edit',compact('blog'));
+        $fact = Facts::findOrFail($id)->where('id',$id)->get();
+        return view('backend.facts.fact-edit',compact('fact'));
     }
 
     /**

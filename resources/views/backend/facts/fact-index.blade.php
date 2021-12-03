@@ -32,7 +32,7 @@
         <div class="row mb-2">
           <div class="col-sm-12 d-flex justify-content-between">
             <h1>Fact List</h1>
-            <a href="/admin/fact/create" class="btn btn-success my-auto">Add New Article</a>
+            {{-- <a href="/admin/fact/create" class="btn btn-success my-auto">Add New Article</a> --}}
           </div>
         </div>
       </div><!-- /.container-fluid -->

@@ -13,7 +13,7 @@
     <!-- swiper -->
     <link rel="stylesheet" href="/css/swiperjs/swiper-bundle.min.css" />
      <!-- Style -->
-    <link rel="stylesheet" href="/css/blog.css" />
+    <link rel="stylesheet" href="/css/blog-backup.css" />
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
     <!-- Google Fonts -->
