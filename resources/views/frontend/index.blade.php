@@ -758,7 +758,7 @@
             @endforeach
         @endif
         <div class="col-md-12">
-            <button class="btn btn-theme">Contact Us</button>
+            <a href="/contact-us" class="btn btn-theme">Contact Us</a>
         </div>
         {{-- <div class="col-lg-8 col-md-11 mx-auto form shadow">
             <div class="row">
