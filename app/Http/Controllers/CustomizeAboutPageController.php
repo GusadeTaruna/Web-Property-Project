@@ -6,6 +6,7 @@ use App\Models\CustomizeAbout;
 use App\Models\TeamMember;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Image;
 
 class CustomizeAboutPageController extends Controller
 {
@@ -75,10 +76,10 @@ class CustomizeAboutPageController extends Controller
             'file_cv' => 'required',
             'profile' => 'required',
             'file_cv.*' => 'mimes:pdf|max:2048',
-            'profile.*' => 'image|mimes:png,jpg,jpeg,svg|max:1024'
+            'profile.*' => 'image|mimes:png,jpg,jpeg,svg|max:10000'
         ],
         [
-            'profile.*.max' => 'The images must not be greater than 1 MB.',
+            'profile.*.max' => 'The images must not be greater than 10 MB.',
             'file_cv.*.max' => 'CV file size must not be greater than 2 MB.'
         ]);
 
@@ -98,7 +99,13 @@ class CustomizeAboutPageController extends Controller
             foreach($request->file('profile') as $image){
                 $getFileExt = $image->getClientOriginalExtension();
                 $name=time().'TEAM'.$counter++.'.'.$getFileExt;
-                $image->move(public_path().'/about-asset/',$name); //folder path
+                $destinationPath = public_path().'/about-asset/';
+                
+                $img = Image::make($image->getRealPath());
+                $img->resize(1000, 1000, function ($constraint) {
+                    $constraint->aspectRatio();
+                })->save($destinationPath . $name, 80);
+                // $image->move(public_path().'/about-asset/',$name); //folder path
                 $data[] = $name;
             }
         }
@@ -124,12 +131,12 @@ class CustomizeAboutPageController extends Controller
         $about->team_desc = $request->team_desc;
         $this->validate($request, 
         [
-            'team_img.*' => 'image|mimes:png,jpg,jpeg,svg|max:1024',
-            'team_header.*' => 'image|mimes:png,jpg,jpeg,svg|max:1024'
+            'team_img.*' => 'image|mimes:png,jpg,jpeg,svg|max:10000',
+            'team_header.*' => 'image|mimes:png,jpg,jpeg,svg|max:10000'
         ],
         [
-            'team_img.*.max' => 'The images must not be greater than 1 MB.',
-            'team_header.*.max' => 'The images must not be greater than 1 MB.'
+            'team_img.*.max' => 'The images must not be greater than 10 MB.',
+            'team_header.*.max' => 'The images must not be greater than 10 MB.'
         ]);
 
         if($request->hasFile('team_img')){
@@ -137,7 +144,13 @@ class CustomizeAboutPageController extends Controller
             foreach($request->file('team_img') as $image){
                 $getFileExt = $image->getClientOriginalExtension();
                 $name=time().'ABOUT'.$counter++.'.'.$getFileExt;
-                $image->move(public_path().'/about-asset/',$name); //folder path
+                $destinationPath = public_path().'/about-asset/';
+                
+                $img = Image::make($image->getRealPath());
+                $img->resize(1000, 1000, function ($constraint) {
+                    $constraint->aspectRatio();
+                })->save($destinationPath . $name, 80);
+                // $image->move(public_path().'/about-asset/',$name); //folder path
                 $data[] = $name;
             }
             $about->team_img = json_encode($data);
@@ -150,7 +163,13 @@ class CustomizeAboutPageController extends Controller
             foreach($request->file('team_header') as $image){
                 $getFileExt = $image->getClientOriginalExtension();
                 $name=time().'ABH'.$counter++.'.'.$getFileExt;
-                $image->move(public_path().'/about-asset/',$name); //folder path
+                $destinationPath = public_path().'/about-asset/';
+                
+                $img = Image::make($image->getRealPath());
+                $img->resize(1000, 1000, function ($constraint) {
+                    $constraint->aspectRatio();
+                })->save($destinationPath . $name, 80);
+                // $image->move(public_path().'/about-asset/',$name); //folder path
                 $data_header[] = $name;
             }
             $about->team_header = json_encode($data_header);
@@ -210,8 +229,8 @@ class CustomizeAboutPageController extends Controller
         //check image
         if ($request->hasFile('profile')) {
             request()->validate(
-                ['profile.*' => 'image|mimes:png,jpg,jpeg,svg|max:1024'],
-                ['profile.*.max' => 'The images must not be greater than 1 MB.']
+                ['profile.*' => 'image|mimes:png,jpg,jpeg,svg|max:10000'],
+                ['profile.*.max' => 'The images must not be greater than 10 MB.']
             );
 
             $images = json_decode($team->agent_photo);
@@ -228,7 +247,13 @@ class CustomizeAboutPageController extends Controller
             foreach($request->file('profile') as $image){
                 $getFileExt = $image->getClientOriginalExtension();
                 $name=time().'TEAM'.$counter++.'.'.$getFileExt;
-                $image->move(public_path().'/about-asset/',$name); //folder path
+                $destinationPath = public_path().'/about-asset/';
+                
+                $img = Image::make($image->getRealPath());
+                $img->resize(1000, 1000, function ($constraint) {
+                    $constraint->aspectRatio();
+                })->save($destinationPath . $name, 80);
+                // $image->move(public_path().'/about-asset/',$name); //folder path
                 $data[] = $name;
             }
             $update = TeamMember::where('id', $id)->update([
@@ -278,8 +303,8 @@ class CustomizeAboutPageController extends Controller
 
         if ($request->hasFile('team_img')) {
             request()->validate(
-                ['team_img.*' => 'image|mimes:png,jpg,jpeg,svg|max:1024'],
-                ['team_img.*.max' => 'The images must not be greater than 1 MB.']
+                ['team_img.*' => 'image|mimes:png,jpg,jpeg,svg|max:10000'],
+                ['team_img.*.max' => 'The images must not be greater than 10 MB.']
             );
 
             $images_team = json_decode($about->team_img);
@@ -296,7 +321,13 @@ class CustomizeAboutPageController extends Controller
                 foreach($request->file('team_img') as $image){
                     $getFileExt = $image->getClientOriginalExtension();
                     $name=time().'ABOUT'.$counter++.'.'.$getFileExt;
-                    $image->move(public_path().'/about-asset/',$name); //folder path
+                    $destinationPath = public_path().'/about-asset/';
+                
+                    $img = Image::make($image->getRealPath());
+                    $img->resize(1000, 1000, function ($constraint) {
+                        $constraint->aspectRatio();
+                    })->save($destinationPath . $name, 80);
+                    // $image->move(public_path().'/about-asset/',$name); //folder path
                     $data[] = $name;
                     $update = CustomizeAbout::where('id', $id)->update([
                         'team_img' => json_encode($data)
@@ -307,7 +338,13 @@ class CustomizeAboutPageController extends Controller
                 foreach($request->file('team_img') as $image){
                     $getFileExt = $image->getClientOriginalExtension();
                     $name=time().'ABOUT'.$counter++.'.'.$getFileExt;
-                    $image->move(public_path().'/about-asset/',$name); //folder path
+                    $destinationPath = public_path().'/about-asset/';
+                
+                    $img = Image::make($image->getRealPath());
+                    $img->resize(1000, 1000, function ($constraint) {
+                        $constraint->aspectRatio();
+                    })->save($destinationPath . $name, 80);
+                    // $image->move(public_path().'/about-asset/',$name); //folder path
                     $data[] = $name;
                     $update = CustomizeAbout::where('id', $id)->update([
                         'team_img' => json_encode($data)
@@ -319,8 +356,8 @@ class CustomizeAboutPageController extends Controller
 
         if ($request->hasFile('team_header')) {
             request()->validate(
-                ['team_header.*' => 'image|mimes:png,jpg,jpeg,svg|max:1024'],
-                ['team_header.*.max' => 'The images must not be greater than 1 MB.']
+                ['team_header.*' => 'image|mimes:png,jpg,jpeg,svg|max:10000'],
+                ['team_header.*.max' => 'The images must not be greater than 10 MB.']
             );
 
             $images_team = json_decode($about->team_header);
@@ -337,7 +374,13 @@ class CustomizeAboutPageController extends Controller
                 foreach($request->file('team_header') as $image){
                     $getFileExt = $image->getClientOriginalExtension();
                     $name=time().'ABH'.$counter++.'.'.$getFileExt;
-                    $image->move(public_path().'/about-asset/',$name); //folder path
+                    $destinationPath = public_path().'/about-asset/';
+                
+                    $img = Image::make($image->getRealPath());
+                    $img->resize(1000, 1000, function ($constraint) {
+                        $constraint->aspectRatio();
+                    })->save($destinationPath . $name, 80);
+                    // $image->move(public_path().'/about-asset/',$name); //folder path
                     $data[] = $name;
                     $update = CustomizeAbout::where('id', $id)->update([
                         'team_header' => json_encode($data)
@@ -348,7 +391,13 @@ class CustomizeAboutPageController extends Controller
                 foreach($request->file('team_header') as $image){
                     $getFileExt = $image->getClientOriginalExtension();
                     $name=time().'ABH'.$counter++.'.'.$getFileExt;
-                    $image->move(public_path().'/about-asset/',$name); //folder path
+                    $destinationPath = public_path().'/about-asset/';
+                
+                    $img = Image::make($image->getRealPath());
+                    $img->resize(1000, 1000, function ($constraint) {
+                        $constraint->aspectRatio();
+                    })->save($destinationPath . $name, 80);
+                    // $image->move(public_path().'/about-asset/',$name); //folder path
                     $data[] = $name;
                     $update = CustomizeAbout::where('id', $id)->update([
                         'team_header' => json_encode($data)

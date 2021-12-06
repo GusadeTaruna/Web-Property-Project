@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CustomizeServices;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Image;
 
 class CustomizeServicesPageController extends Controller
 {
@@ -43,10 +44,10 @@ class CustomizeServicesPageController extends Controller
         $this->validate($request, 
         [
             'service_image' => 'required',
-            'service_image.*' => 'image|mimes:png,jpg,jpeg,svg|max:1024'
+            'service_image.*' => 'image|mimes:png,jpg,jpeg,svg|max:10000'
         ],
         [
-            'service_image.*.max' => 'The images must not be greater than 1 MB.'
+            'service_image.*.max' => 'The images must not be greater than 10 MB.'
         ]);
 
         if($request->hasFile('service_image')){
@@ -54,7 +55,13 @@ class CustomizeServicesPageController extends Controller
             foreach($request->file('service_image') as $image){
                 $getFileExt = $image->getClientOriginalExtension();
                 $name=time().'SRV'.$counter++.'.'.$getFileExt;
-                $image->move(public_path().'/service-asset/',$name); //folder path
+                $destinationPath = public_path().'/service-asset/';
+                
+                $img = Image::make($image->getRealPath());
+                $img->resize(1000, 1000, function ($constraint) {
+                    $constraint->aspectRatio();
+                })->save($destinationPath . $name, 80);
+                // $image->move(public_path().'/service-asset/',$name); //folder path
                 $data[] = $name;
             }
         }
@@ -110,8 +117,8 @@ class CustomizeServicesPageController extends Controller
 
         if ($request->hasFile('service_image')) {
             request()->validate(
-                ['service_image.*' => 'image|mimes:png,jpg,jpeg,svg|max:1024'],
-                ['service_image.*.max' => 'The images must not be greater than 1 MB.']
+                ['service_image.*' => 'image|mimes:png,jpg,jpeg,svg|max:10000'],
+                ['service_image.*.max' => 'The images must not be greater than 10 MB.']
             );
 
             $images = json_decode($services->service_img);
@@ -128,7 +135,13 @@ class CustomizeServicesPageController extends Controller
             foreach($request->file('service_image') as $image){
                 $getFileExt = $image->getClientOriginalExtension();
                 $name=time().'SRV'.$counter++.'.'.$getFileExt;
-                $image->move(public_path().'/service-asset/',$name); //folder path
+                $destinationPath = public_path().'/service-asset/';
+                
+                $img = Image::make($image->getRealPath());
+                $img->resize(1000, 1000, function ($constraint) {
+                    $constraint->aspectRatio();
+                })->save($destinationPath . $name, 80);
+                // $image->move(public_path().'/service-asset/',$name); //folder path
                 $data[] = $name;
             }
             $update = CustomizeServices::where('id', $id)->update([

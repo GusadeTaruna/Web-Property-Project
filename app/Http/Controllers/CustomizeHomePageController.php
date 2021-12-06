@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CustomizeHome;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Image;
 
 class CustomizeHomePageController extends Controller
 {
@@ -75,17 +76,23 @@ class CustomizeHomePageController extends Controller
         $homepage->header_sub_title = $request->header_sub_title;
         $this->validate($request, 
         [
-            'header_image.*' => 'image|mimes:png,jpg,jpeg,svg|max:1024'
+            'header_image.*' => 'image|mimes:png,jpg,jpeg,svg|max:10000'
         ],
         [
-            'header_image.*.max' => 'The images must not be greater than 1 MB.'
+            'header_image.*.max' => 'The images must not be greater than 10 MB.'
         ]);
         if($request->hasFile('header_image')){
             $counter = 0;
             foreach($request->file('header_image') as $image){
                 $getFileExt = $image->getClientOriginalExtension();
                 $name=time().'HEADER'.$counter++.'.'.$getFileExt;
-                $image->move(public_path().'/home-asset/',$name); //folder path
+                $destinationPath = public_path().'/home-asset/';
+                
+                $img = Image::make($image->getRealPath());
+                $img->resize(1000, 1000, function ($constraint) {
+                    $constraint->aspectRatio();
+                })->save($destinationPath . $name, 80);
+                // $image->move(public_path().'/home-asset/',$name); //folder path
                 $data[] = $name;
             }
             $homepage->header_image = json_encode($data);
@@ -99,10 +106,10 @@ class CustomizeHomePageController extends Controller
         if($request->right_asset =="images_input_right"){
             $this->validate($request, 
             [
-                'image_right.*' => 'image|mimes:png,jpg,jpeg,svg|max:1024'
+                'image_right.*' => 'image|mimes:png,jpg,jpeg,svg|max:10000'
             ],
             [
-                'image_right.*.max' => 'The images must not be greater than 1 MB.'
+                'image_right.*.max' => 'The images must not be greater than 10 MB.'
             ]);
 
             if($request->hasFile('image_right')){
@@ -110,7 +117,13 @@ class CustomizeHomePageController extends Controller
                 foreach($request->file('image_right') as $image){
                     $getFileExt = $image->getClientOriginalExtension();
                     $name=time().'RIGHT'.$counter++.'.'.$getFileExt;
-                    $image->move(public_path().'/home-asset/',$name); //folder path
+                    $destinationPath = public_path().'/home-asset/';
+                
+                    $img = Image::make($image->getRealPath());
+                    $img->resize(1000, 1000, function ($constraint) {
+                        $constraint->aspectRatio();
+                    })->save($destinationPath . $name, 80);
+                    // $image->move(public_path().'/home-asset/',$name); //folder path
                     $data_right[] = $name;
                 }
                 $homepage->right_section_image_or_vid = json_encode($data_right);
@@ -128,10 +141,10 @@ class CustomizeHomePageController extends Controller
         if($request->left_asset =="images_input_left"){
             $this->validate($request, 
             [
-                'image_left.*' => 'image|mimes:png,jpg,jpeg,svg|max:1024'
+                'image_left.*' => 'image|mimes:png,jpg,jpeg,svg|max:10000'
             ],
             [
-                'image_left.*.max' => 'The images must not be greater than 1 MB.'
+                'image_left.*.max' => 'The images must not be greater than 10 MB.'
             ]);
 
             if($request->hasFile('image_left')){
@@ -139,7 +152,13 @@ class CustomizeHomePageController extends Controller
                 foreach($request->file('image_left') as $image){
                     $getFileExt = $image->getClientOriginalExtension();
                     $name=time().'LEFT'.$counter++.'.'.$getFileExt;
-                    $image->move(public_path().'/home-asset/',$name); //folder path
+                    $destinationPath = public_path().'/home-asset/';
+                
+                    $img = Image::make($image->getRealPath());
+                    $img->resize(1000, 1000, function ($constraint) {
+                        $constraint->aspectRatio();
+                    })->save($destinationPath . $name, 80);
+                    // $image->move(public_path().'/home-asset/',$name); //folder path
                     $data_left[] = $name;
                 }
                 $homepage->left_section_image_or_vid = json_encode($data_left);
@@ -206,8 +225,8 @@ class CustomizeHomePageController extends Controller
 
         if ($request->hasFile('header_image')) {
             request()->validate(
-                ['header_image.*' => 'image|mimes:png,jpg,jpeg,svg|max:1024'],
-                ['header_image.*.max' => 'The images must not be greater than 1 MB.']
+                ['header_image.*' => 'image|mimes:png,jpg,jpeg,svg|max:10000'],
+                ['header_image.*.max' => 'The images must not be greater than 10 MB.']
             );
 
             $images_header = json_decode($homepage->header_image);
@@ -224,7 +243,13 @@ class CustomizeHomePageController extends Controller
                 foreach($request->file('header_image') as $image){
                     $getFileExt = $image->getClientOriginalExtension();
                     $name=time().'HEADER'.$counter++.'.'.$getFileExt;
-                    $image->move(public_path().'/home-asset/',$name); //folder path
+                    $destinationPath = public_path().'/home-asset/';
+                
+                    $img = Image::make($image->getRealPath());
+                    $img->resize(1000, 1000, function ($constraint) {
+                        $constraint->aspectRatio();
+                    })->save($destinationPath . $name, 80);
+                    // $image->move(public_path().'/home-asset/',$name); //folder path
                     $data[] = $name;
                     $update = CustomizeHome::where('id', $id)->update([
                         'header_image' => json_encode($data)
@@ -235,7 +260,18 @@ class CustomizeHomePageController extends Controller
                 foreach($request->file('header_image') as $image){
                     $getFileExt = $image->getClientOriginalExtension();
                     $name=time().'HEADER'.$counter++.'.'.$getFileExt;
-                    $image->move(public_path().'/home-asset/',$name); //folder path
+                    $destinationPath = public_path().'/home-asset/';
+                    $realPath = '/home-asset/';
+
+                    if (!file_exists($destinationPath)) {
+                        mkdir($destinationPath, 0775, true);
+                    }
+                    
+                    $img = Image::make($image->getRealPath());
+                    $img->resize(1000, 1000, function ($constraint) {
+                        $constraint->aspectRatio();
+                    })->save($destinationPath . $name, 80);
+                    // $image->move(public_path().'/home-asset/',$name); //folder path
                     $data[] = $name;
                     $update = CustomizeHome::where('id', $id)->update([
                         'header_image' => json_encode($data)
@@ -248,8 +284,8 @@ class CustomizeHomePageController extends Controller
         if($request->right_asset =="images_input_right"){
             if ($request->hasFile('image_right')) {
                 request()->validate(
-                    ['image_right.*' => 'image|mimes:png,jpg,jpeg,svg|max:1024'],
-                    ['image_right.*.max' => 'The images must not be greater than 1 MB.']
+                    ['image_right.*' => 'image|mimes:png,jpg,jpeg,svg|max:10000'],
+                    ['image_right.*.max' => 'The images must not be greater than 10 MB.']
                 );
 
                 $images_right = json_decode($homepage->right_section_image_or_vid);
@@ -266,7 +302,13 @@ class CustomizeHomePageController extends Controller
                     foreach($request->file('image_right') as $image){
                         $getFileExt = $image->getClientOriginalExtension();
                         $name=time().'RIGHT'.$counter++.'.'.$getFileExt;
-                        $image->move(public_path().'/home-asset/',$name); //folder path
+                        $destinationPath = public_path().'/home-asset/';
+                
+                        $img = Image::make($image->getRealPath());
+                        $img->resize(1000, 1000, function ($constraint) {
+                            $constraint->aspectRatio();
+                        })->save($destinationPath . $name, 80);
+                        // $image->move(public_path().'/home-asset/',$name); //folder path
                         $data_right[] = $name;
                         $update = CustomizeHome::where('id', $id)->update([
                             'right_section_image_or_vid' => json_encode($data_right)
@@ -277,7 +319,13 @@ class CustomizeHomePageController extends Controller
                     foreach($request->file('image_right') as $image){
                         $getFileExt = $image->getClientOriginalExtension();
                         $name=time().'RIGHT'.$counter++.'.'.$getFileExt;
-                        $image->move(public_path().'/home-asset/',$name); //folder path
+                        $destinationPath = public_path().'/home-asset/';
+                
+                        $img = Image::make($image->getRealPath());
+                        $img->resize(1000, 1000, function ($constraint) {
+                            $constraint->aspectRatio();
+                        })->save($destinationPath . $name, 80);
+                        // $image->move(public_path().'/home-asset/',$name); //folder path
                         $data_right[] = $name;
                         $update = CustomizeHome::where('id', $id)->update([
                             'right_section_image_or_vid' => json_encode($data_right)
@@ -304,8 +352,8 @@ class CustomizeHomePageController extends Controller
         if($request->left_asset =="images_input_left"){
             if ($request->hasFile('image_left')) {
                 request()->validate(
-                    ['image_left.*' => 'image|mimes:png,jpg,jpeg,svg|max:1024'],
-                    ['image_left.*.max' => 'The images must not be greater than 1 MB.']
+                    ['image_left.*' => 'image|mimes:png,jpg,jpeg,svg|max:10000'],
+                    ['image_left.*.max' => 'The images must not be greater than 10 MB.']
                 );
                 
                 $images_left = json_decode($homepage->left_section_image_or_vid);
@@ -322,7 +370,13 @@ class CustomizeHomePageController extends Controller
                     foreach($request->file('image_left') as $image){
                         $getFileExt = $image->getClientOriginalExtension();
                         $name=time().'LEFT'.$counter++.'.'.$getFileExt;
-                        $image->move(public_path().'/home-asset/',$name); //folder path
+                        $destinationPath = public_path().'/home-asset/';
+                
+                        $img = Image::make($image->getRealPath());
+                        $img->resize(1000, 1000, function ($constraint) {
+                            $constraint->aspectRatio();
+                        })->save($destinationPath . $name, 80);
+                        // $image->move(public_path().'/home-asset/',$name); //folder path
                         $data_left[] = $name;
                         $update = CustomizeHome::where('id', $id)->update([
                             'left_section_image_or_vid' => json_encode($data_left)
@@ -334,7 +388,13 @@ class CustomizeHomePageController extends Controller
                     foreach($request->file('image_left') as $image){
                         $getFileExt = $image->getClientOriginalExtension();
                         $name=time().'LEFT'.$counter++.'.'.$getFileExt;
-                        $image->move(public_path().'/home-asset/',$name); //folder path
+                        $destinationPath = public_path().'/home-asset/';
+                
+                        $img = Image::make($image->getRealPath());
+                        $img->resize(1000, 1000, function ($constraint) {
+                            $constraint->aspectRatio();
+                        })->save($destinationPath . $name, 80);
+                        // $image->move(public_path().'/home-asset/',$name); //folder path
                         $data_left[] = $name;
                         $update = CustomizeHome::where('id', $id)->update([
                             'left_section_image_or_vid' => json_encode($data_left)

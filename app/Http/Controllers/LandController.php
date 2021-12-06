@@ -7,6 +7,7 @@ use App\Models\Property;
 use App\Models\ZoningType;
 use Illuminate\Support\Facades\File;
 use AmrShawky\LaravelCurrency\Facade\Currency;
+use Image;
 
 class LandController extends Controller
 {
@@ -81,10 +82,10 @@ class LandController extends Controller
             $this->validate($request, 
             [
                 'images' => 'required',
-                'images.*' => 'image|mimes:png,jpg,jpeg,svg|max:1024'
+                'images.*' => 'image|mimes:png,jpg,jpeg,svg|max:10000'
             ],
             [
-                'images.*.max' => 'The images must not be greater than 1 MB.'
+                'images.*.max' => 'The images must not be greater than 10 MB.'
             ]);
     
             if($request->hasFile('images')){
@@ -92,7 +93,13 @@ class LandController extends Controller
                 foreach($request->file('images') as $image){
                     $getFileExt = $image->getClientOriginalExtension();
                     $name=time().'LND'.$counter++.'.'.$getFileExt;
-                    $image->move(public_path().'/property-image/',$name); //folder path
+                    $destinationPath = public_path().'/property-image/';
+                
+                    $img = Image::make($image->getRealPath());
+                    $img->resize(1000, 1000, function ($constraint) {
+                        $constraint->aspectRatio();
+                    })->save($destinationPath . $name, 80);
+                    // $image->move(public_path().'/property-image/',$name); //folder path
                     $data[] = $name;
                 }
             }
@@ -168,10 +175,10 @@ class LandController extends Controller
 
             $this->validate($request, 
             [
-                'images.*' => 'image|mimes:png,jpg,jpeg,svg|max:1024'
+                'images.*' => 'image|mimes:png,jpg,jpeg,svg|max:10000'
             ],
             [
-                'images.*.max' => 'The images must not be greater than 1 MB.'
+                'images.*.max' => 'The images must not be greater than 10 MB.'
             ]);
 
             if($request->hasFile('images')){
@@ -179,7 +186,13 @@ class LandController extends Controller
                 foreach($request->file('images') as $image){
                     $getFileExt = $image->getClientOriginalExtension();
                     $name=time().'LND'.$counter++.'.'.$getFileExt;
-                    $image->move(public_path().'/property-image/',$name); //folder path
+                    $destinationPath = public_path().'/property-image/';
+                
+                    $img = Image::make($image->getRealPath());
+                    $img->resize(1000, 1000, function ($constraint) {
+                        $constraint->aspectRatio();
+                    })->save($destinationPath . $name, 80);
+                    // $image->move(public_path().'/property-image/',$name); //folder path
                     $data[] = $name;
                 }
             }
@@ -286,8 +299,8 @@ class LandController extends Controller
 
         if ($request->hasFile('images')) {
             request()->validate(
-                ['images.*' => 'image|mimes:png,jpg,jpeg,svg|max:1024'],
-                ['images.*.max' => 'The images must not be greater than 1 MB.']
+                ['images.*' => 'image|mimes:png,jpg,jpeg,svg|max:10000'],
+                ['images.*.max' => 'The images must not be greater than 10 MB.']
             );
 
             $images = json_decode($property->property_image);
@@ -306,7 +319,13 @@ class LandController extends Controller
             foreach($request->file('images') as $image){
                 $getFileExt = $image->getClientOriginalExtension();
                 $name=time().'PR'.$counter++.'.'.$getFileExt;
-                $image->move(public_path().'/property-image/',$name); //folder path
+                $destinationPath = public_path().'/property-image/';
+                
+                    $img = Image::make($image->getRealPath());
+                    $img->resize(1000, 1000, function ($constraint) {
+                        $constraint->aspectRatio();
+                    })->save($destinationPath . $name, 80);
+                // $image->move(public_path().'/property-image/',$name); //folder path
                 $data[] = $name;
             }
             $update = Property::where('id', $id)->update([
