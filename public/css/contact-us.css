@@ -231,7 +231,7 @@ nav.navbar {
 
 #faqs .judul {
     color: var(--color-primary);
-    font-family: "cerebri-bold";
+    font-family: "cerebri";
     text-align: center;
     font-size: 30px;
     display: block;
@@ -292,7 +292,7 @@ nav.navbar {
 
 .judul-detail{
     color: var(--color-primary);
-    font-family: "cerebri-bold";
+    font-family: "cerebri";
     font-size: 20px;
 }
 

@@ -74,10 +74,10 @@
 						</select>
 						<input type="text" name="code" id="code" placeholder="Listing Code" class="form-control mb-3" onkeyup="successCode()">
 						<input type="text" name="location" id="location" placeholder="Location area" class="form-control mb-3" onkeyup="successLoc()">
-						<label for="price" class="text-center" style="font-weight: bold; width:100%">Price range:</label>
+						<label for="price" class="text-center" style="width:100%;">Price range:</label>
 	                    <input type="hidden" name="minPrice" id="minPrice">
 	                    <input type="hidden" name="maxPrice" id="maxPrice">
-	                    <input type="text" name="" class="text-center mb-3" id="amount" readonly style="border:0; color:#a5876a; font-weight:bold;width:100%;">
+	                    <input type="text" name="" class="text-center mb-3" id="amount" readonly style="border:0; color:#a5876a;width:100%;">
 	                    <div id="slider-range" class="mb-4"></div>
 						<button type="submit" class="btn btn-theme w-100" id="search-btn" disabled>Search</button>	
 					</form>
