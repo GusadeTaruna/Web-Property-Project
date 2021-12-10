@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=false;">
     <title>Blog</title>
 
-    <link rel="icon" href="/img/logo/logo-1.svg" type="image/icon type">
+    <link rel="icon" href="/img/logo/icon.svg" type="image/icon type">
     <!-- MDB -->
     <link href="/css/mdb/mdb.min.css" rel="stylesheet" />
     <!-- swiper -->
