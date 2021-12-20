@@ -1601,11 +1601,11 @@ footer {
 @media only screen and (max-width: 1200px) {
 
     #property-ul .property-features{
-        padding-right: 12px;
+        padding-right: 6px;
     }
 
     #property-slider .swiper .swiper-slide .property-list p{
-        font-size: 13px !important;
+        font-size: 11px !important;
     }
 
     #search-section .search-area {
