@@ -379,9 +379,13 @@ class PropertyController extends Controller
         $property->fine_dining_distance = $request->dining;
 
         $check_input = $request->filled(['code', 'property_name','location','price','currency','status','site_plan','site_area','building_area','year_built','description','school','hospital','airport','supermarket','beach','dining']);
-        if($check_input){
-            $property->data_status = "Published";
-        }else{
+        if($request->btn_submit == "publish_btn"){
+            if(!$check_input){
+                return back()->with('errorMsg', 'Make sure that Property name, location, price, site area, building area, year built, description, distance from nearest school, hospital, airport, supermarket, beach, fine dining information are filled');
+            }else{
+                $property->data_status = "Published";
+            }
+        }elseif($request->btn_submit == "draft_btn"){
             $property->data_status = "Draft";
         }
         

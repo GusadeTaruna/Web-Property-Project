@@ -20,10 +20,18 @@
                 </button>
               </div>
             @endif
+            @if(session()->has('errorMsg'))
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ session('errorMsg') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            @endif
           </div>
           <div class="col-md-1"></div>
           <div class="col-md-11">
-            <h1>Add New Property</h1>
+            <h1>Edit Property Data</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -44,7 +52,7 @@
               <!-- /.card-header -->
               <!-- form start -->
               @foreach ($property as $data)
-              <form action="{{ url('/admin/property/update/'.$data->id ) }}" method="post" enctype="multipart/form-data">
+              <form id="editForm" action="{{ url('/admin/property/update/'.$data->id ) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 
@@ -482,7 +490,9 @@
 
                 <div class="card-footer text-right">
                   <a class="btn btn-danger w-25" href="/admin/property">Cancel</a>
-                  <button type="submit" class="btn btn-success w-25">Submit</button>
+                  <button id="btnSubmit" type="submit" name="btn_submit" value="draft_btn" class="btn btn-primary w-25">Draft</button>
+                  <button id="btnSubmit2" type="submit" name="btn_submit" value="publish_btn" class="btn btn-success w-25">Publish</button>  
+                  {{-- <button type="submit" class="btn btn-success w-25">Submit</button> --}}
                 </div>
               </form>
               @endforeach

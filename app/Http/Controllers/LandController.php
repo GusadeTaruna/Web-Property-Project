@@ -381,11 +381,23 @@ class LandController extends Controller
         $property->access_road_width = $request->road_width;
         $property->surrounding_sites_desc = $request->sites_description;
 
+        // $check_input = $request->filled(['code', 'land_name','land_location','price','currency','status','site_plan','site_area'
+        // ,'pdma','imb','video','description','school','hospital','airport','supermarket','beach','dining']);
+        // if($check_input){
+        //     $property->data_status = "Published";
+        // }else{
+        //     $property->data_status = "Draft";
+        // }
+
         $check_input = $request->filled(['code', 'land_name','land_location','price','currency','status','site_plan','site_area'
-        ,'pdma','imb','video','description','school','hospital','airport','supermarket','beach','dining']);
-        if($check_input){
-            $property->data_status = "Published";
-        }else{
+        ,'pdma','imb','description','school','hospital','airport','supermarket','beach','dining']);
+        if($request->btn_submit == "publish_btn"){
+            if(!$check_input){
+                return back()->with('errorMsg', 'Make sure that Land name, location, price, site area, site plan, PDMA water, IMB, description, distance from nearest school, hospital, airport, supermarket, beach, fine dining information are filled');
+            }else{
+                $property->data_status = "Published";
+            }
+        }elseif($request->btn_submit == "draft_btn"){
             $property->data_status = "Draft";
         }
 
