@@ -57,7 +57,10 @@ class PropertyController extends Controller
                 'price' => 'required',
                 'currency' => 'required',
                 'status' => 'required',
-                'site_area' => 'required'
+                'site_area' => 'required',
+                'zoning_type' => 'required',
+                'images' => 'required',
+                'images.*' => 'image|mimes:png,jpg,jpeg,svg|max:10000'
             ],
             [
                 'code.required' => 'You must enter the code of the property data',
@@ -65,17 +68,11 @@ class PropertyController extends Controller
                 'location.required' => 'You must enter the location of the property data',
                 'price.required' => 'You must enter the price of the property data',
                 'status.required' => 'You must enter the status of the property data',
-                'site_area.required' => 'You must enter the site area of the property data'
-            ]);
-    
-            //upload image function
-            $this->validate($request, 
-            [
-                'images' => 'required',
-                'images.*' => 'image|mimes:png,jpg,jpeg,svg|max:10000'
-            ],
-            [
-                'images.*.max' => 'The images must not be greater than 10 MB.'
+                'site_area.required' => 'You must enter the site area of the property data',
+                'zoning_type.required' => 'You must choose the zoning type of the property',
+                'images.required' => 'You must add at least 1 image (Please re-add the image if an error occurs when inputting the form)',
+                'images.*.max' => 'The images must not be greater than 10 MB.',
+
             ]);
     
             if($request->hasFile('images')){

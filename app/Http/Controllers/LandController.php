@@ -48,7 +48,10 @@ class LandController extends Controller
                 'price' => 'required',
                 'currency' => 'required',
                 'status' => 'required',
-                'site_area' => 'required'
+                'site_area' => 'required',
+                'images' => 'required',
+                'zone_type' => 'required',
+                'images.*' => 'image|mimes:png,jpg,jpeg,svg|max:10000'
             ],
             [
                 'code.required' => 'You must enter the code of the land data',
@@ -56,17 +59,20 @@ class LandController extends Controller
                 'land_location.required' => 'You must enter the location of the land data',
                 'price.required' => 'You must enter the price of the land data',
                 'status.required' => 'You must enter the status of the land data',
-                'site_area.required' => 'You must enter the site area of the land data'
-            ]);
-    
-            $this->validate($request, 
-            [
-                'images' => 'required',
-                'images.*' => 'image|mimes:png,jpg,jpeg,svg|max:10000'
-            ],
-            [
+                'site_area.required' => 'You must enter the site area of the land data',
+                'zone_type.required' => 'You must choose the zoning type of the land',
+                'images.required' => 'You must add at least 1 image (Please re-add the image if an error occurs when inputting the form)',
                 'images.*.max' => 'The images must not be greater than 10 MB.'
             ]);
+    
+            // $this->validate($request, 
+            // [
+                
+            // ],
+            // [
+                
+                
+            // ]);
     
             if($request->hasFile('images')){
                 $counter = 0;
