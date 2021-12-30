@@ -177,7 +177,8 @@
 											
 											<div class="feature-features">
 												<i class="fas fa-pencil-ruler"></i>
-												<p>{{  number_format($data->site_area,0,'','.') }} sqm</p>
+												{{-- <p>{{  number_format($data->site_area,0,'','.') }} sqm</p> --}}
+												<p>{{  $data->site_area }} sqm</p>
 											</div>
 										</div>
 

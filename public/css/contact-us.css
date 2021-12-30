@@ -133,7 +133,7 @@ header.header {
     background-position: center;
     background-size: cover;
     position: relative;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/image-1.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/image-8.jpg);
 }
 
 #nav-container{

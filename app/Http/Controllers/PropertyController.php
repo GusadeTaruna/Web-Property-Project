@@ -46,7 +46,8 @@ class PropertyController extends Controller
 
     public function store(Request $request){
 
-        $check_input = $request->filled(['code', 'property_name','location','price','currency','status','site_plan','site_area','building_area','year_built','description','bed','bath','school','hospital','airport','supermarket','beach','dining']);
+        // $check_input = $request->filled(['code', 'property_name','location','price','currency','status','site_plan','site_area','building_area','year_built','description','bed','bath','school','hospital','airport','supermarket','beach','dining']);
+        
         if($request->btn_submit == "publish_btn"){
 
             $validatedData = $request->validate([
@@ -56,18 +57,7 @@ class PropertyController extends Controller
                 'price' => 'required',
                 'currency' => 'required',
                 'status' => 'required',
-                'site_plan' => 'required',
-                'site_area' => 'required',
-                'building_area' => 'required',
-                'year_built' => 'required',
-                // 'zoning_type' => 'required',
-                'description' => 'required',
-                'school' => 'required',
-                'hospital' => 'required',
-                'airport' => 'required',
-                'supermarket' => 'required',
-                'beach' => 'required',
-                'dining' => 'required'
+                'site_area' => 'required'
             ],
             [
                 'code.required' => 'You must enter the code of the property data',
@@ -75,17 +65,7 @@ class PropertyController extends Controller
                 'location.required' => 'You must enter the location of the property data',
                 'price.required' => 'You must enter the price of the property data',
                 'status.required' => 'You must enter the status of the property data',
-                'site_plan.required' => 'You must enter the site plan of the property data',
-                'site_area.required' => 'You must enter the site area of the property data',
-                'building_area.required' => 'You must enter the building area of the property data',
-                'building_area.required' => 'You must enter the year built of the property data',
-                'description.required' => 'You must enter the description of the property data',
-                'school.required' => 'You must enter the School distance',
-                'hospital.required' => 'You must enter the Hospital distance',
-                'airport.required' => 'You must enter the Airport distance',
-                'supermarket.required' => 'You must enter the Supermarket distance',
-                'beach.required' => 'You must enter the Beach distance',
-                'dining.required' => 'You must enter the Fine Dining distance'
+                'site_area.required' => 'You must enter the site area of the property data'
             ]);
     
             //upload image function
@@ -137,10 +117,10 @@ class PropertyController extends Controller
             $property->price_usd = $price_usd;
             $property->video_link = $request->video;
             $property->property_status = $validatedData['status'];
-            $property->site_plan = $validatedData['site_plan'];
+            $property->site_plan = $request->site_plan;
             $property->site_area = $validatedData['site_area'];
-            $property->building_area = $validatedData['building_area'];
-            $property->year_built = $validatedData['year_built'];
+            $property->building_area = $request->building_area;
+            $property->year_built = $request->year_built;
             $property->power_kv = $request->power_kv;
             $property->generator_kv = $request->generator;
 
@@ -155,20 +135,18 @@ class PropertyController extends Controller
             }else{
                 $property->pdma_water = $request->imb;
             }
-
-            
             
             $property->zoning = $request->zoning_type;
-            $property->description = $validatedData['description'];
+            $property->description = $request->description;
             $property->bed_qty = $request->bed;
             $property->bath_qty = $request->bath;
             $property->garage_qty = $request->garage;
-            $property->school_distance = $validatedData['school'];
-            $property->hospital_distance = $validatedData['hospital'];
-            $property->airport_distance = $validatedData['airport'];
-            $property->supermarket_distance = $validatedData['supermarket'];
-            $property->beach_distance = $validatedData['beach'];
-            $property->fine_dining_distance = $validatedData['dining'];
+            $property->school_distance = $request->school;
+            $property->hospital_distance = $request->hospital;
+            $property->airport_distance = $request->airport;
+            $property->supermarket_distance = $request->supermarket;
+            $property->beach_distance = $request->beach;
+            $property->fine_dining_distance = $request->dining;
             $property->data_status = "Published";
             $property->save();
     
@@ -378,10 +356,13 @@ class PropertyController extends Controller
         $property->beach_distance = $request->beach;
         $property->fine_dining_distance = $request->dining;
 
-        $check_input = $request->filled(['code', 'property_name','location','price','currency','status','site_plan','site_area','building_area','year_built','description','school','hospital','airport','supermarket','beach','dining']);
+        $check_input_publish = $request->filled(['code', 'property_name','location','price','currency','status','site_area']);
+        
+        $check_input_optional = $request->filled(['site_plan','building_area','year_built','description','school','hospital','airport','supermarket','beach','dining']);
+        
         if($request->btn_submit == "publish_btn"){
-            if(!$check_input){
-                return back()->with('errorMsg', 'Make sure that Property name, location, price, site area, building area, year built, description, distance from nearest school, hospital, airport, supermarket, beach, fine dining information are filled');
+            if(!$check_input_publish){
+                return back()->with('errorMsg', 'Make sure that Property name, location, price, and site area information are filled');
             }else{
                 $property->data_status = "Published";
             }
@@ -391,8 +372,12 @@ class PropertyController extends Controller
         
         $property->update();
 
-             
-       return redirect('/admin/property')->with('success',' Data updated successfully!');
+        if($check_input_publish && !$check_input_optional){
+            return redirect('/admin/land')->with('success',' Data updated successfully! (some data need to be filled in)');
+        }else{
+            return redirect('/admin/land')->with('success',' Data updated successfully!');
+        }
+
     }
 
     public function destroy($id)

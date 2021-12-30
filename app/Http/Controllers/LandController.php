@@ -36,8 +36,9 @@ class LandController extends Controller
     }
 
     public function store(Request $request){
-        $check_input = $request->filled(['code', 'land_name','land_location','price','currency','status','site_plan','site_area','pln'
-        ,'pdma','imb','description','school','hospital','airport','supermarket','beach','dining']);
+        // $check_input = $request->filled(['code', 'land_name','land_location','price','currency','status','site_plan','site_area','pln'
+        // ,'pdma','imb','description','school','hospital','airport','supermarket','beach','dining']);
+
         if($request->btn_submit=="publish_btn"){
 
             $validatedData = $request->validate([
@@ -47,36 +48,15 @@ class LandController extends Controller
                 'price' => 'required',
                 'currency' => 'required',
                 'status' => 'required',
-                'site_plan' => 'required',
-                'site_area' => 'required',
-                'pdma' => 'required',
-                'imb' => 'required',
-                // 'zoning_type' => 'required',
-                'description' => 'required',
-                'school' => 'required',
-                'hospital' => 'required',
-                'airport' => 'required',
-                'supermarket' => 'required',
-                'beach' => 'required',
-                'dining' => 'required'
+                'site_area' => 'required'
             ],
             [
-                'code.required' => 'You must enter the code of the property data',
-                'land_name.required' => 'You must enter the name of the property data',
-                'land_location.required' => 'You must enter the location of the property data',
-                'price.required' => 'You must enter the price of the property data',
-                'status.required' => 'You must enter the status of the property data',
-                'site_plan.required' => 'You must enter the site plan of the property data',
-                'site_area.required' => 'You must enter the site area of the property data',
-                'pdma.required' => 'You must enter the PDMA Water of the property data',
-                'imb.required' => 'You must enter the IMB of the property data',
-                'description.required' => 'You must enter the description of the property data',
-                'school.required' => 'You must enter the School distance',
-                'hospital.required' => 'You must enter the Hospital distance',
-                'airport.required' => 'You must enter the Airport distance',
-                'supermarket.required' => 'You must enter the Supermarket distance',
-                'beach.required' => 'You must enter the Beach distance',
-                'dining.required' => 'You must enter the Fine Dining distance'
+                'code.required' => 'You must enter the code of the land data',
+                'land_name.required' => 'You must enter the name of the land data', 
+                'land_location.required' => 'You must enter the location of the land data',
+                'price.required' => 'You must enter the price of the land data',
+                'status.required' => 'You must enter the status of the land data',
+                'site_area.required' => 'You must enter the site area of the land data'
             ]);
     
             $this->validate($request, 
@@ -125,23 +105,23 @@ class LandController extends Controller
             $property->price_usd = $price_usd;
             $property->video_link = $request->video;
             $property->property_status = $validatedData['status'];
-            $property->site_plan = $validatedData['site_plan'];
+            $property->site_plan = $request->site_plan;
             $property->site_area = $validatedData['site_area'];
             // $property->site_dimension = $request->site_dimension;
             $property->power_kv = 0;
-            $property->pdma_water = $validatedData['pdma'];
-            $property->imb = $validatedData['imb'];
+            $property->pdma_water = $request->pdma;
+            $property->imb = $request->imb;
             $property->zoning = $request->zone_type;
-            $property->description = $validatedData['description'];
+            $property->description = $request->description;
             $property->bed_qty = 0;
             $property->bath_qty = 0;
             $property->garage_qty = 0;
-            $property->school_distance = $validatedData['school'];
-            $property->hospital_distance = $validatedData['hospital'];
-            $property->airport_distance = $validatedData['airport'];
-            $property->supermarket_distance = $validatedData['supermarket'];
-            $property->beach_distance = $validatedData['beach'];
-            $property->fine_dining_distance = $validatedData['dining'];
+            $property->school_distance = $request->school;
+            $property->hospital_distance = $request->hospital;
+            $property->airport_distance = $request->airport;
+            $property->supermarket_distance = $request->supermarket;
+            $property->beach_distance = $request->beach;
+            $property->fine_dining_distance = $request->dining;
             //additional land
             $property->topography_plan = $request->topography;
             $property->soil_test = $request->soil_test;
@@ -318,7 +298,7 @@ class LandController extends Controller
             $counter = 0;
             foreach($request->file('images') as $image){
                 $getFileExt = $image->getClientOriginalExtension();
-                $name=time().'PR'.$counter++.'.'.$getFileExt;
+                $name=time().'LND'.$counter++.'.'.$getFileExt;
                 $destinationPath = public_path().'/property-image/';
                 
                     $img = Image::make($image->getRealPath());
@@ -389,11 +369,13 @@ class LandController extends Controller
         //     $property->data_status = "Draft";
         // }
 
-        $check_input = $request->filled(['code', 'land_name','land_location','price','currency','status','site_plan','site_area'
-        ,'pdma','imb','description','school','hospital','airport','supermarket','beach','dining']);
+        $check_input_publish = $request->filled(['code', 'land_name','land_location','price','currency','status','site_area']);
+
+        $check_input_optional = $request->filled(['site_plan','pdma','imb','description','school','hospital','airport','supermarket','beach','dining']);
+
         if($request->btn_submit == "publish_btn"){
-            if(!$check_input){
-                return back()->with('errorMsg', 'Make sure that Land name, location, price, site area, site plan, PDMA water, IMB, description, distance from nearest school, hospital, airport, supermarket, beach, fine dining information are filled');
+            if(!$check_input_publish){
+                return back()->with('errorMsg', 'Make sure that Land name, location, price, and site area information are filled');
             }else{
                 $property->data_status = "Published";
             }
@@ -402,8 +384,12 @@ class LandController extends Controller
         }
 
         $property->update();
-             
-       return redirect('/admin/land')->with('success',' Data updated successfully!');
+        if($check_input_publish && !$check_input_optional){
+            return redirect('/admin/land')->with('success',' Data updated successfully! (some data need to be filled in)');
+        }else{
+            return redirect('/admin/land')->with('success',' Data updated successfully!');
+        }
+       
     }
 
     public function destroy($id)
