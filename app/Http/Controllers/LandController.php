@@ -21,7 +21,7 @@ class LandController extends Controller
         $land = Property::all();
         $land_type = ZoningType::all();
         $huruf = "L-";
-        $count = Property::selectRaw('RIGHT(property_code, 1) as lastcode')->orderBy('lastcode', 'DESC')->where('property_type','=','2')->first();
+        $count = Property::selectRaw('SUBSTRING(property_code, 4) as lastcode')->orderBy('lastcode', 'DESC')->where('property_type','=','2')->first();
 
         if(is_null($count)){
             $landCode = $huruf . sprintf("%03s", 1);
