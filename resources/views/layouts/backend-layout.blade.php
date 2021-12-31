@@ -8,7 +8,8 @@
 
     <link rel="icon" href="/img/logo/icon.svg" type="image/icon type">
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="/adminlte/plugins/fontawesome-free/css/all.min.css">
     <!-- Ionicons -->
@@ -43,12 +44,13 @@
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
+                            class="fas fa-bars"></i></a>
                 </li>
             </ul>
 
             <!-- Right navbar links -->
-            <ul class="navbar-nav ml-auto"> 
+            <ul class="navbar-nav ml-auto">
                 <li class="nav-item my-auto">
                     <a class="nav-link" style="font-weight: bold;">{{ auth()->user()->name }}</a>
                 </li>
@@ -58,10 +60,12 @@
                         <img src="/adminlte/dist/img/admin.png" height="35" class="rounded-circle">
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <img src="/adminlte/dist/img/admin.png" style="width: 50%; height:auto; margin:auto;" class="dropdown-header rounded-circle">
+                        <img src="/adminlte/dist/img/admin.png" style="width: 50%; height:auto; margin:auto;"
+                            class="dropdown-header rounded-circle">
                         <span style="font-weight:bold;" class="dropdown-header">{{ auth()->user()->name }}</span>
                         <div class="dropdown-divider"></div>
-                        <a href={{ route('edit-admin',auth()->user()->name) }} class="dropdown-item text-center">Edit Profile</a>
+                        <a href={{ route('edit-admin', auth()->user()->name) }} class="dropdown-item text-center">Edit
+                            Profile</a>
                         <div class="dropdown-divider"></div>
                         <form action="/admin/logout" method="post">
                             @csrf
@@ -78,7 +82,7 @@
             <!-- Brand Logo -->
             <a href="/admin/dashboard" class="brand-link text-center">
                 <img src="/img/logo/logo-1.svg" alt="Dashboard" style="width: 200px;height: auto;" style="opacity: .8">
-<!--                 <span class="font-weight-bold text-primary">LOGO</span> -->
+                <!--                 <span class="font-weight-bold text-primary">LOGO</span> -->
             </a>
 
             <!-- Sidebar -->
@@ -86,7 +90,8 @@
                 <!-- SidebarSearch Form -->
                 <div class="form-inline mt-3 mb-3">
                     <div class="input-group" data-widget="sidebar-search">
-                        <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+                        <input class="form-control form-control-sidebar" type="search" placeholder="Search"
+                            aria-label="Search">
                         <div class="input-group-append">
                             <button class="btn btn-sidebar">
                                 <i class="fas fa-search fa-fw"></i>
@@ -97,11 +102,13 @@
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="/admin/dashboard" class="nav-link {{ request()->is('admin/dashboard') ? 'active' : '' }}">
+                            <a href="/admin/dashboard"
+                                class="nav-link {{ request()->is('admin/dashboard') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-columns"></i>
                                 <p>Dashboard</p>
                             </a>
@@ -150,7 +157,8 @@
 
                         @if (Auth::user()->role == 1)
                             <li class="nav-item">
-                                <a href="/admin/list-admin" class="nav-link {{ request()->is('admin/list-admin') ? 'active' : '' }}">
+                                <a href="/admin/list-admin"
+                                    class="nav-link {{ request()->is('admin/list-admin') ? 'active' : '' }}">
                                     <i class="nav-icon fas fa-user"></i>
                                     <p>
                                         Admin
@@ -178,7 +186,8 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link {{ request()->is('admin/inbox-contact')||request()->is('inbox-inquiry') ? 'active' : '' }}">
+                            <a href="#"
+                                class="nav-link {{ request()->is('admin/inbox-contact') || request()->is('inbox-inquiry') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-inbox"></i>
                                 <p>Inbox<i class="fas fa-angle-left right"></i></p>
                             </a>
@@ -194,12 +203,13 @@
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Inquiry messages</p>
                                     </a>
-                                </li> 
+                                </li>
                             </ul>
                         </li>
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link {{ request()->is('admin/customize/homepage') ? 'active' : '' }}">
+                            <a href="#"
+                                class="nav-link {{ request()->is('admin/customize/homepage') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-edit"></i>
                                 <p>Customize Page<i class="fas fa-angle-left right"></i></p>
                             </a>
@@ -238,24 +248,25 @@
             <!-- /.sidebar -->
         </aside>
 
-    @yield('content')
+        @yield('content')
 
-    {{-- IMage Modal --}}
-    <div class="modal fade" id="imageModalCenter" tabindex="-1" role="dialog" aria-labelledby="imageModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" style="max-width: 60%" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <img src="" class="showPic" style="width: 100%; height: auto; object-fit:cover">
+        {{-- IMage Modal --}}
+        <div class="modal fade" id="imageModalCenter" tabindex="-1" role="dialog"
+            aria-labelledby="imageModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" style="max-width: 60%" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <img src="" class="showPic" style="width: 100%; height: auto; object-fit:cover">
+                    </div>
+                </div>
             </div>
         </div>
-        </div>
-    </div>
-    {{-- IMage Modal --}}
+        {{-- IMage Modal --}}
 
-    <footer class="main-footer">
-        <strong>Copyright &copy; <a href="/admin" style="color: #a5876a;">Equatorial Property</a>.</strong>
-        All rights reserved.
-    </footer>
+        <footer class="main-footer">
+            <strong>Copyright &copy; <a href="/admin" style="color: #a5876a;">Equatorial Property</a>.</strong>
+            All rights reserved.
+        </footer>
     </div>
     <!-- ./wrapper -->
 
@@ -265,7 +276,7 @@
     <script src="/adminlte/plugins/jquery-ui/jquery-ui.min.js"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
-    $.widget.bridge('uibutton', $.ui.button)
+        $.widget.bridge('uibutton', $.ui.button)
     </script>
     <!-- Bootstrap 4 -->
     <script src="/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -306,14 +317,15 @@
     <script src="/adminlte/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
     <script src="/adminlte/plugins/datatables-buttons/js/buttons.print.min.js"></script>
     <script src="/adminlte/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-    <script src="https://cdn.tiny.cloud/1/jwanh1wc43jdfwqoov70xgnnaznt7tbp81o1zfy2yv1vsdvm/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/jwanh1wc43jdfwqoov70xgnnaznt7tbp81o1zfy2yv1vsdvm/tinymce/5/tinymce.min.js"
+        referrerpolicy="origin"></script>
     <!-- Page specific script [Data Table]-->
-    
+
 
 
     <script>
         var editor_config = {
-            path_absolute : "/",
+            path_absolute: "/",
             selector: "textarea#open-source-plugins",
             automatic_uploads: false,
             menubar: false,
@@ -326,11 +338,11 @@
             ],
             toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | fontselect fontsizeselect formatselect | bullist numlist outdent indent | link image ",
             relative_urls: false,
-            images_upload_handler: function (blobInfo, success, failure) {
+            images_upload_handler: function(blobInfo, success, failure) {
                 var xhr, formData;
                 xhr = new XMLHttpRequest();
                 xhr.withCredentials = false;
-                xhr.open('POST', '{{ route("blog-store") }}');
+                xhr.open('POST', '{{ route('blog-store') }}');
                 var token = document.getElementById("_token").value;
                 xhr.setRequestHeader("X-CSRF-Token", token);
                 xhr.onload = function() {
@@ -340,93 +352,93 @@
                         return;
                     }
                     json = JSON.parse(xhr.responseText);
-      
-                    if (!json || typeof json.location != 'string'){
+
+                    if (!json || typeof json.location != 'string') {
                         failure('Invalid JSON: ' + xhr.responseText);
                         return;
                     }
-      
+
                     success(json.location);
                 };
                 formData = new formData();
                 formData.append('file', blobInfo.blob(), blobInfo.fileName());
                 xhr.send(formData);
             }
-      
+
         };
-      
+
         tinymce.init(editor_config);
-      </script>
+    </script>
 
     <script>
-        $(function () {
-          $("#example1").DataTable({
-            "responsive": true, 
-            "lengthChange": false, 
-            "autoWidth": false,
-            "paging": true,
-            "searching": true,
-            "ordering": true,
-            "info": true,
-          });
+        $(function() {
+            $("#example1").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false,
+                "paging": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+            });
         });
     </script>
 
     <script>
-        $('#propertyImages').on('change',function(){
+        $('#propertyImages').on('change', function() {
             //get the file name
             var numFiles = $(this).get(0).files.length
             var fileName = $(this).val();
             //replace the "Choose a file" label
-            
+
             if (this.files && this.files.length > 1) {
                 // fileName = Array.from(this.files).map(({name}) => name + ', ');
                 // $(this).next('.custom-file-label').html(fileName);
-                $(this).next('.custom-file-label').html(numFiles+" file selected");
-            }else{
+                $(this).next('.custom-file-label').html(numFiles + " file selected");
+            } else {
                 $(this).next('.custom-file-label').html(fileName);
             }
         })
 
-        $('#landImages').on('change',function(){
+        $('#landImages').on('change', function() {
             //get the file name
             var numFiles = $(this).get(0).files.length
             var fileName = $(this).val();
             //replace the "Choose a file" label
-            
+
             if (this.files && this.files.length > 1) {
                 // fileName = Array.from(this.files).map(({name}) => name + ', ');
                 // $(this).next('.custom-file-label').html(fileName);
-                $(this).next('.custom-file-label').html(numFiles+" file selected");
-            }else{
+                $(this).next('.custom-file-label').html(numFiles + " file selected");
+            } else {
                 $(this).next('.custom-file-label').html(fileName);
             }
         })
     </script>
 
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('#carouselExampleControls').find('.carousel-item').first().addClass('active');
         });
     </script>
 
     <script>
         $('.openImg').click(function() {
-            var src =$(this).attr('src');
+            var src = $(this).attr('src');
 
             $('.showPic').attr('src', src);
         });
     </script>
-    
+
     <script>
-        function updateSymbol(e){
+        function updateSymbol(e) {
             var selected = $(".currency-selector option:selected");
             $(".currency-symbol").text(selected.data("symbol"))
-            if (selected.data("symbol")=="POI"){
+            if (selected.data("symbol") == "POI") {
                 $(".currency-amount").prop('readonly', true);
                 $(".currency-amount").prop("placeholder", "Price on Inquiry")
                 $(".currency-amount").prop("value", 0)
-            }else{
+            } else {
                 $(".currency-amount").prop('readonly', false);
                 $(".currency-amount").prop("placeholder", selected.data("placeholder"))
             }
@@ -439,7 +451,7 @@
 
     {{-- customize homepage --}}
     <script>
-        $("#right_select").change(function () {
+        $("#right_select").change(function() {
             var selected_option = $('#right_select').val();
             if (selected_option === "images_input_right") {
                 $('#images_input_right').show();
@@ -453,7 +465,7 @@
     </script>
 
     <script>
-        $("#left_select").change(function () {
+        $("#left_select").change(function() {
             var selected_option = $('#left_select').val();
             if (selected_option === "images_input_left") {
                 $('#images_input_left').show();
@@ -487,5 +499,22 @@
             }
         })
     </script> --}}
+
+    {{-- Zoning choose other land--}}
+    <script>
+        document.getElementById('zone_type').addEventListener('change', function() {
+            var style = this.value == "other" ? 'block' : 'none';
+            document.getElementById('hidden-zoning-div').style.display = style;
+        });
+    </script>
+
+    {{-- Zoning choose other property--}}
+    <script>
+        document.getElementById('zoning_type').addEventListener('change', function() {
+            var style = this.value == "other" ? 'block' : 'none';
+            document.getElementById('hidden-zoning-div').style.display = style;
+        });
+    </script>
 </body>
+
 </html>

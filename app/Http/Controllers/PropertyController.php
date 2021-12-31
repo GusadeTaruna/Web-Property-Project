@@ -128,12 +128,18 @@ class PropertyController extends Controller
             }
 
             if(is_null($request->imb)){
-                $property->imb = $request->imb;
+                $property->imb = 0;
             }else{
-                $property->pdma_water = $request->imb;
+                $property->imb = $request->imb;
+            }
+
+            if(is_null($request->zoning_type) || $request->zoning_type == "other"){
+                $property->zoning = $request->zoning_type_string;
+            }else{
+                $property->zoning = $request->zoning_type;
             }
             
-            $property->zoning = $request->zoning_type;
+            // $property->zoning = $request->zoning_type;
             $property->description = $request->description;
             $property->bed_qty = $request->bed;
             $property->bath_qty = $request->bath;
@@ -216,7 +222,13 @@ class PropertyController extends Controller
             $property->generator_kv = $request->generator;
             $property->pdma_water = $request->pdma;
             $property->imb = $request->imb;
-            $property->zoning = $request->zoning_type;
+
+            if(is_null($request->zoning_type) || $request->zoning_type == "other"){
+                $property->zoning = $request->zoning_type_string;
+            }else{
+                $property->zoning = $request->zoning_type;
+            }
+
             $property->description = $request->description;
             $property->bed_qty = $request->bed;
             $property->bath_qty = $request->bath;
@@ -341,7 +353,11 @@ class PropertyController extends Controller
         $property->generator_kv = $request->generator;
         $property->pdma_water = $request->pdma;
         $property->imb = $request->imb;
-        $property->zoning = $request->zoning_type;
+        if(is_null($request->zoning_type) || $request->zoning_type == "other"){
+            $property->zoning = $request->zoning_type_string;
+        }else{
+            $property->zoning = $request->zoning_type;
+        }
         $property->description = $request->description;
         $property->bed_qty = $request->bed;
         $property->bath_qty = $request->bath;
@@ -370,9 +386,9 @@ class PropertyController extends Controller
         $property->update();
 
         if($check_input_publish && !$check_input_optional){
-            return redirect('/admin/land')->with('success',' Data updated successfully! (some data need to be filled in)');
+            return redirect('/admin/property')->with('success',' Data updated successfully! (some data need to be filled in)');
         }else{
-            return redirect('/admin/land')->with('success',' Data updated successfully!');
+            return redirect('/admin/property')->with('success',' Data updated successfully!');
         }
 
     }

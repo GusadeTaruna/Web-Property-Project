@@ -167,7 +167,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="site-area">Site Area (m2)</label>
-                                                <input name="site_area" type="text"
+                                                <input name="site_area" type="number"
                                                     class="form-control @error('site_area') is-invalid @enderror"
                                                     value="{{ old('site_area') }}" id="site-area"
                                                     placeholder="Input Site Area here">
@@ -228,12 +228,13 @@
                                             <div class="form-group">
                                                 <label for="zoning-land">Zoning Types</label>
                                                 <select name="zone_type"
-                                                    class="custom-select @error('zone_type') is-invalid @enderror">
+                                                    class="custom-select @error('zone_type') is-invalid @enderror" id="zone_type">
                                                     <option selected disabled>Choose One</option>
                                                     @foreach ($land_type as $type)
                                                         <option value="{{ $type->id }}">{{ $type->nama_tipe }}
                                                         </option>
                                                     @endforeach
+                                                    <option value="other">Add Option</option>
                                                 </select>
                                                 @error('zone_type')
                                                     <div class="invalid-feedback">
@@ -243,6 +244,22 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div class="row" id="hidden-zoning-div">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <input name="zone_type_string" type="text"
+                                                    class="form-control @error('zone_type_string') is-invalid @enderror" id="pln"
+                                                    value="{{ old('zone_type_string') }}"
+                                                    placeholder="Input zoning type here">
+                                                @error('zone_type_string')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                      </div>
 
                                     <div class="row">
                                         <div class="col-md-12">

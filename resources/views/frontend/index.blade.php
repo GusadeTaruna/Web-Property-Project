@@ -221,8 +221,8 @@
 										    @endif
                                             <li class="property-features">
                                                 <i class="fas fa-pencil-ruler"></i>
-                                                {{-- <p>{{  number_format($listing->site_area,0,'','.') }} sqm</p> --}}
-                                                <p>{{  $listing->site_area }} sqm</p>
+                                                <p>{{  number_format($listing->site_area,0,'','.') }} sqm</p>
+                                                {{-- <p>{{  $listing->site_area }} sqm</p> --}}
                                             </li>
                                         </ul>
     

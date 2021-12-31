@@ -158,7 +158,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="site-area">Site Area (m2)</label>
-                        <input type="text" name="site_area" class="form-control @error('site_area') is-invalid @enderror"  value="{{$data->site_area}}" id="site_area" placeholder="{{$data->site_area}}" >
+                        <input type="number" name="site_area" class="form-control @error('site_area') is-invalid @enderror"  value="{{$data->site_area}}" id="site_area" placeholder="{{$data->site_area}}" >
                         @error('site_area')
                           <div class="invalid-feedback">
                             {{ $message }}
@@ -255,13 +255,32 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="zoning-land">Zoning Land Use</label>
-                        <select name="zoning_type" class="custom-select" >
+                        <select name="zoning_type" class="custom-select" id="zoning_type">
                           <option disabled>Choose One</option>
-                          @foreach ($property_type as $type)
-                            <option value="{{ $type->id }}" {{$data->zoning == $type->id  ? 'selected' : ''}}>{{ $type->nama_tipe }}</option>
-                          @endforeach
+                          @if (!is_numeric($data->zoning))
+                            <option value="{{ $data->zoning }}">{{ $data->zoning }}</option>
+                            @foreach ($property_type as $type)
+                              <option value="{{ $type->id }}" {{$data->zoning == $type->id  ? 'selected' : ''}}>{{ $type->nama_tipe }}</option>
+                            @endforeach
+                          @else
+                            @foreach ($property_type as $type)
+                              <option value="{{ $type->id }}" {{$data->zoning == $type->id  ? 'selected' : ''}}>{{ $type->nama_tipe }}</option>
+                            @endforeach
+                          @endif
+                          <option value="other">Add Option</option>
                         </select>
                       </div>
+                      <div class="form-group" id="hidden-zoning-div">
+                        <input name="zoning_type_string" type="text"
+                            class="form-control @error('zoning_type_string') is-invalid @enderror" id="pln"
+                            value="{{ old('zoning_type_string') }}"
+                            placeholder="Input zoning type">
+                        @error('zoning_type_string')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">

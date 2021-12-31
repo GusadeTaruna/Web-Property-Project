@@ -169,7 +169,11 @@
                       <div class="form-group">
                         <label for="zoning-land">Zoning Types</label>
                         @if (!is_null($data->zoning))
-                          <br>{{ $data->zoning_list->nama_tipe }}
+                          @if (!is_numeric($data->zoning))
+                            <br>{{ $data->zoning }}
+                          @else
+                            <br>{{ $data->zoning_list->nama_tipe }}
+                          @endif
                         @endif
                       </div>
                     </div>

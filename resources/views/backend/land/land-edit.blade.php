@@ -61,7 +61,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="code">Land Code</label>
-                        <input type="email" name="code" value="{{ $data->property_code }}" class="form-control" readonly="readonly" id="code" placeholder="{{ $data->property_code }}">
+                        <input type="text" name="code" value="{{ $data->property_code }}" class="form-control" readonly="readonly" id="code" placeholder="{{ $data->property_code }}">
                       </div>
                     </div>
                     <div class="col-md-6">
@@ -151,7 +151,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="site-area">Site Area (m2)</label>
-                            <input name="site_area" type="text" class="form-control @error('site_area') is-invalid @enderror" value="{{$data->site_area}}" id="site_area" placeholder="{{$data->site_area}}">
+                            <input name="site_area" type="number" class="form-control @error('site_area') is-invalid @enderror" value="{{$data->site_area}}" id="site_area" placeholder="{{$data->site_area}}">
                             @error('site_area')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -233,17 +233,40 @@
                   </div>
 
                   <div class="row">
-                    
                     <div class="col-md-12">
                       <div class="form-group">
                         <label for="zoning-land">Zoning Types</label>
-                        <select name="zone_type" class="custom-select" >
+                        <select name="zone_type" class="custom-select" id="zone_type">
                           <option disabled>Choose One</option>
-                          @foreach ($land_type as $type)
-                            <option value="{{ $type->id }}" {{$data->zoning == $type->id  ? 'selected' : ''}}>{{ $type->nama_tipe }}</option>
-                          @endforeach
+                          @if (!is_numeric($data->zoning))
+                            <option value="{{ $data->zoning }}">{{ $data->zoning }}</option>
+                            @foreach ($land_type as $type)
+                              <option value="{{ $type->id }}" {{$data->zoning == $type->id  ? 'selected' : ''}}>{{ $type->nama_tipe }}</option>
+                            @endforeach
+                          @else
+                            @foreach ($land_type as $type)
+                              <option value="{{ $type->id }}" {{$data->zoning == $type->id  ? 'selected' : ''}}>{{ $type->nama_tipe }}</option>
+                            @endforeach
+                          @endif
+                          <option value="other">Add Option</option>
                         </select>
                       </div>
+                    </div>
+                  </div>
+
+                  <div class="row" id="hidden-zoning-div">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <input name="zone_type_string" type="text"
+                                class="form-control @error('zone_type_string') is-invalid @enderror"
+                                value="{{ old('zone_type_string') }}"
+                                placeholder="Input zoning type here">
+                            @error('zone_type_string')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
                     </div>
                   </div>
 

@@ -117,7 +117,12 @@ class LandController extends Controller
             $property->power_kv = 0;
             $property->pdma_water = $request->pdma;
             $property->imb = $request->imb;
-            $property->zoning = $request->zone_type;
+            if(is_null($request->zone_type) || $request->zone_type == "other"){
+                $property->zoning = $request->zone_type_string;
+            }else{
+                $property->zoning = $request->zone_type;
+            }
+            // $property->zoning = $request->zone_type;
             $property->description = $request->description;
             $property->bed_qty = 0;
             $property->bath_qty = 0;
@@ -214,7 +219,12 @@ class LandController extends Controller
             $property->power_kv = $request->pln;
             $property->pdma_water = $request->pdma;
             $property->imb = $request->imb;
-            $property->zoning = $request->zone_type;
+            if(is_null($request->zone_type) || $request->zone_type == "other"){
+                $property->zoning = $request->zone_type_string;
+            }else{
+                $property->zoning = $request->zone_type;
+            }
+            // $property->zoning = $request->zone_type;
             $property->description = $request->description;
             $property->bed_qty = 0;
             $property->bath_qty = 0;
@@ -344,7 +354,12 @@ class LandController extends Controller
         $property->power_kv = $request->pln;
         $property->pdma_water = $request->pdma;
         $property->imb = $request->imb;
-        $property->zoning = $request->zone_type;
+        if(is_null($request->zone_type) || $request->zone_type == "other"){
+            $property->zoning = $request->zone_type_string;
+        }else{
+            $property->zoning = $request->zone_type;
+        }
+        // $property->zoning = $request->zone_type;
         $property->description = $request->description;
         $property->bed_qty = 0;
         $property->bath_qty = 0;

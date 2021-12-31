@@ -125,8 +125,8 @@
 						<p class="mr-3"><i class="fas fa-warehouse"></i> {{ $data->garage_qty }} Garage</p>
 					@else
 					@endif
-	    			{{-- <p class="mr-3"><i class="fas fa-pencil-ruler"></i> {{  number_format($data->site_area,0,'','.') }} sqm</p> --}}
-					<p class="mr-3"><i class="fas fa-pencil-ruler"></i> {{  $data->site_area }} sqm</p>
+	    			<p class="mr-3"><i class="fas fa-pencil-ruler"></i> {{  number_format($data->site_area,0,'','.') }} sqm</p>
+					{{-- <p class="mr-3"><i class="fas fa-pencil-ruler"></i> {{  $data->site_area }} sqm</p> --}}
 	    		</div>
 	    	</div>
 	    	<div class="col-lg-4 my-auto">
@@ -186,7 +186,11 @@
 						<div class="col-lg-6">
 				    		<div class="detail-text d-flex justify-content-start">
 						    	<p class="card-title mr-1">Zoning:</p>
-						    	<p class="card-text">{{ $data->zoning_list->nama_tipe }}</p>
+								@if (!is_numeric($data->zoning))
+									<p class="card-text">{{ $data->zoning }}</p>
+								@else
+									<p class="card-text">{{ $data->zoning_list->nama_tipe }}</p>
+								@endif
 						    </div>
 				    	</div>
 				    </div>
