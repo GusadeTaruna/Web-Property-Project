@@ -293,47 +293,41 @@ class LandController extends Controller
         $property = Property::findOrFail($id);
         $check_image_db = $property->property_image;
 
-        if(is_null($check_image_db) && !$request->hasFile('images')){
-            return back()->with('errorMsg', 'You must add at least 1 image (Please re-add the image if an error occurs when inputting the form)');
-        }else{
-            if ($request->hasFile('images')) {
-                request()->validate(
-                    ['images.*' => 'image|mimes:png,jpg,jpeg,svg|max:10000'],
-                    ['images.*.max' => 'The images must not be greater than 10 MB.']
-                );
+        if ($request->hasFile('images')) {
+            request()->validate(
+                ['images.*' => 'image|mimes:png,jpg,jpeg,svg|max:10000'],
+                ['images.*.max' => 'The images must not be greater than 10 MB.']
+            );
+
+            $images = json_decode($property->property_image);
+            if($images){
+                foreach($images as $image){
+
+                    $image_path = public_path().'/property-image/'.$image;
     
-                $images = json_decode($property->property_image);
-                if($images){
-                    foreach($images as $image){
-    
-                        $image_path = public_path().'/property-image/'.$image;
-        
-                        if(File::exists($image_path)) {
-                            File::delete($image_path);
-                        }
+                    if(File::exists($image_path)) {
+                        File::delete($image_path);
                     }
                 }
-    
-                $counter = 0;
-                foreach($request->file('images') as $image){
-                    $getFileExt = $image->getClientOriginalExtension();
-                    $name=time().'LND'.$counter++.'.'.$getFileExt;
-                    $destinationPath = public_path().'/property-image/';
-                    
-                        $img = Image::make($image->getRealPath());
-                        $img->resize(1000, 1000, function ($constraint) {
-                            $constraint->aspectRatio();
-                        })->save($destinationPath . $name, 80);
-                    // $image->move(public_path().'/property-image/',$name); //folder path
-                    $data[] = $name;
-                }
-                $update = Property::where('id', $id)->update([
-                     'property_image' => json_encode($data)
-                ]);
             }
-        }
 
-        
+            $counter = 0;
+            foreach($request->file('images') as $image){
+                $getFileExt = $image->getClientOriginalExtension();
+                $name=time().'LND'.$counter++.'.'.$getFileExt;
+                $destinationPath = public_path().'/property-image/';
+                
+                    $img = Image::make($image->getRealPath());
+                    $img->resize(1000, 1000, function ($constraint) {
+                        $constraint->aspectRatio();
+                    })->save($destinationPath . $name, 80);
+                // $image->move(public_path().'/property-image/',$name); //folder path
+                $data[] = $name;
+            }
+            $update = Property::where('id', $id)->update([
+                    'property_image' => json_encode($data)
+            ]);
+        }  
 
         if($request->price==0){
             $price_usd = 0;
@@ -403,6 +397,8 @@ class LandController extends Controller
         if($request->btn_submit == "publish_btn"){
             if(!$check_input_publish){
                 return back()->with('errorMsg', 'Make sure that Land name, location, price, and site area information are filled');
+            }elseif(is_null($check_image_db) && !$request->hasFile('images')){
+                return back()->with('errorMsg', 'You must add at least 1 image (Please re-add the image if an error occurs when inputting the form)');
             }else{
                 $property->data_status = "Published";
             }
