@@ -534,7 +534,7 @@
                                                         <i class="fas fa-school"></i>
                                                     </span>
                                                 </div>
-                                                <input type="text" name="school"
+                                                <input type="number" name="school"
                                                     class="form-control @error('school') is-invalid @enderror"
                                                     value="{{ old('school') }}" placeholder="School (km)"
                                                     aria-label="school" aria-describedby="basic-addon1">
@@ -552,7 +552,7 @@
                                                         <i class="fas fa-hospital"></i>
                                                     </span>
                                                 </div>
-                                                <input type="text" name="hospital"
+                                                <input type="number" name="hospital"
                                                     class="form-control @error('hospital') is-invalid @enderror"
                                                     value="{{ old('hospital') }}" placeholder="Hospital (km)"
                                                     aria-label="hospital" aria-describedby="basic-addon1">
@@ -570,7 +570,7 @@
                                                         <i class="fas fa-plane-departure"></i>
                                                     </span>
                                                 </div>
-                                                <input type="text" name="airport"
+                                                <input type="number" name="airport"
                                                     class="form-control @error('airport') is-invalid @enderror"
                                                     value="{{ old('airport') }}" placeholder="Airport (km)"
                                                     aria-label="airport" aria-describedby="basic-addon1">
@@ -591,7 +591,7 @@
                                                         <i class="fas fa-store-alt"></i>
                                                     </span>
                                                 </div>
-                                                <input type="text" name="supermarket"
+                                                <input type="number" name="supermarket"
                                                     class="form-control @error('supermarket') is-invalid @enderror"
                                                     value="{{ old('supermarket') }}" placeholder="Supermarket (km)"
                                                     aria-label="supermarket" aria-describedby="basic-addon1">
@@ -609,7 +609,7 @@
                                                         <i class="fas fa-umbrella-beach"></i>
                                                     </span>
                                                 </div>
-                                                <input type="text" name="beach"
+                                                <input type="number" name="beach"
                                                     class="form-control @error('beach') is-invalid @enderror"
                                                     value="{{ old('beach') }}" placeholder="Beach (km)"
                                                     aria-label="beach" aria-describedby="basic-addon1">
@@ -627,7 +627,7 @@
                                                         <i class="fas fa-utensils"></i>
                                                     </span>
                                                 </div>
-                                                <input type="text" name="dining"
+                                                <input type="number" name="dining"
                                                     class="form-control @error('dining') is-invalid @enderror"
                                                     value="{{ old('dining') }}" placeholder="Fine Dining (km)"
                                                     aria-label="dining" aria-describedby="basic-addon1">

@@ -529,7 +529,7 @@
                             <i class="fas fa-school"></i>
                           </span>
                         </div>
-                        <input type="text" name="school" class="form-control @error('school') is-invalid @enderror"  value="{{$data->school_distance}}" placeholder="{{$data->school_distance}}" aria-label="school" aria-describedby="basic-addon1">
+                        <input type="number" name="school" class="form-control @error('school') is-invalid @enderror"  value="{{$data->school_distance}}" placeholder="{{$data->school_distance}}" aria-label="school" aria-describedby="basic-addon1">
                         @error('school')
                           <div class="invalid-feedback">
                             {{ $message }}
@@ -545,7 +545,7 @@
                             <i class="fas fa-hospital"></i>
                           </span>
                         </div>
-                        <input type="text" name="hospital" class="form-control @error('hospital') is-invalid @enderror"  value="{{$data->hospital_distance}}" placeholder="{{$data->hospital_distance}}" aria-label="hospital" aria-describedby="basic-addon1">
+                        <input type="number" name="hospital" class="form-control @error('hospital') is-invalid @enderror"  value="{{$data->hospital_distance}}" placeholder="{{$data->hospital_distance}}" aria-label="hospital" aria-describedby="basic-addon1">
                         @error('hospital')
                           <div class="invalid-feedback">
                             {{ $message }}
@@ -561,7 +561,7 @@
                             <i class="fas fa-plane-departure"></i>
                           </span>
                         </div>
-                        <input type="text" name="airport" class="form-control @error('airport') is-invalid @enderror"  value="{{$data->airport_distance}}" placeholder="{{$data->airport_distance}}" aria-label="airport" aria-describedby="basic-addon1">
+                        <input type="number" name="airport" class="form-control @error('airport') is-invalid @enderror"  value="{{$data->airport_distance}}" placeholder="{{$data->airport_distance}}" aria-label="airport" aria-describedby="basic-addon1">
                         @error('airport')
                           <div class="invalid-feedback">
                             {{ $message }}
@@ -580,7 +580,7 @@
                             <i class="fas fa-store-alt"></i>
                           </span>
                         </div>
-                        <input type="text" name="supermarket" class="form-control @error('supermarket') is-invalid @enderror"  value="{{$data->supermarket_distance}}" placeholder="{{$data->supermarket_distance}}" aria-label="supermarket" aria-describedby="basic-addon1">
+                        <input type="number" name="supermarket" class="form-control @error('supermarket') is-invalid @enderror"  value="{{$data->supermarket_distance}}" placeholder="{{$data->supermarket_distance}}" aria-label="supermarket" aria-describedby="basic-addon1">
                         @error('supermarket')
                           <div class="invalid-feedback">
                             {{ $message }}
@@ -596,7 +596,7 @@
                             <i class="fas fa-umbrella-beach"></i>
                           </span>
                         </div>
-                        <input type="text" name="beach" class="form-control @error('beach') is-invalid @enderror"  value="{{$data->beach_distance}}" placeholder="{{$data->beach_distance}}" aria-label="beach" aria-describedby="basic-addon1">
+                        <input type="number" name="beach" class="form-control @error('beach') is-invalid @enderror"  value="{{$data->beach_distance}}" placeholder="{{$data->beach_distance}}" aria-label="beach" aria-describedby="basic-addon1">
                         @error('beach')
                           <div class="invalid-feedback">
                             {{ $message }}
@@ -612,7 +612,7 @@
                             <i class="fas fa-utensils"></i>
                           </span>
                         </div>
-                        <input type="text" name="dining" class="form-control @error('dining') is-invalid @enderror"  value="{{$data->fine_dining_distance}}" placeholder="{{$data->fine_dining_distance}}" aria-label="dining" aria-describedby="basic-addon1">
+                        <input type="number" name="dining" class="form-control @error('dining') is-invalid @enderror"  value="{{$data->fine_dining_distance}}" placeholder="{{$data->fine_dining_distance}}" aria-label="dining" aria-describedby="basic-addon1">
                         @error('dining')
                           <div class="invalid-feedback">
                             {{ $message }}
