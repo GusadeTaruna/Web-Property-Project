@@ -10,8 +10,6 @@
 
 /*Color*/
 
-
-
 @font-face {
     font-family: "cerebri";
     src: url("../font/Cerebri-Sans/CerebriSans-Regular.ttf");
@@ -335,7 +333,6 @@ nav.navbar {
 
 .article-container a{
     text-decoration: none;
-    color: #4f4f4f;
 }
 
 .article-container .image img {

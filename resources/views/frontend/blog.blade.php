@@ -126,7 +126,7 @@
                                         {!! $content !!}
                                     </div>
                                     <div class="btn-container mt-3 mb-2 w-100">
-                                        <button class="btn btn-theme w-50">See More</button>
+                                        <a href="{{ route('blog-detail',$data->id) }}" class="btn btn-theme w-50">See More</a>
                                     </div>
                                     
                                 </div>
