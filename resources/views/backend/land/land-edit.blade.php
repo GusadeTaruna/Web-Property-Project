@@ -91,7 +91,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="price">Price per 100m2</label>
+                            <label for="price">Price</label>
                             <div class="input-group mb-3">
                               <div class="input-group-prepend">
                                 <div class="input-group-text">

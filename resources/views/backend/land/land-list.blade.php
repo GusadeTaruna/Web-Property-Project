@@ -53,7 +53,7 @@
                     <th>Land Code</th>
                     <th>Land Name</th>
                     <th>Location</th>
-                    <th>Price per 100m2</th>
+                    <th>Price</th>
                     <th>Status</th>
                     <th>More Details</th>
                   </tr>

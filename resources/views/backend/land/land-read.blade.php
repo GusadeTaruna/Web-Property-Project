@@ -93,7 +93,7 @@
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for="price">Price per 100m2</label>
+                        <label for="price">Price</label>
                         <br>{{ $data->currency }} {{ number_format($data->price,0,'','.') }}
                       </div>
                     </div>
