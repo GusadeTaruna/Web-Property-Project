@@ -125,7 +125,7 @@
 						<p class="mr-3"><i class="fas fa-warehouse"></i> {{ $data->garage_qty }} Garage</p>
 					@else
 					@endif
-	    			<p class="mr-3"><i class="fas fa-pencil-ruler"></i> {{  number_format($data->site_area,0,'','.') }} sqm</p>
+	    			<p class="mr-3"><i class="fas fa-pencil-ruler"></i> {{  number_format($data->site_area,0,'','.') }} m2</p>
 					{{-- <p class="mr-3"><i class="fas fa-pencil-ruler"></i> {{  $data->site_area }} sqm</p> --}}
 	    		</div>
 	    	</div>
