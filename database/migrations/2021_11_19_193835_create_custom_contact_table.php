@@ -15,6 +15,7 @@ class CreateCustomContactTable extends Migration
     {
         Schema::create('custom_contact', function (Blueprint $table) {
             $table->id();
+            $table->string('header_img')->nullable();
             $table->string('address')->nullable();
             $table->string('contact')->nullable();
             $table->string('operation_hour')->nullable();

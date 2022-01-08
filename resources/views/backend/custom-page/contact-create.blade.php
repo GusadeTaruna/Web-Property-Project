@@ -68,6 +68,24 @@
                 @csrf
 
                 <div class="card-body">
+                  <div class="col-md-12">
+                      <div class="form-group">
+                          <img src="/img/customize/img-contact/2.jpg" class="d-block w-100 mb-4" alt="">
+                      </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="header_img">Header image</label>
+                      <div class="input-group">
+                        <div class="custom-file">
+                          <input type="file" id="header_img" name="header_img[]" class="custom-file-input @error('header_img') is-invalid @enderror" id="header_img" multiple>
+                          <label class="custom-file-label" for="header_img">Choose file</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                     <div class="col-md-12">
                         <div class="form-group">
                             <img src="/img/customize/img-contact/1.jpg" class="d-block w-100 mb-4" alt="">
@@ -124,7 +142,25 @@
               <form action="{{ url('/admin/customize/contact/update/'.$value['id'] ) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
-                <div class="card-body">
+                    <div class="card-body">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                            <img src="/img/customize/img-contact/2.jpg" class="d-block w-100 mb-4" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label for="header_img">Header image</label>
+                        <div class="input-group">
+                          <div class="custom-file">
+                            <input type="file" name="header_img[]" class="custom-file-input @error('header_img') is-invalid @enderror" id="header_img" multiple>
+                            <label class="custom-file-label" for="header_img">{{$count_image}} Images</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
                     <div class="col-md-12">
                         <div class="form-group">
                             <img src="/img/customize/img-contact/1.jpg" class="d-block w-100 mb-4" alt="">
