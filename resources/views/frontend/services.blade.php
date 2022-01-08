@@ -2,68 +2,95 @@
 
 
 @section('content')
-<header class="header">
-    <div id="nav-container">
+<div id="nav-container">
 
-        <!-- Start Navbar -->
-        <nav class="navbar navbar-expand-lg">
+    <!-- Start Navbar -->
+    <nav class="navbar navbar-expand-lg">
 
-            <!-- Navbar brand -->
-            <a class="navbar-brand" href="/">
-                <img src="/img/logo/logo-1.svg" alt="" class="logo-nav">
-            </a>
+        <!-- Navbar brand -->
+        <a class="navbar-brand" href="/">
+            <img src="/img/logo/logo-1.svg" alt="" class="logo-nav">
+        </a>
 
-            <!-- Toggle button -->
-            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="fas fa-bars"></span>
-            </button>
+        <!-- Toggle button -->
+        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="fas fa-bars"></span>
+        </button>
 
-            <!-- Collapsible wrapper -->
-            <div class="collapse navbar-collapse justify-content-end fixed-nav" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
+        <!-- Collapsible wrapper -->
+        <div class="collapse navbar-collapse justify-content-end fixed-nav" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
 
-                    <!-- Link -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="/"><i class="fas fa-home my-auto icon-responsive"></i> Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/about"><i class="fas fa-user-friends my-auto icon-responsive"></i> About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/services"><i class="fas fa-hands-helping my-auto icon-responsive"></i> Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/property-list"><i class="fas fa-stream my-auto icon-responsive"></i> Listing</a>
-                    </li>
-                    {{-- <li class="nav-item">
-                        <a class="nav-link" href="/faq"><i class="fas fa-question-circle my-auto icon-responsive"></i> FAQ</a>
-                    </li> --}}
-                    <li class="nav-item">
-                        <a class="nav-link" href="/contact-us"><i class="fas fa-phone my-auto icon-responsive"></i> Contact Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/blog"><i class="fas fa-newspaper my-auto icon-responsive"></i> Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/facts"><i class="fas fa-info-circle my-auto icon-responsive"></i> Facts</a>
-                    </li>
+                 <!-- Link -->
+                 <li class="nav-item">
+                    <a class="nav-link" href="/"><i class="fas fa-home my-auto icon-responsive"></i> Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about"><i class="fas fa-user-friends my-auto icon-responsive"></i> About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/services"><i class="fas fa-hands-helping my-auto icon-responsive"></i> Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/property-list"><i class="fas fa-stream my-auto icon-responsive"></i> Listing</a>
+                </li>
+                {{-- <li class="nav-item">
+                    <a class="nav-link" href="/faq"><i class="fas fa-question-circle my-auto icon-responsive"></i> FAQ</a>
+                </li> --}}
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact-us"><i class="fas fa-phone my-auto icon-responsive"></i> Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/blog"><i class="fas fa-newspaper my-auto icon-responsive"></i> Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/facts"><i class="fas fa-info-circle my-auto icon-responsive"></i> Facts</a>
+                </li>
 
-                </ul>
+            </ul>
 
-            </div>
-        </nav>
-        <!-- End Navbar -->
-    </div>
+        </div>
+    </nav>
+    <!-- End Navbar -->
+</div>
+<div class="header">
     <div class="header-content">
-            <div class="container">
-
-                <div class="col-md-12 my-auto mr-auto text-center">
-                    <h1 class="h1 h1-responsive judul">Additional Services</h1>
-                </div>
-
-            </div>
+        <div class="col-md-12 my-auto mr-auto text-center">
+            <h1 class="h1 h1-responsive judul">Additional Services</h1>
+        </div>
     </div>
-</header>
+    <div id="banner-image">
+        <!-- Slider main container -->
+        <div class="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                @if ($header->isEmpty())
+                    <div class="swiper-slide">
+                        <img src="img/image-6.jpg"/>
+                    </div>
+                @else
+                    @foreach ($header as $data)
+                        @if (is_null(json_decode($data->header_img)))
+                            <div class="swiper-slide">
+                                <img src="img/image-6.jpg"/>
+                            </div>
+                        @else
+                            <?php foreach (json_decode($data->header_img)as $picture) { ?>
+                                <div class="swiper-slide">
+                                    <img src="{{ asset('/service-asset/'.$picture) }}"/>
+                                </div>
+                            <?php } ?>
+                        @endif
+                    @endforeach
+                @endif
+                
+            </div>
+        </div> 
+    
+        
+    </div>
+</div>
 <!-- End Header -->
 
 <!-- Start About -->
@@ -75,42 +102,44 @@
             </div>
             <div class="col-8 col-md-8 ml-auto my-md-auto mx-auto">
                 <!-- Slider main container -->
-                <div class="swiper">
-                    <!-- Additional required wrapper -->
-                    <div class="swiper-wrapper">
-                    <!-- Slides -->
-                    @if ($services->isEmpty())
-                        <div class="swiper-slide">
-                            <div class="filter">
-                                <button class="btn btn-theme filter-button active" data-rel="master">Master Planning and Concept Design</button>
+                <div class="service-slide-button">
+                    <div class="swiper">
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
+                        <!-- Slides -->
+                        @if ($services->isEmpty())
+                            <div class="swiper-slide">
+                                <div class="filter">
+                                    <button class="btn btn-theme filter-button active" data-rel="master">Master Planning and Concept Design</button>
+                                </div>
                             </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="filter">
-                                <button class="btn btn-theme filter-button" data-rel="schematic">Schematic Development</button>
+                            <div class="swiper-slide">
+                                <div class="filter">
+                                    <button class="btn btn-theme filter-button" data-rel="schematic">Schematic Development</button>
+                                </div>
                             </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="filter">
-                                <button class="btn btn-theme filter-button" data-rel="detailed">Detailed Design</button>
+                            <div class="swiper-slide">
+                                <div class="filter">
+                                    <button class="btn btn-theme filter-button" data-rel="detailed">Detailed Design</button>
+                                </div>
                             </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="filter">
-                                <button class="btn btn-theme filter-button" data-rel="construction">Construction & Tender Drawings</button>
+                            <div class="swiper-slide">
+                                <div class="filter">
+                                    <button class="btn btn-theme filter-button" data-rel="construction">Construction & Tender Drawings</button>
+                                </div>
                             </div>
-                        </div>
-                    @else
-                        @foreach ($services as $service)
-                        
-                        <div class="swiper-slide">
-                            <div class="filter">
-                                <button class="btn btn-theme filter-button {{ $loop->index==0 ? 'active' : '' }}" 
-                                data-rel="{{ $loop->index }}">{{ $service->service_name }}</button>
+                        @else
+                            @foreach ($services as $service)
+                            
+                            <div class="swiper-slide">
+                                <div class="filter">
+                                    <button class="btn btn-theme filter-button {{ $loop->index==0 ? 'active' : '' }}" 
+                                    data-rel="{{ $loop->index }}">{{ $service->service_name }}</button>
+                                </div>
                             </div>
+                            @endforeach
+                        @endif
                         </div>
-                        @endforeach
-                    @endif
                     </div>
                 </div>
                 {{-- <div class="row">

@@ -10,6 +10,7 @@ use App\Models\CustomizeHome;
 use App\Models\CustomizeServices;
 use App\Models\CustomizeAbout;
 use App\Models\TeamMember;
+use App\Models\ServicePage;
 use App\Models\CustomizeContact;
 use App\Models\Blog;
 use App\Models\Facts;
@@ -163,7 +164,8 @@ class HomeController extends Controller
 
     public function services(){
         $services = CustomizeServices::all();
-        return view('frontend.services',compact('services'));
+        $header = ServicePage::all();
+        return view('frontend.services',compact('services','header'));
     }
 
     public function faq(){

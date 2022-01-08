@@ -114,6 +114,10 @@ Route::get('/admin/customize/services/edit/{id}', [CustomizeServicesPageControll
 Route::put('/admin/customize/services/update/{id}', [CustomizeServicesPageController::class, 'update'])->name('update-service')->middleware('auth');
 Route::delete('/admin/customize/services/delete/{id}', [CustomizeServicesPageController::class, 'destroy'])->name('delete-service')->middleware('auth');
 
+Route::get('/admin/customize/services/create/page', [CustomizeServicesPageController::class, 'createPage'])->name('service-create')->middleware('auth');
+Route::post('/admin/customize/services/create/page', [CustomizeServicesPageController::class, 'storePage'])->middleware('auth');
+Route::put('/admin/customize/services/update/page/{id}', [CustomizeServicesPageController::class, 'updatePage'])->name('update-service')->middleware('auth');
+
 Route::get('/admin/customize/about-us', [CustomizeAboutPageController::class, 'index'])->name('customize-about')->middleware('auth');
 Route::get('/admin/customize/about-us/create', [CustomizeAboutPageController::class, 'createPage'])->name('about-create')->middleware('auth');
 Route::post('/admin/customize/about-us/create', [CustomizeAboutPageController::class, 'storePage'])->middleware('auth');

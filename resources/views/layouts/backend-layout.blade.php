@@ -414,6 +414,21 @@
                 $(this).next('.custom-file-label').html(fileName);
             }
         })
+
+        $('#header_img').on('change', function() {
+            //get the file name
+            var numFiles = $(this).get(0).files.length
+            var fileName = $(this).val();
+            //replace the "Choose a file" label
+
+            if (this.files && this.files.length > 1) {
+                // fileName = Array.from(this.files).map(({name}) => name + ', ');
+                // $(this).next('.custom-file-label').html(fileName);
+                $(this).next('.custom-file-label').html(numFiles + " file selected");
+            } else {
+                $(this).next('.custom-file-label').html(fileName);
+            }
+        })
     </script>
 
     <script>

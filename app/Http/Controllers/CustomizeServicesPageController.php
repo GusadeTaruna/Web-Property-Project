@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CustomizeServices;
+use App\Models\ServicePage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Image;
@@ -30,6 +31,29 @@ class CustomizeServicesPageController extends Controller
     {
         //
         return view('backend.custom-page.services.service-create');
+    }
+
+    public function createPage()
+    {
+        //
+        $service_check = ServicePage::all();
+        $service_array = $service_check->toArray();
+        // dd($homepage_array);
+        if($service_check->isEmpty()){
+            $value = [];
+            return view('backend.custom-page.services.page-services.page-services-create', compact('value'));
+        }else{
+            $id_service = $service_array[0]['id'];
+            $value = ServicePage::where('id',$id_service)->first();
+
+            if ($service_array[0]['header_img']==null){
+                $count_image = 0;
+            }else{
+                $count_image = count(json_decode($service_array[0]['header_img']));
+            }
+
+            return view('backend.custom-page.services.page-services.page-services-create', compact('value','count_image'));
+        }
     }
 
     /**
@@ -76,6 +100,44 @@ class CustomizeServicesPageController extends Controller
             return back()->with('errorMsg', 'Error adding Data');
         }else{
             return redirect('/admin/customize/services')->with('success', 'Service Data successfully added');
+        }
+    }
+
+    public function storePage(Request $request){
+        $service = new ServicePage;
+
+        $this->validate($request, 
+        [
+            'header_img.*' => 'image|mimes:png,jpg,jpeg,svg|max:10000',
+        ],
+        [
+            'header_img.*.max' => 'The images must not be greater than 10 MB.',
+        ]);
+
+        if($request->hasFile('header_img')){
+            $counter = 0;
+            foreach($request->file('header_img') as $image){
+                $getFileExt = $image->getClientOriginalExtension();
+                $name=time().'SER'.$counter++.'.'.$getFileExt;
+                $destinationPath = public_path().'/service-asset/';
+                
+                $img = Image::make($image->getRealPath());
+                $img->resize(1000, 1000, function ($constraint) {
+                    $constraint->aspectRatio();
+                })->save($destinationPath . $name, 80);
+                // $image->move(public_path().'/about-asset/',$name); //folder path
+                $data[] = $name;
+            }
+            $service->header_img = json_encode($data);
+        }else{
+            $service->header_img = NULL;
+        }
+
+        if($request->header_img==null){
+            return redirect('/admin/customize/services/create/page')->with('errorMsg', 'Nothing to customize');
+        }else{
+            $service->save();
+            return redirect('/admin/customize/services/create/page')->with('success', 'Service Page successfully edited');
         }
     }
 
@@ -154,6 +216,65 @@ class CustomizeServicesPageController extends Controller
         $services->update();
 
         return redirect('/admin/customize/services')->with('success', 'Service Data successfully updated');
+    }
+
+    public function updatePage(Request $request, $id){
+        $service = ServicePage::findOrFail($id);
+
+        if ($request->hasFile('header_img')) {
+            request()->validate(
+                ['header_img.*' => 'image|mimes:png,jpg,jpeg,svg|max:10000'],
+                ['header_img.*.max' => 'The images must not be greater than 10 MB.']
+            );
+
+            $img_header = json_decode($service->header_img);
+            if ($img_header){
+                foreach($img_header as $image){
+
+                    $image_path = public_path().'/service-asset/'.$image;
+
+                    if(File::exists($image_path)) {
+                        File::delete($image_path);
+                    }
+                }
+                $counter = 0;
+                foreach($request->file('header_img') as $image){
+                    $getFileExt = $image->getClientOriginalExtension();
+                    $name=time().'SER'.$counter++.'.'.$getFileExt;
+                    $destinationPath = public_path().'/service-asset/';
+                
+                    $img = Image::make($image->getRealPath());
+                    $img->resize(1000, 1000, function ($constraint) {
+                        $constraint->aspectRatio();
+                    })->save($destinationPath . $name, 80);
+                    // $image->move(public_path().'/about-asset/',$name); //folder path
+                    $data[] = $name;
+                    $update = ServicePage::where('id', $id)->update([
+                        'header_img' => json_encode($data)
+                   ]);
+                }
+            }else{
+                $counter = 0;
+                foreach($request->file('header_img') as $image){
+                    $getFileExt = $image->getClientOriginalExtension();
+                    $name=time().'SER'.$counter++.'.'.$getFileExt;
+                    $destinationPath = public_path().'/service-asset/';
+                
+                    $img = Image::make($image->getRealPath());
+                    $img->resize(1000, 1000, function ($constraint) {
+                        $constraint->aspectRatio();
+                    })->save($destinationPath . $name, 80);
+                    // $image->move(public_path().'/about-asset/',$name); //folder path
+                    $data[] = $name;
+                    $update = ServicePage::where('id', $id)->update([
+                        'header_img' => json_encode($data)
+                   ]);
+                }
+            }
+            
+        }
+        $service->update();
+        return redirect('/admin/customize/services/create/page')->with('success',' Services Page successfully edited');
     }
 
     /**

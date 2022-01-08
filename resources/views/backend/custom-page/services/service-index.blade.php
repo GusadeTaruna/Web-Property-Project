@@ -32,7 +32,10 @@
         <div class="row mb-2">
           <div class="col-sm-12 d-flex justify-content-between">
             <h1>List Services</h1>
-            <a href="/admin/customize/services/create" class="btn btn-success my-auto">Add New Services</a>
+            <div>
+              <a href="/admin/customize/services/create/page" class="btn btn-success mb-2">Customize Services Page</a>
+              <a href="/admin/customize/services/create" class="btn btn-success mb-2">Add New Services</a>
+            </div>
           </div>
         </div>
       </div><!-- /.container-fluid -->
