@@ -226,10 +226,25 @@
 
     <!--  Footer Section -->
 
-	<footer class="py-4">
-	    <div class="text-center">
-	      <small>&copy; Equatorial Property. All rights reserved</small>
-	    </div>
+	<footer class="mt-auto py-4">
+		<div class="row">
+			<div class="col-md-6 col-12 company-name">
+				<small>&copy; Equatorial Property. All rights reserved</small>
+			</div>
+			<div class="col-md-6 col-12 social-icon">
+				<div class="row">
+					<div class="col-md-4 col-4">
+						<a href="https://www.facebook.com/equatoriallifestylebali/"><i class="fab fa-facebook fa-lg" style="color: white"></i></a>
+					</div>
+					<div class="col-md-4 col-4">
+						<a href="https://www.instagram.com/equatoriallifestylebali/"><i class="fab fa-instagram fa-lg" style="color: white"></i></a>
+					</div>
+					<div class="col-md-4 col-4">
+						<a href="www.linkedin.com/in/equatoriallifestylebali"><i class="fab fa-linkedin fa-lg" style="color: white"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
 	</footer>
 
 

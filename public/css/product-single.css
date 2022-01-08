@@ -364,15 +364,25 @@ nav.navbar {
 /*Footer section*/
 
 footer {
-    padding: 0 50px;
+    padding: 0 100px;
     background-color: var(--color-primary);
     font-family: var(--font-poppin);
     color: #ffffff;
-    height: 70px;
+    height: auto;
     left: 0;
     bottom: 0;
     width: 100%;
     text-align: center;
+}
+
+.company-name{
+    display: flex;
+    justify-content: start;
+}
+
+.social-icon{
+    display: flex;
+    justify-content: end;
 }
 
 /*Footer section*/
@@ -446,9 +456,19 @@ footer {
     #property-detail .atas{
         height: 100%;
     }
+
+    .company-name{
+        display: flex;
+        justify-content: start;
+    }
+    
+    .social-icon{
+        display: flex;
+        justify-content: end;
+    }
 }
 
-@media only screen and (max-width: 580px) {
+@media only screen and (max-width: 767px) {
     .logo-nav{
         width: 120px; 
         height:auto;
@@ -458,5 +478,16 @@ footer {
         font-size: 17px;
         float: left;
     }
+
+    .company-name{
+        display: inline-block;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .social-icon{
+        display: inline-block;
+        text-align: center;
+        margin-bottom: 20px;
+    }   
 }
 
