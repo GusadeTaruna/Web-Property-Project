@@ -71,7 +71,7 @@
                 <div class="card-body">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <img src="/img/customize/img-about/1.jpg" class="d-block w-100 mb-4" alt="">
+                            <img src="/img/customize/img-service/1.jpg" class="d-block w-100 mb-4" alt="">
                         </div>
                     </div>
 
@@ -101,7 +101,7 @@
                 <div class="card-body">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <img src="/img/customize/img-about/1.jpg" class="d-block w-100 mb-4" alt="">
+                            <img src="/img/customize/img-service/1.jpg" class="d-block w-100 mb-4" alt="">
                         </div>
                     </div>
 
