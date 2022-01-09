@@ -189,7 +189,7 @@
 												@if ($data->currency=="POI")
 													<p class="price">Price on Inquiry</p>
 												@else
-													<p class="price">{{ $data->currency }} {{ number_format($data->price,0,'','.') }}</p>
+													<p class="price">{{ $data->currency }} {{ number_format($data->price,2,'.',',') }}</p>
 												@endif
 												
 											</div>

@@ -23,8 +23,8 @@ class CreatePropertyListTable extends Migration
             $table->string('property_status')->nullable();
             $table->string('property_image')->nullable();
             $table->string('currency')->nullable();
-            $table->bigInteger('price')->nullable();
-            $table->integer('price_usd')->nullable();
+            $table->double('price')->nullable();
+            $table->double('price_usd')->nullable();
             $table->text('description')->nullable();
             $table->text('video_link')->nullable();
             $table->string('site_area')->nullable();

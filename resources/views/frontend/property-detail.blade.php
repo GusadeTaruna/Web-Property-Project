@@ -134,7 +134,7 @@
 					@if ($data->currency=="POI")
 						<h1 class="harga">Price on Inquiry</h1>
 					@else
-						<h1 class="harga">{{ $data->currency }} {{ number_format($data->price,0,'','.') }}</h1>
+						<h1 class="harga">{{ $data->currency }} {{ number_format($data->price,2,'.',',') }}</h1>
 					@endif
 					{{-- @elseif ($data->property_type == 1)
 						<h1 class="harga">{{ $data->currency }} {{ number_format($data->price,0,'','.') }}</h1>
@@ -144,7 +144,7 @@
 					
 				</div>
 				<div class="harga-row">
-					<p class="mt-0"><span style="font-weight: bold">EST</span> : USD {{ number_format($data->price_usd,0,'','.') }}</p>	
+					<p class="mt-0"><span style="font-weight: bold">EST</span> : USD {{ number_format($data->price_usd,2,'.',',') }}</p>	
 				</div>
 				<div class="inquiry-row">
 					<button class="btn btn-theme mr-2 inquiry-btn" data-toggle="modal" data-target="#exampleModalCenter" data-id="[{{ $data->property_code }}] {{ ucwords(strtolower($data->property_name)) }}">Inquiry now</button>
@@ -172,7 +172,7 @@
 								@if (!is_numeric($data->price))
 									<p class="card-text">{{ $data->price }}</p>
 								@else
-									<p class="card-text">{{ $data->currency }} {{ number_format($data->price,0,'','.') }}</p>
+									<p class="card-text">{{ $data->currency }} {{ number_format($data->price,2,'.',',') }}</p>
 								@endif
 						    	
 						    </div>

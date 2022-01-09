@@ -233,7 +233,7 @@
                                                 @if ($listing->currency=="POI")
                                                     <span class="price">Price on Inquiry</span>
                                                 @else
-                                                    <span class="price">{{ $listing->currency }} {{ number_format($listing->price,0,'','.') }}</span>
+                                                    <span class="price">{{ $listing->currency }} {{ number_format($listing->price,2,'.',',') }}</span>
                                                 @endif
                                             </div>
                                             <div class="item">

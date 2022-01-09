@@ -94,7 +94,7 @@
                         <div class="col-md-6">
                         <div class="form-group">
                             <label for="price">Price</label>
-                            <br>{{ $data->currency }} {{ number_format($data->price,0,'','.') }}
+                            <br>{{ $data->currency }} {{ number_format($data->price,2,'.',',') }}
                         </div>
                         </div>
                     </div>

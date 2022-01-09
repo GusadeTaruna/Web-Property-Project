@@ -124,7 +124,7 @@
                                                             <div class="input-group-addon currency-symbol">$</div>
                                                         </div>
                                                     </div>
-                                                    <input type="number" name="price" step="0.01"
+                                                    <input type="number" name="price" step="any"
                                                         class="form-control currency-amount @error('price') is-invalid @enderror"
                                                         value="{{ old('price') }}" id="price" placeholder="0.00">
                                                     @error('price')
