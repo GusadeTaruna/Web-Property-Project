@@ -122,7 +122,7 @@ class PropertyController extends Controller
             $property->generator_kv = $request->generator;
 
             if(is_null($request->pdma)){
-                $property->pdma_water = 0;
+                $property->pdma_water = "No";
             }else{
                 $property->pdma_water = $request->pdma;
             }

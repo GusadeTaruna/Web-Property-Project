@@ -95,7 +95,7 @@
                             <div class="input-group mb-3">
                               <div class="input-group-prepend">
                                 <div class="input-group-text">
-                                  <?php $currencys = array("POI", "USD", "IDR","EUR","GBP","JPY","CAD","AUD","KRW","HKD","CNY");   ?>
+                                  <?php $currencys = array("POI", "USD", "IDR","EUR","GBP","JPY","CAD","AUD","KRW","HKD","CNY","SGD");   ?>
                                   <?php $options=$data->currency ?>
                                   @if($data->currency)
                                   <select class="currency-selector" name="currency">

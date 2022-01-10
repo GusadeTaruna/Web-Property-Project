@@ -116,6 +116,8 @@
                                                                     value="HKD">HKD</option>
                                                                 <option data-symbol="¥" data-placeholder="0.00" value="CNY">
                                                                     CNY</option>
+                                                                <option data-symbol="S$" data-placeholder="0.00" value="SGD">
+                                                                    SGD</option>
                                                             </select>
                                                         </div>
                                                     </div>
