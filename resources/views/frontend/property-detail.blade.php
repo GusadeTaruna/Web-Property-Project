@@ -457,9 +457,9 @@
 				    		<div class="detail-text d-flex justify-content-start">
 						    	<p class="card-title mr-1">Access Road :</p>
 						    	@if($data->access_road ==0) 
-						    	<p class="card-text">No</p>
+						    	<p class="card-text">Yes</p>
 								@elseif($data->access_road ==1) 
-								<p class="card-text">Yes</p>
+								<p class="card-text">No</p>
 								@endif
 						    </div>
 				    	</div>

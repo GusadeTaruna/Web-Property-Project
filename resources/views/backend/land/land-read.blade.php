@@ -246,9 +246,9 @@
                       <div class="form-group">
                         <label for="access-road">Access Road</label>
                         @if ($data->access_road == 0)
-                            <br>No
-                        @else
                             <br>Yes
+                        @else
+                            <br>No
                         @endif
                       </div>
                     </div>
