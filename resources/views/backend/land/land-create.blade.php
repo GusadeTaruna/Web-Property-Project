@@ -396,16 +396,21 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="city-draw">City Draw</label>
-                                                <input name="city_draw" type="text"
-                                                    class="form-control @error('city_draw') is-invalid @enderror"
-                                                    id="city-draw" value="{{ old('city_draw') }}"
-                                                    placeholder="Leave blank if it has no value">
-                                                @error('city_draw')
-                                                    <div class="invalid-feedback">
-                                                        {{ $message }}
+                                                <label for="images_thumbnail">Thumbnail</label>
+                                                <div class="input-group">
+                                                    <div class="custom-file">
+                                                        <input type="file" name="images_thumbnail[]"
+                                                            class="custom-file-input @error('images_thumbnail') is-invalid @enderror"
+                                                            value="{{ old('images_thumbnail[]') }}" id="landThumbnail">
+                                                        <label class="custom-file-label" for="landThumbnail">Choose
+                                                            file</label>
+                                                        @error('images_thumbnail')
+                                                            <div class="invalid-feedback">
+                                                                {{ $message }}
+                                                            </div>
+                                                        @enderror
                                                     </div>
-                                                @enderror
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -430,7 +435,21 @@
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-md-12">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="city-draw">City Draw</label>
+                                                <input name="city_draw" type="text"
+                                                    class="form-control @error('city_draw') is-invalid @enderror"
+                                                    id="city-draw" value="{{ old('city_draw') }}"
+                                                    placeholder="Leave blank if it has no value">
+                                                @error('city_draw')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="video">Video Link</label>
                                                 <input type="text" name="video"

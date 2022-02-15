@@ -401,15 +401,15 @@
 
                   <div class="row">
                     <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="city-draw">City Draw</label>
-                            <input name="city_draw" type="text" class="form-control @error('city_draw') is-invalid @enderror" id="city-draw" placeholder="{{ $data->city_draw }}" value="{{ $data->city_draw }}">
-                            @error('city_draw')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
+                      <div class="form-group">
+                        <label for="images_thumbnail">Thumbnail</label>
+                        <div class="input-group">
+                          <div class="custom-file">
+                            <input type="file" name="images_thumbnail[]" class="custom-file-input @error('images_thumbnail') is-invalid @enderror" id="landThumbnail">
+                            <label class="custom-file-label" for="landThumbnail">This property have {{$count_thumbnail}} thumbnail</label>
+                          </div>
                         </div>
+                      </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
@@ -426,7 +426,18 @@
                   </div>
 
                   <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                          <label for="city-draw">City Draw</label>
+                          <input name="city_draw" type="text" class="form-control @error('city_draw') is-invalid @enderror" id="city-draw" placeholder="{{ $data->city_draw }}" value="{{ $data->city_draw }}">
+                          @error('city_draw')
+                              <div class="invalid-feedback">
+                                  {{ $message }}
+                              </div>
+                          @enderror
+                      </div>
+                    </div>
+                    <div class="col-md-6">
                       <div class="form-group">
                         <label for="video">Video Link</label>
                         <input type="text" name="video" class="form-control @error('video') is-invalid @enderror"  value="{{$data->video_link}}" id="generator" placeholder="{{$data->video_link}}">

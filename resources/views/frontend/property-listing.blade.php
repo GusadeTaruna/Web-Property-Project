@@ -152,7 +152,7 @@
 												{{-- <div class="tag-featured mt-2">Featured</div>
 												<div class="tag-sale mt-2">For Sale</div> --}}
 											</div>
-											<img src="{{ asset('/property-image/'.array_values(json_decode($data->property_image))[0]) }}" alt="">
+											<img src="{{ asset('/property-image/'.array_values(json_decode($data->property_thumbnail))[0]) }}" alt="">
 										</div>
 										<div class="text-left item-header">
 											<h4 class="h5 item-name">[{{ $data->property_code }}] {{ ucwords(strtolower($data->property_name)) }}</h4>
