@@ -78,12 +78,12 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="article_content">Article content</label>
-                                <textarea name="article_content" class="form-control @error('article_content') is-invalid @enderror" id="open-source-plugins" placeholder="Input article content here">{{$data->fact_content}}</textarea>
+                                <textarea hidden name="article_content" class="form-control @error('article_content') is-invalid @enderror" id="open-source-plugins" placeholder="Input article content here">{{$data->fact_content}}</textarea>
                                 @error('article_content')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -92,17 +92,17 @@
                             </div>
                         </div>
                     </div>
-            
+
                     </div>
                     <!-- /.card-body -->
 
                     <div class="card-footer text-right">
                     <button class="btn btn-danger w-25">Cancel</button>
-                    <button id="btnSubmit2" type="submit" name="btn_submit" value="publish_btn" class="btn btn-success w-25">Submit</button> 
+                    <button id="btnSubmit2" type="submit" name="btn_submit" value="publish_btn" class="btn btn-success w-25">Submit</button>
                     </div>
-                </form> 
+                </form>
               @endforeach
-              
+
             </div>
             <!-- /.card -->
 
